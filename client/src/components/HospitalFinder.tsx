@@ -95,6 +95,55 @@ export default function HospitalFinder() {
         address: "Ulaanbaatar, Mongolia",
         position: { lat: 47.9185, lng: 106.9171 },
         phone: "+97611450002"
+      },
+      {
+        id: "mn_4",
+        name: "Mongolian National University of Medical Sciences Hospital",
+        address: "S. Zorig Street, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9212, lng: 106.9018 },
+        phone: "+97611321259"
+      },
+      {
+        id: "mn_5",
+        name: "State Third Hospital",
+        address: "Bayangol District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9132, lng: 106.8834 },
+        phone: "+97611461115"
+      },
+      {
+        id: "mn_6",
+        name: "UB Songdo Hospital",
+        address: "Seoul Street, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9177, lng: 106.9286 },
+        phone: "+97677000002"
+      },
+      {
+        id: "mn_7",
+        name: "Intermed Hospital",
+        address: "Chinggis Avenue, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9100, lng: 106.9166 },
+        phone: "+97611701111"
+      },
+      {
+        id: "mn_8",
+        name: "Darkhan-Uul General Hospital",
+        address: "Darkhan, Mongolia",
+        position: { lat: 49.4724, lng: 105.9745 },
+        phone: "+97613722401"
+      },
+      {
+        id: "mn_9",
+        name: "Khovd Provincial Hospital",
+        address: "Khovd, Mongolia",
+        position: { lat: 48.0056, lng: 91.6419 },
+        phone: "+97614322052"
+      },
+      {
+        id: "mn_10",
+        name: "Selenge Provincial Hospital",
+        address: "Sukhbaatar, Selenge, Mongolia",
+        position: { lat: 50.2289, lng: 106.2082 },
+        phone: "+97613614220"
       }
     ],
     "China": [
