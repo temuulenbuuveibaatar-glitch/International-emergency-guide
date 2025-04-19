@@ -156,6 +156,106 @@ const getProtocolById = (id: string): Protocol | null => {
         "For wound with embedded objects: Apply pressure around the object, not directly on it.",
         "For neck wounds: Apply pressure with your fingers rather than the palm of your hand to avoid restricting breathing."
       ]
+    },
+    "burns": {
+      id: "burns",
+      title: "Burn Treatment",
+      description: "First aid for different types and degrees of burns.",
+      steps: [
+        {
+          title: "Ensure Safety",
+          description: "Remove the person from the source of the burn. In case of fire, remember to 'stop, drop, and roll'. For electrical burns, make sure the power source is off before touching the victim."
+        },
+        {
+          title: "Determine Burn Severity",
+          description: "First-degree burns: Redness, minor swelling, pain (like sunburn). Second-degree burns: Blisters, severe redness, pain. Third-degree burns: White or charred appearance, possible lack of pain due to nerve damage.",
+          important: true
+        },
+        {
+          title: "Call for Emergency Help",
+          description: "For chemical burns, large burns, third-degree burns, burns on the face/hands/feet/genitals, or if the victim is very young or elderly, call emergency services (103 in Mongolia) immediately.",
+          important: true
+        },
+        {
+          title: "Cool the Burn",
+          description: "For first and second-degree burns, run cool (not cold) water over the area for 10-15 minutes. Do NOT use ice, as this can further damage the tissue."
+        },
+        {
+          title: "Remove Constrictive Items",
+          description: "Carefully remove rings, watches, belts, or tight clothing from the burned area before swelling occurs."
+        },
+        {
+          title: "Apply Appropriate Covering",
+          description: "Once cooled, cover the burn with a sterile, non-stick bandage or clean cloth. Do not apply fluffy cotton or materials that may shed fibers and stick to the burn."
+        },
+        {
+          title: "Manage Pain",
+          description: "Over-the-counter pain relievers like ibuprofen or acetaminophen can help reduce pain and inflammation."
+        },
+        {
+          title: "Monitor for Infection",
+          description: "Watch for signs of infection such as increased pain, redness, swelling, oozing, or fever."
+        }
+      ],
+      warnings: [
+        "Do NOT apply butter, oil, ice, or cotton balls to burns.",
+        "Do NOT break blisters, as this increases risk of infection.",
+        "Do NOT use cold water or ice for large burns, as this can cause hypothermia.",
+        "Chemical burns require continuous water flushing for at least 20 minutes."
+      ],
+      notes: [
+        "For chemical burns: Remove contaminated clothing and flush with running water for at least 20 minutes.",
+        "For electrical burns: Check for entry and exit wounds, as internal damage may be worse than visible burns.",
+        "For sunburn: Apply aloe vera gel and drink extra water to prevent dehydration.",
+        "Minor first-degree burns typically heal within a week without medical treatment."
+      ]
+    },
+    "heart-attack": {
+      id: "heart-attack",
+      title: "Heart Attack",
+      description: "Recognizing symptoms and emergency response for heart attack.",
+      steps: [
+        {
+          title: "Recognize the Symptoms",
+          description: "Common signs include chest pain/pressure (may feel like squeezing), pain radiating to the jaw/neck/back/arms, shortness of breath, cold sweat, nausea, lightheadedness. Women may experience different symptoms including unusual fatigue, pressure in the lower chest, upper back pain.",
+          important: true
+        },
+        {
+          title: "Call Emergency Services",
+          description: "Call 103 (Mongolia) immediately, even if you're not completely sure it's a heart attack. Don't wait to see if symptoms improve.",
+          important: true
+        },
+        {
+          title: "Have the Person Rest",
+          description: "Help them into a comfortable position, typically sitting upright which helps with breathing. Loosen tight clothing."
+        },
+        {
+          title: "Administer Aspirin",
+          description: "If the person is not allergic to aspirin, have them chew one adult aspirin (325 mg) or 4 low-dose (81 mg) aspirins. Chewing gets the medicine into the bloodstream faster than swallowing."
+        },
+        {
+          title: "Administer Nitroglycerin",
+          description: "If prescribed, help the person take their nitroglycerin as directed."
+        },
+        {
+          title: "Monitor and Be Ready for CPR",
+          description: "If the person becomes unresponsive and stops breathing normally, begin CPR immediately if you're trained."
+        },
+        {
+          title: "Use AED If Available",
+          description: "If an automated external defibrillator (AED) is available and the person is unresponsive, use it following the device instructions."
+        }
+      ],
+      warnings: [
+        "Do not allow the person to deny symptoms or refuse emergency help.",
+        "Do not leave the person alone except to call for help.",
+        "Do not wait to see if symptoms resolve on their own."
+      ],
+      notes: [
+        "Time is critical during a heart attack - every minute matters.",
+        "Heart attack symptoms can be different for women, often more subtle and may not include chest pain.",
+        "Risk factors include: high blood pressure, high cholesterol, smoking, diabetes, family history, age, and obesity."
+      ]
     }
   };
 
