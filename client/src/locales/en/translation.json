@@ -1,6 +1,6 @@
 {
   "header": {
-    "title": "Orkhon Province Red Cross",
+    "title": "Orkhon Province Red Cross Committee",
     "subtitle": "Emergency Guide"
   },
   "nav": {
@@ -17,7 +17,7 @@
     "number": "103"
   },
   "home": {
-    "title": "Orkhon Province Red Cross",
+    "title": "Orkhon Province Red Cross Committee",
     "subtitle": "Your trusted source for emergency medical information",
     "description": "Access step-by-step emergency procedures, treatment guidelines, medication information, and locate nearby hospitals - all in one place.",
     "emergencyButton": "Emergency Protocols",
@@ -31,7 +31,7 @@
     "fire": "Fire Emergency",
     "police": "Police",
     "emergency": "Emergency Service",
-    "redcross": "Orkhon Red Cross",
+    "redcross": "Orkhon Red Cross Committee",
     "hospital": "Hospital",
     "rescue": "Search & Rescue",
     "gas": "Gas Emergency",
@@ -77,7 +77,7 @@
     "comingSoonDesc": "Our interactive symptom checker is currently under development. Please check back soon."
   },
   "footer": {
-    "title": "Orkhon Province Red Cross",
+    "title": "Orkhon Province Red Cross Committee",
     "description": "Providing emergency medical information and resources to help save lives.",
     "quickLinks": "Quick Links",
     "contact": "Contact",
