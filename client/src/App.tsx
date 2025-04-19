@@ -32,9 +32,15 @@ function Router() {
         <Route path="/symptoms" component={SymptomChecker} />
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/contacts" component={EmergencyContacts} />
-        <Route path="/about-us" component={AboutUs} />
-        <Route path="/auth" component={AuthPage} />
-        <ProtectedRoute path="/staff-portal" component={StaffPortal} staffOnly={true} />
+        <Route path="/about-us">
+          {() => <AboutUs />}
+        </Route>
+        <Route path="/auth">
+          {() => <AuthPage />}
+        </Route>
+        <Route path="/staff-portal">
+          {() => <StaffPortal />}
+        </Route>
         <Route component={NotFound} />
       </Switch>
     </Layout>

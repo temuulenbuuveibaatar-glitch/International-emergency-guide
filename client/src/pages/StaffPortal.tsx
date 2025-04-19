@@ -27,7 +27,7 @@ import { z } from "zod";
 import { useQuery, useMutation, QueryClient } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
-import { useAuth } from "@/hooks/use-auth";
+import { useAuth } from "../hooks/use-auth";
 import { useLocation } from "wouter";
 
 const yearlyReportSchema = z.object({
