@@ -1,0 +1,31 @@
+import { useTranslation } from "react-i18next";
+import { Link } from "wouter";
+
+interface EmergencyProtocolCardProps {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export default function EmergencyProtocolCard({ id, title, description }: EmergencyProtocolCardProps) {
+  const { t } = useTranslation();
+  
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
+      <div className="p-4 bg-primary text-white">
+        <h3 className="font-semibold">{title}</h3>
+      </div>
+      <div className="p-4">
+        <p className="text-sm text-gray-600 mb-4">{description}</p>
+        <Link href={`/emergency/${id}`}>
+          <a className="text-[#004A9F] hover:text-[#0064D6] font-medium inline-flex items-center">
+            <span>{t('protocols.viewDetails')}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-1">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </a>
+        </Link>
+      </div>
+    </div>
+  );
+}

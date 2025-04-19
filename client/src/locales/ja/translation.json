@@ -1,0 +1,93 @@
+{
+  "header": {
+    "title": "オルホン県赤十字",
+    "subtitle": "緊急ガイド"
+  },
+  "nav": {
+    "home": "ホーム",
+    "emergency": "緊急プロトコル",
+    "treatment": "治療ガイドライン",
+    "medications": "薬剤情報",
+    "symptoms": "症状チェッカー",
+    "hospitals": "近くの病院",
+    "contacts": "緊急連絡先"
+  },
+  "emergency": {
+    "title": "緊急時は電話",
+    "number": "103"
+  },
+  "home": {
+    "title": "オルホン県赤十字",
+    "subtitle": "信頼できる緊急医療情報源",
+    "description": "ステップバイステップの緊急処置、治療ガイドライン、薬の情報、近くの病院の位置確認 - すべて一箇所で。",
+    "emergencyButton": "緊急プロトコル",
+    "findHospital": "病院を探す"
+  },
+  "emergencyNumbers": {
+    "title": "国際緊急電話番号",
+    "description": "様々な国の緊急連絡先情報を見つけることができます。緊急時には必ず現在地に適した緊急サービスに電話してください。",
+    "mongolia": "モンゴル",
+    "ambulance": "救急車",
+    "fire": "消防",
+    "police": "警察",
+    "emergency": "緊急サービス",
+    "redcross": "オルホン赤十字",
+    "nonEmergency": "非緊急",
+    "selectCountry": "緊急電話番号を表示する国を選択してください",
+    "noData": "この国の緊急電話番号データはありません"
+  },
+  "hospitals": {
+    "title": "近くの病院を探す",
+    "description": "必要な時に緊急治療を受けるために最寄りの病院や医療施設を探します。",
+    "location": "場所",
+    "enterLocation": "場所を入力してください",
+    "radius": "検索範囲",
+    "search": "検索",
+    "results": "結果",
+    "call": "電話",
+    "useCurrentLocation": "現在地を使用",
+    "noResults": "この地域に病院が見つかりません"
+  },
+  "protocols": {
+    "title": "緊急プロトコル",
+    "description": "即時の医療的注意が必要な危機的状況のためのステップバイステップの緊急プロトコル。",
+    "viewDetails": "詳細を見る",
+    "viewAll": "すべての緊急プロトコルを見る"
+  },
+  "treatment": {
+    "title": "治療ガイドライン",
+    "description": "様々な医学的状態に対する包括的な治療ガイドライン。",
+    "comingSoon": "近日公開",
+    "comingSoonDesc": "詳細な治療ガイドラインを追加中です。後ほどご確認ください。"
+  },
+  "medications": {
+    "title": "薬剤データベース",
+    "description": "用量、使用法、注意事項を含む薬剤に関する包括的な情報。",
+    "comingSoon": "近日公開",
+    "comingSoonDesc": "薬剤データベースは現在開発中です。後ほど包括的な薬剤情報を確認してください。"
+  },
+  "symptoms": {
+    "title": "症状チェッカー",
+    "description": "症状に基づいて潜在的な医学的状態を特定します。",
+    "comingSoon": "近日公開",
+    "comingSoonDesc": "インタラクティブな症状チェッカーは現在開発中です。近日中にご確認ください。"
+  },
+  "footer": {
+    "title": "オルホン県赤十字",
+    "description": "命を救うための緊急医療情報とリソースを提供しています。",
+    "quickLinks": "クイックリンク",
+    "contact": "連絡先",
+    "address": "モンゴル国オルホン県",
+    "rights": "全著作権所有。"
+  },
+  "countries": {
+    "kr": "韓国",
+    "de": "ドイツ",
+    "cn": "中国",
+    "jp": "日本",
+    "es": "スペイン",
+    "us": "アメリカ合衆国",
+    "uk": "イギリス",
+    "ru": "ロシア"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "header": {
+    "title": "鄂尔浑省红十字会",
+    "subtitle": "急救指南"
+  },
+  "nav": {
+    "home": "首页",
+    "emergency": "紧急救护协议",
+    "treatment": "治疗指南",
+    "medications": "药物信息",
+    "symptoms": "症状检查器",
+    "hospitals": "附近医院",
+    "contacts": "紧急联系号码"
+  },
+  "emergency": {
+    "title": "紧急情况？请拨打",
+    "number": "103"
+  },
+  "home": {
+    "title": "鄂尔浑省红十字会",
+    "subtitle": "您可信赖的紧急医疗信息来源",
+    "description": "获取逐步的紧急处理程序、治疗指南、药物信息以及查找附近医院 - 一站式服务。",
+    "emergencyButton": "紧急救护协议",
+    "findHospital": "查找医院"
+  },
+  "emergencyNumbers": {
+    "title": "国际紧急电话号码",
+    "description": "查找不同国家的紧急联系信息。在紧急情况下，请务必致电您所在位置的适当紧急服务。",
+    "mongolia": "蒙古",
+    "ambulance": "救护车",
+    "fire": "消防",
+    "police": "警察",
+    "emergency": "紧急服务",
+    "redcross": "鄂尔浑红十字会",
+    "nonEmergency": "非紧急",
+    "selectCountry": "请选择一个国家查看紧急电话",
+    "noData": "此国家没有可用的紧急电话号码数据"
+  },
+  "hospitals": {
+    "title": "查找附近医院",
+    "description": "在需要时定位最近的医院和医疗机构获取紧急护理。",
+    "location": "位置",
+    "enterLocation": "输入您的位置",
+    "radius": "搜索半径",
+    "search": "搜索",
+    "results": "结果",
+    "call": "拨打",
+    "useCurrentLocation": "使用当前位置",
+    "noResults": "在此区域找不到医院"
+  },
+  "protocols": {
+    "title": "紧急救护协议",
+    "description": "针对需要立即医疗关注的危急情况的逐步紧急协议。",
+    "viewDetails": "查看详情",
+    "viewAll": "查看所有紧急救护协议"
+  },
+  "treatment": {
+    "title": "治疗指南",
+    "description": "针对各种医疗状况的综合治疗指南。",
+    "comingSoon": "即将推出",
+    "comingSoonDesc": "我们正在努力添加详细的治疗指南。请稍后再查看。"
+  },
+  "medications": {
+    "title": "药物数据库",
+    "description": "包括剂量、用法和注意事项在内的药物综合信息。",
+    "comingSoon": "即将推出",
+    "comingSoonDesc": "我们的药物数据库正在开发中。请稍后再来查看全面的药物信息。"
+  },
+  "symptoms": {
+    "title": "症状检查器",
+    "description": "根据您的症状识别潜在的医疗状况。",
+    "comingSoon": "即将推出",
+    "comingSoonDesc": "我们的交互式症状检查器目前正在开发中。请稍后再查看。"
+  },
+  "footer": {
+    "title": "鄂尔浑省红十字会",
+    "description": "提供紧急医疗信息和资源，帮助拯救生命。",
+    "quickLinks": "快速链接",
+    "contact": "联系我们",
+    "address": "蒙古国鄂尔浑省",
+    "rights": "版权所有。"
+  },
+  "countries": {
+    "kr": "韩国",
+    "de": "德国",
+    "cn": "中国",
+    "jp": "日本",
+    "es": "西班牙",
+    "us": "美国",
+    "uk": "英国",
+    "ru": "俄罗斯"
+  }
+}

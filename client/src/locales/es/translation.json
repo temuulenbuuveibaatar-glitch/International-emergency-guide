@@ -1,0 +1,93 @@
+{
+  "header": {
+    "title": "Cruz Roja de la Provincia de Orkhon",
+    "subtitle": "Guía de Emergencias"
+  },
+  "nav": {
+    "home": "Inicio",
+    "emergency": "Protocolos de Emergencia",
+    "treatment": "Guías de Tratamiento",
+    "medications": "Medicamentos",
+    "symptoms": "Verificador de Síntomas",
+    "hospitals": "Hospitales Cercanos",
+    "contacts": "Números de Emergencia"
+  },
+  "emergency": {
+    "title": "¿Emergencia? Llame al",
+    "number": "103"
+  },
+  "home": {
+    "title": "Cruz Roja de la Provincia de Orkhon",
+    "subtitle": "Su fuente confiable de información médica de emergencia",
+    "description": "Acceda a procedimientos de emergencia paso a paso, guías de tratamiento, información sobre medicamentos y localice hospitales cercanos - todo en un solo lugar.",
+    "emergencyButton": "Protocolos de Emergencia",
+    "findHospital": "Encontrar Hospitales"
+  },
+  "emergencyNumbers": {
+    "title": "Números de Emergencia Internacionales",
+    "description": "Encuentre información de contacto de emergencia para diferentes países. En caso de emergencia, siempre llame al servicio de emergencia apropiado para su ubicación.",
+    "mongolia": "Mongolia",
+    "ambulance": "Ambulancia",
+    "fire": "Bomberos",
+    "police": "Policía",
+    "emergency": "Servicio de Emergencia",
+    "redcross": "Cruz Roja de Orkhon",
+    "nonEmergency": "No Emergencia",
+    "selectCountry": "Por favor seleccione un país para ver números de emergencia",
+    "noData": "No hay datos de números de emergencia disponibles para este país"
+  },
+  "hospitals": {
+    "title": "Encontrar Hospitales Cercanos",
+    "description": "Localice los hospitales y centros médicos más cercanos para recibir atención de emergencia cuando sea necesario.",
+    "location": "Ubicación",
+    "enterLocation": "Ingrese su ubicación",
+    "radius": "Radio de Búsqueda",
+    "search": "Buscar",
+    "results": "Resultados",
+    "call": "Llamar",
+    "useCurrentLocation": "Usar ubicación actual",
+    "noResults": "No se encontraron hospitales en esta área"
+  },
+  "protocols": {
+    "title": "Protocolos de Emergencia",
+    "description": "Protocolos de emergencia paso a paso para situaciones críticas que requieren atención médica inmediata.",
+    "viewDetails": "Ver Detalles",
+    "viewAll": "Ver Todos los Protocolos de Emergencia"
+  },
+  "treatment": {
+    "title": "Guías de Tratamiento",
+    "description": "Guías de tratamiento completas para diversas condiciones médicas.",
+    "comingSoon": "Próximamente",
+    "comingSoonDesc": "Estamos trabajando en agregar guías de tratamiento detalladas. Por favor, vuelva a consultar más tarde."
+  },
+  "medications": {
+    "title": "Base de Datos de Medicamentos",
+    "description": "Información completa sobre medicamentos incluyendo dosificación, uso y precauciones.",
+    "comingSoon": "Próximamente",
+    "comingSoonDesc": "Nuestra base de datos de medicamentos está en desarrollo. Por favor, vuelva a consultar más tarde para obtener información completa sobre medicamentos."
+  },
+  "symptoms": {
+    "title": "Verificador de Síntomas",
+    "description": "Identifique posibles condiciones médicas basadas en sus síntomas.",
+    "comingSoon": "Próximamente",
+    "comingSoonDesc": "Nuestro verificador de síntomas interactivo está actualmente en desarrollo. Por favor, vuelva pronto."
+  },
+  "footer": {
+    "title": "Cruz Roja de la Provincia de Orkhon",
+    "description": "Proporcionando información médica de emergencia y recursos para ayudar a salvar vidas.",
+    "quickLinks": "Enlaces Rápidos",
+    "contact": "Contacto",
+    "address": "Provincia de Orkhon, Mongolia",
+    "rights": "Todos los derechos reservados."
+  },
+  "countries": {
+    "kr": "Corea",
+    "de": "Alemania",
+    "cn": "China",
+    "jp": "Japón",
+    "es": "España",
+    "us": "EEUU",
+    "uk": "Reino Unido",
+    "ru": "Rusia"
+  }
+}

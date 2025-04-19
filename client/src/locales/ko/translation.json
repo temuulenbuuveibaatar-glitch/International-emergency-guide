@@ -1,0 +1,93 @@
+{
+  "header": {
+    "title": "오르콘 주 적십자",
+    "subtitle": "응급 가이드"
+  },
+  "nav": {
+    "home": "홈",
+    "emergency": "응급 처치 프로토콜",
+    "treatment": "치료 지침",
+    "medications": "약물 정보",
+    "symptoms": "증상 확인기",
+    "hospitals": "주변 병원",
+    "contacts": "긴급 연락처"
+  },
+  "emergency": {
+    "title": "응급상황? 전화하세요",
+    "number": "103"
+  },
+  "home": {
+    "title": "오르콘 주 적십자",
+    "subtitle": "믿을 수 있는 응급 의료 정보 제공처",
+    "description": "단계별 응급 처치 절차, 치료 지침, 약물 정보 및 주변 병원 위치 확인 - 모두 한곳에서.",
+    "emergencyButton": "응급 처치 프로토콜",
+    "findHospital": "병원 찾기"
+  },
+  "emergencyNumbers": {
+    "title": "국제 긴급 연락처",
+    "description": "다양한 국가의 긴급 연락처 정보를 확인하세요. 응급 상황에서는 현재 위치에 맞는 응급 서비스에 전화하십시오.",
+    "mongolia": "몽골",
+    "ambulance": "구급차",
+    "fire": "소방서",
+    "police": "경찰서",
+    "emergency": "응급 서비스",
+    "redcross": "오르콘 적십자",
+    "nonEmergency": "비응급",
+    "selectCountry": "국가를 선택하여 긴급 연락처를 확인하세요",
+    "noData": "이 국가의 긴급 연락처 정보가 없습니다"
+  },
+  "hospitals": {
+    "title": "주변 병원 찾기",
+    "description": "필요시 응급 진료를 받을 수 있는 가장 가까운 병원과 의료 시설을 찾으세요.",
+    "location": "위치",
+    "enterLocation": "위치를 입력하세요",
+    "radius": "검색 반경",
+    "search": "검색",
+    "results": "결과",
+    "call": "전화",
+    "useCurrentLocation": "현재 위치 사용",
+    "noResults": "이 지역에서 병원을 찾을 수 없습니다"
+  },
+  "protocols": {
+    "title": "응급 처치 프로토콜",
+    "description": "즉각적인 의료 조치가 필요한 위급 상황을 위한 단계별 응급 처치 프로토콜.",
+    "viewDetails": "자세히 보기",
+    "viewAll": "모든 응급 처치 프로토콜 보기"
+  },
+  "treatment": {
+    "title": "치료 지침",
+    "description": "다양한 의학적 상태에 대한 포괄적인 치료 지침.",
+    "comingSoon": "곧 제공 예정",
+    "comingSoonDesc": "자세한 치료 지침을 추가하는 중입니다. 나중에 다시 확인해 주세요."
+  },
+  "medications": {
+    "title": "약물 데이터베이스",
+    "description": "복용량, 사용법 및 주의사항을 포함한 약물에 대한 종합적인 정보.",
+    "comingSoon": "곧 제공 예정",
+    "comingSoonDesc": "약물 데이터베이스가 개발 중입니다. 나중에 다시 확인해 주세요."
+  },
+  "symptoms": {
+    "title": "증상 확인기",
+    "description": "증상을 기반으로 잠재적 의학적 상태를 파악하세요.",
+    "comingSoon": "곧 제공 예정",
+    "comingSoonDesc": "대화형 증상 확인기가 현재 개발 중입니다. 곧 확인해 주세요."
+  },
+  "footer": {
+    "title": "오르콘 주 적십자",
+    "description": "생명을 구하는 데 도움이 되는 응급 의료 정보와 자원을 제공합니다.",
+    "quickLinks": "빠른 링크",
+    "contact": "연락처",
+    "address": "몽골 오르콘 주",
+    "rights": "모든 권리 보유."
+  },
+  "countries": {
+    "kr": "한국",
+    "de": "독일",
+    "cn": "중국",
+    "jp": "일본",
+    "es": "스페인",
+    "us": "미국",
+    "uk": "영국",
+    "ru": "러시아"
+  }
+}

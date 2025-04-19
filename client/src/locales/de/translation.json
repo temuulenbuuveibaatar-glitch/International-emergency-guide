@@ -1,0 +1,93 @@
+{
+  "header": {
+    "title": "Rotes Kreuz Provinz Orkhon",
+    "subtitle": "Notfallführer"
+  },
+  "nav": {
+    "home": "Startseite",
+    "emergency": "Notfallprotokolle",
+    "treatment": "Behandlungsrichtlinien",
+    "medications": "Medikamente",
+    "symptoms": "Symptomprüfer",
+    "hospitals": "Krankenhäuser in der Nähe",
+    "contacts": "Notfallnummern"
+  },
+  "emergency": {
+    "title": "Notfall? Rufen Sie",
+    "number": "103"
+  },
+  "home": {
+    "title": "Rotes Kreuz Provinz Orkhon",
+    "subtitle": "Ihre vertrauenswürdige Quelle für Notfallinformationen",
+    "description": "Greifen Sie auf schrittweise Notfallverfahren, Behandlungsrichtlinien, Medikamenteninformationen und lokalisieren Sie Krankenhäuser in der Nähe - alles an einem Ort.",
+    "emergencyButton": "Notfallprotokolle",
+    "findHospital": "Krankenhäuser finden"
+  },
+  "emergencyNumbers": {
+    "title": "Internationale Notfallnummern",
+    "description": "Finden Sie Notfallkontaktinformationen für verschiedene Länder. Im Notfall rufen Sie immer den entsprechenden Notdienst für Ihren Standort an.",
+    "mongolia": "Mongolei",
+    "ambulance": "Krankenwagen",
+    "fire": "Feuerwehr",
+    "police": "Polizei",
+    "emergency": "Notdienst",
+    "redcross": "Rotes Kreuz Orkhon",
+    "nonEmergency": "Nicht-Notfall",
+    "selectCountry": "Bitte wählen Sie ein Land, um Notfallnummern anzuzeigen",
+    "noData": "Für dieses Land sind keine Notfallnummern verfügbar"
+  },
+  "hospitals": {
+    "title": "Krankenhäuser in der Nähe finden",
+    "description": "Finden Sie die nächstgelegenen Krankenhäuser und medizinischen Einrichtungen, um bei Bedarf Notfallversorgung zu erhalten.",
+    "location": "Standort",
+    "enterLocation": "Geben Sie Ihren Standort ein",
+    "radius": "Suchradius",
+    "search": "Suchen",
+    "results": "Ergebnisse",
+    "call": "Anrufen",
+    "useCurrentLocation": "Aktuellen Standort verwenden",
+    "noResults": "Keine Krankenhäuser in dieser Gegend gefunden"
+  },
+  "protocols": {
+    "title": "Notfallprotokolle",
+    "description": "Schrittweise Notfallprotokolle für kritische Situationen, die sofortige medizinische Aufmerksamkeit erfordern.",
+    "viewDetails": "Details anzeigen",
+    "viewAll": "Alle Notfallprotokolle anzeigen"
+  },
+  "treatment": {
+    "title": "Behandlungsrichtlinien",
+    "description": "Umfassende Behandlungsrichtlinien für verschiedene medizinische Zustände.",
+    "comingSoon": "Demnächst verfügbar",
+    "comingSoonDesc": "Wir arbeiten daran, detaillierte Behandlungsrichtlinien hinzuzufügen. Bitte schauen Sie später noch einmal vorbei."
+  },
+  "medications": {
+    "title": "Medikamentendatenbank",
+    "description": "Umfassende Informationen über Medikamente einschließlich Dosierung, Anwendung und Vorsichtsmaßnahmen.",
+    "comingSoon": "Demnächst verfügbar",
+    "comingSoonDesc": "Unsere Medikamentendatenbank befindet sich in Entwicklung. Bitte schauen Sie später noch einmal vorbei."
+  },
+  "symptoms": {
+    "title": "Symptomprüfer",
+    "description": "Identifizieren Sie potenzielle medizinische Zustände basierend auf Ihren Symptomen.",
+    "comingSoon": "Demnächst verfügbar",
+    "comingSoonDesc": "Unser interaktiver Symptomprüfer befindet sich derzeit in Entwicklung. Bitte schauen Sie bald wieder vorbei."
+  },
+  "footer": {
+    "title": "Rotes Kreuz Provinz Orkhon",
+    "description": "Bereitstellung von Notfallinformationen und Ressourcen, um Leben zu retten.",
+    "quickLinks": "Schnelllinks",
+    "contact": "Kontakt",
+    "address": "Provinz Orkhon, Mongolei",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "countries": {
+    "kr": "Korea",
+    "de": "Deutschland",
+    "cn": "China",
+    "jp": "Japan",
+    "es": "Spanien",
+    "us": "USA",
+    "uk": "UK",
+    "ru": "Russland"
+  }
+}

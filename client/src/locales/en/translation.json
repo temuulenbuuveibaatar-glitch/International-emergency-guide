@@ -1,0 +1,93 @@
+{
+  "header": {
+    "title": "Orkhon Province Red Cross",
+    "subtitle": "Emergency Guide"
+  },
+  "nav": {
+    "home": "Home",
+    "emergency": "Emergency Protocols",
+    "treatment": "Treatment Guidelines",
+    "medications": "Medications",
+    "symptoms": "Symptom Checker",
+    "hospitals": "Nearby Hospitals",
+    "contacts": "Emergency Numbers"
+  },
+  "emergency": {
+    "title": "Emergency? Call",
+    "number": "103"
+  },
+  "home": {
+    "title": "Orkhon Province Red Cross",
+    "subtitle": "Your trusted source for emergency medical information",
+    "description": "Access step-by-step emergency procedures, treatment guidelines, medication information, and locate nearby hospitals - all in one place.",
+    "emergencyButton": "Emergency Protocols",
+    "findHospital": "Find Hospitals"
+  },
+  "emergencyNumbers": {
+    "title": "International Emergency Numbers",
+    "description": "Find emergency contact information for different countries. In case of emergency, always call the appropriate emergency service for your location.",
+    "mongolia": "Mongolia",
+    "ambulance": "Ambulance",
+    "fire": "Fire Emergency",
+    "police": "Police",
+    "emergency": "Emergency Service",
+    "redcross": "Orkhon Red Cross",
+    "nonEmergency": "Non-Emergency",
+    "selectCountry": "Please select a country to view emergency numbers",
+    "noData": "No emergency numbers data available for this country"
+  },
+  "hospitals": {
+    "title": "Find Nearby Hospitals",
+    "description": "Locate the nearest hospitals and medical facilities to get emergency care when needed.",
+    "location": "Location",
+    "enterLocation": "Enter your location",
+    "radius": "Search Radius",
+    "search": "Search",
+    "results": "Results",
+    "call": "Call",
+    "useCurrentLocation": "Use current location",
+    "noResults": "No hospitals found in this area"
+  },
+  "protocols": {
+    "title": "Emergency Protocols",
+    "description": "Step-by-step emergency protocols for critical situations that require immediate medical attention.",
+    "viewDetails": "View Details",
+    "viewAll": "View All Emergency Protocols"
+  },
+  "treatment": {
+    "title": "Treatment Guidelines",
+    "description": "Comprehensive treatment guidelines for various medical conditions.",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "We are working on adding detailed treatment guidelines. Please check back later."
+  },
+  "medications": {
+    "title": "Medication Database",
+    "description": "Comprehensive information about medications including dosage, usage, and precautions.",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "Our medication database is under development. Please check back later for comprehensive medication information."
+  },
+  "symptoms": {
+    "title": "Symptom Checker",
+    "description": "Identify potential medical conditions based on your symptoms.",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "Our interactive symptom checker is currently under development. Please check back soon."
+  },
+  "footer": {
+    "title": "Orkhon Province Red Cross",
+    "description": "Providing emergency medical information and resources to help save lives.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "address": "Orkhon Province, Mongolia",
+    "rights": "All rights reserved."
+  },
+  "countries": {
+    "kr": "Korea",
+    "de": "Germany",
+    "cn": "China",
+    "jp": "Japan",
+    "es": "Spain",
+    "us": "USA",
+    "uk": "UK",
+    "ru": "Russia"
+  }
+}
