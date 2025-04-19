@@ -147,7 +147,7 @@ export function setupAuth(app: Express) {
       return res.status(401).json({ message: "Not authenticated" });
     }
     // Return user without password
-    const { password, ...userWithoutPassword } = req.user as User;
+    const { password, ...userWithoutPassword } = req.user as Express.User;
     res.json(userWithoutPassword);
   });
 
@@ -157,8 +157,8 @@ export function setupAuth(app: Express) {
       return res.status(401).json({ message: "Not authenticated" });
     }
     
-    const user = req.user as User;
-    if (!user.isStaff) {
+    const user = req.user as Express.User;
+    if (!(user as UserType).isStaff) {
       return res.status(403).json({ message: "Access denied. Staff only." });
     }
     

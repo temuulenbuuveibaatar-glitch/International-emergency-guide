@@ -3,7 +3,9 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { AuthProvider } from "./hooks/use-auth";
 import { queryClient } from "./lib/queryClient";
+import { ProtectedRoute } from "./lib/protected-route";
 import Layout from "./components/Layout";
 import NotFound from "@/pages/not-found";
 import Home from "./pages/Home";
@@ -14,6 +16,9 @@ import Medications from "./pages/Medications";
 import SymptomChecker from "./pages/SymptomChecker";
 import Hospitals from "./pages/Hospitals";
 import EmergencyContacts from "./pages/EmergencyContacts";
+import AboutUs from "./pages/AboutUs";
+import AuthPage from "./pages/AuthPage";
+import StaffPortal from "./pages/StaffPortal";
 
 function Router() {
   return (
@@ -27,6 +32,9 @@ function Router() {
         <Route path="/symptoms" component={SymptomChecker} />
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/contacts" component={EmergencyContacts} />
+        <Route path="/about-us" component={AboutUs} />
+        <Route path="/auth" component={AuthPage} />
+        <ProtectedRoute path="/staff-portal" component={StaffPortal} staffOnly={true} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
@@ -37,10 +45,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <AuthProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </AuthProvider>
       </LanguageProvider>
     </QueryClientProvider>
   );
