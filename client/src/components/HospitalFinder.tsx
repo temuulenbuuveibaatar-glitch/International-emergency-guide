@@ -160,6 +160,62 @@ export default function HospitalFinder() {
         address: "12 Wulumuqi Middle Rd, Shanghai, China",
         position: { lat: 31.2161, lng: 121.4399 },
         phone: "+862152888999"
+      },
+      {
+        id: "cn_3",
+        name: "West China Hospital",
+        address: "No. 37 Guoxue Lane, Chengdu, China",
+        position: { lat: 30.6421, lng: 104.0665 },
+        phone: "+862885422222"
+      },
+      {
+        id: "cn_4",
+        name: "Peking University Third Hospital",
+        address: "49 N Garden Rd, Beijing, China",
+        position: { lat: 39.9831, lng: 116.3543 },
+        phone: "+861082266699"
+      },
+      {
+        id: "cn_5",
+        name: "Zhongshan Hospital",
+        address: "180 Fenglin Rd, Shanghai, China",
+        position: { lat: 31.1947, lng: 121.4353 },
+        phone: "+862164041990"
+      },
+      {
+        id: "cn_6",
+        name: "Beijing Hospital",
+        address: "1 Dahua Rd, Dongcheng, Beijing, China",
+        position: { lat: 39.9061, lng: 116.4270 },
+        phone: "+861065282171"
+      },
+      {
+        id: "cn_7",
+        name: "Guangzhou First People's Hospital",
+        address: "1 Panfu Rd, Guangzhou, China",
+        position: { lat: 23.1435, lng: 113.2594 },
+        phone: "+862081048888"
+      },
+      {
+        id: "cn_8",
+        name: "Xiangya Hospital",
+        address: "87 Xiangya Rd, Changsha, China",
+        position: { lat: 28.1979, lng: 112.9793 },
+        phone: "+867318975628"
+      },
+      {
+        id: "cn_9",
+        name: "Xijing Hospital",
+        address: "15 Changle W Rd, Xi'an, China",
+        position: { lat: 34.2551, lng: 108.9487 },
+        phone: "+862984775507"
+      },
+      {
+        id: "cn_10",
+        name: "Tianjin Medical University General Hospital",
+        address: "154 Anshan Rd, Tianjin, China",
+        position: { lat: 39.1088, lng: 117.1651 },
+        phone: "+862260362255"
       }
     ],
     "Japan": [
@@ -176,6 +232,62 @@ export default function HospitalFinder() {
         address: "2-15 Yamadaoka, Suita, Osaka, Japan",
         position: { lat: 34.8202, lng: 135.5212 },
         phone: "+81668793111"
+      },
+      {
+        id: "jp_3",
+        name: "Kyoto University Hospital",
+        address: "54 Kawaharacho, Shogoin, Sakyo Ward, Kyoto, Japan",
+        position: { lat: 35.0262, lng: 135.7800 },
+        phone: "+81757513111"
+      },
+      {
+        id: "jp_4",
+        name: "St. Luke's International Hospital",
+        address: "9-1 Akashicho, Chuo, Tokyo, Japan",
+        position: { lat: 35.6655, lng: 139.7707 },
+        phone: "+81335415151"
+      },
+      {
+        id: "jp_5",
+        name: "Keio University Hospital",
+        address: "35 Shinanomachi, Shinjuku City, Tokyo, Japan",
+        position: { lat: 35.6834, lng: 139.7156 },
+        phone: "+81333531211"
+      },
+      {
+        id: "jp_6",
+        name: "National Cancer Center Hospital",
+        address: "5-1-1 Tsukiji, Chuo, Tokyo, Japan",
+        position: { lat: 35.6654, lng: 139.7699 },
+        phone: "+81335422511"
+      },
+      {
+        id: "jp_7",
+        name: "Hokkaido University Hospital",
+        address: "Kita 14, Nishi 5, Kita-ku, Sapporo, Hokkaido, Japan",
+        position: { lat: 43.0686, lng: 141.3486 },
+        phone: "+81117161161"
+      },
+      {
+        id: "jp_8",
+        name: "Tohoku University Hospital",
+        address: "1-1 Seiryomachi, Aoba Ward, Sendai, Miyagi, Japan",
+        position: { lat: 38.2682, lng: 140.8694 },
+        phone: "+81227177000"
+      },
+      {
+        id: "jp_9",
+        name: "Nagoya University Hospital",
+        address: "65 Tsurumai, Showa Ward, Nagoya, Aichi, Japan",
+        position: { lat: 35.1548, lng: 136.9324 },
+        phone: "+81527411101"
+      },
+      {
+        id: "jp_10",
+        name: "Fukuoka University Hospital",
+        address: "7-45-1 Nanakuma, Jonan Ward, Fukuoka, Japan",
+        position: { lat: 33.5516, lng: 130.3610 },
+        phone: "+81928011011"
       }
     ],
     "Korea": [
@@ -192,6 +304,62 @@ export default function HospitalFinder() {
         address: "88 Olympic-ro 43-gil, Songpa-gu, Seoul, Korea",
         position: { lat: 37.5270, lng: 127.1081 },
         phone: "+82230101111"
+      },
+      {
+        id: "kr_3",
+        name: "Samsung Medical Center",
+        address: "81 Irwon-ro, Gangnam-gu, Seoul, Korea",
+        position: { lat: 37.4886, lng: 127.0865 },
+        phone: "+82234100200"
+      },
+      {
+        id: "kr_4",
+        name: "Severance Hospital",
+        address: "50-1 Yonsei-ro, Seodaemun-gu, Seoul, Korea",
+        position: { lat: 37.5636, lng: 126.9410 },
+        phone: "+82222281000"
+      },
+      {
+        id: "kr_5",
+        name: "Seoul St. Mary's Hospital",
+        address: "222 Banpo-daero, Seocho-gu, Seoul, Korea",
+        position: { lat: 37.5014, lng: 127.0047 },
+        phone: "+82222586011"
+      },
+      {
+        id: "kr_6",
+        name: "Pusan National University Hospital",
+        address: "179 Gudeok-ro, Seo-gu, Busan, Korea",
+        position: { lat: 35.1047, lng: 129.0242 },
+        phone: "+82512402000"
+      },
+      {
+        id: "kr_7",
+        name: "Kyungpook National University Hospital",
+        address: "130 Dongdeok-ro, Jung-gu, Daegu, Korea",
+        position: { lat: 35.8692, lng: 128.6038 },
+        phone: "+82534200100"
+      },
+      {
+        id: "kr_8",
+        name: "Chonnam National University Hospital",
+        address: "42 Jebong-ro, Dong-gu, Gwangju, Korea",
+        position: { lat: 35.1495, lng: 126.9253 },
+        phone: "+82622205437"
+      },
+      {
+        id: "kr_9",
+        name: "Gachon University Gil Medical Center",
+        address: "21 Namdong-daero 774beon-gil, Namdong-gu, Incheon, Korea",
+        position: { lat: 37.4563, lng: 126.7052 },
+        phone: "+82214400114"
+      },
+      {
+        id: "kr_10",
+        name: "Hallym University Sacred Heart Hospital",
+        address: "22 Gwanpyeong-ro 170beon-gil, Dongan-gu, Anyang, Korea",
+        position: { lat: 37.3909, lng: 126.9510 },
+        phone: "+82313803771"
       }
     ],
     "USA": [
@@ -208,6 +376,62 @@ export default function HospitalFinder() {
         address: "9500 Euclid Ave, Cleveland, OH, USA",
         position: { lat: 41.5022, lng: -81.6169 },
         phone: "+12164448302"
+      },
+      {
+        id: "us_3",
+        name: "Johns Hopkins Hospital",
+        address: "1800 Orleans St, Baltimore, MD, USA",
+        position: { lat: 39.2965, lng: -76.5920 },
+        phone: "+14109555000"
+      },
+      {
+        id: "us_4",
+        name: "Massachusetts General Hospital",
+        address: "55 Fruit Street, Boston, MA, USA",
+        position: { lat: 42.3626, lng: -71.0686 },
+        phone: "+16177262000"
+      },
+      {
+        id: "us_5",
+        name: "UCLA Medical Center",
+        address: "757 Westwood Plaza, Los Angeles, CA, USA",
+        position: { lat: 34.0658, lng: -118.4451 },
+        phone: "+13102677890"
+      },
+      {
+        id: "us_6",
+        name: "UCSF Medical Center",
+        address: "505 Parnassus Ave, San Francisco, CA, USA",
+        position: { lat: 37.7631, lng: -122.4583 },
+        phone: "+14154764000"
+      },
+      {
+        id: "us_7",
+        name: "New York-Presbyterian Hospital",
+        address: "525 E 68th St, New York, NY, USA",
+        position: { lat: 40.7651, lng: -73.9546 },
+        phone: "+12127463000"
+      },
+      {
+        id: "us_8",
+        name: "Stanford Health Care",
+        address: "300 Pasteur Dr, Stanford, CA, USA",
+        position: { lat: 37.4351, lng: -122.1760 },
+        phone: "+16507236861"
+      },
+      {
+        id: "us_9",
+        name: "Houston Methodist Hospital",
+        address: "6565 Fannin St, Houston, TX, USA",
+        position: { lat: 29.7105, lng: -95.4009 },
+        phone: "+17134416565"
+      },
+      {
+        id: "us_10",
+        name: "Mount Sinai Hospital",
+        address: "1 Gustave L. Levy Place, New York, NY, USA",
+        position: { lat: 40.7901, lng: -73.9523 },
+        phone: "+12122417981"
       }
     ],
     "UK": [
@@ -224,6 +448,62 @@ export default function HospitalFinder() {
         address: "Whitechapel Rd, London, UK",
         position: { lat: 51.5180, lng: -0.0599 },
         phone: "+442073777000"
+      },
+      {
+        id: "uk_3",
+        name: "Guy's Hospital",
+        address: "Great Maze Pond, London, UK",
+        position: { lat: 51.5044, lng: -0.0879 },
+        phone: "+442071887188"
+      },
+      {
+        id: "uk_4",
+        name: "University College Hospital",
+        address: "235 Euston Rd, London, UK",
+        position: { lat: 51.5241, lng: -0.1351 },
+        phone: "+442034567890"
+      },
+      {
+        id: "uk_5",
+        name: "Addenbrooke's Hospital",
+        address: "Hills Rd, Cambridge, UK",
+        position: { lat: 52.1749, lng: 0.1401 },
+        phone: "+441223245151"
+      },
+      {
+        id: "uk_6",
+        name: "John Radcliffe Hospital",
+        address: "Headley Way, Oxford, UK",
+        position: { lat: 51.7634, lng: -1.2171 },
+        phone: "+441865741166"
+      },
+      {
+        id: "uk_7",
+        name: "Royal Infirmary of Edinburgh",
+        address: "51 Little France Crescent, Edinburgh, UK",
+        position: { lat: 55.9217, lng: -3.1093 },
+        phone: "+441315361000"
+      },
+      {
+        id: "uk_8",
+        name: "Queen Elizabeth Hospital Birmingham",
+        address: "Mindelsohn Way, Birmingham, UK",
+        position: { lat: 52.4535, lng: -1.9418 },
+        phone: "+441213712000"
+      },
+      {
+        id: "uk_9",
+        name: "Manchester Royal Infirmary",
+        address: "Oxford Rd, Manchester, UK",
+        position: { lat: 53.4628, lng: -2.2319 },
+        phone: "+441612761234"
+      },
+      {
+        id: "uk_10",
+        name: "Royal Victoria Infirmary",
+        address: "Queen Victoria Rd, Newcastle upon Tyne, UK",
+        position: { lat: 54.9797, lng: -1.6127 },
+        phone: "+441912336161"
       }
     ],
     "Germany": [
@@ -240,6 +520,62 @@ export default function HospitalFinder() {
         address: "Im Neuenheimer Feld 672, Heidelberg, Germany",
         position: { lat: 49.4141, lng: 8.6735 },
         phone: "+4962215600"
+      },
+      {
+        id: "de_3",
+        name: "LMU University Hospital Munich",
+        address: "Marchioninistraße 15, Munich, Germany",
+        position: { lat: 48.1144, lng: 11.4714 },
+        phone: "+498944000"
+      },
+      {
+        id: "de_4",
+        name: "University Hospital Hamburg-Eppendorf",
+        address: "Martinistraße 52, Hamburg, Germany",
+        position: { lat: 53.5893, lng: 9.9749 },
+        phone: "+4940741050"
+      },
+      {
+        id: "de_5",
+        name: "University Hospital Frankfurt",
+        address: "Theodor-Stern-Kai 7, Frankfurt, Germany",
+        position: { lat: 50.0937, lng: 8.6589 },
+        phone: "+496963016301"
+      },
+      {
+        id: "de_6",
+        name: "University Hospital Cologne",
+        address: "Kerpener Straße 62, Cologne, Germany",
+        position: { lat: 50.9245, lng: 6.9177 },
+        phone: "+492214780"
+      },
+      {
+        id: "de_7",
+        name: "University Hospital Bonn",
+        address: "Venusberg-Campus 1, Bonn, Germany",
+        position: { lat: 50.7006, lng: 7.1029 },
+        phone: "+49228287335"
+      },
+      {
+        id: "de_8",
+        name: "University Hospital Dresden",
+        address: "Fetscherstraße 74, Dresden, Germany",
+        position: { lat: 51.0538, lng: 13.7836 },
+        phone: "+493514580"
+      },
+      {
+        id: "de_9",
+        name: "Medical Center – University of Freiburg",
+        address: "Hugstetter Straße 55, Freiburg, Germany",
+        position: { lat: 47.9949, lng: 7.8510 },
+        phone: "+4976127027270"
+      },
+      {
+        id: "de_10",
+        name: "University Hospital Tübingen",
+        address: "Geissweg 3, Tübingen, Germany",
+        position: { lat: 48.5294, lng: 9.0456 },
+        phone: "+497071290"
       }
     ],
     "Russia": [
@@ -256,6 +592,62 @@ export default function HospitalFinder() {
         address: "Nizhnyaya Pervomayskaya St, 70, Moscow, Russia",
         position: { lat: 55.8008, lng: 37.7949 },
         phone: "+74994639303"
+      },
+      {
+        id: "ru_3",
+        name: "Almazov National Medical Research Centre",
+        address: "2 Akkuratova St, St. Petersburg, Russia",
+        position: { lat: 59.9941, lng: 30.3271 },
+        phone: "+78127023756"
+      },
+      {
+        id: "ru_4",
+        name: "Clinical Hospital No. 1 (Volynka)",
+        address: "10 Volynskaya St, Moscow, Russia",
+        position: { lat: 55.7127, lng: 37.4488 },
+        phone: "+74954413121"
+      },
+      {
+        id: "ru_5",
+        name: "Federal Center for Cardiovascular Surgery",
+        address: "140 Novosibirskaya St, Novosibirsk, Russia",
+        position: { lat: 54.8567, lng: 83.0933 },
+        phone: "+73833474939"
+      },
+      {
+        id: "ru_6",
+        name: "Pavlov First St. Petersburg State Medical University",
+        address: "6-8 Lva Tolstogo St, St. Petersburg, Russia",
+        position: { lat: 59.9560, lng: 30.3122 },
+        phone: "+78123386600"
+      },
+      {
+        id: "ru_7",
+        name: "V.M. Bekhterev National Research Medical Center for Psychiatry and Neurology",
+        address: "3 Bekhtereva St, St. Petersburg, Russia",
+        position: { lat: 59.8847, lng: 30.4267 },
+        phone: "+78126700220"
+      },
+      {
+        id: "ru_8",
+        name: "Kazan State Medical University Hospital",
+        address: "49 Butlerova St, Kazan, Russia",
+        position: { lat: 55.7879, lng: 49.1360 },
+        phone: "+78432360652"
+      },
+      {
+        id: "ru_9",
+        name: "Privolzhsky Research Medical University",
+        address: "10/1 Minin and Pozharsky Square, Nizhny Novgorod, Russia",
+        position: { lat: 56.3268, lng: 44.0075 },
+        phone: "+78314225431"
+      },
+      {
+        id: "ru_10",
+        name: "Sechenov First Moscow State Medical University",
+        address: "8/2 Trubetskaya St, Moscow, Russia",
+        position: { lat: 55.7325, lng: 37.5712 },
+        phone: "+74992486688"
       }
     ]
   };
