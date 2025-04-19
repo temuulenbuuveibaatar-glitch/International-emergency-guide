@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import NotFound from "@/pages/not-found";
 import Home from "./pages/Home";
 import EmergencyProtocols from "./pages/EmergencyProtocols";
+import ProtocolDetail from "./pages/ProtocolDetail";
 import TreatmentGuidelines from "./pages/TreatmentGuidelines";
 import Medications from "./pages/Medications";
 import SymptomChecker from "./pages/SymptomChecker";
@@ -20,6 +21,7 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/emergency" component={EmergencyProtocols} />
+        <Route path="/emergency/:id" component={ProtocolDetail} />
         <Route path="/treatment" component={TreatmentGuidelines} />
         <Route path="/medications" component={Medications} />
         <Route path="/symptoms" component={SymptomChecker} />

@@ -32,6 +32,10 @@
     "police": "Police",
     "emergency": "Emergency Service",
     "redcross": "Orkhon Red Cross",
+    "hospital": "Hospital",
+    "rescue": "Search & Rescue",
+    "gas": "Gas Emergency",
+    "children": "Child Protection",
     "nonEmergency": "Non-Emergency",
     "selectCountry": "Please select a country to view emergency numbers",
     "noData": "No emergency numbers data available for this country"
