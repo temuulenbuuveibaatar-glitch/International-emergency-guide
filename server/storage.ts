@@ -26,11 +26,11 @@ export interface IStorage {
   updateAboutUs(id: number, content: Partial<InsertAboutUs>): Promise<AboutUs | undefined>;
   
   // Session store for auth
-  sessionStore: session.SessionStore;
+  sessionStore: session.Store;
 }
 
 export class DatabaseStorage implements IStorage {
-  sessionStore: session.SessionStore;
+  sessionStore: session.Store;
   
   constructor() {
     this.sessionStore = new PostgresSessionStore({ 
