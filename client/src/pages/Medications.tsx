@@ -461,28 +461,63 @@ function generateMedicationDatabase(): Medication[] {
   ];
   
   const commonDescriptions = [
-    "Used to treat various conditions related to its category.",
-    "A medication commonly prescribed for its therapeutic effects.",
-    "An important medication used in standard treatment protocols.",
-    "A widely used medication with established efficacy and safety profile.",
-    "A medication that works by targeting specific mechanisms in the body."
+    "Used to treat various conditions related to its category with demonstrated clinical efficacy across multiple patient populations.",
+    "A medication commonly prescribed for its therapeutic effects and favorable benefit-risk profile in both acute and chronic administration.",
+    "An important medication used in standard treatment protocols recommended by international medical societies and guidelines.",
+    "A widely used medication with established efficacy and safety profile supported by extensive clinical trials and post-marketing surveillance.",
+    "A medication that works by targeting specific molecular and cellular mechanisms in affected tissues and organs.",
+    "This medication belongs to a class that modulates key physiological pathways involved in disease progression and symptom management.",
+    "A well-established therapeutic agent that has demonstrated consistent outcomes in randomized controlled clinical studies.",
+    "This medication exhibits dose-dependent effects and requires individualized dosing based on patient characteristics and response.",
+    "A medication that acts through multiple complementary mechanisms to address both primary symptoms and secondary complications.",
+    "This therapeutic agent requires careful monitoring of plasma concentrations to maintain levels within the therapeutic window.",
+    "A medication with complex pharmacokinetics that may require dose adjustments based on age, weight, and organ function.",
+    "This medication is formulated to optimize bioavailability and maintain consistent therapeutic blood levels.",
+    "A medication that demonstrates both immediate effects and cumulative benefits with continued administration.",
+    "This medication affects multiple organ systems and requires comprehensive patient assessment before initiation.",
+    "A medication developed through advanced pharmaceutical technology to enhance target specificity and minimize off-target effects.",
+    "This medication requires gradual dose titration to achieve optimal therapeutic outcomes while minimizing adverse reactions.",
+    "A medication with a narrow therapeutic index requiring close clinical monitoring and potential dose adjustments.",
+    "This medication's effects are influenced by genetic polymorphisms affecting metabolism and receptor sensitivity.",
+    "A medication that may require supplementary monitoring of specific laboratory parameters during treatment.",
+    "This medication demonstrates variable inter-individual response patterns based on pharmacogenetic factors."
   ];
   
   const commonSideEffects = [
     "Headache", "Nausea", "Dizziness", "Fatigue", "Stomach upset", 
-    "Drowsiness", "Dry mouth", "Constipation", "Diarrhea", "Rash"
+    "Drowsiness", "Dry mouth", "Constipation", "Diarrhea", "Rash",
+    "Mild allergic reactions", "Dyspepsia", "Flatulence", "Transient elevation of liver enzymes",
+    "Sleep disturbances", "Decreased appetite", "Musculoskeletal pain", "Peripheral edema",
+    "Blurred vision", "Taste disturbances", "Mild photosensitivity", "Mild hypertension",
+    "Tachycardia", "Mild hyperglycemia", "Orthostatic hypotension", "Mild hypokalemia",
+    "Mild hyperlipidemia", "Pruritus", "Urticaria", "Increased sweating"
   ];
   
   const seriousSideEffects = [
     "Severe allergic reaction", "Difficulty breathing", "Chest pain", 
     "Severe dizziness", "Unusual bleeding", "Vision changes", 
-    "Seizures", "Irregular heartbeat", "Severe skin reaction"
+    "Seizures", "Irregular heartbeat", "Severe skin reaction",
+    "Stevens-Johnson syndrome", "Toxic epidermal necrolysis", "Anaphylaxis",
+    "Agranulocytosis", "Pancytopenia", "Serotonin syndrome", "Neuroleptic malignant syndrome",
+    "Severe hepatotoxicity", "Acute renal failure", "QT interval prolongation",
+    "Torsades de pointes", "Malignant hypertension", "Severe hypoglycemia",
+    "Rhabdomyolysis", "Severe electrolyte disturbances", "Drug-induced lupus",
+    "Severe immunosuppression", "Suicidal ideation", "Severe thrombocytopenia",
+    "Respiratory depression", "Acute angle-closure glaucoma"
   ];
   
   const contraindications = [
     "Hypersensitivity to the medication", "Severe liver disease", 
     "Severe kidney disease", "Pregnancy or breastfeeding", 
-    "Certain cardiovascular conditions", "Specific genetic disorders"
+    "Certain cardiovascular conditions", "Specific genetic disorders",
+    "Concomitant use of contraindicated medications", "Untreated narrow-angle glaucoma",
+    "Recent myocardial infarction", "Severe heart failure", "Advanced age with multiple comorbidities",
+    "History of drug-induced hepatitis", "Unstable epilepsy", "Active bleeding disorders",
+    "Severe uncontrolled hypertension", "Severe electrolyte disturbances",
+    "Congenital QT prolongation syndrome", "Uncontrolled diabetes",
+    "Acute porphyria", "Severe respiratory depression", "Paralytic ileus",
+    "Severe malnutrition", "Severe dehydration", "Acute alcohol intoxication",
+    "Myasthenia gravis", "Severe thyroid disorders"
   ];
 
   // Add additional medication data for specific categories
@@ -645,19 +680,83 @@ function generateMedicationDatabase(): Medication[] {
       }
     }
     
-    // Create medication object
+    // Generate potential drug interactions
+    const commonInteractions = [
+      "Grapefruit juice", "Alcohol", "NSAIDs", "Antacids", "Warfarin", 
+      "ACE inhibitors", "Beta blockers", "Calcium channel blockers",
+      "MAO inhibitors", "Oral contraceptives", "St. John's Wort",
+      "Anti-epileptic medications", "QT-prolonging medications", 
+      "CYP3A4 inhibitors", "CYP2D6 inhibitors", "P-glycoprotein inhibitors",
+      "Antidepressants", "Antimicrobials", "Antifungals", "Statins",
+      "Proton pump inhibitors", "H2 receptor antagonists"
+    ];
+    
+    // Only add interactions to a portion of medications to add variety
+    let interactions: string[] | undefined;
+    if (Math.random() > 0.3) {
+      const numInteractions = 1 + Math.floor(Math.random() * 3);
+      interactions = [];
+      for (let j = 0; j < numInteractions; j++) {
+        const interaction = commonInteractions[Math.floor(Math.random() * commonInteractions.length)];
+        if (!interactions.includes(interaction)) {
+          interactions.push(interaction);
+        }
+      }
+    }
+    
+    // Generate potential warnings
+    const commonWarnings = [
+      "Take with food to reduce stomach upset",
+      "May cause drowsiness or dizziness",
+      "May impair ability to drive or operate machinery",
+      "Avoid alcohol while taking this medication",
+      "Store at room temperature away from moisture and heat",
+      "Do not crush or chew extended-release formulations",
+      "Complete the full course of treatment even if symptoms improve",
+      "May increase sensitivity to sunlight",
+      "Regular monitoring of laboratory parameters recommended",
+      "May affect blood glucose levels in diabetic patients",
+      "May interact with numerous medications"
+    ];
+    
+    // Only add warnings to a portion of medications
+    let warnings: string[] | undefined;
+    if (Math.random() > 0.4) {
+      const numWarnings = 1 + Math.floor(Math.random() * 2);
+      warnings = [];
+      for (let j = 0; j < numWarnings; j++) {
+        const warning = commonWarnings[Math.floor(Math.random() * commonWarnings.length)];
+        if (!warnings.includes(warning)) {
+          warnings.push(warning);
+        }
+      }
+    }
+    
+    // Randomly generate a generic name for some medications
+    let genericName: string | undefined;
+    if (Math.random() > 0.7) {
+      const suffixes = ["in", "ol", "ine", "ide", "ate", "ium", "one", "il", "an", "pril", "sartan", "statin", "pam", "lam", "micin"];
+      const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+      genericName = variantName.toLowerCase().replace(/\s\d+$/, "") + suffix;
+      genericName = genericName.charAt(0).toUpperCase() + genericName.slice(1);
+    }
+    
+    // Create medication object with enhanced data
     const medication: Medication = {
       id,
       name: variantName,
+      genericName,
       category: baseMed.category,
       description,
       dosageForm: baseMed.form,
       dosage: "Dosage should be determined by a healthcare professional based on individual patient factors.",
+      interactions,
       sideEffects: {
         common: commonSideEffectsSubset,
         serious: seriousSideEffectsSubset
       },
-      contraindications: contraindicationsSubset
+      contraindications: contraindicationsSubset,
+      warnings
     };
     
     allMedications.push(medication);
@@ -920,7 +1019,7 @@ export default function Medications() {
                                           key={form} 
                                           className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
                                         >
-                                          {form.charAt(0).toUpperCase() + form.slice(1)}
+                                          {form.charAt(0).toUpperCase() + form.slice(1).replace(/_/g, ' ')}
                                         </span>
                                       ))}
                                     </div>
