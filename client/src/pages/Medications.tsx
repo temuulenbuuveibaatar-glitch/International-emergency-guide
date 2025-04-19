@@ -348,7 +348,7 @@ function generateMedicationDatabase(): Medication[] {
     
     // Randomly select 2-4 common side effects
     const numCommonSideEffects = 2 + Math.floor(Math.random() * 3);
-    const commonSideEffectsSubset = [];
+    const commonSideEffectsSubset: string[] = [];
     for (let j = 0; j < numCommonSideEffects; j++) {
       const effect = commonSideEffects[Math.floor(Math.random() * commonSideEffects.length)];
       if (!commonSideEffectsSubset.includes(effect)) {
@@ -358,7 +358,7 @@ function generateMedicationDatabase(): Medication[] {
     
     // Randomly select 1-2 serious side effects
     const numSeriousSideEffects = 1 + Math.floor(Math.random() * 2);
-    const seriousSideEffectsSubset = [];
+    const seriousSideEffectsSubset: string[] = [];
     for (let j = 0; j < numSeriousSideEffects; j++) {
       const effect = seriousSideEffects[Math.floor(Math.random() * seriousSideEffects.length)];
       if (!seriousSideEffectsSubset.includes(effect)) {
@@ -368,7 +368,7 @@ function generateMedicationDatabase(): Medication[] {
     
     // Randomly select 1-3 contraindications
     const numContraindications = 1 + Math.floor(Math.random() * 3);
-    const contraindicationsSubset = [];
+    const contraindicationsSubset: string[] = [];
     for (let j = 0; j < numContraindications; j++) {
       const contraindication = contraindications[Math.floor(Math.random() * contraindications.length)];
       if (!contraindicationsSubset.includes(contraindication)) {

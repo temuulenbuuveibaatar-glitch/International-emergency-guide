@@ -306,12 +306,12 @@ export default function ProtocolDetail() {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center py-10">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Protocol Not Found</h1>
-          <p className="text-gray-600 mb-6">The emergency protocol you're looking for doesn't exist.</p>
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">{t('protocols.notFound', 'Protocol Not Found')}</h1>
+          <p className="text-gray-600 mb-6">{t('protocols.notFoundDesc', 'The emergency protocol you\'re looking for doesn\'t exist.')}</p>
           <Link href="/emergency">
             <a className="bg-primary text-white px-6 py-2 rounded-md inline-flex items-center">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              <span>Back to All Protocols</span>
+              <span>{t('protocols.backToAll', 'Back to All Protocols')}</span>
             </a>
           </Link>
         </div>
@@ -340,22 +340,22 @@ export default function ProtocolDetail() {
           className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md inline-flex items-center text-sm"
         >
           <Printer className="w-4 h-4 mr-2" />
-          <span>Print</span>
+          <span>{t('protocols.print', 'Print')}</span>
         </button>
         <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md inline-flex items-center text-sm">
           <Share2 className="w-4 h-4 mr-2" />
-          <span>Share</span>
+          <span>{t('protocols.share', 'Share')}</span>
         </button>
         <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md inline-flex items-center text-sm">
           <Bookmark className="w-4 h-4 mr-2" />
-          <span>Save</span>
+          <span>{t('protocols.save', 'Save')}</span>
         </button>
       </div>
 
       {/* Steps */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
         <div className="bg-primary text-white px-6 py-3">
-          <h2 className="font-semibold">Step-by-Step Instructions</h2>
+          <h2 className="font-semibold">{t('protocols.stepByStep', 'Step-by-Step Instructions')}</h2>
         </div>
         <div className="p-6">
           <ol className="space-y-6">
@@ -383,7 +383,7 @@ export default function ProtocolDetail() {
       {protocol.warnings && protocol.warnings.length > 0 && (
         <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <div className="bg-red-600 text-white px-6 py-3">
-            <h2 className="font-semibold">Important Warnings</h2>
+            <h2 className="font-semibold">{t('protocols.warnings', 'Important Warnings')}</h2>
           </div>
           <div className="p-6">
             <ul className="list-disc pl-5 space-y-2">
@@ -399,7 +399,7 @@ export default function ProtocolDetail() {
       {protocol.notes && protocol.notes.length > 0 && (
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="bg-gray-100 px-6 py-3">
-            <h2 className="font-semibold text-gray-800">Additional Notes</h2>
+            <h2 className="font-semibold text-gray-800">{t('protocols.additionalNotes', 'Additional Notes')}</h2>
           </div>
           <div className="p-6">
             <ul className="list-disc pl-5 space-y-2">
