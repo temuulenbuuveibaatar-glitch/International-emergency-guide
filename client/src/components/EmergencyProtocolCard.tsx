@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
+import { ChevronRight } from "lucide-react";
 
 interface EmergencyProtocolCardProps {
   id: string;
@@ -20,9 +21,7 @@ export default function EmergencyProtocolCard({ id, title, description }: Emerge
         <Link href={`/emergency/${id}`}>
           <a className="text-[#004A9F] hover:text-[#0064D6] font-medium inline-flex items-center">
             <span>{t('protocols.viewDetails')}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-1">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
+            <ChevronRight className="w-4 h-4 ml-1" />
           </a>
         </Link>
       </div>
