@@ -35,7 +35,24 @@ const categories = [
   "corticosteroid",
   "gastrointestinal",
   "nsaid",
-  "vitamin"
+  "vitamin",
+  "antimalarial",
+  "antifungal",
+  "antipsychotic",
+  "antiemetic",
+  "antiepileptic",
+  "hormonal",
+  "immunosuppressant",
+  "muscle_relaxant",
+  "ophthalmologic",
+  "osteoporosis",
+  "dermatological",
+  "thyroid",
+  "cardiovascular",
+  "diuretic",
+  "lipid_lowering",
+  "antiparasitic",
+  "vaccines"
 ];
 
 // Define dosage forms
@@ -49,7 +66,27 @@ const dosageForms = [
   "inhaler",
   "patch",
   "suppository",
-  "drops"
+  "drops",
+  "spray",
+  "suspension",
+  "powder",
+  "gel",
+  "lotion",
+  "solution",
+  "syrup",
+  "elixir",
+  "implant",
+  "pen",
+  "lozenges",
+  "foam",
+  "shampoo",
+  "extended_release_tablet",
+  "extended_release_capsule",
+  "chewable_tablet",
+  "sublingual_tablet",
+  "orally_disintegrating_tablet",
+  "enteric_coated_tablet",
+  "prefilled_syringe"
 ];
 
 // Subset of medications data - more will be dynamically generated
@@ -277,33 +314,150 @@ function generateMedicationDatabase(): Medication[] {
   // Add the initial medications
   let allMedications = [...commonMedicationsData, ...additionalMedications];
   
-  // Generate additional medications to reach 100+
+  // Generate additional medications to reach 500+
   const baseMedications = [
+    // Antihypertensives
     { name: "Amlodipine", category: "antihypertensive", form: ["tablet"] },
     { name: "Simvastatin", category: "antihypertensive", form: ["tablet"] },
     { name: "Losartan", category: "antihypertensive", form: ["tablet"] },
-    { name: "Azithromycin", category: "antibiotic", form: ["tablet", "capsule"] },
-    { name: "Ciprofloxacin", category: "antibiotic", form: ["tablet", "drops"] },
-    { name: "Doxycycline", category: "antibiotic", form: ["capsule"] },
-    { name: "Loratadine", category: "antihistamine", form: ["tablet"] },
+    { name: "Valsartan", category: "antihypertensive", form: ["tablet", "capsule"] },
+    { name: "Ramipril", category: "antihypertensive", form: ["tablet", "capsule"] },
+    { name: "Candesartan", category: "antihypertensive", form: ["tablet"] },
+    { name: "Perindopril", category: "antihypertensive", form: ["tablet"] },
+    
+    // Antibiotics
+    { name: "Azithromycin", category: "antibiotic", form: ["tablet", "capsule", "suspension"] },
+    { name: "Ciprofloxacin", category: "antibiotic", form: ["tablet", "drops", "suspension"] },
+    { name: "Doxycycline", category: "antibiotic", form: ["capsule", "tablet"] },
+    { name: "Cephalexin", category: "antibiotic", form: ["capsule", "suspension"] },
+    { name: "Clindamycin", category: "antibiotic", form: ["capsule", "cream", "injection"] },
+    { name: "Levofloxacin", category: "antibiotic", form: ["tablet", "solution"] },
+    { name: "Clarithromycin", category: "antibiotic", form: ["tablet", "suspension"] },
+    
+    // Antihistamines
+    { name: "Loratadine", category: "antihistamine", form: ["tablet", "syrup"] },
     { name: "Cetirizine", category: "antihistamine", form: ["tablet", "liquid"] },
+    { name: "Fexofenadine", category: "antihistamine", form: ["tablet"] },
+    { name: "Desloratadine", category: "antihistamine", form: ["tablet", "syrup"] },
+    { name: "Diphenhydramine", category: "antihistamine", form: ["tablet", "capsule", "liquid"] },
+    
+    // Antidepressants
     { name: "Sertraline", category: "antidepressant", form: ["tablet"] },
     { name: "Escitalopram", category: "antidepressant", form: ["tablet", "liquid"] },
+    { name: "Duloxetine", category: "antidepressant", form: ["capsule"] },
+    { name: "Venlafaxine", category: "antidepressant", form: ["tablet", "capsule", "extended_release_capsule"] },
+    { name: "Mirtazapine", category: "antidepressant", form: ["tablet", "orally_disintegrating_tablet"] },
+    { name: "Bupropion", category: "antidepressant", form: ["tablet", "extended_release_tablet"] },
+    
+    // Anticoagulants
     { name: "Clopidogrel", category: "anticoagulant", form: ["tablet"] },
+    { name: "Apixaban", category: "anticoagulant", form: ["tablet"] },
+    { name: "Rivaroxaban", category: "anticoagulant", form: ["tablet"] },
+    { name: "Dabigatran", category: "anticoagulant", form: ["capsule"] },
+    { name: "Enoxaparin", category: "anticoagulant", form: ["injection", "prefilled_syringe"] },
+    
+    // Corticosteroids
     { name: "Prednisone", category: "corticosteroid", form: ["tablet"] },
-    { name: "Fluticasone", category: "corticosteroid", form: ["inhaler", "spray"] },
-    { name: "Naproxen", category: "nsaid", form: ["tablet"] },
-    { name: "Diclofenac", category: "nsaid", form: ["tablet", "gel"] },
-    { name: "Ranitidine", category: "gastrointestinal", form: ["tablet"] },
-    { name: "Ondansetron", category: "gastrointestinal", form: ["tablet"] },
-    { name: "Acyclovir", category: "antiviral", form: ["tablet", "cream"] },
-    { name: "Oseltamivir", category: "antiviral", form: ["capsule"] },
+    { name: "Fluticasone", category: "corticosteroid", form: ["inhaler", "spray", "cream"] },
+    { name: "Budesonide", category: "corticosteroid", form: ["inhaler", "solution", "powder"] },
+    { name: "Betamethasone", category: "corticosteroid", form: ["cream", "ointment", "lotion"] },
+    { name: "Dexamethasone", category: "corticosteroid", form: ["tablet", "liquid", "injection"] },
+    
+    // NSAIDs
+    { name: "Naproxen", category: "nsaid", form: ["tablet", "liquid", "extended_release_tablet"] },
+    { name: "Diclofenac", category: "nsaid", form: ["tablet", "gel", "suppository"] },
+    { name: "Celecoxib", category: "nsaid", form: ["capsule"] },
+    { name: "Meloxicam", category: "nsaid", form: ["tablet", "suspension"] },
+    { name: "Ketoprofen", category: "nsaid", form: ["capsule", "gel"] },
+    
+    // Gastrointestinal
+    { name: "Pantoprazole", category: "gastrointestinal", form: ["tablet", "injection"] },
+    { name: "Ondansetron", category: "gastrointestinal", form: ["tablet", "orally_disintegrating_tablet", "injection"] },
+    { name: "Lansoprazole", category: "gastrointestinal", form: ["capsule", "orally_disintegrating_tablet"] },
+    { name: "Mesalazine", category: "gastrointestinal", form: ["tablet", "suppository", "enema"] },
+    { name: "Loperamide", category: "gastrointestinal", form: ["tablet", "capsule", "liquid"] },
+    
+    // Antivirals
+    { name: "Acyclovir", category: "antiviral", form: ["tablet", "cream", "injection"] },
+    { name: "Oseltamivir", category: "antiviral", form: ["capsule", "suspension"] },
+    { name: "Valacyclovir", category: "antiviral", form: ["tablet"] },
+    { name: "Entecavir", category: "antiviral", form: ["tablet", "solution"] },
+    { name: "Tenofovir", category: "antiviral", form: ["tablet"] },
+    
+    // Antidiabetics
     { name: "Sitagliptin", category: "antidiabetic", form: ["tablet"] },
-    { name: "Gliclazide", category: "antidiabetic", form: ["tablet"] },
-    { name: "Montelukast", category: "bronchodilator", form: ["tablet"] },
-    { name: "Ipratropium", category: "bronchodilator", form: ["inhaler"] },
-    { name: "Vitamin D", category: "vitamin", form: ["tablet", "capsule"] },
-    { name: "Folic Acid", category: "vitamin", form: ["tablet"] }
+    { name: "Gliclazide", category: "antidiabetic", form: ["tablet", "extended_release_tablet"] },
+    { name: "Empagliflozin", category: "antidiabetic", form: ["tablet"] },
+    { name: "Glimepiride", category: "antidiabetic", form: ["tablet"] },
+    { name: "Insulin Glargine", category: "antidiabetic", form: ["injection", "pen"] },
+    
+    // Bronchodilators
+    { name: "Montelukast", category: "bronchodilator", form: ["tablet", "chewable_tablet"] },
+    { name: "Ipratropium", category: "bronchodilator", form: ["inhaler", "solution"] },
+    { name: "Formoterol", category: "bronchodilator", form: ["inhaler", "powder"] },
+    { name: "Tiotropium", category: "bronchodilator", form: ["inhaler", "powder"] },
+    { name: "Salmeterol", category: "bronchodilator", form: ["inhaler", "powder"] },
+    
+    // Vitamins
+    { name: "Vitamin D", category: "vitamin", form: ["tablet", "capsule", "drops"] },
+    { name: "Folic Acid", category: "vitamin", form: ["tablet"] },
+    { name: "Vitamin B12", category: "vitamin", form: ["tablet", "injection"] },
+    { name: "Multivitamin", category: "vitamin", form: ["tablet", "capsule", "liquid"] },
+    { name: "Iron Supplement", category: "vitamin", form: ["tablet", "liquid"] },
+    
+    // Additional categories
+    { name: "Chloroquine", category: "antimalarial", form: ["tablet"] },
+    { name: "Mefloquine", category: "antimalarial", form: ["tablet"] },
+    { name: "Atovaquone", category: "antimalarial", form: ["tablet", "suspension"] },
+    
+    { name: "Terbinafine", category: "antifungal", form: ["tablet", "cream"] },
+    { name: "Ketoconazole", category: "antifungal", form: ["tablet", "cream", "shampoo"] },
+    { name: "Nystatin", category: "antifungal", form: ["cream", "powder", "suspension"] },
+    
+    { name: "Olanzapine", category: "antipsychotic", form: ["tablet", "orally_disintegrating_tablet"] },
+    { name: "Quetiapine", category: "antipsychotic", form: ["tablet", "extended_release_tablet"] },
+    { name: "Aripiprazole", category: "antipsychotic", form: ["tablet", "solution"] },
+    
+    { name: "Metoclopramide", category: "antiemetic", form: ["tablet", "solution", "injection"] },
+    { name: "Prochlorperazine", category: "antiemetic", form: ["tablet", "suppository"] },
+    
+    { name: "Lamotrigine", category: "antiepileptic", form: ["tablet", "chewable_tablet"] },
+    { name: "Levetiracetam", category: "antiepileptic", form: ["tablet", "solution", "injection"] },
+    { name: "Valproic Acid", category: "antiepileptic", form: ["tablet", "capsule", "liquid"] },
+    
+    { name: "Estradiol", category: "hormonal", form: ["tablet", "patch", "gel"] },
+    { name: "Progesterone", category: "hormonal", form: ["capsule", "gel", "suppository"] },
+    { name: "Testosterone", category: "hormonal", form: ["gel", "injection", "patch"] },
+    
+    { name: "Mycophenolate", category: "immunosuppressant", form: ["tablet", "capsule", "suspension"] },
+    { name: "Tacrolimus", category: "immunosuppressant", form: ["capsule", "solution", "ointment"] },
+    
+    { name: "Baclofen", category: "muscle_relaxant", form: ["tablet"] },
+    { name: "Cyclobenzaprine", category: "muscle_relaxant", form: ["tablet"] },
+    
+    { name: "Latanoprost", category: "ophthalmologic", form: ["drops"] },
+    { name: "Timolol", category: "ophthalmologic", form: ["drops", "gel"] },
+    
+    { name: "Alendronate", category: "osteoporosis", form: ["tablet"] },
+    { name: "Denosumab", category: "osteoporosis", form: ["injection"] },
+    
+    { name: "Hydrocortisone", category: "dermatological", form: ["cream", "ointment", "lotion"] },
+    { name: "Tretinoin", category: "dermatological", form: ["cream", "gel"] },
+    
+    { name: "Digoxin", category: "cardiovascular", form: ["tablet", "solution"] },
+    { name: "Amiodarone", category: "cardiovascular", form: ["tablet", "injection"] },
+    
+    { name: "Furosemide", category: "diuretic", form: ["tablet", "solution", "injection"] },
+    { name: "Hydrochlorothiazide", category: "diuretic", form: ["tablet"] },
+    
+    { name: "Atorvastatin", category: "lipid_lowering", form: ["tablet"] },
+    { name: "Rosuvastatin", category: "lipid_lowering", form: ["tablet"] },
+    
+    { name: "Mebendazole", category: "antiparasitic", form: ["tablet", "suspension"] },
+    { name: "Metronidazole", category: "antiparasitic", form: ["tablet", "cream", "gel"] },
+    
+    { name: "Influenza Vaccine", category: "vaccines", form: ["injection"] },
+    { name: "Tetanus Vaccine", category: "vaccines", form: ["injection"] }
   ];
   
   const commonDescriptions = [
@@ -331,8 +485,123 @@ function generateMedicationDatabase(): Medication[] {
     "Certain cardiovascular conditions", "Specific genetic disorders"
   ];
 
-  // Generate additional medications to reach 100+
-  for (let i = 0; i < 90; i++) {
+  // Add additional medication data for specific categories
+  const specificMedications = [
+    { 
+      id: "chloroquine",
+      name: "Chloroquine", 
+      category: "antimalarial",
+      description: "An antimalarial medication also used to treat lupus and rheumatoid arthritis.", 
+      form: ["tablet"],
+      dosage: "Adult: 500mg once a week for malaria prevention. Treatment doses vary by condition.",
+      interactions: ["Antacids", "Cimetidine", "QT-prolonging drugs"],
+      sideEffectsCommon: ["Headache", "Nausea", "Diarrhea", "Loss of appetite"],
+      sideEffectsSerious: ["Vision changes", "Hearing problems", "Muscle weakness", "Heart rhythm problems"],
+      contraindications: ["Retinal or visual field changes", "QT interval prolongation", "G6PD deficiency"],
+      warnings: ["Regular eye exams recommended", "May cause heart rhythm problems"]
+    },
+    { 
+      id: "fluconazole",
+      name: "Fluconazole", 
+      category: "antifungal",
+      description: "An antifungal medication used to treat a variety of fungal infections including yeast infections, thrush, and cryptococcal meningitis.", 
+      form: ["tablet", "capsule", "injection", "suspension"],
+      dosage: "150mg as a single dose for vaginal yeast infections. 50-400mg daily for other infections.",
+      interactions: ["Warfarin", "Oral hypoglycemics", "Phenytoin", "Cyclosporine"],
+      sideEffectsCommon: ["Nausea", "Headache", "Stomach pain", "Diarrhea"],
+      sideEffectsSerious: ["Severe skin reactions", "Liver problems", "QT prolongation"],
+      contraindications: ["Hypersensitivity to azole antifungals", "Concomitant terfenadine use", "Pregnancy"],
+      warnings: ["Monitor liver function", "May cause QT interval prolongation"]
+    },
+    { 
+      id: "risperidone",
+      name: "Risperidone", 
+      category: "antipsychotic",
+      description: "An atypical antipsychotic medication used to treat schizophrenia, bipolar disorder, and irritability in people with autism.", 
+      form: ["tablet", "orally_disintegrating_tablet", "liquid", "injection"],
+      dosage: "Initial: 1-2mg/day. Maintenance: 4-6mg/day for schizophrenia.",
+      interactions: ["Other CNS depressants", "Dopamine agonists", "Carbamazepine", "CYP2D6 inhibitors"],
+      sideEffectsCommon: ["Weight gain", "Dizziness", "Fatigue", "Increased appetite", "Dry mouth"],
+      sideEffectsSerious: ["Extrapyramidal symptoms", "Tardive dyskinesia", "Neuroleptic malignant syndrome", "Hyperglycemia"],
+      contraindications: ["Hypersensitivity to risperidone", "Dementia-related psychosis in elderly"],
+      warnings: ["Increased mortality in elderly with dementia", "Orthostatic hypotension", "Metabolic changes"]
+    },
+    { 
+      id: "ondansetron_adv",
+      name: "Ondansetron", 
+      category: "antiemetic",
+      description: "A medication used to prevent nausea and vomiting caused by cancer chemotherapy, radiation therapy, and surgery.", 
+      form: ["tablet", "orally_disintegrating_tablet", "injection", "solution"],
+      dosage: "8mg twice daily for chemotherapy-induced nausea. 16mg single dose for radiation-induced nausea.",
+      interactions: ["Apomorphine", "QT-prolonging medications", "Tramadol", "Serotonergic drugs"],
+      sideEffectsCommon: ["Headache", "Constipation", "Dizziness", "Fatigue"],
+      sideEffectsSerious: ["QT interval prolongation", "Serotonin syndrome", "Hypersensitivity reactions"],
+      contraindications: ["Hypersensitivity to ondansetron", "Congenital long QT syndrome"],
+      warnings: ["ECG monitoring recommended in at-risk patients", "Serotonin syndrome risk with other serotonergic drugs"]
+    },
+    { 
+      id: "carbamazepine",
+      name: "Carbamazepine", 
+      category: "antiepileptic",
+      description: "An anticonvulsant medication used to treat epilepsy, neuropathic pain, and bipolar disorder.", 
+      form: ["tablet", "extended_release_tablet", "suspension"],
+      dosage: "Initial: 100-200mg twice daily. Maintenance: 800-1200mg daily in divided doses.",
+      interactions: ["Numerous significant drug interactions", "Oral contraceptives", "Warfarin", "Other antiepileptics"],
+      sideEffectsCommon: ["Dizziness", "Drowsiness", "Nausea", "Vomiting", "Double vision"],
+      sideEffectsSerious: ["Stevens-Johnson syndrome", "Aplastic anemia", "Agranulocytosis", "SIADH"],
+      contraindications: ["History of bone marrow depression", "MAO inhibitor use within 14 days", "Hypersensitivity"],
+      warnings: ["Blood count monitoring required", "Serious skin reactions", "Suicidal behavior and ideation"]
+    },
+    { 
+      id: "levothyroxine",
+      name: "Levothyroxine", 
+      category: "thyroid",
+      description: "A replacement for thyroid hormone used to treat hypothyroidism and to prevent or treat goiter.", 
+      form: ["tablet", "capsule", "injection"],
+      dosage: "Highly individualized. Usually starts at 25-50mcg daily with gradual adjustments based on TSH levels.",
+      interactions: ["Iron supplements", "Calcium supplements", "Antacids", "Cholestyramine", "Warfarin"],
+      sideEffectsCommon: ["Hair loss", "Weight changes", "Headache", "Nervousness", "Insomnia"],
+      sideEffectsSerious: ["Chest pain", "Rapid or irregular heartbeat", "Shortness of breath", "Allergic reactions"],
+      contraindications: ["Untreated adrenal insufficiency", "Thyrotoxicosis", "Hypersensitivity"],
+      warnings: ["Take on empty stomach", "Monitor TSH levels regularly", "Caution in cardiovascular disease"]
+    },
+    { 
+      id: "cyclosporine",
+      name: "Cyclosporine", 
+      category: "immunosuppressant",
+      description: "An immunosuppressant medication used to prevent rejection in organ transplantation and to treat severe autoimmune conditions.", 
+      form: ["capsule", "solution", "injection"],
+      dosage: "10-15mg/kg/day in divided doses for transplant patients. Dosage varies by condition.",
+      interactions: ["Numerous significant drug interactions", "Grapefruit juice", "St. John's Wort", "Statins"],
+      sideEffectsCommon: ["Kidney problems", "High blood pressure", "Tremor", "Hirsutism", "Gum hyperplasia"],
+      sideEffectsSerious: ["Nephrotoxicity", "Hypertension", "Increased cancer risk", "Neurotoxicity"],
+      contraindications: ["Hypersensitivity", "Uncontrolled hypertension", "Malignancy"],
+      warnings: ["Frequent monitoring of kidney function and blood pressure", "Increased risk of infections and malignancy"]
+    }
+  ];
+  
+  specificMedications.forEach(med => {
+    const medication: Medication = {
+      id: med.id,
+      name: med.name,
+      category: med.category,
+      description: med.description,
+      dosageForm: med.form,
+      dosage: med.dosage,
+      interactions: med.interactions,
+      sideEffects: {
+        common: med.sideEffectsCommon,
+        serious: med.sideEffectsSerious
+      },
+      contraindications: med.contraindications,
+      warnings: med.warnings
+    };
+    
+    allMedications.push(medication);
+  });
+
+  // Generate additional medications to reach 500+
+  for (let i = 0; i < 490; i++) {
     const baseIndex = i % baseMedications.length;
     const baseMed = baseMedications[baseIndex];
     
@@ -411,7 +680,24 @@ const categoryTranslations: Record<string, string> = {
   "corticosteroid": "Corticosteroids",
   "gastrointestinal": "Digestive System Medications",
   "nsaid": "Anti-inflammatory Medications",
-  "vitamin": "Vitamins & Supplements"
+  "vitamin": "Vitamins & Supplements",
+  "antimalarial": "Antimalarial Medications",
+  "antifungal": "Antifungal Medications",
+  "antipsychotic": "Antipsychotic Medications",
+  "antiemetic": "Anti-nausea & Vomiting Medications",
+  "antiepileptic": "Seizure Medications",
+  "hormonal": "Hormonal Medications",
+  "immunosuppressant": "Immunosuppressants",
+  "muscle_relaxant": "Muscle Relaxants",
+  "ophthalmologic": "Eye Medications",
+  "osteoporosis": "Osteoporosis Medications",
+  "dermatological": "Skin Medications",
+  "thyroid": "Thyroid Medications",
+  "cardiovascular": "Heart & Cardiovascular Medications",
+  "diuretic": "Diuretics",
+  "lipid_lowering": "Cholesterol Medications",
+  "antiparasitic": "Antiparasitic Medications",
+  "vaccines": "Vaccines & Immunizations"
 };
 
 export default function Medications() {
