@@ -120,7 +120,7 @@ export default function AboutUs() {
           </div>
         ) : (
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {yearlyReports?.map((report) => (
+            {yearlyReports?.map((report: any) => (
               <div
                 key={report.id}
                 className="bg-white p-4 rounded-md shadow-sm border transition-transform hover:shadow-md hover:-translate-y-1"

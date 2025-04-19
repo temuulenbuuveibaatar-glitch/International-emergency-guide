@@ -1,88 +1,69 @@
-import { Express, Request, Response, NextFunction } from "express";
+import { Express, Request, Response } from "express";
 import { storage } from "../storage";
-import { insertAboutUsSchema, type User } from "@shared/schema";
+import { insertAboutUsSchema } from "../../shared/schema";
 
 export function setupAboutUsRoutes(app: Express) {
-  // Get all published About Us content for public viewing
-  app.get("/api/about-us", async (req, res, next) => {
+  // Get all published About Us content (public)
+  app.get("/api/about-us", async (req: Request, res: Response) => {
     try {
       const content = await storage.getPublishedAboutUsContent();
       res.json(content);
     } catch (err) {
-      next(err);
+      console.error("Error fetching About Us content:", err);
+      res.status(500).json({ message: "Failed to fetch About Us content" });
     }
   });
 
-  // Get a specific About Us content by ID
-  app.get("/api/about-us/:id", async (req, res, next) => {
+  // Get About Us content by ID (public)
+  app.get("/api/about-us/:id", async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid ID format" });
-      }
-
       const content = await storage.getAboutUsById(id);
+      
       if (!content) {
         return res.status(404).json({ message: "Content not found" });
       }
-
-      // Non-staff users can only view published content
-      if (!content.isPublished && (!req.isAuthenticated() || !(req.user as User).isStaff)) {
-        return res.status(403).json({ message: "Access denied" });
-      }
-
+      
       res.json(content);
     } catch (err) {
-      next(err);
+      console.error("Error fetching About Us content:", err);
+      res.status(500).json({ message: "Failed to fetch About Us content" });
     }
   });
 
-  // Staff routes for managing About Us content
-  
-  // Get all About Us content (including unpublished) for staff
-  app.get("/api/staff/about-us", async (req, res, next) => {
+  // Get all About Us content (staff only)
+  app.get("/api/staff/about-us", async (req: Request, res: Response) => {
     try {
       const content = await storage.getAboutUsContent();
       res.json(content);
     } catch (err) {
-      next(err);
+      console.error("Error fetching About Us content:", err);
+      res.status(500).json({ message: "Failed to fetch About Us content" });
     }
   });
 
   // Create new About Us content (staff only)
-  app.post("/api/staff/about-us", async (req, res, next) => {
+  app.post("/api/staff/about-us", async (req: Request, res: Response) => {
     try {
-      const user = req.user as User;
+      // Validate request body
+      const validatedData = insertAboutUsSchema.parse(req.body);
       
-      // Validate content data
-      const parseResult = insertAboutUsSchema.safeParse({
-        ...req.body,
-        lastUpdatedBy: user.id
-      });
+      // Create content
+      const content = await storage.createAboutUs(validatedData);
       
-      if (!parseResult.success) {
-        return res.status(400).json({ 
-          message: "Invalid content data", 
-          errors: parseResult.error.format() 
-        });
-      }
-      
-      const content = await storage.createAboutUs(parseResult.data);
       res.status(201).json(content);
     } catch (err) {
-      next(err);
+      console.error("Error creating About Us content:", err);
+      res.status(400).json({ 
+        message: err instanceof Error ? err.message : "Failed to create About Us content" 
+      });
     }
   });
 
-  // Update existing About Us content (staff only)
-  app.put("/api/staff/about-us/:id", async (req, res, next) => {
+  // Update About Us content (staff only)
+  app.patch("/api/staff/about-us/:id", async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid ID format" });
-      }
-
-      const user = req.user as User;
       
       // Check if content exists
       const existingContent = await storage.getAboutUsById(id);
@@ -90,43 +71,15 @@ export function setupAboutUsRoutes(app: Express) {
         return res.status(404).json({ message: "Content not found" });
       }
       
-      // Update the content with the user's ID as lastUpdatedBy
-      const updatedContent = await storage.updateAboutUs(id, {
-        ...req.body,
-        lastUpdatedBy: user.id
-      });
+      // Validate and update
+      const updatedContent = await storage.updateAboutUs(id, req.body);
       
       res.json(updatedContent);
     } catch (err) {
-      next(err);
-    }
-  });
-
-  // Toggle publish status (staff only)
-  app.patch("/api/staff/about-us/:id/publish", async (req, res, next) => {
-    try {
-      const id = parseInt(req.params.id);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid ID format" });
-      }
-
-      const user = req.user as User;
-      
-      // Check if content exists
-      const existingContent = await storage.getAboutUsById(id);
-      if (!existingContent) {
-        return res.status(404).json({ message: "Content not found" });
-      }
-      
-      // Toggle the publish status
-      const updatedContent = await storage.updateAboutUs(id, {
-        isPublished: !existingContent.isPublished,
-        lastUpdatedBy: user.id
+      console.error("Error updating About Us content:", err);
+      res.status(400).json({ 
+        message: err instanceof Error ? err.message : "Failed to update About Us content" 
       });
-      
-      res.json(updatedContent);
-    } catch (err) {
-      next(err);
     }
   });
 }

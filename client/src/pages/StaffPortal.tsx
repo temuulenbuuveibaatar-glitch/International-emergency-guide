@@ -56,12 +56,12 @@ export default function StaffPortal() {
   
   // If not authenticated or not staff, redirect to home
   if (!user) {
-    navigate("/auth");
+    setLocation("/auth");
     return null;
   }
   
   if (!user.isStaff) {
-    navigate("/");
+    setLocation("/");
     return null;
   }
 
@@ -359,7 +359,7 @@ export default function StaffPortal() {
                   </div>
                 ) : (
                   <ul className="space-y-2">
-                    {yearlyReports?.map((report) => (
+                    {yearlyReports?.map((report: any) => (
                       <li
                         key={report.id}
                         className="p-3 border rounded-md hover:bg-gray-50"
@@ -508,7 +508,7 @@ export default function StaffPortal() {
                   </div>
                 ) : (
                   <ul className="space-y-2">
-                    {aboutUsContent?.map((item) => (
+                    {aboutUsContent?.map((item: any) => (
                       <li
                         key={item.id}
                         className="p-3 border rounded-md hover:bg-gray-50"
