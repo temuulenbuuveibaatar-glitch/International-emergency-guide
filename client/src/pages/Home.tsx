@@ -98,10 +98,10 @@ export default function Home() {
           
           <div className="mt-8 text-center">
             <Link href="/emergency">
-              <a className="bg-primary hover:bg-[#C41C2D] text-white px-6 py-3 rounded-md font-medium transition duration-200 inline-flex items-center gap-2">
+              <div className="bg-primary hover:bg-[#C41C2D] text-white px-6 py-3 rounded-md font-medium transition duration-200 inline-flex items-center gap-2 cursor-pointer">
                 <span>{t('protocols.viewAll')}</span>
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </div>
             </Link>
           </div>
         </div>

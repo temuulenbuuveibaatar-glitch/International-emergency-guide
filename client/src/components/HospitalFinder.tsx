@@ -681,10 +681,18 @@ export default function HospitalFinder() {
   const handleCountryChange = (country: string) => {
     setSelectedCountry(country);
     const countryCenter = countryCenters[country as keyof typeof countryCenters];
-    if (countryCenter && mapRef.current) {
+    
+    // Always search for hospitals even if map is not available
+    if (countryCenter) {
       setMapCenter(countryCenter);
-      mapRef.current.panTo(countryCenter);
-      mapRef.current.setZoom(5); // Zoom out to see the whole country
+      
+      // Only manipulate map if it's available
+      if (mapRef.current) {
+        mapRef.current.panTo(countryCenter);
+        mapRef.current.setZoom(5); // Zoom out to see the whole country
+      }
+      
+      // Always search for hospitals regardless of map status
       searchNearbyHospitals(countryCenter, country);
     }
   };

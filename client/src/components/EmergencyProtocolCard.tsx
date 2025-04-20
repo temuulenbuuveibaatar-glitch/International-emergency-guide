@@ -19,10 +19,10 @@ export default function EmergencyProtocolCard({ id, title, description }: Emerge
       <div className="p-4">
         <p className="text-sm text-gray-600 mb-4">{description}</p>
         <Link href={`/emergency/${id}`}>
-          <a className="text-[#004A9F] hover:text-[#0064D6] font-medium inline-flex items-center">
+          <div className="text-[#004A9F] hover:text-[#0064D6] font-medium inline-flex items-center cursor-pointer">
             <span>{t('protocols.viewDetails')}</span>
             <ChevronRight className="w-4 h-4 ml-1" />
-          </a>
+          </div>
         </Link>
       </div>
     </div>
