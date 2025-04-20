@@ -160,7 +160,7 @@ const getProtocolById = (id: string): Protocol | null => {
     "burns": {
       id: "burns",
       title: "Burn Treatment",
-      description: "First aid for different types and degrees of burns.",
+      description: "Comprehensive treatment guide for different types and degrees of burns, including blister management.",
       steps: [
         {
           title: "Ensure Safety",
@@ -168,46 +168,63 @@ const getProtocolById = (id: string): Protocol | null => {
         },
         {
           title: "Determine Burn Severity",
-          description: "First-degree burns: Redness, minor swelling, pain (like sunburn). Second-degree burns: Blisters, severe redness, pain. Third-degree burns: White or charred appearance, possible lack of pain due to nerve damage.",
+          description: "First-degree burns: Redness, minor swelling, pain (like sunburn). Second-degree burns: Blisters, severe redness, pain, wet appearance. Third-degree burns: White, brown or charred appearance, leathery texture, possible lack of pain due to nerve damage.",
           important: true
         },
         {
           title: "Call for Emergency Help",
-          description: "For chemical burns, large burns, third-degree burns, burns on the face/hands/feet/genitals, or if the victim is very young or elderly, call emergency services (103 in Mongolia) immediately.",
+          description: "For chemical burns, large burns (larger than 3 inches), third-degree burns, burns on the face/hands/feet/genitals, burns that encircle a limb, or if the victim is very young or elderly, call emergency services (103 in Mongolia) immediately.",
           important: true
         },
         {
           title: "Cool the Burn",
-          description: "For first and second-degree burns, run cool (not cold) water over the area for 10-15 minutes. Do NOT use ice, as this can further damage the tissue."
+          description: "For first and second-degree burns, run cool (not cold) water over the area for 10-15 minutes. Do NOT use ice, as this can further damage the tissue. After cooling, you can apply a cool, wet compress."
         },
         {
           title: "Remove Constrictive Items",
-          description: "Carefully remove rings, watches, belts, or tight clothing from the burned area before swelling occurs."
+          description: "Carefully remove rings, watches, belts, or tight clothing from the burned area before swelling occurs. Never remove clothing that is stuck to the burn."
+        },
+        {
+          title: "Blister Management",
+          description: "Do not break or pop blisters, as they protect against infection. If blisters break on their own, clean the area gently with mild soap and water, apply an antibiotic ointment (like Bacitracin or Polysporin), and cover with a sterile bandage. Change the dressing daily and monitor closely for signs of infection.",
+          important: true
         },
         {
           title: "Apply Appropriate Covering",
-          description: "Once cooled, cover the burn with a sterile, non-stick bandage or clean cloth. Do not apply fluffy cotton or materials that may shed fibers and stick to the burn."
+          description: "Once cooled, cover the burn with a sterile, non-stick bandage or clean cloth. For blistered burns, apply a thin layer of antibiotic ointment before bandaging. Use non-adhesive bandages or gauze secured with medical tape outside the wound area. Never use fluffy cotton or materials that may shed fibers and stick to the burn."
+        },
+        {
+          title: "Burn Dressing Changes",
+          description: "Change dressings daily or whenever they become wet or soiled. Gently wash the burn with mild soap and water before applying new dressing. If the bandage sticks to the wound, soak it in cool water to loosen it before removal."
         },
         {
           title: "Manage Pain",
-          description: "Over-the-counter pain relievers like ibuprofen or acetaminophen can help reduce pain and inflammation."
+          description: "Over-the-counter pain relievers like ibuprofen or acetaminophen can help reduce pain and inflammation. For more severe pain, particularly with second-degree burns, consult a healthcare provider for appropriate pain management."
         },
         {
           title: "Monitor for Infection",
-          description: "Watch for signs of infection such as increased pain, redness, swelling, oozing, or fever."
+          description: "Watch for signs of infection such as increased pain, redness, swelling, oozing, foul smell, fever, or red streaking from the burn area. Infected burns require immediate medical attention."
+        },
+        {
+          title: "Follow-up Care",
+          description: "Seek medical attention if the burn doesn't show improvement within 2 weeks, if infection develops, or if there's significant scarring. Continue to protect healed burns from sun exposure with clothing or sunscreen for at least 1 year."
         }
       ],
       warnings: [
-        "Do NOT apply butter, oil, ice, or cotton balls to burns.",
-        "Do NOT break blisters, as this increases risk of infection.",
+        "Do NOT apply butter, oil, toothpaste, egg whites, ice, or cotton balls to burns.",
+        "Do NOT break blisters intentionally, as this increases risk of infection and slows healing.",
         "Do NOT use cold water or ice for large burns, as this can cause hypothermia.",
-        "Chemical burns require continuous water flushing for at least 20 minutes."
+        "Do NOT apply pressure to burn areas or tape directly over burns.",
+        "Chemical burns require continuous water flushing for at least 20 minutes.",
+        "Seek immediate medical attention for third-degree burns, chemical burns, electrical burns, or large second-degree burns."
       ],
       notes: [
-        "For chemical burns: Remove contaminated clothing and flush with running water for at least 20 minutes.",
-        "For electrical burns: Check for entry and exit wounds, as internal damage may be worse than visible burns.",
-        "For sunburn: Apply aloe vera gel and drink extra water to prevent dehydration.",
-        "Minor first-degree burns typically heal within a week without medical treatment."
+        "For chemical burns: Remove contaminated clothing using gloves and flush with running water for at least 20 minutes. Do not attempt to neutralize chemicals unless specifically instructed by poison control.",
+        "For electrical burns: Check for both entry and exit wounds, as internal damage may be much worse than visible burns. These burns always require medical evaluation due to risk of internal damage.",
+        "For sunburn: Apply aloe vera gel and drink extra water to prevent dehydration. For severe sunburn with blisters, treat as a second-degree burn.",
+        "For burn blisters: Small blisters (less than 1/2 inch) may be left intact and protected. Larger blisters may need medical evaluation.",
+        "The healing time varies by burn depth: first-degree burns typically heal within a week, second-degree burns may take 2-3 weeks, and third-degree burns require medical treatment and may need skin grafting.",
+        "Keeping burns properly moisturized after the initial cooling period can help reduce scarring. Medical-grade silicone gel sheets may be recommended for scar management once the burn has fully healed."
       ]
     },
     "heart-attack": {
@@ -682,55 +699,72 @@ const getProtocolById = (id: string): Protocol | null => {
     "diabetic": {
       id: "diabetic",
       title: "Diabetic Emergencies",
-      description: "Managing hypoglycemia, hyperglycemia, and diabetic ketoacidosis emergencies.",
+      description: "Comprehensive guide for managing hypoglycemia, hyperglycemia, diabetic ketoacidosis (DKA), and hyperosmolar hyperglycemic state (HHS) emergencies.",
       steps: [
         {
           title: "Recognize Type of Emergency",
-          description: "Hypoglycemia (low blood sugar): sudden onset, confusion, shakiness, sweating, hunger, irritability, pale skin, heart racing, weakness, anxiety. Hyperglycemia (high blood sugar): develops over hours/days, extreme thirst, frequent urination, fatigue, dry mouth, blurred vision, fruity breath odor (ketoacidosis).",
+          description: "Hypoglycemia (low blood sugar, <70 mg/dL or 3.9 mmol/L): sudden onset, confusion, shakiness, sweating, hunger, irritability, pale skin, heart racing, weakness, anxiety, headache, blurred vision, slurred speech, seizures, loss of consciousness. Hyperglycemia (high blood sugar, >180 mg/dL or 10 mmol/L): develops over hours/days, extreme thirst, frequent urination, fatigue, dry mouth, blurred vision, headache, nausea/vomiting. DKA (primarily in Type 1): fruity breath odor, deep labored breathing, abdominal pain, confusion. HHS (primarily in Type 2): extreme dehydration, confusion, seizures, focal neurological deficits.",
           important: true
         },
         {
           title: "Check Blood Glucose If Possible",
-          description: "If a blood glucose meter is available and the person or someone present knows how to use it, check the blood sugar level to confirm the condition."
+          description: "If a blood glucose meter is available and the person or someone present knows how to use it, check the blood sugar level to confirm the condition. For suspected ketoacidosis, check for ketones in urine if ketone test strips are available."
         },
         {
-          title: "For Hypoglycemia (Low Blood Sugar)",
-          description: "If the person is conscious and able to swallow, give 15-20 grams of fast-acting carbohydrates: 4 glucose tablets, 1/2 cup fruit juice or regular soda, 1 tablespoon honey or syrup, or several pieces of hard candy. Wait 15 minutes and recheck blood sugar if possible. Repeat treatment if blood sugar remains low.",
+          title: "For Mild to Moderate Hypoglycemia",
+          description: "If the person is conscious, alert, and able to swallow safely, give 15-20 grams of fast-acting carbohydrates: 4 glucose tablets, 1/2 cup (4 oz) fruit juice or regular soda, 1 tablespoon honey or syrup, 8-10 small candies (like jelly beans), or 1 tube of glucose gel. Wait 15 minutes and recheck blood sugar if possible. If still below 70 mg/dL (3.9 mmol/L), repeat treatment. Once blood sugar is normal, provide a small snack with protein if the next meal is more than an hour away.",
           important: true
         },
         {
           title: "For Severe Hypoglycemia",
-          description: "If the person is unconscious or unable to swallow safely, do not give anything by mouth. Call emergency services (103 in Mongolia) immediately. If available and you are trained, administer glucagon as directed in their emergency kit."
+          description: "If the person is unconscious, having seizures, or unable to swallow safely, do not give anything by mouth. Call emergency services (103 in Mongolia) immediately. If available and you are trained, administer glucagon via injection (glucagon emergency kit) or nasal spray (Baqsimi) according to package directions. Place in recovery position if unconscious but breathing. Stay with them until emergency help arrives.",
+          important: true
         },
         {
-          title: "For Hyperglycemia (High Blood Sugar)",
-          description: "Have the person drink water (if conscious and not nauseated) to prevent dehydration. Do not attempt to administer insulin unless you are the person's caregiver and have clear instructions."
+          title: "For Hyperglycemia",
+          description: "Have the person drink water (if conscious and not nauseated) to prevent dehydration - aim for 8-16 oz (240-480 mL) per hour if possible. Do not attempt to administer insulin unless you are the person's caregiver and have clear instructions. Help them test their blood sugar if equipment is available. If the person uses insulin and has missed a dose, help them follow their prescribed regimen if they are able to direct you."
+        },
+        {
+          title: "For Diabetic Ketoacidosis (DKA) or Hyperosmolar Hyperglycemic State (HHS)",
+          description: "These are medical emergencies requiring immediate hospitalization. Call emergency services (103 in Mongolia) immediately. Do not attempt to treat at home. Signs of DKA include fruity breath odor, deep labored breathing (Kussmaul breathing), abdominal pain, confusion, and dehydration. Signs of HHS include extreme thirst, confusion, weakness, and may progress to seizures or coma. Keep the person hydrated with water if conscious and able to drink while awaiting emergency services.",
+          important: true
         },
         {
           title: "Call Emergency Services",
-          description: "Call 103 (Mongolia) immediately if: the person is unconscious or extremely disoriented, unable to eat or drink, has severe symptoms, blood sugar remains extremely high, ketoacidosis is suspected (fruity breath odor), or condition doesn't improve quickly with treatment.",
+          description: "Call 103 (Mongolia) immediately if: the person is unconscious or extremely disoriented, unable to eat or drink, having seizures, has severe symptoms, blood sugar remains extremely high (>250 mg/dL or 13.9 mmol/L) with symptoms, ketoacidosis is suspected (fruity breath odor), the person is pregnant, elderly, or has other chronic conditions, or condition doesn't improve quickly with treatment.",
           important: true
         },
         {
           title: "Position the Person",
-          description: "If unconscious but breathing, place in the recovery position (on their side). If not breathing normally, begin CPR if trained."
+          description: "If unconscious but breathing, place in the recovery position (on their side) to prevent choking if vomiting occurs. If not breathing normally, begin CPR if trained."
+        },
+        {
+          title: "Monitor and Reassess",
+          description: "After treatment, continue to monitor the person's condition. For hypoglycemia, symptoms should improve within 10-15 minutes of consuming sugar. For hyperglycemia, improvement may take longer. Be prepared to seek emergency care if the person's condition worsens or does not improve."
         },
         {
           title: "Document and Communicate",
-          description: "Note the time and type of symptoms, treatments given, and any blood sugar readings to report to emergency responders."
+          description: "Note the time and type of symptoms, treatments given, blood sugar readings, and any known medications the person takes. Report this information to emergency responders. If the person has an insulin pump, inform medical personnel."
         }
       ],
       warnings: [
         "Never give food or drink to someone who is unconscious or unable to swallow safely.",
-        "Do not attempt to give insulin to someone with low blood sugar - this will make the situation worse.",
+        "Do not attempt to give insulin to someone with low blood sugar - this will make the situation worse and can be fatal.",
         "Do not exercise or leave alone a person experiencing a diabetic emergency.",
-        "If unsure whether blood sugar is high or low, treat for low blood sugar first, as this is more immediately dangerous."
+        "If unsure whether blood sugar is high or low, treat for low blood sugar first, as this is more immediately dangerous.",
+        "Do not delay seeking medical help for DKA or HHS - these conditions are life-threatening.",
+        "Some diabetes medications, particularly sulfonylureas and insulin, can cause prolonged hypoglycemia that may recur after initial treatment."
       ],
       notes: [
-        "The person may have a medical ID bracelet, necklace, or card indicating they have diabetes.",
-        "Many people with diabetes carry glucose tablets, gel, or other emergency sugar sources.",
-        "Diabetic ketoacidosis (DKA) is a life-threatening condition, usually developing in type 1 diabetes, requiring immediate medical care.",
-        "Hypoglycemia can sometimes resemble intoxication or stroke - check for medical ID if you encounter a disoriented person."
+        "The person may have a medical ID bracelet, necklace, or card indicating they have diabetes. Check for this information.",
+        "Many people with diabetes carry glucose tablets, gel, or other emergency sugar sources. Check their pockets, purse, or backpack.",
+        "Continuous glucose monitors (CGMs) may be worn on the arm or abdomen and can provide current glucose readings and trends.",
+        "Insulin pumps deliver continuous insulin and are typically worn on the belt, in a pocket, or attached to clothing with tubing connected to the body.",
+        "Diabetic ketoacidosis (DKA) is a life-threatening condition usually developing in type 1 diabetes. It can develop within hours and requires immediate medical care.",
+        "Hyperosmolar hyperglycemic state (HHS) typically occurs in type 2 diabetes, develops more slowly than DKA, and has a higher mortality rate.",
+        "Hypoglycemia can sometimes resemble intoxication or stroke - check for medical ID if you encounter a disoriented person.",
+        "People with long-standing diabetes may have impaired awareness of hypoglycemia and not recognize when their blood sugar is dangerously low.",
+        "For people taking SGLT2 inhibitors (medications ending in '-flozin'), DKA can occur even with only mildly elevated blood glucose levels."
       ]
     },
     "chest-pain": {
