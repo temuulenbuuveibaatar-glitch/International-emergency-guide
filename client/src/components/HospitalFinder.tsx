@@ -32,6 +32,7 @@ export default function HospitalFinder() {
   const [selectedCountry, setSelectedCountry] = useState<string>("Mongolia");
   const mapRef = useRef<google.maps.Map | null>(null);
   
+  // We'll continue to use the Google Maps API, but we'll also provide a fallback
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
     libraries: ["places"],

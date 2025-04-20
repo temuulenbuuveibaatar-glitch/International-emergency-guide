@@ -18,9 +18,9 @@ export default function Navigation({ isMobileMenuOpen }: NavigationProps) {
               key={item.path} 
               href={item.path}
             >
-              <a className="text-white text-sm font-medium hover:text-gray-200">
+              <div className="text-white text-sm font-medium hover:text-gray-200 cursor-pointer">
                 {t(`nav.${item.key}`)}
-              </a>
+              </div>
             </Link>
           ))}
         </div>
