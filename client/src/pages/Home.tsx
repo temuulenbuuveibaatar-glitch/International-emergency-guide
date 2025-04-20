@@ -28,16 +28,16 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4 mt-6">
                 <Link href="/emergency">
-                  <a className="bg-primary hover:bg-[#C41C2D] text-white px-6 py-3 rounded-md font-medium transition duration-200 inline-flex items-center gap-2">
+                  <div className="bg-primary hover:bg-[#C41C2D] text-white px-6 py-3 rounded-md font-medium transition duration-200 inline-flex items-center gap-2 cursor-pointer">
                     <Flame className="w-5 h-5" />
                     <span>{t('home.emergencyButton')}</span>
-                  </a>
+                  </div>
                 </Link>
                 <Link href="/hospitals">
-                  <a className="bg-[#004A9F] hover:bg-[#0064D6] text-white px-6 py-3 rounded-md font-medium transition duration-200 inline-flex items-center gap-2">
+                  <div className="bg-[#004A9F] hover:bg-[#0064D6] text-white px-6 py-3 rounded-md font-medium transition duration-200 inline-flex items-center gap-2 cursor-pointer">
                     <MapPin className="w-5 h-5" />
                     <span>{t('home.findHospital')}</span>
-                  </a>
+                  </div>
                 </Link>
               </div>
             </div>

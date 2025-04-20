@@ -799,8 +799,15 @@ export default function HospitalFinder() {
     mapRef.current?.panTo(hospital.position);
   };
 
-  if (loadError) return <div>Error loading maps</div>;
-  if (!isLoaded) return <div>Loading...</div>;
+  // Initialize hospitals for the default country even if the map doesn't load
+  // We'll now handle the load error more gracefully
+  if (!isLoaded && hospitals.length === 0) {
+    // If the map isn't loaded yet and we don't have any hospitals displayed,
+    // let's pre-populate hospitals for the default country
+    const defaultCountry = "Mongolia";
+    const countryCenter = countryCenters[defaultCountry];
+    searchNearbyHospitals(countryCenter, defaultCountry);
+  }
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -873,40 +880,58 @@ export default function HospitalFinder() {
       <div className="grid md:grid-cols-5">
         {/* Map Container */}
         <div className="md:col-span-3 h-96 bg-gray-100 relative">
-          <GoogleMap
-            mapContainerStyle={mapContainerStyle}
-            center={mapCenter}
-            zoom={14}
-            onLoad={onMapLoad}
-          >
-            {hospitals.map((hospital) => (
-              <Marker
-                key={hospital.id}
-                position={hospital.position}
-                onClick={() => selectHospital(hospital)}
-              />
-            ))}
-            
-            {selectedHospital && (
-              <InfoWindow
-                position={selectedHospital.position}
-                onCloseClick={() => setSelectedHospital(null)}
-              >
-                <div>
-                  <h3 className="font-medium">{selectedHospital.name}</h3>
-                  <p className="text-sm">{selectedHospital.address}</p>
-                  <p className="text-sm mt-1">
-                    <a
-                      href={`tel:${selectedHospital.phone}`}
-                      className="text-primary"
-                    >
-                      {selectedHospital.phone}
-                    </a>
-                  </p>
-                </div>
-              </InfoWindow>
-            )}
-          </GoogleMap>
+          {loadError ? (
+            <div className="h-full flex flex-col items-center justify-center p-4 bg-gray-100">
+              <div className="bg-white p-4 rounded-lg shadow-md max-w-md text-center">
+                <h3 className="text-lg font-medium text-gray-800 mb-2">{t('hospitals.mapLoadError')}</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {t('hospitals.usingListOnly')}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {t('hospitals.apiKeyRequired')}
+                </p>
+              </div>
+            </div>
+          ) : !isLoaded ? (
+            <div className="h-full flex items-center justify-center bg-gray-100">
+              <div className="spinner border-4 border-t-4 border-gray-200 border-t-primary rounded-full w-12 h-12 animate-spin"></div>
+            </div>
+          ) : (
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              center={mapCenter}
+              zoom={14}
+              onLoad={onMapLoad}
+            >
+              {hospitals.map((hospital) => (
+                <Marker
+                  key={hospital.id}
+                  position={hospital.position}
+                  onClick={() => selectHospital(hospital)}
+                />
+              ))}
+              
+              {selectedHospital && (
+                <InfoWindow
+                  position={selectedHospital.position}
+                  onCloseClick={() => setSelectedHospital(null)}
+                >
+                  <div>
+                    <h3 className="font-medium">{selectedHospital.name}</h3>
+                    <p className="text-sm">{selectedHospital.address}</p>
+                    <p className="text-sm mt-1">
+                      <a
+                        href={`tel:${selectedHospital.phone}`}
+                        className="text-primary"
+                      >
+                        {selectedHospital.phone}
+                      </a>
+                    </p>
+                  </div>
+                </InfoWindow>
+              )}
+            </GoogleMap>
+          )}
           
           {/* Geolocation Button */}
           <button 
