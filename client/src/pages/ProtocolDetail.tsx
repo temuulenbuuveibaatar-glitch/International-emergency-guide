@@ -433,105 +433,140 @@ const getProtocolById = (id: string): Protocol | null => {
     "anaphylaxis": {
       id: "anaphylaxis",
       title: "Anaphylactic Shock",
-      description: "Responding to severe allergic reactions and using epinephrine auto-injectors.",
+      description: "Advanced protocol for recognizing and responding to severe allergic reactions and anaphylaxis, including proper administration of epinephrine auto-injectors.",
       steps: [
         {
           title: "Recognize Anaphylaxis Symptoms",
-          description: "Watch for hives/rash, swelling of face/lips/throat, difficulty breathing, wheezing, persistent cough, tightness in throat, hoarse voice, nausea/vomiting, abdominal pain, dizziness, rapid heartbeat, or loss of consciousness. Symptoms usually appear within minutes to 2 hours after exposure to an allergen.",
+          description: "Anaphylaxis typically affects multiple body systems simultaneously. Watch for: SKIN: widespread hives, redness, itching, swelling (especially face/lips/tongue); RESPIRATORY: difficulty breathing, wheezing, stridor, persistent cough, tightness in throat, hoarse voice, nasal congestion; CARDIOVASCULAR: dizziness, fainting, low blood pressure (hypotension), rapid heartbeat (tachycardia), chest pain, blue-tinged skin (cyanosis); GASTROINTESTINAL: nausea, vomiting, diarrhea, abdominal cramps; NEUROLOGICAL: anxiety, confusion, sense of doom, loss of consciousness. Symptoms usually develop rapidly within minutes to 2 hours after exposure.",
           important: true
         },
         {
-          title: "Call Emergency Services",
-          description: "Call 103 (Mongolia) immediately. Anaphylaxis is life-threatening and requires emergency medical care.",
+          title: "Assess Severity and Call Emergency Services",
+          description: "Anaphylaxis is likely if there is rapid onset of symptoms affecting multiple body systems, especially with respiratory or cardiovascular involvement, following exposure to a known or suspected allergen. Call 103 (Mongolia) immediately. Do not wait to see if mild symptoms resolve - anaphylaxis can progress rapidly and is potentially fatal.",
           important: true
         },
         {
           title: "Administer Epinephrine If Available",
-          description: "If the person has an epinephrine auto-injector (EpiPen, Auvi-Q, etc.), help them use it or administer it yourself if they cannot. Inject into the middle of the outer thigh and hold for 3 seconds. The injection can be done through clothing if necessary.",
+          description: "Epinephrine (adrenaline) is the first-line, life-saving treatment for anaphylaxis. If the person has an auto-injector (EpiPen, Auvi-Q, Jext, Emerade, etc.), help them use it or administer it yourself if they cannot. Remove safety cap, place the injector firmly against the outer middle thigh at a 90-degree angle, and push until it clicks. Hold for 3-10 seconds (depending on manufacturer instructions). The injection can be done through clothing. Auto-injectors deliver a fixed dose: 0.3mg for adults/children >30kg, or 0.15mg for children 15-30kg.",
           important: true
         },
         {
-          title: "Position the Person",
-          description: "Have them lie flat on their back with legs elevated, unless they are having trouble breathing, in which case have them sit up. If they are vomiting or unconscious, place them on their side in the recovery position."
+          title: "Note the Time and Position the Person",
+          description: "Note the exact time of epinephrine administration. Have the person lie flat with legs elevated to improve blood flow to vital organs, unless they are having trouble breathing or vomiting, in which case have them sit up or lie on their side (recovery position) to prevent aspiration. If they are pregnant, position them on their left side with a slight tilt to the right to prevent compression of the vena cava."
         },
         {
           title: "Remove the Allergen If Possible",
-          description: "If the reaction is from a bee sting, remove the stinger by scraping it with a card (don't use tweezers). If it's from food or medication, stop consumption immediately."
+          description: "If the reaction is from a bee/wasp sting, gently remove the stinger by scraping horizontally with a firm edge like a credit card (don't use tweezers or pinch as this may inject more venom). For food allergens, have the person rinse their mouth and spit out any remaining food but do not induce vomiting. For contact allergens, remove contaminated clothing and rinse skin with water."
+        },
+        {
+          title: "Monitor Vital Signs",
+          description: "Continuously monitor breathing, pulse, blood pressure (if equipment available), and level of consciousness while waiting for emergency services. Normal vital signs: adults - respiratory rate 12-20/min, heart rate 60-100/min, systolic BP >90mmHg; children - rates vary by age. Document changes for medical personnel."
         },
         {
           title: "Administer Second Dose If Needed",
-          description: "If symptoms don't improve within 5-15 minutes after the first dose of epinephrine and emergency responders haven't arrived, administer a second dose if available."
+          description: "Epinephrine's effects typically last 10-20 minutes. If symptoms don't improve or worsen within 5-15 minutes after the first dose and emergency responders haven't arrived, administer a second dose if available. Up to 30% of anaphylaxis cases require multiple doses of epinephrine."
+        },
+        {
+          title: "Administer Secondary Medications If Prescribed",
+          description: "After epinephrine, if the person has prescribed antihistamines or asthma medications and can swallow safely, these may be given as secondary treatments. Note that these are NOT substitutes for epinephrine and should never delay epinephrine administration."
         },
         {
           title: "Provide CPR If Necessary",
-          description: "If the person becomes unresponsive and stops breathing normally, begin CPR if you're trained."
+          description: "If the person becomes unresponsive and stops breathing normally or has no pulse, begin CPR immediately. For anaphylaxis victims, high-quality chest compressions are critical as circulation may be severely compromised by vasodilation and fluid leakage from blood vessels."
         },
         {
-          title: "Report to Emergency Responders",
-          description: "Tell emergency responders about the allergic reaction, any known allergens, symptoms observed, and any medications administered (including the time of administration)."
+          title: "Prepare for Advanced Medical Care",
+          description: "Emergency responders may administer additional medications such as IV epinephrine, antihistamines, corticosteroids, bronchodilators, vasopressors, and IV fluids. Gather information about the allergic trigger, timing of exposure, symptoms progression, and any medications already administered to report to medical personnel."
         }
       ],
       warnings: [
-        "Never delay administering epinephrine or calling emergency services if anaphylaxis is suspected.",
-        "Do not have the person stand or walk, even if they appear to be recovering.",
-        "Don't give oral medications for an allergic reaction if the person is having difficulty breathing or swallowing."
+        "Never delay administering epinephrine or calling emergency services if anaphylaxis is suspected - minutes matter and can mean the difference between life and death.",
+        "Do not have the person stand, walk, or exert themselves, even if they appear to be recovering, as this can worsen shock and cause sudden collapse.",
+        "Don't give oral medications for an allergic reaction if the person is having difficulty breathing, swallowing, or showing signs of shock.",
+        "Non-sedating antihistamines (like cetirizine) are preferred over sedating ones (like diphenhydramine/Benadryl) for anaphylaxis as they don't mask symptoms of deterioration.",
+        "Asthma inhalers (bronchodilators) may help with breathing difficulties but are NOT a substitute for epinephrine in anaphylaxis.",
+        "Beta-blocker medications can reduce the effectiveness of epinephrine - inform emergency personnel if the person takes these medications."
       ],
       notes: [
-        "Common triggers for anaphylaxis include foods (especially nuts, shellfish, milk, eggs), medications, insect stings, and latex.",
-        "Epinephrine auto-injectors should be stored at room temperature and checked regularly for expiration.",
-        "After an anaphylactic reaction, the person should be monitored at a medical facility for at least 4-6 hours, as symptoms can return after the epinephrine wears off."
+        "Common triggers for anaphylaxis include foods (especially peanuts, tree nuts, shellfish, fish, milk, eggs, wheat, soy), medications (antibiotics, NSAIDs, chemotherapy drugs), insect venom (bees, wasps, hornets, fire ants), latex, exercise, and rarely cold or heat.",
+        "Biphasic reactions occur in 1-20% of anaphylaxis cases, where symptoms resolve then return hours (typically 8-12 hours) later without re-exposure to the allergen. This is why monitoring in a medical facility for at least 4-8 hours is important.",
+        "Epinephrine auto-injectors should be stored at room temperature (15-25°C/59-77°F), protected from light, and not refrigerated or left in hot environments like cars. Check regularly for expiration and solution clarity (should be clear, not cloudy).",
+        "Children with known severe allergies should have an Anaphylaxis Action Plan at school and with caregivers, detailing emergency contacts and step-by-step response instructions.",
+        "Risk factors for severe or fatal anaphylaxis include delayed epinephrine administration, asthma (especially poorly controlled), cardiovascular disease, mastocytosis, and previous severe reactions.",
+        "After an anaphylactic episode, referral to an allergist for comprehensive evaluation, allergen identification, and preventive planning is essential."
       ]
     },
     "poisoning": {
       id: "poisoning",
       title: "Poisoning Response",
-      description: "First aid for different types of poisoning including ingestion, inhalation, and skin contact.",
+      description: "Comprehensive guide for different types of poisoning emergencies including ingestion, inhalation, skin/eye contact, and specific toxins.",
       steps: [
         {
-          title: "Ensure Safety",
-          description: "Make sure you're not at risk of exposure to the poison. For inhalation poisoning, move to fresh air. For chemical exposure, wear gloves if possible.",
+          title: "Ensure Safety First",
+          description: "Make sure you're not at risk of exposure to the poison. For inhalation poisoning, never enter a contaminated area without proper protection - wait for emergency responders with proper equipment. For chemical exposure, wear protective gloves and avoid direct contact with the substance. Remove the person from the source of poisoning if safe to do so.",
           important: true
         },
         {
-          title: "Call for Help",
-          description: "Call emergency services (103 in Mongolia) or the poison control center immediately. Be ready to provide information about the poison, amount, when it was ingested/exposed to, and the person's symptoms.",
+          title: "Call for Emergency Help",
+          description: "Call emergency services (103 in Mongolia) or the poison control center immediately. Be ready to provide: the exact name of the poison/substance (read from container if available), estimated amount, route of exposure (swallowed, inhaled, skin/eye contact), time elapsed since exposure, the person's age and weight, symptoms observed, and any first aid already given.",
           important: true
         },
         {
-          title: "For Ingested Poisons",
-          description: "Do not induce vomiting unless specifically instructed by medical professionals. Do not give anything to drink unless advised. If the person vomits, save some of it in a container for identification if possible."
+          title: "Assess Vital Signs and Level of Consciousness",
+          description: "Check if the person is responsive, breathing normally, and has a pulse. Note any changes in mental status, such as confusion, drowsiness, agitation, or loss of consciousness. These can be critical indicators of poisoning severity. Document vital signs (pulse rate, breathing rate) if possible."
         },
         {
-          title: "For Inhaled Poisons",
-          description: "Get the person to fresh air immediately. Open doors and windows for ventilation. If safe to do so, prevent fumes from spreading to other rooms."
+          title: "For Ingested Poisons (Swallowed Toxins)",
+          description: "Do NOT induce vomiting unless specifically instructed by poison control or medical professionals. Do NOT give anything to drink or eat unless advised. If the person vomits spontaneously, turn their head to the side to prevent choking, collect a sample if possible for identification. Do NOT give activated charcoal unless directed by medical professionals. For petroleum products, caustic chemicals (acids/alkalis), or if the person is unconscious or having seizures, DO NOT attempt to make them vomit under any circumstances.",
+          important: true
+        },
+        {
+          title: "For Inhaled Poisons (Toxic Gases or Vapors)",
+          description: "Get the person to fresh air immediately. If safe, open doors and windows for ventilation. If the person was in an enclosed space with carbon monoxide or other toxic fumes, be aware they may require oxygen therapy. For gases like chlorine or ammonia that irritate the airway, avoid having the victim shout or speak unnecessarily, as this may worsen airway damage. Watch carefully for signs of respiratory distress including rapid breathing, blue discoloration of lips/skin, gasping, or wheezing.",
+          important: true
         },
         {
           title: "For Skin Contact with Poisons",
-          description: "Remove contaminated clothing using gloves. Rinse the skin thoroughly with running water for 15-20 minutes. For chemical burns, continue rinsing until emergency help arrives."
+          description: "Remove contaminated clothing using gloves; cut off clothing if necessary rather than pulling it over the head. Rinse the affected skin thoroughly with cool running water for at least 15-20 minutes. For dry chemicals, brush off the material before rinsing unless it's reactive with water (check container). For oil-based poisons, wash with soap and water. For chemical burns, continue rinsing until emergency help arrives. Do not apply creams, ointments, or home remedies to chemical burns."
         },
         {
           title: "For Eye Contact with Poisons",
-          description: "Flush the eye with clean, lukewarm water for 15-20 minutes. Hold the eye under running water or pour water into the eye from a clean container. Keep the affected eye lower than the unaffected eye to prevent contamination."
+          description: "Act immediately as chemical eye injuries can cause permanent damage within minutes. Flush the eye with clean, lukewarm water or saline solution for at least 15-20 minutes. Hold the eyelid open and pour water from the inner corner (near nose) to the outer corner, allowing it to run off the face. If contact lenses are present, try to remove them after a few minutes of flushing if they come out easily - don't delay initial flushing. For caustic substances (acids/alkalis), extend flushing time to 30+ minutes. Continue flushing even during transport to medical care."
         },
         {
-          title: "Monitor Vital Signs",
-          description: "Check breathing and pulse. If the person becomes unresponsive and stops breathing normally, begin CPR if you're trained."
+          title: "For Specific Common Poisons",
+          description: "For medications overdose: Bring all medication containers to the hospital. For opioid overdose: If available and you're trained, administer naloxone (Narcan). For petroleum products (gasoline, kerosene): Do NOT induce vomiting as aspiration can cause severe lung damage. For alcohol poisoning: Keep the person awake if possible, position on their side if drowsy to prevent choking. For button battery ingestion (especially in children): Seek immediate emergency care - these can cause severe damage within 2 hours. For caustic substances (strong acids/alkalis): Do NOT induce vomiting, give small sips of water if the person is alert and able to swallow."
         },
         {
-          title: "Save Containers or Evidence",
-          description: "Keep the poison container, plant, medicine bottle, or other evidence for identification by medical professionals."
+          title: "For Carbon Monoxide Poisoning",
+          description: "Symptoms include headache, dizziness, weakness, nausea, confusion, chest pain, and eventually loss of consciousness. Recognize that the victim may have cherry-red lips and skin in severe cases, but often has no visible symptoms. Get the person to fresh air immediately, open windows and doors, turn off gas appliances, and evacuate the area. This is an immediate medical emergency requiring oxygen therapy - call emergency services right away.",
+          important: true
+        },
+        {
+          title: "Save Containers and Evidence",
+          description: "Keep the poison container, plant material, medication bottles, or other evidence for identification by medical professionals. Take photos of labels if possible. For unknown mushrooms or plants, if practical and safe, collect a sample in a paper (not plastic) bag for identification."
+        },
+        {
+          title: "Provide CPR If Necessary",
+          description: "If the person becomes unresponsive and is not breathing normally, begin CPR immediately if you're trained. For respiratory failure from poisoning, effective breathing support is critical. If giving rescue breaths, use a barrier device if available, especially for poisonings that could affect rescuers through contact (such as cyanide or organophosphates)."
         }
       ],
       warnings: [
-        "Never induce vomiting or give antidotes unless directed by medical professionals.",
-        "Never try to neutralize a poison with lemon juice, vinegar, or other substances.",
-        "Do not waste time looking for antidotes - call for help immediately."
+        "Never induce vomiting or give antidotes unless directed by medical professionals. Certain poisons cause more damage if vomited.",
+        "Never try to neutralize a poison with lemon juice, vinegar, or other home remedies. Chemical reactions may cause additional damage.",
+        "Do not give milk, alcohol, salt water, or any other substance as a 'universal antidote' - these don't work and can worsen outcomes.",
+        "Do not delay calling for emergency help while looking for information or antidotes.",
+        "For unconscious victims, never administer anything by mouth due to the risk of choking and aspiration.",
+        "Poisonous plants and mushrooms can cause delayed symptoms - don't wait for symptoms to worsen before seeking help."
       ],
       notes: [
-        "Carbon monoxide poisoning is especially dangerous because it is colorless and odorless. Symptoms include headache, dizziness, weakness, nausea, and confusion.",
-        "Food poisoning symptoms usually appear 2-6 hours after eating contaminated food and include nausea, vomiting, diarrhea, and abdominal cramps.",
-        "Keep all household chemicals, medications, and potentially poisonous plants out of reach of children.",
-        "In Mongolia, always be cautious with home heating systems during winter to prevent carbon monoxide poisoning."
+        "Carbon monoxide poisoning is especially dangerous because it is colorless, odorless, and prevents oxygen transport in the blood. Winter months in Mongolia pose higher risk due to indoor heating systems - install CO detectors and ensure proper ventilation.",
+        "Food poisoning typically presents with nausea, vomiting, diarrhea, and abdominal cramps 2-72 hours after consuming contaminated food, depending on the pathogen. Severe symptoms include bloody stool, high fever (>101.5°F/38.6°C), dehydration, and difficulty swallowing.",
+        "Childproof your home by keeping all medications, household chemicals, and plants out of reach. Use safety latches on cabinets, store products in original containers, and teach children about poison hazards.",
+        "Activated charcoal is used in some poisoning cases but should only be administered under medical direction. It doesn't work for all poisons and can be harmful in some situations.",
+        "Keep the poison control number easily accessible. In many countries, poison centers provide free, expert advice 24/7 and can often help manage minor exposures at home, preventing unnecessary hospital visits.",
+        "Common household poisons include cleaning products, medications, pesticides, automotive fluids, personal care products, batteries, and certain plants. In rural Mongolia, additional risks include agricultural chemicals and traditional herbal preparations with toxic components.",
+        "Prevention is key: label all containers properly, never store chemicals in food containers, don't mix cleaning products (especially bleach with ammonia or acids), and ensure proper ventilation when using chemicals."
       ]
     },
     "fracture": {
@@ -818,6 +853,73 @@ const getProtocolById = (id: string): Protocol | null => {
         "However, it's impossible to reliably distinguish heart-related from non-heart-related chest pain without proper medical testing.",
         "Risk factors for heart attack include age, smoking, high blood pressure, high cholesterol, diabetes, family history, and previous heart problems.",
         "Time is critical in treating heart attacks - the sooner treatment begins, the better the outcome."
+      ]
+    },
+    "spinalinjury": {
+      id: "spinalinjury",
+      title: "Spinal Injury Management",
+      description: "Advanced protocol for immobilization techniques and precautions for suspected spinal injuries, focusing on preventing further damage.",
+      steps: [
+        {
+          title: "Recognize Signs of Spinal Injury",
+          description: "Be alert for: mechanism of injury (falls, vehicle accidents, diving injuries, sports injuries with axial loading); pain or tenderness in the neck or back; loss of movement or sensation below the injury site; numbness, tingling, or weakness in limbs; loss of bladder/bowel control; irregular breathing; altered level of consciousness; visible deformity of the spine; paralysis (partial or complete). In an unconscious person, always assume spinal injury if the mechanism suggests it.",
+          important: true
+        },
+        {
+          title: "Call Emergency Services",
+          description: "Call 103 (Mongolia) immediately for any suspected spinal injury. Spinal cord injuries require specialized care and rapid transport to appropriate medical facilities. Inform dispatchers of suspected spinal injury so proper equipment and personnel can be sent.",
+          important: true
+        },
+        {
+          title: "Stabilize the Head and Neck",
+          description: "Place your hands on both sides of the person's head, positioning it in a neutral in-line position (aligned with spine, neither flexed forward nor extended backward). Maintain this manual stabilization continuously until emergency personnel arrive with proper immobilization equipment. Do not allow the head or neck to twist or bend in any direction.",
+          important: true
+        },
+        {
+          title: "Avoid Moving the Person",
+          description: "Do not move or allow the person to move unless they are in immediate danger (e.g., fire, explosion risk, toxic environment). Movement can cause further damage to the spinal cord. If movement is absolutely necessary, use the log-roll technique described below with multiple helpers.",
+          important: true
+        },
+        {
+          title: "Log-Roll Technique (Only If Absolutely Necessary)",
+          description: "This requires at least 3-4 people. One person maintains head/neck stabilization throughout. Others position themselves along the person's body. On a coordinated command, roll the entire body as a single unit (like a log), maintaining spinal alignment at all times. Never twist or bend the spine during movement."
+        },
+        {
+          title: "Assess Breathing and Circulation",
+          description: "Without moving the head or neck, check if the person is breathing adequately. High spinal cord injuries can affect breathing muscles. Monitor pulse and skin color. Note that spinal shock can cause low blood pressure (hypotension) and slow heart rate (bradycardia), especially with cervical (neck) injuries."
+        },
+        {
+          title: "Perform Modified CPR If Necessary",
+          description: "If the person isn't breathing adequately and needs CPR, maintain spinal stabilization while performing chest compressions. For rescue breaths, minimize head tilt by using the jaw-thrust maneuver instead (push jaw forward without tilting head), if you're trained in this technique."
+        },
+        {
+          title: "Document Neurological Status",
+          description: "If the person is conscious, document their neurological status while waiting for emergency services: what can they feel and move? Ask them to wiggle toes, move fingers, feel touch on various body parts. Note any changes in these abilities over time, as deterioration or improvement provides important information for medical personnel."
+        },
+        {
+          title: "Prevent Hypothermia",
+          description: "Cover the person with blankets or coats to prevent heat loss, but place these items around them without lifting or moving them. Spinal cord injury can affect temperature regulation, making the person more susceptible to hypothermia."
+        },
+        {
+          title: "Provide Emotional Support",
+          description: "A suspected spinal injury is extremely frightening. Reassure the person, explain what you're doing, and encourage them to remain still. Anxiety can lead to movement that might worsen the injury. Maintain verbal contact and provide updates about emergency services' arrival."
+        }
+      ],
+      warnings: [
+        "Never attempt to 'straighten' or 'realign' the spine - this should only be done by trained medical professionals with proper equipment.",
+        "Do not allow the person to move their head or neck, even if they say they're fine or have no pain. Spinal cord injury may not immediately cause pain or symptoms.",
+        "Never remove a helmet (sports, motorcycle) from an injured person with suspected spinal injury unless you're trained to do so and it's interfering with essential breathing or resuscitation.",
+        "Do not give food or drink, as the person may require surgery.",
+        "Do not attempt to transport the person yourself - wait for properly equipped emergency services."
+      ],
+      notes: [
+        "Spinal cord injury can occur without spinal column fracture, and fractures can occur without immediate spinal cord damage. Both require the same careful approach.",
+        "Motor vehicle accidents, falls from heights, diving accidents, sports injuries, and violent trauma are the most common causes of spinal injuries.",
+        "The concept of the 'Golden Hour' applies to spinal cord injuries - early professional intervention improves outcomes, as secondary damage from swelling and inflammation may be preventable.",
+        "In rural areas of Mongolia where medical help may be delayed, prolonged spinal immobilization is essential during transport. If commercial equipment isn't available, improvise with items like rolled blankets or clothing on either side of the head to maintain position.",
+        "Children and elderly persons are at higher risk for spinal injuries even from seemingly minor trauma due to different anatomical and physiological characteristics.",
+        "Alcohol and drug intoxication complicate assessment, as usual indicators of pain or neurological deficits may be masked - err on the side of caution with immobilization.",
+        "Spinal cord injury resulting in paralysis below the injury level is a medical emergency that can result in permanent disability. Proper immediate care significantly impacts long-term outcomes."
       ]
     },
     "bites": {
