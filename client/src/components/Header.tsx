@@ -16,7 +16,7 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link href="/">
-            <a className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-pointer">
               <RedCrossLogo />
               <div>
                 <h1 className="font-semibold text-lg text-primary">
@@ -24,7 +24,7 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
                 </h1>
                 <p className="text-xs text-gray-500">{t('header.subtitle')}</p>
               </div>
-            </a>
+            </div>
           </Link>
           
           <div className="flex items-center gap-4">
