@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "International Emergency Guide",
-    "subtitle": "Powered by Orkhon Province Red Cross Committee"
+    "subtitle": "Your Complete Resource for Medical Emergencies"
   },
   "nav": {
     "home": "Home",
@@ -31,7 +31,7 @@
     "fire": "Fire Emergency",
     "police": "Police",
     "emergency": "Emergency Service",
-    "redcross": "Orkhon Red Cross Committee",
+    "redcross": "Medical Support Team",
     "hospital": "Hospital",
     "rescue": "Search & Rescue",
     "gas": "Gas Emergency",
@@ -77,11 +77,13 @@
     "comingSoonDesc": "Our interactive symptom checker is currently under development. Please check back soon."
   },
   "footer": {
-    "title": "Orkhon Province Red Cross Committee",
+    "title": "International Emergency Guide",
     "description": "Providing emergency medical information and resources to help save lives.",
     "quickLinks": "Quick Links",
     "contact": "Contact",
-    "address": "Orkhon Province, Mongolia",
+    "phone": "99291221",
+    "instagram": "youtuber_temka",
+    "address": "Mongolia",
     "rights": "All rights reserved."
   },
   "countries": {
