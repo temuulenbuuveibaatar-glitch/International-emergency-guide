@@ -1,7 +1,7 @@
 {
   "header": {
-    "title": "Orkhon Province Red Cross Committee",
-    "subtitle": "Emergency Guide"
+    "title": "International Emergency Guide",
+    "subtitle": "Powered by Orkhon Province Red Cross Committee"
   },
   "nav": {
     "home": "Home",
@@ -17,7 +17,7 @@
     "number": "103"
   },
   "home": {
-    "title": "Orkhon Province Red Cross Committee",
+    "title": "International Emergency Guide",
     "subtitle": "Your trusted source for emergency medical information",
     "description": "Access step-by-step emergency procedures, treatment guidelines, medication information, and locate nearby hospitals - all in one place.",
     "emergencyButton": "Emergency Protocols",
@@ -93,5 +93,20 @@
     "us": "USA",
     "uk": "UK",
     "ru": "Russia"
+  },
+  "promotion": {
+    "title": "Promote Your Emergency Readiness",
+    "description": "Upgrade your emergency response skills by signing up for our certification program.",
+    "benefits": "Benefits include:",
+    "benefit1": "Internationally recognized certification",
+    "benefit2": "Advanced training in all emergency protocols",
+    "benefit3": "Special access to professional medical resources",
+    "benefit4": "Connection with emergency response networks worldwide",
+    "signUp": "Sign Up for Promotion",
+    "subscribe": "Subscribe to Updates",
+    "emailPlaceholder": "Enter your email address",
+    "namePlaceholder": "Enter your full name",
+    "successMessage": "Thank you for your interest! We will contact you soon with more information.",
+    "errorMessage": "Please provide a valid email address."
   }
 }

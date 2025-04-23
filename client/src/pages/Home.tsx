@@ -5,6 +5,7 @@ import { emergencyProtocols } from "../data/protocols";
 import EmergencyNumbers from "../components/EmergencyNumbers";
 import CountryEmergencyTabs from "../components/CountryEmergencyTabs";
 import HospitalFinder from "../components/HospitalFinder";
+import PromotionSection from "../components/PromotionSection";
 import { Flame, MapPin, ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -106,6 +107,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Promotion Section */}
+      <PromotionSection />
     </>
   );
 }
