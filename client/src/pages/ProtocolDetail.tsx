@@ -23,6 +23,91 @@ interface Protocol {
 const getProtocolById = (id: string): Protocol | null => {
   // Extended data for specific protocols
   const protocolData: Record<string, Protocol> = {
+    "fire-hose": {
+      id: "fire-hose",
+      title: "Emergency Fire Hose Usage",
+      description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively.",
+      steps: [
+        {
+          title: "Locate the Fire Hose Cabinet",
+          description: "Emergency fire hoses are typically stored in red cabinets marked with fire hose symbols, usually in hallways, stairwells, or other common areas of buildings."
+        },
+        {
+          title: "Assess the Fire Situation",
+          description: "Before using a fire hose, quickly assess if the fire is manageable. Only tackle small, contained fires. For large fires, evacuate and call emergency services immediately.",
+          important: true
+        },
+        {
+          title: "Alert Others and Call Emergency Services",
+          description: "Activate the fire alarm if available, and call emergency services (101 in Mongolia). Even if you plan to fight the fire, professional help should always be on the way.",
+          important: true
+        },
+        {
+          title: "Open the Fire Hose Cabinet",
+          description: "Open the cabinet door. Inside you'll typically find the fire hose neatly folded or on a reel, a valve/hydrant connection, and possibly additional firefighting equipment."
+        },
+        {
+          title: "Check for Proper Equipment",
+          description: "Ensure the hose is connected to the water supply valve/hydrant. Most cabinets contain a hose, nozzle, and valve wheel or lever."
+        },
+        {
+          title: "Unroll or Extend the Hose",
+          description: "Pull out the hose completely, making sure there are no kinks or twists. Extend it toward the fire, but maintain a safe distance. Unroll enough hose to reach the fire without stretching."
+        },
+        {
+          title: "Position Yourself Safely",
+          description: "Stand at a safe distance from the fire, ideally with your back toward an exit. Maintain firm footing with legs apart for stability. Never turn your back to a fire.",
+          important: true
+        },
+        {
+          title: "Prepare the Nozzle",
+          description: "If the nozzle has settings, set it to closed position before turning on the water. Common settings may include 'off', 'spray', and 'stream'."
+        },
+        {
+          title: "Turn On the Water Supply",
+          description: "Return to the valve and open it completely by turning the valve wheel counterclockwise (lefty loosey) or by pulling the lever. This allows water to flow to the hose."
+        },
+        {
+          title: "Control the Hose",
+          description: "The hose will become rigid and may jerk when water fills it. Be prepared for the force and maintain a firm grip with both hands. For larger hoses, you may need a partner to help manage it."
+        },
+        {
+          title: "Open the Nozzle and Direct the Water",
+          description: "Open the nozzle gradually to control the water flow. For most fires, use a wide spray pattern to cover more area. Direct the water at the base of the flames, not at the smoke or flames themselves.",
+          important: true
+        },
+        {
+          title: "Move Methodically",
+          description: "Use sweeping motions across the base of the fire. If fighting a fire on a vertical surface, start at the bottom and work your way up."
+        },
+        {
+          title: "Monitor the Situation",
+          description: "Continuously assess if the fire is being contained. If the fire grows or your position becomes unsafe, stop and evacuate immediately."
+        },
+        {
+          title: "After the Fire is Extinguished",
+          description: "Continue spraying water to cool the area and prevent re-ignition. Watch for hot spots and apply water as needed."
+        },
+        {
+          title: "Closing Down",
+          description: "When it's safe and firefighters have arrived, close the nozzle first, then turn off the water supply. Drain the hose by opening the nozzle with the hose lowered."
+        }
+      ],
+      warnings: [
+        "Never use water on electrical fires - it can conduct electricity and cause electrocution. Use only approved electrical fire extinguishers.",
+        "Never use water on grease/oil fires - it can cause violent flare-ups. Use a fire blanket or appropriate fire extinguisher.",
+        "Do not attempt to fight a fire if: it's spreading rapidly, blocks your exit path, generates excessive heat or smoke, or if the room is filling with smoke.",
+        "Fire hoses produce powerful water pressure that can cause injury if not handled properly. Always maintain a firm grip.",
+        "Fire hoses are heavy, especially when filled with water. Only use if you're physically capable of managing them."
+      ],
+      notes: [
+        "Different buildings may have different types of fire hose systems. Some use standard fire hoses that need to be fully extended, while others may use hose reels that can be used directly from the reel.",
+        "Class A fires (ordinary combustibles like wood, paper, cloth) can be fought with water hoses. Class B (flammable liquids), Class C (electrical), Class D (combustible metals), and Class K (cooking oils) fires require special extinguishing agents.",
+        "In many jurisdictions, only trained personnel should operate fire hoses. In some countries, improper use may carry legal consequences.",
+        "Modern buildings may have automatic sprinkler systems that activate during fires, reducing the need for manual fire hose operation.",
+        "After use, fire hoses should be properly inspected, dried, and refolded by qualified personnel to ensure they'll function correctly in the next emergency."
+      ]
+    },
     "cpr": {
       id: "cpr",
       title: "CPR Protocol",

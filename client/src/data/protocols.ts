@@ -1,5 +1,10 @@
 export const emergencyProtocols = [
   {
+    id: "fire-hose",
+    title: "Emergency Fire Hose Usage",
+    description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively."
+  },
+  {
     id: "cpr",
     title: "CPR Protocol",
     description: "Step-by-step guide for cardiopulmonary resuscitation in emergency situations."
