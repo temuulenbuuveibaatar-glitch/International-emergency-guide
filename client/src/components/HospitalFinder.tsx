@@ -1629,6 +1629,146 @@ export default function HospitalFinder() {
         address: "8/2 Trubetskaya St, Moscow, Russia",
         position: { lat: 55.7325, lng: 37.5712 },
         phone: "+74992486688"
+      },
+      {
+        id: "ru_11",
+        name: "N.N. Burdenko National Medical Research Center of Neurosurgery",
+        address: "16 4th Tverskaya-Yamskaya St, Moscow, Russia",
+        position: { lat: 55.7696, lng: 37.5951 },
+        phone: "+74992509571"
+      },
+      {
+        id: "ru_12",
+        name: "Research Institute of Emergency Care n.a. N.V. Sklifosovsky",
+        address: "3 Bolshaya Sukharevskaya Square, Moscow, Russia",
+        position: { lat: 55.7729, lng: 37.6210 },
+        phone: "+74956806141"
+      },
+      {
+        id: "ru_13",
+        name: "Saint Petersburg State Pediatric Medical University",
+        address: "2 Litovskaya St, St. Petersburg, Russia",
+        position: { lat: 59.9989, lng: 30.3196 },
+        phone: "+78122954751"
+      },
+      {
+        id: "ru_14",
+        name: "City Clinical Hospital No. 31",
+        address: "3 Lobachevskogo St, Moscow, Russia",
+        position: { lat: 55.7043, lng: 37.5024 },
+        phone: "+74954320303"
+      },
+      {
+        id: "ru_15",
+        name: "Meshalkin National Medical Research Center",
+        address: "15 Rechkunovskaya St, Novosibirsk, Russia",
+        position: { lat: 54.8549, lng: 83.0617 },
+        phone: "+73833477109"
+      },
+      {
+        id: "ru_16",
+        name: "Federal Scientific Center for Transplantology and Artificial Organs",
+        address: "1 Shchukinskaya St, Moscow, Russia",
+        position: { lat: 55.8087, lng: 37.4642 },
+        phone: "+74991905121"
+      },
+      {
+        id: "ru_17",
+        name: "Siberian State Medical University",
+        address: "2 Moskovsky Trakt, Tomsk, Russia",
+        position: { lat: 56.4732, lng: 84.9844 },
+        phone: "+73822530423"
+      },
+      {
+        id: "ru_18",
+        name: "Moscow Regional Research and Clinical Institute",
+        address: "61/2 Shchepkina St, Moscow, Russia",
+        position: { lat: 55.7837, lng: 37.6334 },
+        phone: "+74956815585"
+      },
+      {
+        id: "ru_19",
+        name: "North-Western State Medical University named after I.I. Mechnikov",
+        address: "41 Kirochnaya St, St. Petersburg, Russia",
+        position: { lat: 59.9445, lng: 30.3603 },
+        phone: "+78123035000"
+      },
+      {
+        id: "ru_20",
+        name: "Rostov State Medical University",
+        address: "29 Nakhichevansky Ln, Rostov-on-Don, Russia",
+        position: { lat: 47.2354, lng: 39.7097 },
+        phone: "+78632504200"
+      },
+      {
+        id: "ru_21",
+        name: "Ural State Medical University",
+        address: "3 Repina St, Yekaterinburg, Russia",
+        position: { lat: 56.8351, lng: 60.6107 },
+        phone: "+73432142863"
+      },
+      {
+        id: "ru_22",
+        name: "National Medical Research Center of Oncology named after N.N. Blokhin",
+        address: "24 Kashirskoe Shosse, Moscow, Russia",
+        position: { lat: 55.6553, lng: 37.6623 },
+        phone: "+74993241314"
+      },
+      {
+        id: "ru_23",
+        name: "National Medical Research Center of Traumatology and Orthopedics",
+        address: "10 Priorova St, Moscow, Russia",
+        position: { lat: 55.8341, lng: 37.5372 },
+        phone: "+74999409510"
+      },
+      {
+        id: "ru_24",
+        name: "Volgograd State Medical University",
+        address: "1 Pavshikh Bortsov Square, Volgograd, Russia",
+        position: { lat: 48.7126, lng: 44.5192 },
+        phone: "+78442385005"
+      },
+      {
+        id: "ru_25",
+        name: "Far Eastern State Medical University",
+        address: "35 Muravyev-Amursky St, Khabarovsk, Russia",
+        position: { lat: 48.4733, lng: 135.0682 },
+        phone: "+74212304518"
+      },
+      {
+        id: "ru_26",
+        name: "Tyumen State Medical University",
+        address: "54 Odesskaya St, Tyumen, Russia",
+        position: { lat: 57.1327, lng: 65.5686 },
+        phone: "+73452202133"
+      },
+      {
+        id: "ru_27",
+        name: "City Clinical Hospital No. 40",
+        address: "1 Kasatkina St, Moscow, Russia",
+        position: { lat: 55.8360, lng: 37.6337 },
+        phone: "+74956851368"
+      },
+      {
+        id: "ru_28",
+        name: "Ufa State Aviation Technical University Hospital",
+        address: "12 Karl Marx St, Ufa, Russia",
+        position: { lat: 54.7252, lng: 55.9435 },
+        phone: "+73472733258"
+      },
+      {
+        id: "ru_29",
+        name: "Regional Clinical Hospital No. 1",
+        address: "167 1st May St, Krasnodar, Russia",
+        position: { lat: 45.0355, lng: 38.9745 },
+        phone: "+78612525323"
+      },
+      {
+        id: "ru_30",
+        name: "Samara State Medical University Clinical Hospital",
+        address: "89 Chapaevskaya St, Samara, Russia",
+        position: { lat: 53.1955, lng: 50.1325 },
+        phone: "+78463333071"
       }
     ]
   };
