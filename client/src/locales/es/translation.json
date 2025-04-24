@@ -10,7 +10,8 @@
     "medications": "Medicamentos",
     "symptoms": "Verificador de Síntomas",
     "hospitals": "Hospitales Cercanos",
-    "contacts": "Números de Emergencia"
+    "contacts": "Números de Emergencia",
+    "fireSafety": "Equipos de Seguridad contra Incendios"
   },
   "emergency": {
     "title": "¿Emergencia? Llame al",

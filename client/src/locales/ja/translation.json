@@ -10,7 +10,8 @@
     "medications": "薬剤情報",
     "symptoms": "症状チェッカー",
     "hospitals": "近くの病院",
-    "contacts": "緊急連絡先"
+    "contacts": "緊急連絡先",
+    "fireSafety": "消防安全機器"
   },
   "emergency": {
     "title": "緊急時は電話",

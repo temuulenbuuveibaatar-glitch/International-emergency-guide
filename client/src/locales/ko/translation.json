@@ -10,7 +10,8 @@
     "medications": "약물 정보",
     "symptoms": "증상 확인기",
     "hospitals": "주변 병원",
-    "contacts": "긴급 연락처"
+    "contacts": "긴급 연락처",
+    "fireSafety": "화재 안전 장비"
   },
   "emergency": {
     "title": "응급상황? 전화하세요",

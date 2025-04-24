@@ -10,7 +10,8 @@
     "medications": "Medications",
     "symptoms": "Symptom Checker",
     "hospitals": "Nearby Hospitals",
-    "contacts": "Emergency Numbers"
+    "contacts": "Emergency Numbers",
+    "fireSafety": "Fire Safety Equipment"
   },
   "emergency": {
     "title": "Emergency? Call",

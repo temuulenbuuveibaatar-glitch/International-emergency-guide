@@ -10,7 +10,8 @@
     "medications": "Medikamente",
     "symptoms": "Symptomprüfer",
     "hospitals": "Krankenhäuser in der Nähe",
-    "contacts": "Notfallnummern"
+    "contacts": "Notfallnummern",
+    "fireSafety": "Brandschutzausrüstung"
   },
   "emergency": {
     "title": "Notfall? Rufen Sie",
