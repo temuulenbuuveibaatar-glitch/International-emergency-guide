@@ -1298,10 +1298,10 @@ export default function ProtocolDetail() {
           <h1 className="text-2xl font-bold text-gray-800 mb-4">{t('protocols.notFound', 'Protocol Not Found')}</h1>
           <p className="text-gray-600 mb-6">{t('protocols.notFoundDesc', 'The emergency protocol you\'re looking for doesn\'t exist.')}</p>
           <Link href="/emergency">
-            <a className="bg-primary text-white px-6 py-2 rounded-md inline-flex items-center">
+            <div className="bg-primary text-white px-6 py-2 rounded-md inline-flex items-center cursor-pointer">
               <ArrowLeft className="w-4 h-4 mr-2" />
               <span>{t('protocols.backToAll', 'Back to All Protocols')}</span>
-            </a>
+            </div>
           </Link>
         </div>
       </div>
@@ -1313,10 +1313,10 @@ export default function ProtocolDetail() {
       {/* Header */}
       <div className="mb-6">
         <Link href="/emergency">
-          <a className="text-[#004A9F] hover:text-[#0064D6] inline-flex items-center mb-4">
+          <div className="text-[#004A9F] hover:text-[#0064D6] inline-flex items-center mb-4 cursor-pointer">
             <ArrowLeft className="w-4 h-4 mr-1" />
-            <span>{t('protocols.viewAll')}</span>
-          </a>
+            <span>{t('protocols.viewAll', 'View All Protocols')}</span>
+          </div>
         </Link>
         <h1 className="text-3xl font-bold text-[#004A9F]">{protocol.title}</h1>
         <p className="text-gray-600 mt-2">{protocol.description}</p>
