@@ -1,6 +1,6 @@
 {
   "header": {
-    "title": "オルホン県赤十字",
+    "title": "国際緊急ガイド",
     "subtitle": "緊急ガイド"
   },
   "nav": {
@@ -18,7 +18,7 @@
     "number": "103"
   },
   "home": {
-    "title": "オルホン県赤十字",
+    "title": "国際緊急ガイド",
     "subtitle": "信頼できる緊急医療情報源",
     "description": "ステップバイステップの緊急処置、治療ガイドライン、薬の情報、近くの病院の位置確認 - すべて一箇所で。",
     "emergencyButton": "緊急プロトコル",
@@ -32,7 +32,7 @@
     "fire": "消防",
     "police": "警察",
     "emergency": "緊急サービス",
-    "redcross": "オルホン赤十字",
+    "redcross": "医療支援チーム",
     "nonEmergency": "非緊急",
     "selectCountry": "緊急電話番号を表示する国を選択してください",
     "noData": "この国の緊急電話番号データはありません"
@@ -74,11 +74,11 @@
     "comingSoonDesc": "インタラクティブな症状チェッカーは現在開発中です。近日中にご確認ください。"
   },
   "footer": {
-    "title": "オルホン県赤十字",
+    "title": "国際緊急ガイド",
     "description": "命を救うための緊急医療情報とリソースを提供しています。",
     "quickLinks": "クイックリンク",
     "contact": "連絡先",
-    "address": "モンゴル国オルホン県",
+    "address": "モンゴル国",
     "rights": "全著作権所有。"
   },
   "countries": {

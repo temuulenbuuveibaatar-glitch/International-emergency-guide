@@ -1,6 +1,6 @@
 {
   "header": {
-    "title": "鄂尔浑省红十字会",
+    "title": "国际急救指南",
     "subtitle": "急救指南"
   },
   "nav": {
@@ -18,7 +18,7 @@
     "number": "103"
   },
   "home": {
-    "title": "鄂尔浑省红十字会",
+    "title": "国际急救指南",
     "subtitle": "您可信赖的紧急医疗信息来源",
     "description": "获取逐步的紧急处理程序、治疗指南、药物信息以及查找附近医院 - 一站式服务。",
     "emergencyButton": "紧急救护协议",
@@ -32,7 +32,7 @@
     "fire": "消防",
     "police": "警察",
     "emergency": "紧急服务",
-    "redcross": "鄂尔浑红十字会",
+    "redcross": "医疗支援团队",
     "nonEmergency": "非紧急",
     "selectCountry": "请选择一个国家查看紧急电话",
     "noData": "此国家没有可用的紧急电话号码数据"
@@ -74,11 +74,11 @@
     "comingSoonDesc": "我们的交互式症状检查器目前正在开发中。请稍后再查看。"
   },
   "footer": {
-    "title": "鄂尔浑省红十字会",
+    "title": "国际急救指南",
     "description": "提供紧急医疗信息和资源，帮助拯救生命。",
     "quickLinks": "快速链接",
     "contact": "联系我们",
-    "address": "蒙古国鄂尔浑省",
+    "address": "蒙古国",
     "rights": "版权所有。"
   },
   "countries": {
