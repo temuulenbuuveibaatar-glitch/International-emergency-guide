@@ -1,6 +1,6 @@
 {
   "header": {
-    "title": "Rotes Kreuz Provinz Orkhon",
+    "title": "Internationaler Notfallführer",
     "subtitle": "Notfallführer"
   },
   "nav": {
@@ -18,7 +18,7 @@
     "number": "103"
   },
   "home": {
-    "title": "Rotes Kreuz Provinz Orkhon",
+    "title": "Internationaler Notfallführer",
     "subtitle": "Ihre vertrauenswürdige Quelle für Notfallinformationen",
     "description": "Greifen Sie auf schrittweise Notfallverfahren, Behandlungsrichtlinien, Medikamenteninformationen und lokalisieren Sie Krankenhäuser in der Nähe - alles an einem Ort.",
     "emergencyButton": "Notfallprotokolle",
@@ -32,7 +32,7 @@
     "fire": "Feuerwehr",
     "police": "Polizei",
     "emergency": "Notdienst",
-    "redcross": "Rotes Kreuz Orkhon",
+    "redcross": "Medizinisches Unterstützungsteam",
     "nonEmergency": "Nicht-Notfall",
     "selectCountry": "Bitte wählen Sie ein Land, um Notfallnummern anzuzeigen",
     "noData": "Für dieses Land sind keine Notfallnummern verfügbar"
@@ -74,11 +74,11 @@
     "comingSoonDesc": "Unser interaktiver Symptomprüfer befindet sich derzeit in Entwicklung. Bitte schauen Sie bald wieder vorbei."
   },
   "footer": {
-    "title": "Rotes Kreuz Provinz Orkhon",
+    "title": "Internationaler Notfallführer",
     "description": "Bereitstellung von Notfallinformationen und Ressourcen, um Leben zu retten.",
     "quickLinks": "Schnelllinks",
     "contact": "Kontakt",
-    "address": "Provinz Orkhon, Mongolei",
+    "address": "Mongolei",
     "rights": "Alle Rechte vorbehalten."
   },
   "countries": {

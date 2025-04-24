@@ -1,6 +1,6 @@
 {
   "header": {
-    "title": "오르콘 주 적십자",
+    "title": "국제 응급 가이드",
     "subtitle": "응급 가이드"
   },
   "nav": {
@@ -18,7 +18,7 @@
     "number": "103"
   },
   "home": {
-    "title": "오르콘 주 적십자",
+    "title": "국제 응급 가이드",
     "subtitle": "믿을 수 있는 응급 의료 정보 제공처",
     "description": "단계별 응급 처치 절차, 치료 지침, 약물 정보 및 주변 병원 위치 확인 - 모두 한곳에서.",
     "emergencyButton": "응급 처치 프로토콜",
@@ -32,7 +32,7 @@
     "fire": "소방서",
     "police": "경찰서",
     "emergency": "응급 서비스",
-    "redcross": "오르콘 적십자",
+    "redcross": "의료 지원팀",
     "nonEmergency": "비응급",
     "selectCountry": "국가를 선택하여 긴급 연락처를 확인하세요",
     "noData": "이 국가의 긴급 연락처 정보가 없습니다"
@@ -74,11 +74,11 @@
     "comingSoonDesc": "대화형 증상 확인기가 현재 개발 중입니다. 곧 확인해 주세요."
   },
   "footer": {
-    "title": "오르콘 주 적십자",
+    "title": "국제 응급 가이드",
     "description": "생명을 구하는 데 도움이 되는 응급 의료 정보와 자원을 제공합니다.",
     "quickLinks": "빠른 링크",
     "contact": "연락처",
-    "address": "몽골 오르콘 주",
+    "address": "몽골",
     "rights": "모든 권리 보유."
   },
   "countries": {
