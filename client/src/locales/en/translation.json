@@ -77,6 +77,24 @@
     "comingSoon": "Coming Soon",
     "comingSoonDesc": "Our interactive symptom checker is currently under development. Please check back soon."
   },
+  "offline": {
+    "title": "Offline Access",
+    "savePrompt": "Save for offline use",
+    "description": "Save emergency information for offline use - access critical protocols, phone numbers, and medication information even without internet.",
+    "syncNow": "Sync Now",
+    "syncing": "Syncing...",
+    "lastSynced": "Last synced",
+    "syncComplete": "Data synced successfully",
+    "syncFailed": "Sync failed",
+    "syncCompleteMessage": "Emergency information is now available offline",
+    "syncFailedMessage": "There was a problem saving data for offline use",
+    "offlineMessage": "You're offline",
+    "connectPrompt": "Please connect to the internet to sync data",
+    "offlineMode": "Offline Mode",
+    "online": "Online",
+    "offline": "Offline",
+    "storageAvailable": "Available storage"
+  },
   "footer": {
     "title": "International Emergency Guide",
     "description": "Providing emergency medical information and resources to help save lives.",

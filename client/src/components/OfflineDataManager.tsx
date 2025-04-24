@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   storeProtocols, 
   storeEmergencyNumbers, 
@@ -25,6 +26,7 @@ export default function OfflineDataManager() {
   const [showDetail, setShowDetail] = useState(false);
   const [storageAvailable, setStorageAvailable] = useState<number>(0);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   // Check online status and update state
   useEffect(() => {
@@ -66,8 +68,8 @@ export default function OfflineDataManager() {
   const syncData = async () => {
     if (!navigator.onLine) {
       toast({
-        title: "You're offline",
-        description: "Please connect to the internet to sync data",
+        title: t('offline.offlineMessage'),
+        description: t('offline.connectPrompt'),
         variant: "destructive"
       });
       return;
@@ -82,19 +84,19 @@ export default function OfflineDataManager() {
       
       // For hospitals and medications, we can use the imported data
       // or fetch from an API if available
-      const mockHospitalData = {
+      const hospitalData = {
         "message": "Data successfully cached for offline use",
         "timestamp": new Date().toISOString()
       };
-      storeHospitals(mockHospitalData);
+      storeHospitals(hospitalData);
       
       // Check if we have cached medications or use the static data
       const cachedProtocols = retrieveProtocols();
       
       if (cachedProtocols) {
         toast({
-          title: "Data synced successfully",
-          description: "Emergency information is now available offline",
+          title: t('offline.syncComplete'),
+          description: t('offline.syncCompleteMessage'),
         });
         
         // Update the last updated timestamp
@@ -103,8 +105,8 @@ export default function OfflineDataManager() {
     } catch (error) {
       console.error('Error syncing data:', error);
       toast({
-        title: "Sync failed",
-        description: "There was a problem saving data for offline use",
+        title: t('offline.syncFailed'),
+        description: t('offline.syncFailedMessage'),
         variant: "destructive"
       });
     } finally {
@@ -116,14 +118,14 @@ export default function OfflineDataManager() {
     <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md mb-4">
       <div className="flex justify-between items-center">
         <div>
-          <h3 className="text-lg font-semibold mb-1">Offline Access</h3>
+          <h3 className="text-lg font-semibold mb-1">{t('offline.title')}</h3>
           <div className="flex items-center">
             <div className={`w-3 h-3 rounded-full mr-2 ${isOnline ? 'bg-green-500' : 'bg-red-500'}`} />
-            <span className="text-sm">{isOnline ? 'Online' : 'Offline'}</span>
+            <span className="text-sm">{isOnline ? t('offline.online') : t('offline.offline')}</span>
           </div>
           {lastUpdated && (
             <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-              Last synced: {lastUpdated.toLocaleString()}
+              {t('offline.lastSynced')}: {lastUpdated.toLocaleString()}
             </p>
           )}
         </div>
@@ -134,15 +136,15 @@ export default function OfflineDataManager() {
           variant="outline"
           size="sm"
         >
-          {isSyncing ? 'Syncing...' : 'Sync Now'}
+          {isSyncing ? t('offline.syncing') : t('offline.syncNow')}
         </Button>
       </div>
       
       {showDetail && (
         <div className="mt-3 text-sm border-t pt-2">
-          <p>Available storage: ~{storageAvailable} MB</p>
+          <p>{t('offline.storageAvailable')}: ~{storageAvailable} MB</p>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-            Offline access allows you to use critical emergency information without an internet connection.
+            {t('offline.description')}
           </p>
         </div>
       )}
@@ -151,7 +153,7 @@ export default function OfflineDataManager() {
         onClick={() => setShowDetail(!showDetail)}
         className="text-xs text-blue-600 dark:text-blue-400 mt-2 hover:underline"
       >
-        {showDetail ? 'Hide details' : 'Show details'}
+        {showDetail ? t('showLess', 'Hide details') : t('showMore', 'Show details')}
       </button>
     </div>
   );

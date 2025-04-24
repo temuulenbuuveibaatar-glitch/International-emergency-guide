@@ -5,7 +5,8 @@ import { emergencyProtocols } from "../data/protocols";
 import EmergencyNumbers from "../components/EmergencyNumbers";
 import CountryEmergencyTabs from "../components/CountryEmergencyTabs";
 import HospitalFinder from "../components/HospitalFinder";
-import { Flame, MapPin, ArrowRight } from "lucide-react";
+import OfflineDataManager from "../components/OfflineDataManager";
+import { Flame, MapPin, ArrowRight, Download } from "lucide-react";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -104,6 +105,27 @@ export default function Home() {
               </div>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Offline Mode Section */}
+      <section id="offline-access" className="py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold">
+              {t('offline.title', 'Offline Access')}
+            </h2>
+            <div className="flex items-center gap-2 text-sm">
+              <Download className="w-4 h-4 text-[#004A9F]" />
+              <span>{t('offline.savePrompt', 'Save for offline use')}</span>
+            </div>
+          </div>
+          
+          <OfflineDataManager />
+          
+          <p className="text-sm text-gray-600 mt-4">
+            {t('offline.description', 'Save emergency information for offline use - access critical protocols, phone numbers, and medication information even without internet.')}
+          </p>
         </div>
       </section>
 

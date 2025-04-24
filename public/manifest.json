@@ -1,21 +1,39 @@
 {
   "name": "International Emergency Guide",
-  "short_name": "Emerg Guide",
-  "description": "Comprehensive guide for emergency situations with offline access",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
+  "short_name": "Emergency Guide",
+  "description": "A comprehensive emergency response platform with offline capabilities",
   "theme_color": "#dc3545",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
-      "src": "/icon-192x192.png",
+      "src": "icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-512x512.png",
+      "src": "icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency Protocols",
+      "short_name": "Protocols",
+      "description": "View emergency protocols",
+      "url": "/emergency"
+    },
+    {
+      "name": "Find Nearby Hospitals",
+      "short_name": "Hospitals",
+      "description": "Find hospitals near you",
+      "url": "/hospitals"
     }
   ]
 }
