@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "wouter";
 import { emergencyProtocols } from "../data/protocols";
-import { AlertTriangle, ArrowLeft, Bookmark, Printer, Share2 } from "lucide-react";
+import { AlertTriangle, ArrowLeft, Bookmark, Printer, Share2, Play, Image } from "lucide-react";
 
 interface ProtocolStep {
   title: string;
   description: string;
   important?: boolean;
+  imageUrl?: string;
+  videoUrl?: string;
 }
 
 interface Protocol {
@@ -17,6 +19,8 @@ interface Protocol {
   steps: ProtocolStep[];
   warnings?: string[];
   notes?: string[];
+  demoVideo?: string; // URL to a main demo video for the entire protocol
+  demoImages?: string[]; // URLs to demo images for the entire protocol
 }
 
 // This function would normally fetch data from an API
@@ -1245,6 +1249,65 @@ export default function ProtocolDetail() {
           <span>{t('protocols.save', 'Save')}</span>
         </button>
       </div>
+      
+      {/* Main Demo Video */}
+      {protocol.demoVideo && (
+        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <div className="bg-primary text-white px-6 py-3">
+            <h2 className="font-semibold flex items-center">
+              <Play className="w-4 h-4 mr-2" />
+              {t('protocols.demoVideo', 'Demonstration Video')}
+            </h2>
+          </div>
+          <div className="p-6">
+            <div className="aspect-w-16 aspect-h-9 relative rounded-md overflow-hidden">
+              {protocol.demoVideo.includes('youtube.com') || protocol.demoVideo.includes('youtu.be') ? (
+                <iframe
+                  src={protocol.demoVideo.replace('watch?v=', 'embed/')}
+                  title={`${protocol.title} demonstration video`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute w-full h-full"
+                ></iframe>
+              ) : (
+                <video 
+                  controls 
+                  className="w-full h-full"
+                >
+                  <source src={protocol.demoVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* Demo Images Gallery */}
+      {protocol.demoImages && protocol.demoImages.length > 0 && (
+        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+          <div className="bg-primary text-white px-6 py-3">
+            <h2 className="font-semibold flex items-center">
+              <Image className="w-4 h-4 mr-2" />
+              {t('protocols.demoImages', 'Visual Guides')}
+            </h2>
+          </div>
+          <div className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {protocol.demoImages.map((imageUrl, index) => (
+                <div key={index} className="rounded-md overflow-hidden border border-gray-200">
+                  <img 
+                    src={imageUrl} 
+                    alt={`${protocol.title} visual guide ${index + 1}`} 
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Steps */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
@@ -1266,7 +1329,44 @@ export default function ProtocolDetail() {
                     </span>
                   )}
                 </h3>
-                <p className="text-gray-600">{step.description}</p>
+                <p className="text-gray-600 mb-2">{step.description}</p>
+                
+                {/* Display image if available */}
+                {step.imageUrl && (
+                  <div className="mt-3 mb-4">
+                    <img 
+                      src={step.imageUrl} 
+                      alt={`${step.title} illustration`} 
+                      className="rounded-md max-h-72 w-auto object-contain border border-gray-200"
+                    />
+                  </div>
+                )}
+                
+                {/* Display video if available */}
+                {step.videoUrl && (
+                  <div className="mt-3 mb-4">
+                    <div className="aspect-w-16 aspect-h-9 relative rounded-md overflow-hidden">
+                      {step.videoUrl.includes('youtube.com') || step.videoUrl.includes('youtu.be') ? (
+                        <iframe
+                          src={step.videoUrl.replace('watch?v=', 'embed/')}
+                          title={`${step.title} demonstration`}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="absolute w-full h-full"
+                        ></iframe>
+                      ) : (
+                        <video 
+                          controls 
+                          className="w-full h-full"
+                        >
+                          <source src={step.videoUrl} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+                    </div>
+                  </div>
+                )}
               </li>
             ))}
           </ol>
