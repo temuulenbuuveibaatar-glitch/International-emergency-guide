@@ -8,7 +8,7 @@ import Layout from "./components/Layout";
 import NotFound from "@/pages/not-found";
 import Home from "./pages/Home";
 import EmergencyProtocols from "./pages/EmergencyProtocols";
-import ProtocolDetail from "./pages/ProtocolDetailSimplified";
+import ProtocolDetail from "./pages/ProtocolDetail";
 import TreatmentGuidelines from "./pages/TreatmentGuidelines";
 import Medications from "./pages/Medications";
 import SymptomChecker from "./pages/SymptomChecker";

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "wouter";
 import { emergencyProtocols } from "../data/protocols";
+import MultimediaButton from "../components/MultimediaButton";
 import { 
   AlertTriangle, 
   ArrowLeft, 
@@ -13,7 +14,9 @@ import {
   Info,
   ExternalLink,
   HelpCircle,
-  BookOpen
+  BookOpen,
+  FileVideo,
+  ImageIcon
 } from "lucide-react";
 
 interface ProtocolStep {
@@ -1347,27 +1350,12 @@ export default function ProtocolDetail() {
               {t('protocols.demoVideo', 'Demonstration Video')}
             </h2>
           </div>
-          <div className="p-6">
-            <div className="aspect-w-16 aspect-h-9 relative rounded-md overflow-hidden">
-              {protocol.demoVideo.includes('youtube.com') || protocol.demoVideo.includes('youtu.be') ? (
-                <iframe
-                  src={protocol.demoVideo.replace('watch?v=', 'embed/')}
-                  title={`${protocol.title} demonstration video`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute w-full h-full"
-                ></iframe>
-              ) : (
-                <video 
-                  controls 
-                  className="w-full h-full"
-                >
-                  <source src={protocol.demoVideo} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              )}
-            </div>
+          <div className="p-4">
+            <MultimediaButton 
+              url={protocol.demoVideo} 
+              type="video" 
+              title={`Watch ${protocol.title} tutorial video`}
+            />
           </div>
         </div>
       )}
@@ -1381,14 +1369,14 @@ export default function ProtocolDetail() {
               {t('protocols.demoImages', 'Visual Guides')}
             </h2>
           </div>
-          <div className="p-6">
+          <div className="p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {protocol.demoImages.map((imageUrl, index) => (
-                <div key={index} className="rounded-md overflow-hidden border border-gray-200">
-                  <img 
-                    src={imageUrl} 
-                    alt={`${protocol.title} visual guide ${index + 1}`} 
-                    className="w-full h-auto object-cover"
+                <div key={index} className="border border-gray-200 p-2 rounded-md">
+                  <MultimediaButton 
+                    url={imageUrl} 
+                    type="image" 
+                    title={`View ${protocol.title} visual guide ${index + 1}`}
                   />
                 </div>
               ))}
@@ -1419,42 +1407,28 @@ export default function ProtocolDetail() {
                 </h3>
                 <p className="text-gray-600 mb-2">{step.description}</p>
                 
-                {/* Display image if available */}
-                {step.imageUrl && (
-                  <div className="mt-3 mb-4">
-                    <img 
-                      src={step.imageUrl} 
-                      alt={`${step.title} illustration`} 
-                      className="rounded-md max-h-72 w-auto object-contain border border-gray-200"
-                    />
-                  </div>
-                )}
-                
-                {/* Display video if available */}
-                {step.videoUrl && (
-                  <div className="mt-3 mb-4">
-                    <div className="aspect-w-16 aspect-h-9 relative rounded-md overflow-hidden">
-                      {step.videoUrl.includes('youtube.com') || step.videoUrl.includes('youtu.be') ? (
-                        <iframe
-                          src={step.videoUrl.replace('watch?v=', 'embed/')}
-                          title={`${step.title} demonstration`}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          className="absolute w-full h-full"
-                        ></iframe>
-                      ) : (
-                        <video 
-                          controls 
-                          className="w-full h-full"
-                        >
-                          <source src={step.videoUrl} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      )}
+                {/* Multimedia content for each step */}
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {step.videoUrl && (
+                    <div className="w-full md:w-auto mb-2">
+                      <MultimediaButton 
+                        url={step.videoUrl} 
+                        type="video" 
+                        title={`Watch video: ${step.title}`}
+                      />
                     </div>
-                  </div>
-                )}
+                  )}
+                  
+                  {step.imageUrl && (
+                    <div className="w-full md:w-auto mb-2">
+                      <MultimediaButton 
+                        url={step.imageUrl} 
+                        type="image" 
+                        title={`View image: ${step.title}`}
+                      />
+                    </div>
+                  )}
+                </div>
               </li>
             ))}
           </ol>
