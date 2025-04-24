@@ -23,6 +23,96 @@ interface Protocol {
 const getProtocolById = (id: string): Protocol | null => {
   // Extended data for specific protocols
   const protocolData: Record<string, Protocol> = {
+    "fire-emergency": {
+      id: "fire-emergency",
+      title: "Fire Emergency Response",
+      description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques.",
+      steps: [
+        {
+          title: "Prevention",
+          description: "Install smoke alarms on every floor and in key areas like bedrooms and kitchens. Test them monthly and replace batteries annually. Keep fire extinguishers accessible and learn how to use them. Create and practice a home fire escape plan with all household members."
+        },
+        {
+          title: "Early Fire Detection",
+          description: "Know the signs of fire: visible flames, smoke, burning smell, unusual warmth, crackling sounds, or smoke detector alarms. Early detection saves lives and property.",
+          important: true
+        },
+        {
+          title: "Assess the Fire Situation",
+          description: "Quickly determine the size, location, and type of fire (electrical, grease, paper/wood, chemical). Small, contained fires may be manageable, but prepare to evacuate immediately if the fire is spreading rapidly.",
+          important: true
+        },
+        {
+          title: "Activate the Alarm and Call Emergency Services",
+          description: "Pull the fire alarm if in a public building. Call emergency services immediately (101 in Mongolia). Give your exact location and details about the fire. Never assume someone else has called.",
+          important: true
+        },
+        {
+          title: "Evacuation Priorities",
+          description: "People first, possessions second. Alert everyone in the building. Help those who need assistance. Never re-enter a burning building for belongings.",
+          important: true
+        },
+        {
+          title: "Safe Evacuation Techniques",
+          description: "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators."
+        },
+        {
+          title: "If Trapped in a Room",
+          description: "Block smoke from entering by placing wet towels or clothing under doors. Signal for help from windows. If possible, call emergency services to report your exact location. Cover your mouth and nose with a damp cloth."
+        },
+        {
+          title: "Stop, Drop, and Roll",
+          description: "If your clothing catches fire, stop immediately, drop to the ground, cover your face with your hands, and roll back and forth until the flames are extinguished.",
+          important: true
+        },
+        {
+          title: "Fire Extinguisher Use: PASS Method",
+          description: "Pull the pin. Aim the nozzle at the base of the fire. Squeeze the handle. Sweep from side to side across the base of the fire. Only attempt to extinguish small, contained fires."
+        },
+        {
+          title: "Different Types of Fire Extinguishers",
+          description: "Class A: Ordinary combustibles like wood and paper. Class B: Flammable liquids. Class C: Electrical fires. Class D: Combustible metals. Class K: Kitchen fires involving cooking oils. Use the proper extinguisher for the type of fire."
+        },
+        {
+          title: "Electrical Fires",
+          description: "Disconnect power if possible and safe to do so. Never use water on electrical fires - use only Class C extinguishers. If an appliance is on fire, unplug it if safe; otherwise, turn off power at the circuit breaker."
+        },
+        {
+          title: "Kitchen Fires",
+          description: "For grease fires, cover the pan with a metal lid or cookie sheet and turn off the heat source. Never use water on grease fires - it will cause an explosive flare-up. Use baking soda or a Class K extinguisher for small grease fires."
+        },
+        {
+          title: "Assembly Points",
+          description: "Gather at the designated meeting place outside the building. This allows you to account for everyone and inform firefighters if anyone is missing or trapped inside."
+        },
+        {
+          title: "Provide Information to Firefighters",
+          description: "Tell responders about any people trapped inside, the fire's location, and any hazardous materials (propane tanks, chemicals, etc.) that might be present."
+        },
+        {
+          title: "After the Fire",
+          description: "Do not re-enter the building until authorities declare it safe. Contact your insurance company. Secure the property from further damage or theft. Document damage with photos for insurance claims."
+        }
+      ],
+      warnings: [
+        "Never hide during a fire - firefighters may not be able to find you.",
+        "Smoke inhalation is the leading cause of fire deaths, not burns. Stay low to avoid smoke.",
+        "Never use water on grease, electrical, or chemical fires as it can worsen the situation or create new hazards.",
+        "Do not waste time collecting possessions during a fire emergency.",
+        "Never use elevators during a fire - they may malfunction or bring you directly to the fire floor.",
+        "Do not break windows unnecessarily during a fire, as this can feed oxygen to the fire and accelerate its spread.",
+        "Fire can spread extremely rapidly - you may have as little as 2 minutes to escape safely from the time a fire starts."
+      ],
+      notes: [
+        "Modern buildings often have sprinkler systems that will activate automatically during a fire.",
+        "Some larger buildings have emergency stairwells that are pressurized to keep smoke out during evacuation.",
+        "Specialized fire-suppression systems exist for specific hazards, such as commercial kitchens, computer server rooms, or industrial facilities.",
+        "Smoke alarms with sealed, 10-year batteries are now available and reduce the need for annual battery replacement.",
+        "Carbon monoxide detectors are also essential, as CO is an odorless, colorless gas that can be produced during incomplete combustion.",
+        "Fire-resistant safes can protect important documents during a fire, but they are not completely fireproof.",
+        "Fire blankets can be effective for small fires and when wrapped around a person whose clothes are on fire."
+      ]
+    },
     "fire-hose": {
       id: "fire-hose",
       title: "Emergency Fire Hose Usage",

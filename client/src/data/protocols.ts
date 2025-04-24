@@ -1,5 +1,10 @@
 export const emergencyProtocols = [
   {
+    id: "fire-emergency",
+    title: "Fire Emergency Response",
+    description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques."
+  },
+  {
     id: "fire-hose",
     title: "Emergency Fire Hose Usage",
     description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively."
@@ -93,6 +98,11 @@ export const emergencyProtocols = [
     id: "electrical",
     title: "Electrical Injuries",
     description: "Safety procedures and first aid for electrical shock and electrocution."
+  },
+  {
+    id: "fire-safety-equipment",
+    title: "Fire Safety Equipment Guide",
+    description: "Comprehensive guide to fire safety equipment including extinguishers, alarms, sprinklers, and safety gear."
   },
   {
     id: "bites",
