@@ -46,7 +46,7 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "fire-emergency",
       title: "Fire Emergency Response",
       description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques.",
-      demoVideo: "https://www.youtube.com/watch?v=ZYW0XS5WVmQ",
+      demoVideo: "",
       demoImages: [
         "https://www.safetyandhealthmagazine.com/ext/resources/images/2020/06-jun/fire-safety.jpg?height=635&t=1591027015&width=1200",
         "https://www.securitysystemsuk.com/images/blog/medium-large/fire-safety.jpg",
@@ -62,7 +62,7 @@ const getProtocolById = (id: string): Protocol | null => {
           title: "Early Fire Detection",
           description: "Know the signs of fire: visible flames, smoke, burning smell, unusual warmth, crackling sounds, or smoke detector alarms. Early detection saves lives and property.",
           important: true,
-          videoUrl: "https://www.youtube.com/watch?v=VQlrcSHW_hY"
+
         },
         {
           title: "Assess the Fire Situation",
@@ -84,7 +84,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Safe Evacuation Techniques",
           description: "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators.",
-          videoUrl: "https://www.youtube.com/watch?v=YnMuKHhru5M"
+
         },
         {
           title: "If Trapped in a Room",
@@ -95,7 +95,7 @@ const getProtocolById = (id: string): Protocol | null => {
           title: "Stop, Drop, and Roll",
           description: "If your clothing catches fire, stop immediately, drop to the ground, cover your face with your hands, and roll back and forth until the flames are extinguished.",
           important: true,
-          videoUrl: "https://www.youtube.com/watch?v=aJiR-FX9NX0"
+
         },
         {
           title: "Fire Extinguisher Use: PASS Method",
@@ -157,7 +157,7 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "fire-hose",
       title: "Emergency Fire Hose Usage",
       description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively.",
-      demoVideo: "https://www.youtube.com/watch?v=XeGWdECn9SQ",
+      demoVideo: "",
       demoImages: [
         "https://www.fire-reel.com/wp-content/themes/twentytwelve/images/Fire_Hose_Reel_1.jpg",
         "https://www.grisk.com/wp-content/uploads/2021/06/Fire-Hose-Types-1536x1024.jpg",
@@ -221,7 +221,7 @@ const getProtocolById = (id: string): Protocol | null => {
           title: "Open the Nozzle and Direct the Water",
           description: "Open the nozzle gradually to control the water flow. For most fires, use a wide spray pattern to cover more area. Direct the water at the base of the flames, not at the smoke or flames themselves.",
           important: true,
-          videoUrl: "https://www.youtube.com/watch?v=YDIjDO-uBw4"
+          videoUrl: "https://www.youtube.com/watch?v=AUjb3-MNUb8"
         },
         {
           title: "Move Methodically",
