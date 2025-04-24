@@ -5,5 +5,6 @@ export const navigationItems = [
   { path: "/medications", key: "medications" },
   { path: "/symptoms", key: "symptoms" },
   { path: "/hospitals", key: "hospitals" },
-  { path: "/contacts", key: "contacts" }
+  { path: "/contacts", key: "contacts" },
+  { path: "/fire-safety", key: "fireSafety" }
 ];
