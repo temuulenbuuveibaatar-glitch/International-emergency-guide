@@ -10,7 +10,8 @@
     "medications": "药物信息",
     "symptoms": "症状检查器",
     "hospitals": "附近医院",
-    "contacts": "紧急联系号码"
+    "contacts": "紧急联系号码",
+    "fireSafety": "消防安全设备"
   },
   "emergency": {
     "title": "紧急情况？请拨打",
