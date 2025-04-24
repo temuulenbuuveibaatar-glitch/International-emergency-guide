@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FiInfo, FiAlertTriangle, FiCheckCircle } from "react-icons/fi";
-import Layout from "../components/Layout";
 
 interface EquipmentItem {
   id: string;
@@ -204,98 +203,96 @@ export default function FireSafetyEquipment() {
   ];
 
   return (
-    <Layout>
-      <div className="container mx-auto py-6">
-        <h1 className="text-3xl font-bold mb-6">Fire Safety Equipment Guide</h1>
-        
-        <div className="mb-8 bg-amber-50 border border-amber-200 rounded-lg p-4">
-          <h2 className="flex items-center text-xl font-semibold text-amber-800 mb-2">
-            <FiInfo className="mr-2" /> Important Information
-          </h2>
-          <p className="text-amber-700">
-            This guide provides essential information about various fire safety equipment, their uses, maintenance, and safety tips. 
-            Having the right equipment in good working condition is crucial for fire prevention and effective emergency response.
-          </p>
-        </div>
-
-        <Tabs defaultValue="extinguisher" className="w-full">
-          <TabsList className="flex flex-wrap mb-4">
-            {equipmentItems.map((item) => (
-              <TabsTrigger key={item.id} value={item.id} className="mb-1">
-                {item.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {equipmentItems.map((item) => (
-            <TabsContent key={item.id} value={item.id} className="mt-0">
-              <Card>
-                <CardContent className="pt-6">
-                  <h2 className="text-2xl font-bold mb-3">{item.name}</h2>
-                  <p className="text-gray-700 mb-6">{item.description}</p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                      <h3 className="flex items-center text-lg font-semibold text-blue-800 mb-3">
-                        <FiInfo className="mr-2" /> Common Uses
-                      </h3>
-                      <ul className="list-disc pl-5 space-y-2">
-                        {item.useCases.map((use, index) => (
-                          <li key={index} className="text-blue-700">{use}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-100">
-                      <h3 className="flex items-center text-lg font-semibold text-green-800 mb-3">
-                        <FiCheckCircle className="mr-2" /> Maintenance Tips
-                      </h3>
-                      <ul className="list-disc pl-5 space-y-2">
-                        {item.maintenanceTips.map((tip, index) => (
-                          <li key={index} className="text-green-700">{tip}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="bg-red-50 rounded-lg p-4 border border-red-100">
-                      <h3 className="flex items-center text-lg font-semibold text-red-800 mb-3">
-                        <FiAlertTriangle className="mr-2" /> Safety Tips
-                      </h3>
-                      <ul className="list-disc pl-5 space-y-2">
-                        {item.safetyTips.map((tip, index) => (
-                          <li key={index} className="text-red-700">{tip}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-          <h2 className="text-xl font-bold mb-4">Fire Safety Equipment Planning</h2>
-          <p className="mb-4">
-            When planning your fire safety equipment setup, consider these factors:
-          </p>
-          <ul className="list-disc pl-6 space-y-2 mb-4">
-            <li>Building size and layout</li>
-            <li>Occupancy type and number of people</li>
-            <li>Types of potential fire hazards present</li>
-            <li>Local fire codes and regulations</li>
-            <li>Accessibility needs of occupants</li>
-            <li>Budget constraints vs. safety requirements</li>
-          </ul>
-          <p className="mb-4">
-            For the most effective protection, consult with a fire safety professional who can evaluate your specific needs
-            and provide recommendations tailored to your situation.
-          </p>
-          <Button className="mt-2">
-            Find Fire Safety Professionals
-          </Button>
-        </div>
+    <div className="container mx-auto py-6">
+      <h1 className="text-3xl font-bold mb-6">Fire Safety Equipment Guide</h1>
+      
+      <div className="mb-8 bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <h2 className="flex items-center text-xl font-semibold text-amber-800 mb-2">
+          <FiInfo className="mr-2" /> Important Information
+        </h2>
+        <p className="text-amber-700">
+          This guide provides essential information about various fire safety equipment, their uses, maintenance, and safety tips. 
+          Having the right equipment in good working condition is crucial for fire prevention and effective emergency response.
+        </p>
       </div>
-    </Layout>
+
+      <Tabs defaultValue="extinguisher" className="w-full">
+        <TabsList className="flex flex-wrap mb-4">
+          {equipmentItems.map((item) => (
+            <TabsTrigger key={item.id} value={item.id} className="mb-1">
+              {item.name}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {equipmentItems.map((item) => (
+          <TabsContent key={item.id} value={item.id} className="mt-0">
+            <Card>
+              <CardContent className="pt-6">
+                <h2 className="text-2xl font-bold mb-3">{item.name}</h2>
+                <p className="text-gray-700 mb-6">{item.description}</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                    <h3 className="flex items-center text-lg font-semibold text-blue-800 mb-3">
+                      <FiInfo className="mr-2" /> Common Uses
+                    </h3>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {item.useCases.map((use, index) => (
+                        <li key={index} className="text-blue-700">{use}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-green-50 rounded-lg p-4 border border-green-100">
+                    <h3 className="flex items-center text-lg font-semibold text-green-800 mb-3">
+                      <FiCheckCircle className="mr-2" /> Maintenance Tips
+                    </h3>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {item.maintenanceTips.map((tip, index) => (
+                        <li key={index} className="text-green-700">{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-red-50 rounded-lg p-4 border border-red-100">
+                    <h3 className="flex items-center text-lg font-semibold text-red-800 mb-3">
+                      <FiAlertTriangle className="mr-2" /> Safety Tips
+                    </h3>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {item.safetyTips.map((tip, index) => (
+                        <li key={index} className="text-red-700">{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        ))}
+      </Tabs>
+
+      <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <h2 className="text-xl font-bold mb-4">Fire Safety Equipment Planning</h2>
+        <p className="mb-4">
+          When planning your fire safety equipment setup, consider these factors:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 mb-4">
+          <li>Building size and layout</li>
+          <li>Occupancy type and number of people</li>
+          <li>Types of potential fire hazards present</li>
+          <li>Local fire codes and regulations</li>
+          <li>Accessibility needs of occupants</li>
+          <li>Budget constraints vs. safety requirements</li>
+        </ul>
+        <p className="mb-4">
+          For the most effective protection, consult with a fire safety professional who can evaluate your specific needs
+          and provide recommendations tailored to your situation.
+        </p>
+        <Button className="mt-2">
+          Find Fire Safety Professionals
+        </Button>
+      </div>
+    </div>
   );
 }
