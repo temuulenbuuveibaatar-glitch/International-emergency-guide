@@ -1360,30 +1360,7 @@ export default function ProtocolDetail() {
         </div>
       )}
       
-      {/* Demo Images Gallery */}
-      {protocol.demoImages && protocol.demoImages.length > 0 && (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
-          <div className="bg-primary text-white px-6 py-3">
-            <h2 className="font-semibold flex items-center">
-              <Info className="w-4 h-4 mr-2" />
-              {t('protocols.demoImages', 'Visual Guides')}
-            </h2>
-          </div>
-          <div className="p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {protocol.demoImages.map((imageUrl, index) => (
-                <div key={index} className="border border-gray-200 p-2 rounded-md">
-                  <MultimediaButton 
-                    url={imageUrl} 
-                    type="image" 
-                    title={`View ${protocol.title} visual guide ${index + 1}`}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Demo Images section removed as requested */}
 
       {/* Steps */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
@@ -1407,7 +1384,7 @@ export default function ProtocolDetail() {
                 </h3>
                 <p className="text-gray-600 mb-2">{step.description}</p>
                 
-                {/* Multimedia content for each step */}
+                {/* Only video content for each step as requested */}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {step.videoUrl && (
                     <div className="w-full md:w-auto mb-2">
@@ -1415,16 +1392,6 @@ export default function ProtocolDetail() {
                         url={step.videoUrl} 
                         type="video" 
                         title={`Watch video: ${step.title}`}
-                      />
-                    </div>
-                  )}
-                  
-                  {step.imageUrl && (
-                    <div className="w-full md:w-auto mb-2">
-                      <MultimediaButton 
-                        url={step.imageUrl} 
-                        type="image" 
-                        title={`View image: ${step.title}`}
                       />
                     </div>
                   )}
