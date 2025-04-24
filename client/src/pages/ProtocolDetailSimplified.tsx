@@ -251,25 +251,7 @@ export default function ProtocolDetail() {
             </div>
           )}
 
-          {/* Demo Images */}
-          {protocol.demoImages && protocol.demoImages.length > 0 && (
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                <ImageIcon size={20} className="mr-2 text-blue-600" />
-                {t('protocols.demoImages', 'Visual Guides')}
-              </h2>
-              <div className="space-y-2 border border-gray-200 rounded-lg p-3 bg-gray-50">
-                {protocol.demoImages.map((imageUrl, index) => (
-                  <MultimediaButton 
-                    key={index}
-                    url={imageUrl} 
-                    type="image" 
-                    title={`View visual guide #${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Demo Images section removed as requested */}
 
           {/* Steps */}
           <div className="mb-8">
@@ -303,14 +285,6 @@ export default function ProtocolDetail() {
                         url={step.videoUrl} 
                         type="video" 
                         title={`Watch tutorial: ${step.title}`}
-                      />
-                    )}
-                    
-                    {step.imageUrl && (
-                      <MultimediaButton 
-                        url={step.imageUrl} 
-                        type="image" 
-                        title={`View illustration: ${step.title}`}
                       />
                     )}
                   </div>

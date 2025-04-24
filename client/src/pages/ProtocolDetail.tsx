@@ -157,7 +157,7 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "fire-hose",
       title: "Emergency Fire Hose Usage",
       description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively.",
-      demoVideo: "https://www.youtube.com/watch?v=EfIYKMRH5Ik",
+      demoVideo: "https://www.youtube.com/watch?v=XeGWdECn9SQ",
       demoImages: [
         "https://www.fire-reel.com/wp-content/themes/twentytwelve/images/Fire_Hose_Reel_1.jpg",
         "https://www.grisk.com/wp-content/uploads/2021/06/Fire-Hose-Types-1536x1024.jpg",
@@ -194,7 +194,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Unroll or Extend the Hose",
           description: "Pull out the hose completely, making sure there are no kinks or twists. Extend it toward the fire, but maintain a safe distance. Unroll enough hose to reach the fire without stretching.",
-          videoUrl: "https://www.youtube.com/watch?v=D2-jHTUjfz4"
+          videoUrl: "https://www.youtube.com/watch?v=1qLl2cYDC68"
         },
         {
           title: "Position Yourself Safely",
@@ -215,7 +215,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Control the Hose",
           description: "The hose will become rigid and may jerk when water fills it. Be prepared for the force and maintain a firm grip with both hands. For larger hoses, you may need a partner to help manage it.",
-          videoUrl: "https://www.youtube.com/watch?v=axr4QF1bXPA"
+          videoUrl: "https://www.youtube.com/watch?v=cFjYvh6X_DM"
         },
         {
           title: "Open the Nozzle and Direct the Water",
@@ -284,13 +284,13 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Check Breathing",
           description: "Look for chest movement, listen for breathing sounds, and feel for breath on your cheek for no more than 10 seconds.",
-          videoUrl: "https://www.youtube.com/watch?v=f4ZI1PAsmks"
+          videoUrl: "https://www.youtube.com/watch?v=39TjtahTxT8"
         },
         {
           title: "Begin Chest Compressions",
           description: "Place the heel of your hand on the center of the chest, place your other hand on top, position your shoulders above your hands, and push hard and fast at a rate of 100-120 compressions per minute. Allow the chest to completely recoil between compressions.",
           important: true,
-          videoUrl: "https://www.youtube.com/watch?v=pk53b_eweyk"
+          videoUrl: "https://www.youtube.com/watch?v=G8S-PFPsZMM"
         },
         {
           title: "Open the Airway",
@@ -305,13 +305,13 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Continue CPR",
           description: "Continue cycles of 30 chest compressions followed by 2 rescue breaths until help arrives or the person shows signs of life.",
-          videoUrl: "https://www.youtube.com/watch?v=hizBdM1Ob68"
+          videoUrl: "https://www.youtube.com/watch?v=gSrWn9yrjQc"
         },
         {
           title: "Use AED if Available",
           description: "Turn on the AED and follow the prompts. Apply pads to bare chest as shown in the diagram on the pads.",
           imageUrl: "https://www.heartsafesolution.com/wp-content/uploads/2018/10/pad-where-to-place-aed-pads1.jpg",
-          videoUrl: "https://www.youtube.com/watch?v=UFvL7wTFzl0"
+          videoUrl: "https://www.youtube.com/watch?v=EuEPBkLKL9c"
         }
       ],
       warnings: [
