@@ -2,7 +2,19 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "wouter";
 import { emergencyProtocols } from "../data/protocols";
-import { AlertTriangle, ArrowLeft, Bookmark, Printer, Share2, Play, Image } from "lucide-react";
+import { 
+  AlertTriangle, 
+  ArrowLeft, 
+  Bookmark, 
+  Printer, 
+  Share2, 
+  PlayCircle, 
+  Video,
+  Info,
+  ExternalLink,
+  HelpCircle,
+  BookOpen
+} from "lucide-react";
 
 interface ProtocolStep {
   title: string;
@@ -1246,6 +1258,14 @@ const getProtocolById = (id: string): Protocol | null => {
   return null;
 };
 
+// Helper function to extract YouTube video ID
+const getYouTubeVideoId = (url: string) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 export default function ProtocolDetail() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
@@ -1323,7 +1343,7 @@ export default function ProtocolDetail() {
         <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <div className="bg-primary text-white px-6 py-3">
             <h2 className="font-semibold flex items-center">
-              <Play className="w-4 h-4 mr-2" />
+              <PlayCircle className="w-4 h-4 mr-2" />
               {t('protocols.demoVideo', 'Demonstration Video')}
             </h2>
           </div>
@@ -1357,7 +1377,7 @@ export default function ProtocolDetail() {
         <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
           <div className="bg-primary text-white px-6 py-3">
             <h2 className="font-semibold flex items-center">
-              <Image className="w-4 h-4 mr-2" />
+              <Info className="w-4 h-4 mr-2" />
               {t('protocols.demoImages', 'Visual Guides')}
             </h2>
           </div>
