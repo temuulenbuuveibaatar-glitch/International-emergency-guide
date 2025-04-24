@@ -95,6 +95,8 @@
     "offline": "Offline",
     "storageAvailable": "Available storage"
   },
+  "showMore": "Show details",
+  "showLess": "Hide details",
   "footer": {
     "title": "International Emergency Guide",
     "description": "Providing emergency medical information and resources to help save lives.",
