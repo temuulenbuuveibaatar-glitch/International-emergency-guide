@@ -46,7 +46,7 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "fire-emergency",
       title: "Fire Emergency Response",
       description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques.",
-      demoVideo: "https://www.youtube.com/watch?v=sSBLtlXzGM8",
+      demoVideo: "https://www.youtube.com/watch?v=ZYW0XS5WVmQ",
       demoImages: [
         "https://www.safetyandhealthmagazine.com/ext/resources/images/2020/06-jun/fire-safety.jpg?height=635&t=1591027015&width=1200",
         "https://www.securitysystemsuk.com/images/blog/medium-large/fire-safety.jpg",
@@ -62,7 +62,7 @@ const getProtocolById = (id: string): Protocol | null => {
           title: "Early Fire Detection",
           description: "Know the signs of fire: visible flames, smoke, burning smell, unusual warmth, crackling sounds, or smoke detector alarms. Early detection saves lives and property.",
           important: true,
-          videoUrl: "https://www.youtube.com/watch?v=ORr5p_NIz8M"
+          videoUrl: "https://www.youtube.com/watch?v=VQlrcSHW_hY"
         },
         {
           title: "Assess the Fire Situation",
@@ -84,7 +84,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Safe Evacuation Techniques",
           description: "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators.",
-          videoUrl: "https://www.youtube.com/watch?v=7LFbYevn_J0"
+          videoUrl: "https://www.youtube.com/watch?v=YnMuKHhru5M"
         },
         {
           title: "If Trapped in a Room",
@@ -263,7 +263,7 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "cpr",
       title: "CPR Protocol",
       description: "Step-by-step guide for cardiopulmonary resuscitation in emergency situations.",
-      demoVideo: "https://www.youtube.com/watch?v=XpEvQuOWME0",
+      demoVideo: "https://www.youtube.com/watch?v=tD2qTmDsiHk",
       demoImages: [
         "https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2017/10/05/17/43/cpr-8col.jpg",
         "https://www.redcross.org/content/dam/redcross/uncategorized/6/Hands-Only-CPR-Steps.png.transform/1288/q70/feature/image.jpeg",
@@ -328,7 +328,7 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "choking",
       title: "Choking Response",
       description: "Emergency procedures for choking incidents including the Heimlich maneuver.",
-      demoVideo: "https://www.youtube.com/watch?v=PA9hpOnvtCk",
+      demoVideo: "https://www.youtube.com/watch?v=ljL9JcK6RnM",
       demoImages: [
         "https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2016/10/07/18/03/heimlich-maneuver-8col.jpg",
         "https://aedusa.com/sites/default/files/inline-images/Heimlich%20choking.jpg",
