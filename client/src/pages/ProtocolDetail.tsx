@@ -31,15 +31,23 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "fire-emergency",
       title: "Fire Emergency Response",
       description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques.",
+      demoVideo: "https://www.youtube.com/watch?v=sSBLtlXzGM8",
+      demoImages: [
+        "https://www.safetyandhealthmagazine.com/ext/resources/images/2020/06-jun/fire-safety.jpg?height=635&t=1591027015&width=1200",
+        "https://www.securitysystemsuk.com/images/blog/medium-large/fire-safety.jpg",
+        "https://www.redcross.org/content/dam/redcross/training-services/Home-fire-escape-plan.jpg.transform/1288/q70/feature/image.jpeg"
+      ],
       steps: [
         {
           title: "Prevention",
-          description: "Install smoke alarms on every floor and in key areas like bedrooms and kitchens. Test them monthly and replace batteries annually. Keep fire extinguishers accessible and learn how to use them. Create and practice a home fire escape plan with all household members."
+          description: "Install smoke alarms on every floor and in key areas like bedrooms and kitchens. Test them monthly and replace batteries annually. Keep fire extinguishers accessible and learn how to use them. Create and practice a home fire escape plan with all household members.",
+          imageUrl: "https://cdn.ready.gov/icons/smoke-alarm-testing.png"
         },
         {
           title: "Early Fire Detection",
           description: "Know the signs of fire: visible flames, smoke, burning smell, unusual warmth, crackling sounds, or smoke detector alarms. Early detection saves lives and property.",
-          important: true
+          important: true,
+          videoUrl: "https://www.youtube.com/watch?v=ORr5p_NIz8M"
         },
         {
           title: "Assess the Fire Situation",
@@ -49,53 +57,66 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Activate the Alarm and Call Emergency Services",
           description: "Pull the fire alarm if in a public building. Call emergency services immediately (101 in Mongolia). Give your exact location and details about the fire. Never assume someone else has called.",
-          important: true
+          important: true,
+          imageUrl: "https://www.safeworkaustralia.gov.au/sites/default/files/2021-05/fire-alarm-600px.jpg"
         },
         {
           title: "Evacuation Priorities",
           description: "People first, possessions second. Alert everyone in the building. Help those who need assistance. Never re-enter a burning building for belongings.",
-          important: true
+          important: true,
+          imageUrl: "https://www.securitysystemsuk.com/images/blog/large/evacuation-procedure-in-case-of-fire.jpg"
         },
         {
           title: "Safe Evacuation Techniques",
-          description: "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators."
+          description: "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators.",
+          videoUrl: "https://www.youtube.com/watch?v=7LFbYevn_J0"
         },
         {
           title: "If Trapped in a Room",
-          description: "Block smoke from entering by placing wet towels or clothing under doors. Signal for help from windows. If possible, call emergency services to report your exact location. Cover your mouth and nose with a damp cloth."
+          description: "Block smoke from entering by placing wet towels or clothing under doors. Signal for help from windows. If possible, call emergency services to report your exact location. Cover your mouth and nose with a damp cloth.",
+          imageUrl: "https://www.nfpa.org/-/media/Images/Public-Education/By-topic/Fire-safety-equipment/Safety-messages-about-smoke-alarms/Close-the-door.ashx"
         },
         {
           title: "Stop, Drop, and Roll",
           description: "If your clothing catches fire, stop immediately, drop to the ground, cover your face with your hands, and roll back and forth until the flames are extinguished.",
-          important: true
+          important: true,
+          videoUrl: "https://www.youtube.com/watch?v=aJiR-FX9NX0"
         },
         {
           title: "Fire Extinguisher Use: PASS Method",
-          description: "Pull the pin. Aim the nozzle at the base of the fire. Squeeze the handle. Sweep from side to side across the base of the fire. Only attempt to extinguish small, contained fires."
+          description: "Pull the pin. Aim the nozzle at the base of the fire. Squeeze the handle. Sweep from side to side across the base of the fire. Only attempt to extinguish small, contained fires.",
+          videoUrl: "https://www.youtube.com/watch?v=BLjoWjCrDqg",
+          imageUrl: "https://www.usfa.fema.gov/images/blog/pass.jpg"
         },
         {
           title: "Different Types of Fire Extinguishers",
-          description: "Class A: Ordinary combustibles like wood and paper. Class B: Flammable liquids. Class C: Electrical fires. Class D: Combustible metals. Class K: Kitchen fires involving cooking oils. Use the proper extinguisher for the type of fire."
+          description: "Class A: Ordinary combustibles like wood and paper. Class B: Flammable liquids. Class C: Electrical fires. Class D: Combustible metals. Class K: Kitchen fires involving cooking oils. Use the proper extinguisher for the type of fire.",
+          imageUrl: "https://www.dh.org.tw/upload/editor/fire-extinguisher-types-fire-extinguisher-price-fire-safety-equipment.jpg"
         },
         {
           title: "Electrical Fires",
-          description: "Disconnect power if possible and safe to do so. Never use water on electrical fires - use only Class C extinguishers. If an appliance is on fire, unplug it if safe; otherwise, turn off power at the circuit breaker."
+          description: "Disconnect power if possible and safe to do so. Never use water on electrical fires - use only Class C extinguishers. If an appliance is on fire, unplug it if safe; otherwise, turn off power at the circuit breaker.",
+          imageUrl: "https://www.nfpa.org/-/media/Images/Public-Education/By-topic/Electrical/Electrical-safety-around-water.ashx"
         },
         {
           title: "Kitchen Fires",
-          description: "For grease fires, cover the pan with a metal lid or cookie sheet and turn off the heat source. Never use water on grease fires - it will cause an explosive flare-up. Use baking soda or a Class K extinguisher for small grease fires."
+          description: "For grease fires, cover the pan with a metal lid or cookie sheet and turn off the heat source. Never use water on grease fires - it will cause an explosive flare-up. Use baking soda or a Class K extinguisher for small grease fires.",
+          videoUrl: "https://www.youtube.com/watch?v=JmjSUlKoMXE"
         },
         {
           title: "Assembly Points",
-          description: "Gather at the designated meeting place outside the building. This allows you to account for everyone and inform firefighters if anyone is missing or trapped inside."
+          description: "Gather at the designated meeting place outside the building. This allows you to account for everyone and inform firefighters if anyone is missing or trapped inside.",
+          imageUrl: "https://ehs.research.uiowa.edu/sites/ehs.research.uiowa.edu/files/styles/large/public/evacuationtips.jpg"
         },
         {
           title: "Provide Information to Firefighters",
-          description: "Tell responders about any people trapped inside, the fire's location, and any hazardous materials (propane tanks, chemicals, etc.) that might be present."
+          description: "Tell responders about any people trapped inside, the fire's location, and any hazardous materials (propane tanks, chemicals, etc.) that might be present.",
+          imageUrl: "https://www.nfpa.org/-/media/Images/Public-Education/By-topic/Emergency-planning-special-needs/Emergency-planning-special-needs.ashx"
         },
         {
           title: "After the Fire",
-          description: "Do not re-enter the building until authorities declare it safe. Contact your insurance company. Secure the property from further damage or theft. Document damage with photos for insurance claims."
+          description: "Do not re-enter the building until authorities declare it safe. Contact your insurance company. Secure the property from further damage or theft. Document damage with photos for insurance claims.",
+          imageUrl: "https://www.usfa.fema.gov/images/about/images/about-staff-station.jpg"
         }
       ],
       warnings: [
@@ -121,70 +142,91 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "fire-hose",
       title: "Emergency Fire Hose Usage",
       description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively.",
+      demoVideo: "https://www.youtube.com/watch?v=EfIYKMRH5Ik",
+      demoImages: [
+        "https://www.fire-reel.com/wp-content/themes/twentytwelve/images/Fire_Hose_Reel_1.jpg",
+        "https://www.grisk.com/wp-content/uploads/2021/06/Fire-Hose-Types-1536x1024.jpg",
+        "https://firemarshals.org/wp-content/uploads/2018/12/shutterstock_100614512-fire-hose.jpg"
+      ],
       steps: [
         {
           title: "Locate the Fire Hose Cabinet",
-          description: "Emergency fire hoses are typically stored in red cabinets marked with fire hose symbols, usually in hallways, stairwells, or other common areas of buildings."
+          description: "Emergency fire hoses are typically stored in red cabinets marked with fire hose symbols, usually in hallways, stairwells, or other common areas of buildings.",
+          imageUrl: "https://evacsystems.com/wp-content/uploads/fire-hose-cabinet-evacsystems-300x300.jpg"
         },
         {
           title: "Assess the Fire Situation",
           description: "Before using a fire hose, quickly assess if the fire is manageable. Only tackle small, contained fires. For large fires, evacuate and call emergency services immediately.",
-          important: true
+          important: true,
+          imageUrl: "https://www.firesafe.org.uk/wp-content/uploads/2021/03/wd_fire_safety_risk_assessment.jpg"
         },
         {
           title: "Alert Others and Call Emergency Services",
           description: "Activate the fire alarm if available, and call emergency services (101 in Mongolia). Even if you plan to fight the fire, professional help should always be on the way.",
-          important: true
+          important: true,
+          imageUrl: "https://www.safeworkaustralia.gov.au/sites/default/files/2021-05/fire-alarm-600px.jpg"
         },
         {
           title: "Open the Fire Hose Cabinet",
-          description: "Open the cabinet door. Inside you'll typically find the fire hose neatly folded or on a reel, a valve/hydrant connection, and possibly additional firefighting equipment."
+          description: "Open the cabinet door. Inside you'll typically find the fire hose neatly folded or on a reel, a valve/hydrant connection, and possibly additional firefighting equipment.",
+          imageUrl: "https://www.fireco.uk/wp-content/uploads/Fire-Hose-Reel.jpg"
         },
         {
           title: "Check for Proper Equipment",
-          description: "Ensure the hose is connected to the water supply valve/hydrant. Most cabinets contain a hose, nozzle, and valve wheel or lever."
+          description: "Ensure the hose is connected to the water supply valve/hydrant. Most cabinets contain a hose, nozzle, and valve wheel or lever.",
+          imageUrl: "https://res.cloudinary.com/dktp1ybbx/image/upload/f_auto,fl_lossy,q_auto/v1626430738/organization/blog/AdobeStock_288202650.jpg"
         },
         {
           title: "Unroll or Extend the Hose",
-          description: "Pull out the hose completely, making sure there are no kinks or twists. Extend it toward the fire, but maintain a safe distance. Unroll enough hose to reach the fire without stretching."
+          description: "Pull out the hose completely, making sure there are no kinks or twists. Extend it toward the fire, but maintain a safe distance. Unroll enough hose to reach the fire without stretching.",
+          videoUrl: "https://www.youtube.com/watch?v=D2-jHTUjfz4"
         },
         {
           title: "Position Yourself Safely",
           description: "Stand at a safe distance from the fire, ideally with your back toward an exit. Maintain firm footing with legs apart for stability. Never turn your back to a fire.",
-          important: true
+          important: true,
+          imageUrl: "https://www.safetyandhealthmagazine.com/ext/resources/images/2020/03-mar/firefighter-position.jpg"
         },
         {
           title: "Prepare the Nozzle",
-          description: "If the nozzle has settings, set it to closed position before turning on the water. Common settings may include 'off', 'spray', and 'stream'."
+          description: "If the nozzle has settings, set it to closed position before turning on the water. Common settings may include 'off', 'spray', and 'stream'.",
+          imageUrl: "https://m.media-amazon.com/images/I/31j+aKr40zL._AC_UF894,1000_QL80_.jpg"
         },
         {
           title: "Turn On the Water Supply",
-          description: "Return to the valve and open it completely by turning the valve wheel counterclockwise (lefty loosey) or by pulling the lever. This allows water to flow to the hose."
+          description: "Return to the valve and open it completely by turning the valve wheel counterclockwise (lefty loosey) or by pulling the lever. This allows water to flow to the hose.",
+          imageUrl: "https://www.qrfs.com/media/5452/fire-department-connection-basics-800-blog.jpg"
         },
         {
           title: "Control the Hose",
-          description: "The hose will become rigid and may jerk when water fills it. Be prepared for the force and maintain a firm grip with both hands. For larger hoses, you may need a partner to help manage it."
+          description: "The hose will become rigid and may jerk when water fills it. Be prepared for the force and maintain a firm grip with both hands. For larger hoses, you may need a partner to help manage it.",
+          videoUrl: "https://www.youtube.com/watch?v=axr4QF1bXPA"
         },
         {
           title: "Open the Nozzle and Direct the Water",
           description: "Open the nozzle gradually to control the water flow. For most fires, use a wide spray pattern to cover more area. Direct the water at the base of the flames, not at the smoke or flames themselves.",
-          important: true
+          important: true,
+          videoUrl: "https://www.youtube.com/watch?v=YDIjDO-uBw4"
         },
         {
           title: "Move Methodically",
-          description: "Use sweeping motions across the base of the fire. If fighting a fire on a vertical surface, start at the bottom and work your way up."
+          description: "Use sweeping motions across the base of the fire. If fighting a fire on a vertical surface, start at the bottom and work your way up.",
+          imageUrl: "https://fire-marshal.com.au/wp-content/uploads/2020/09/hose-reel.jpg"
         },
         {
           title: "Monitor the Situation",
-          description: "Continuously assess if the fire is being contained. If the fire grows or your position becomes unsafe, stop and evacuate immediately."
+          description: "Continuously assess if the fire is being contained. If the fire grows or your position becomes unsafe, stop and evacuate immediately.",
+          imageUrl: "https://cdn-ehokb.nitrocdn.com/iYIEAIhYaLTmeFOyxbTVrwqMKpBchlAH/assets/images/optimized/rev-f22cd68/wp-content/uploads/2021/07/fireman-fire-fighters-and-extinguishing-large-fires.jpg"
         },
         {
           title: "After the Fire is Extinguished",
-          description: "Continue spraying water to cool the area and prevent re-ignition. Watch for hot spots and apply water as needed."
+          description: "Continue spraying water to cool the area and prevent re-ignition. Watch for hot spots and apply water as needed.",
+          imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Rescue_Firefighter_Overhaul_After_House_Fire.jpg"
         },
         {
           title: "Closing Down",
-          description: "When it's safe and firefighters have arrived, close the nozzle first, then turn off the water supply. Drain the hose by opening the nozzle with the hose lowered."
+          description: "When it's safe and firefighters have arrived, close the nozzle first, then turn off the water supply. Drain the hose by opening the nozzle with the hose lowered.",
+          imageUrl: "https://www.ifafri.eu/wp-content/uploads/2017/07/IFAFRI-fire-hose-example.png"
         }
       ],
       warnings: [
@@ -206,40 +248,55 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "cpr",
       title: "CPR Protocol",
       description: "Step-by-step guide for cardiopulmonary resuscitation in emergency situations.",
+      demoVideo: "https://www.youtube.com/watch?v=XpEvQuOWME0",
+      demoImages: [
+        "https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2017/10/05/17/43/cpr-8col.jpg",
+        "https://www.redcross.org/content/dam/redcross/uncategorized/6/Hands-Only-CPR-Steps.png.transform/1288/q70/feature/image.jpeg",
+        "https://healthmatters.nyp.org/wp-content/uploads/2018/06/hands-on-cpr-1.jpg"
+      ],
       steps: [
         {
           title: "Check Responsiveness",
-          description: "Tap the person's shoulder and shout 'Are you okay?' to ensure they're unconscious."
+          description: "Tap the person's shoulder and shout 'Are you okay?' to ensure they're unconscious.",
+          imageUrl: "https://cpr.heart.org/-/media/Images/Health-Topics/CPR/CPR_Check_for_Responsiveness.png"
         },
         {
           title: "Call for Help",
           description: "Ask someone to call emergency services (103 in Mongolia) and get an AED if available.",
-          important: true
+          important: true,
+          imageUrl: "https://www.verywellhealth.com/thmb/M0pMrTdcStQmrpPSOXn9lp1pjWA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-675680446-5a8cd329c5542e003743880f.jpg"
         },
         {
           title: "Check Breathing",
-          description: "Look for chest movement, listen for breathing sounds, and feel for breath on your cheek for no more than 10 seconds."
+          description: "Look for chest movement, listen for breathing sounds, and feel for breath on your cheek for no more than 10 seconds.",
+          videoUrl: "https://www.youtube.com/watch?v=f4ZI1PAsmks"
         },
         {
           title: "Begin Chest Compressions",
           description: "Place the heel of your hand on the center of the chest, place your other hand on top, position your shoulders above your hands, and push hard and fast at a rate of 100-120 compressions per minute. Allow the chest to completely recoil between compressions.",
-          important: true
+          important: true,
+          videoUrl: "https://www.youtube.com/watch?v=pk53b_eweyk"
         },
         {
           title: "Open the Airway",
-          description: "Place one hand on the forehead and gently tilt the head back. With your other hand, lift the chin forward to open the airway."
+          description: "Place one hand on the forehead and gently tilt the head back. With your other hand, lift the chin forward to open the airway.",
+          imageUrl: "https://www.thecprguys.com/wp-content/uploads/2019/02/The-Head-Tilt-Chin-Lift-Maneuver-for-Airway-Opening.jpg"
         },
         {
           title: "Give Rescue Breaths",
-          description: "Pinch the nose closed, take a normal breath, cover the person's mouth with yours (or use a barrier device), and blow for about 1 second to make the chest rise. Deliver 2 rescue breaths."
+          description: "Pinch the nose closed, take a normal breath, cover the person's mouth with yours (or use a barrier device), and blow for about 1 second to make the chest rise. Deliver 2 rescue breaths.",
+          imageUrl: "https://userfiles.steadyhealth.com/articles/info/5/55/rescue-breathing.jpg"
         },
         {
           title: "Continue CPR",
-          description: "Continue cycles of 30 chest compressions followed by 2 rescue breaths until help arrives or the person shows signs of life."
+          description: "Continue cycles of 30 chest compressions followed by 2 rescue breaths until help arrives or the person shows signs of life.",
+          videoUrl: "https://www.youtube.com/watch?v=hizBdM1Ob68"
         },
         {
           title: "Use AED if Available",
-          description: "Turn on the AED and follow the prompts. Apply pads to bare chest as shown in the diagram on the pads."
+          description: "Turn on the AED and follow the prompts. Apply pads to bare chest as shown in the diagram on the pads.",
+          imageUrl: "https://www.heartsafesolution.com/wp-content/uploads/2018/10/pad-where-to-place-aed-pads1.jpg",
+          videoUrl: "https://www.youtube.com/watch?v=UFvL7wTFzl0"
         }
       ],
       warnings: [
@@ -256,28 +313,39 @@ const getProtocolById = (id: string): Protocol | null => {
       id: "choking",
       title: "Choking Response",
       description: "Emergency procedures for choking incidents including the Heimlich maneuver.",
+      demoVideo: "https://www.youtube.com/watch?v=PA9hpOnvtCk",
+      demoImages: [
+        "https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2016/10/07/18/03/heimlich-maneuver-8col.jpg",
+        "https://aedusa.com/sites/default/files/inline-images/Heimlich%20choking.jpg",
+        "https://www.redcross.org.uk/getmedia/3e794c60-f98f-4e12-8ab7-8f8a66ab4587/Adult-choking.jpgmaxwh=603",
+      ],
       steps: [
         {
           title: "Assess the Severity",
-          description: "Determine if the airway is completely or partially blocked. If the person can speak, cough, or breathe, do not interfere."
+          description: "Determine if the airway is completely or partially blocked. If the person can speak, cough, or breathe, do not interfere.",
+          imageUrl: "https://thumbs.dreamstime.com/b/universal-choking-sign-symbol-vector-illustration-international-signal-indicates-person-cannot-speak-breathe-needs-immediate-177597219.jpg"
         },
         {
           title: "Call for Help",
           description: "If the person cannot speak, cough, or breathe, call for emergency services (103 in Mongolia) or have someone else call.",
-          important: true
+          important: true,
+          imageUrl: "https://www.verywellhealth.com/thmb/M0pMrTdcStQmrpPSOXn9lp1pjWA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-675680446-5a8cd329c5542e003743880f.jpg"
         },
         {
           title: "Heimlich Maneuver (Abdominal Thrusts)",
           description: "Stand behind the person and wrap your arms around their waist. Make a fist with one hand and place it just above their navel. Grasp your fist with your other hand and press into their abdomen with quick upward thrusts.",
-          important: true
+          important: true,
+          videoUrl: "https://www.youtube.com/watch?v=2dn13zneEjo"
         },
         {
           title: "Continue Until Object Is Expelled",
-          description: "Repeat abdominal thrusts until the object is expelled or the person loses consciousness."
+          description: "Repeat abdominal thrusts until the object is expelled or the person loses consciousness.",
+          imageUrl: "https://www.emssafetyservices.com/wp-content/uploads/2016/11/new-heimlich.jpg"
         },
         {
           title: "If the Person Becomes Unconscious",
-          description: "Lower the person carefully to the ground and begin CPR, starting with chest compressions. Before giving breaths, look in the mouth for the object. If you see it, remove it, but never perform blind finger sweeps."
+          description: "Lower the person carefully to the ground and begin CPR, starting with chest compressions. Before giving breaths, look in the mouth for the object. If you see it, remove it, but never perform blind finger sweeps.",
+          videoUrl: "https://www.youtube.com/watch?v=UAcRa5IJU1I"
         }
       ],
       warnings: [
