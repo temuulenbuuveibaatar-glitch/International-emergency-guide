@@ -47,11 +47,7 @@ const getProtocolById = (id: string): Protocol | null => {
       title: "Fire Emergency Response",
       description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques.",
       demoVideo: "",
-      demoImages: [
-        "https://www.safetyandhealthmagazine.com/ext/resources/images/2020/06-jun/fire-safety.jpg?height=635&t=1591027015&width=1200",
-        "https://www.securitysystemsuk.com/images/blog/medium-large/fire-safety.jpg",
-        "https://www.redcross.org/content/dam/redcross/training-services/Home-fire-escape-plan.jpg.transform/1288/q70/feature/image.jpeg"
-      ],
+      demoImages: [],
       steps: [
         {
           title: "Prevention",
@@ -100,7 +96,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Fire Extinguisher Use: PASS Method",
           description: "Pull the pin. Aim the nozzle at the base of the fire. Squeeze the handle. Sweep from side to side across the base of the fire. Only attempt to extinguish small, contained fires.",
-          videoUrl: "https://www.youtube.com/watch?v=BLjoWjCrDqg",
+
           imageUrl: "https://www.usfa.fema.gov/images/blog/pass.jpg"
         },
         {
@@ -116,7 +112,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Kitchen Fires",
           description: "For grease fires, cover the pan with a metal lid or cookie sheet and turn off the heat source. Never use water on grease fires - it will cause an explosive flare-up. Use baking soda or a Class K extinguisher for small grease fires.",
-          videoUrl: "https://www.youtube.com/watch?v=JmjSUlKoMXE"
+
         },
         {
           title: "Assembly Points",
@@ -158,11 +154,7 @@ const getProtocolById = (id: string): Protocol | null => {
       title: "Emergency Fire Hose Usage",
       description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively.",
       demoVideo: "",
-      demoImages: [
-        "https://www.fire-reel.com/wp-content/themes/twentytwelve/images/Fire_Hose_Reel_1.jpg",
-        "https://www.grisk.com/wp-content/uploads/2021/06/Fire-Hose-Types-1536x1024.jpg",
-        "https://firemarshals.org/wp-content/uploads/2018/12/shutterstock_100614512-fire-hose.jpg"
-      ],
+      demoImages: [],
       steps: [
         {
           title: "Locate the Fire Hose Cabinet",
@@ -194,7 +186,7 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Unroll or Extend the Hose",
           description: "Pull out the hose completely, making sure there are no kinks or twists. Extend it toward the fire, but maintain a safe distance. Unroll enough hose to reach the fire without stretching.",
-          videoUrl: "https://www.youtube.com/watch?v=1qLl2cYDC68"
+
         },
         {
           title: "Position Yourself Safely",
@@ -215,13 +207,13 @@ const getProtocolById = (id: string): Protocol | null => {
         {
           title: "Control the Hose",
           description: "The hose will become rigid and may jerk when water fills it. Be prepared for the force and maintain a firm grip with both hands. For larger hoses, you may need a partner to help manage it.",
-          videoUrl: "https://www.youtube.com/watch?v=cFjYvh6X_DM"
+
         },
         {
           title: "Open the Nozzle and Direct the Water",
           description: "Open the nozzle gradually to control the water flow. For most fires, use a wide spray pattern to cover more area. Direct the water at the base of the flames, not at the smoke or flames themselves.",
           important: true,
-          videoUrl: "https://www.youtube.com/watch?v=AUjb3-MNUb8"
+
         },
         {
           title: "Move Methodically",
