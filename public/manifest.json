@@ -1,0 +1,21 @@
+{
+  "name": "International Emergency Guide",
+  "short_name": "Emerg Guide",
+  "description": "Comprehensive guide for emergency situations with offline access",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc3545",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
