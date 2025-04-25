@@ -14,7 +14,8 @@ export default function LanguageSelector() {
     { code: 'mn', name: 'Монгол' },
     { code: 'zh', name: '中文' },
     { code: 'ja', name: '日本語' },
-    { code: 'es', name: 'Español' }
+    { code: 'es', name: 'Español' },
+    { code: 'ru', name: 'Русский' }
   ];
   
   const toggleDropdown = () => {
