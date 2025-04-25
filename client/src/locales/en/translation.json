@@ -97,6 +97,17 @@
   },
   "showMore": "Show details",
   "showLess": "Hide details",
+  "install": {
+    "title": "Install Emergency Guide",
+    "androidDesc": "Install this app for quick access and offline use.",
+    "iosDesc": "Install this app on your device for offline access to critical emergency information.",
+    "install": "Install",
+    "later": "Later",
+    "iosInstructionsTitle": "Install on iOS",
+    "iosInstructions": "Tap the share button and then \"Add to Home Screen\"",
+    "success": "Installation Started",
+    "successDesc": "Thanks for installing our app!"
+  },
   "footer": {
     "title": "International Emergency Guide",
     "description": "Providing emergency medical information and resources to help save lives.",

@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { queryClient } from "./lib/queryClient";
 import Layout from "./components/Layout";
+import InstallAppPrompt from "./components/InstallAppPrompt";
 import NotFound from "@/pages/not-found";
 import Home from "./pages/Home";
 import EmergencyProtocols from "./pages/EmergencyProtocols";
@@ -42,6 +43,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <InstallAppPrompt />
         </TooltipProvider>
       </LanguageProvider>
     </QueryClientProvider>
