@@ -9,6 +9,7 @@ import mnTranslation from "../locales/mn/translation.json";
 import zhTranslation from "../locales/zh/translation.json";
 import jaTranslation from "../locales/ja/translation.json";
 import esTranslation from "../locales/es/translation.json";
+import ruTranslation from "../locales/ru/translation.json";
 
 i18n
   .use(LanguageDetector)
@@ -21,7 +22,8 @@ i18n
       mn: { translation: mnTranslation },
       zh: { translation: zhTranslation },
       ja: { translation: jaTranslation },
-      es: { translation: esTranslation }
+      es: { translation: esTranslation },
+      ru: { translation: ruTranslation }
     },
     fallbackLng: "en",
     debug: process.env.NODE_ENV !== "production",
