@@ -2189,6 +2189,76 @@ export default function HospitalFinder() {
         address: "89 Chapaevskaya St, Samara, Russia",
         position: { lat: 53.1955, lng: 50.1325 },
         phone: "+78463333071"
+      },
+      {
+        id: "ru_31",
+        name: "Altai Regional Clinical Hospital",
+        address: "Lyapidevskogo St, 1, Barnaul, Russia",
+        position: { lat: 53.3557, lng: 83.6770 },
+        phone: "+73852689600"
+      },
+      {
+        id: "ru_32",
+        name: "Irkutsk Regional Clinical Hospital",
+        address: "Yubileyniy Microdistrict, 100, Irkutsk, Russia",
+        position: { lat: 52.2582, lng: 104.2786 },
+        phone: "+73952469762"
+      },
+      {
+        id: "ru_33",
+        name: "Omsk Regional Clinical Hospital",
+        address: "3 Berezovaya St, Omsk, Russia",
+        position: { lat: 54.9893, lng: 73.3747 },
+        phone: "+73812359222"
+      },
+      {
+        id: "ru_34",
+        name: "Perm Regional Clinical Hospital",
+        address: "73A Pushkina St, Perm, Russia",
+        position: { lat: 58.0104, lng: 56.2572 },
+        phone: "+73422393111"
+      },
+      {
+        id: "ru_35",
+        name: "Murmansk Regional Clinical Hospital",
+        address: "6 Pavlova St, Murmansk, Russia",
+        position: { lat: 68.9707, lng: 33.0814 },
+        phone: "+78152256019"
+      },
+      {
+        id: "ru_36",
+        name: "Kaliningrad Regional Clinical Hospital",
+        address: "74 Klinicheskaya St, Kaliningrad, Russia",
+        position: { lat: 54.7128, lng: 20.5033 },
+        phone: "+74012592000"
+      },
+      {
+        id: "ru_37",
+        name: "Ivanovo Regional Clinical Hospital",
+        address: "5 Lyubimova St, Ivanovo, Russia",
+        position: { lat: 56.9988, lng: 40.9804 },
+        phone: "+74932932233"
+      },
+      {
+        id: "ru_38",
+        name: "Belgorod Regional Clinical Hospital",
+        address: "8/9 Nekrasova St, Belgorod, Russia",
+        position: { lat: 50.5980, lng: 36.5888 },
+        phone: "+74722504703"
+      },
+      {
+        id: "ru_39",
+        name: "Astrakhan Federal Center for Cardiovascular Surgery",
+        address: "4 Pokrovskaya Roshcha St, Astrakhan, Russia",
+        position: { lat: 46.3497, lng: 48.0389 },
+        phone: "+78512311002"
+      },
+      {
+        id: "ru_40",
+        name: "Vladivostok Clinical Hospital No. 2",
+        address: "57 Russkaya St, Vladivostok, Russia",
+        position: { lat: 43.1198, lng: 131.9234 },
+        phone: "+74232322130"
       }
     ]
   };
