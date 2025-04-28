@@ -1,13 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { countryEmergencyNumbers, getIconComponent, IconType } from "../data/emergencyNumbers";
-import { Phone, Globe, ChevronLeft, ChevronRight } from "lucide-react";
+import { countryEmergencyNumbers, getIconComponent } from "../data/emergencyNumbers";
+import { Phone, Globe, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 
 type EmergencyNumber = {
   id: string;
   type: string;
   number: string;
   icon: string;
+  description?: string;
+  available?: string;
 }
 
 export default function CountryEmergencyTabs() {
@@ -135,51 +137,80 @@ export default function CountryEmergencyTabs() {
         )}
       </div>
       
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         {activeCountry ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fadeIn">
-            {getEmergencyNumbersForCountry(activeCountry).map((number) => {
-              const IconComponent = getIconComponent(number.icon);
-              const isHovered = hoveredCard === number.id;
-              
-              return (
-                <div 
-                  key={number.id} 
-                  className={`flex items-center gap-3 p-4 border border-gray-200 rounded-lg transition-all duration-300 ${
-                    isHovered 
-                      ? 'shadow-md border-primary bg-gray-50 transform scale-[1.03]' 
-                      : 'hover:shadow-sm hover:border-gray-300'
-                  }`}
-                  onMouseEnter={() => setHoveredCard(number.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  <div className={`p-3 rounded-full flex-shrink-0 transition-colors duration-300 ${
-                    isHovered ? 'bg-primary text-white' : 'bg-red-100 text-primary'
-                  }`}>
-                    <IconComponent className="w-5 h-5" />
-                  </div>
-                  <div className="flex-grow">
-                    <div className="text-sm text-gray-600 font-medium">{t(`emergencyNumbers.${number.type}`)}</div>
-                    <div className="font-mono font-bold text-lg">{number.number}</div>
-                  </div>
-                  <button 
-                    onClick={() => handleCall(number.number)}
-                    className={`flex items-center justify-center p-2 rounded-full transition-all duration-300 ${
-                      isHovered ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                    aria-label={`Call ${number.number}`}
-                  >
-                    <Phone className="w-4 h-4" />
-                  </button>
-                </div>
-              );
-            })}
+          <div>
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-lg font-medium text-gray-800">
+                {t(`countries.${activeCountry}`)} {t('emergencyNumbers.title')}
+              </h3>
+              <button 
+                onClick={() => setActiveCountry(null)}
+                className="text-sm flex items-center gap-1 text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>Back to Countries</span>
+              </button>
+            </div>
             
-            {getEmergencyNumbersForCountry(activeCountry).length === 0 && (
-              <div className="col-span-3 text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
-                <p className="text-gray-500">{t('emergencyNumbers.noData')}</p>
-              </div>
-            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 animate-fadeIn">
+              {getEmergencyNumbersForCountry(activeCountry).map((number) => {
+                const IconComponent = getIconComponent(number.icon);
+                const isHovered = hoveredCard === number.id;
+                
+                return (
+                  <div 
+                    key={number.id} 
+                    className={`flex items-start gap-3 p-4 border border-gray-200 rounded-lg transition-all duration-300 ${
+                      isHovered 
+                        ? 'shadow-md border-primary bg-gray-50 transform scale-[1.03]' 
+                        : 'hover:shadow-sm hover:border-gray-300'
+                    }`}
+                    onMouseEnter={() => setHoveredCard(number.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    <div className={`p-3 rounded-full flex-shrink-0 transition-colors duration-300 mt-1 ${
+                      isHovered ? 'bg-primary text-white' : 'bg-red-100 text-primary'
+                    }`}>
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <div className="flex-grow">
+                      <div className="text-sm text-gray-600 font-medium">{t(`emergencyNumbers.${number.type}`, number.type)}</div>
+                      <div className="font-mono font-bold text-lg">{number.number}</div>
+                      
+                      {number.description && (
+                        <div className="text-sm text-gray-700 mt-1 max-w-[200px] line-clamp-2">{number.description}</div>
+                      )}
+                      
+                      {number.available && (
+                        <div className="flex items-center mt-2">
+                          <Clock className="w-3 h-3 text-gray-500 mr-1" />
+                          <span className="text-xs text-gray-500">{number.available}</span>
+                        </div>
+                      )}
+                    </div>
+                    <button 
+                      onClick={() => handleCall(number.number)}
+                      className={`flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${
+                        isHovered ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      }`}
+                      aria-label={`Call ${number.number}`}
+                    >
+                      <Phone className="w-4 h-4" />
+                    </button>
+                  </div>
+                );
+              })}
+              
+              {getEmergencyNumbersForCountry(activeCountry).length === 0 && (
+                <div className="col-span-3 text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
+                  <p className="text-gray-500">{t('emergencyNumbers.noData')}</p>
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           <div className="text-center py-12 bg-blue-50 rounded-lg border border-blue-100">
