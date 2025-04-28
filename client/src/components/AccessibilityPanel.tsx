@@ -16,7 +16,7 @@ export default function AccessibilityPanel() {
   } = useAccessibility();
 
   return (
-    <div className="fixed bottom-8 right-4 z-50 flex flex-col items-end">
+    <div className="fixed bottom-20 right-4 z-50 flex flex-col items-end">
       {/* Panel content */}
       {isOpen && (
         <div className="mb-4 w-72 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden animate-fadeIn">
