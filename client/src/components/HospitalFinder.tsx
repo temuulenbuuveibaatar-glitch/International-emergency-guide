@@ -30,6 +30,9 @@ export default function HospitalFinder() {
   const [selectedHospital, setSelectedHospital] = useState<Hospital | null>(null);
   const [mapCenter, setMapCenter] = useState(center);
   const [selectedCountry, setSelectedCountry] = useState<string>("Mongolia");
+  const [mapZoom, setMapZoom] = useState(5);
+  const [showListView, setShowListView] = useState(false);
+  const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
   const mapRef = useRef<google.maps.Map | null>(null);
   
   // We'll continue to use the Google Maps API, but we'll also provide a fallback
@@ -47,6 +50,61 @@ export default function HospitalFinder() {
     
     // Set initial zoom level to see the whole country
     map.setZoom(5);
+    setMapZoom(5);
+    
+    // Add zoom changed listener
+    map.addListener("zoom_changed", () => {
+      if (mapRef.current) {
+        setMapZoom(mapRef.current.getZoom());
+      }
+    });
+
+    // Add custom controls
+    const customControlDiv = document.createElement("div");
+    customControlDiv.className = "custom-map-controls";
+    customControlDiv.innerHTML = `
+      <div style="background-color: white; margin: 10px; padding: 10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+        <div style="margin-bottom: 8px; text-align: center; font-weight: bold;">Map Controls</div>
+        <div style="display: flex; gap: 8px;">
+          <button id="zoom-in" style="padding: 8px; border-radius: 4px; background-color: #004A9F; color: white; border: none;">+</button>
+          <button id="zoom-out" style="padding: 8px; border-radius: 4px; background-color: #004A9F; color: white; border: none;">-</button>
+          <button id="toggle-view" style="padding: 8px; border-radius: 4px; background-color: #004A9F; color: white; border: none;">Toggle List</button>
+        </div>
+      </div>
+    `;
+
+    // Add event listeners for custom controls
+    const zoomIn = customControlDiv.querySelector('#zoom-in');
+    const zoomOut = customControlDiv.querySelector('#zoom-out');
+    const toggleView = customControlDiv.querySelector('#toggle-view');
+    
+    if (zoomIn) {
+      zoomIn.addEventListener('click', () => {
+        if (mapRef.current) {
+          const currentZoom = mapRef.current.getZoom() || 5;
+          mapRef.current.setZoom(currentZoom + 1);
+          setMapZoom(currentZoom + 1);
+        }
+      });
+    }
+    
+    if (zoomOut) {
+      zoomOut.addEventListener('click', () => {
+        if (mapRef.current) {
+          const currentZoom = mapRef.current.getZoom() || 5;
+          mapRef.current.setZoom(currentZoom - 1);
+          setMapZoom(currentZoom - 1);
+        }
+      });
+    }
+    
+    if (toggleView) {
+      toggleView.addEventListener('click', () => {
+        setShowListView(prev => !prev);
+      });
+    }
+    
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(customControlDiv);
     
     // Load the country's hospitals
     searchNearbyHospitals(countryCenter, defaultCountry);
@@ -3278,12 +3336,31 @@ export default function HospitalFinder() {
       
       // Only manipulate map if it's available
       if (mapRef.current) {
+        // Use a smooth animation for a better user experience
         mapRef.current.panTo(countryCenter);
-        mapRef.current.setZoom(5); // Zoom out to see the whole country
+        
+        // Set appropriate zoom level based on country size
+        const zoomLevels: Record<string, number> = {
+          "Mongolia": 5,
+          "China": 4,
+          "Japan": 6,
+          "South Korea": 7,
+          "UK": 6,
+          "Germany": 6,
+          "Russia": 4
+        };
+        
+        const zoomLevel = zoomLevels[country] || 5;
+        mapRef.current.setZoom(zoomLevel);
+        setMapZoom(zoomLevel);
       }
       
       // Always search for hospitals regardless of map status
       searchNearbyHospitals(countryCenter, country);
+      
+      // Reset selected hospital when changing countries
+      setSelectedHospital(null);
+      setIsInfoWindowOpen(false);
     }
   };
 
