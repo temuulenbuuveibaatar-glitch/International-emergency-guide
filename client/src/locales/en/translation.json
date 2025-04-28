@@ -148,5 +148,18 @@
     "namePlaceholder": "Enter your full name",
     "successMessage": "Thank you for your interest! We will contact you soon with more information.",
     "errorMessage": "Please provide a valid email address."
+  },
+  "accessibility": {
+    "title": "Accessibility Settings",
+    "fontSize": "Font Size",
+    "theme": "Display Mode",
+    "contrast": "High Contrast",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "highContrast": "High Contrast",
+    "normal": "Normal",
+    "large": "Large",
+    "xlarge": "Extra Large",
+    "note": "Settings are saved automatically and will persist when you return."
   }
 }
