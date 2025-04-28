@@ -28,6 +28,21 @@
     <!-- Splash screens for iOS -->
     <link rel="apple-touch-startup-image" href="/icon-512x512.png" />
     
+    <!-- Prevent flash of unstyled content for dark mode -->
+    <script>
+      // Check if user has dark mode enabled
+      const darkModeEnabled = 
+        localStorage.getItem('accessibility_darkMode') === 'true' || 
+        (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && 
+         localStorage.getItem('accessibility_darkMode') !== 'false');
+      
+      // Apply dark mode class immediately if enabled
+      if (darkModeEnabled) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    </script>
+    
     <!-- Add to home screen instruction for Safari on iOS -->
     <style>
       #ios-pwa-banner {
@@ -43,6 +58,13 @@
         box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         z-index: 9999;
       }
+      
+      html.dark #ios-pwa-banner {
+        background-color: #1f2937;
+        color: #f3f4f6;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+      }
+      
       #ios-pwa-banner .content {
         display: flex;
         align-items: center;
@@ -57,6 +79,10 @@
         border: none;
         font-size: 20px;
         color: #666;
+      }
+      
+      html.dark #ios-pwa-close {
+        color: #d1d5db;
       }
       
       @media (display-mode: standalone) {
@@ -144,6 +170,35 @@
       if (!navigator.onLine) {
         document.getElementById('offline-message').style.display = 'block';
       }
+      
+      // Apply dark mode to offline message if needed
+      function updateOfflineMessageTheme() {
+        const offlineMessage = document.getElementById('offline-message');
+        if (!offlineMessage) return;
+        
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        if (isDarkMode) {
+          offlineMessage.style.backgroundColor = '#2d3748';
+          offlineMessage.style.color = '#f8d7da';
+        } else {
+          offlineMessage.style.backgroundColor = '#f8d7da';
+          offlineMessage.style.color = '#721c24';
+        }
+      }
+      
+      // Call once to set initial theme
+      updateOfflineMessageTheme();
+      
+      // Update when dark mode changes (via MutationObserver)
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            updateOfflineMessageTheme();
+          }
+        });
+      });
+      
+      observer.observe(document.documentElement, { attributes: true });
     </script>
     
     <!-- App status detection -->

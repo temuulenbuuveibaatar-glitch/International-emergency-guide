@@ -11,6 +11,31 @@ interface AccessibilityContextType {
 
 const AccessibilityContext = createContext<AccessibilityContextType | undefined>(undefined);
 
+// Helper function to update the theme.json file content
+const updateThemeAppearance = (isDark: boolean) => {
+  try {
+    // Update body class for immediate feedback
+    if (isDark) {
+      document.body.classList.add('dark');
+      document.documentElement.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Add the theme-dark class to html element
+    if (isDark) {
+      document.documentElement.classList.add('theme-dark');
+      document.documentElement.style.colorScheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('theme-dark');
+      document.documentElement.style.colorScheme = 'light';
+    }
+  } catch (error) {
+    console.error('Error updating theme appearance:', error);
+  }
+};
+
 export function AccessibilityProvider({ children }: { children: ReactNode }) {
   // Load saved settings from localStorage or use defaults
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'x-large'>(() => {
@@ -19,14 +44,24 @@ export function AccessibilityProvider({ children }: { children: ReactNode }) {
   });
   
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    // Check for user's preferred color scheme if no saved preference
     const savedMode = localStorage.getItem('accessibility_darkMode');
-    return savedMode === 'true' || false;
+    if (savedMode === null) {
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return savedMode === 'true';
   });
   
   const [highContrast, setHighContrast] = useState<boolean>(() => {
     const savedContrast = localStorage.getItem('accessibility_highContrast');
     return savedContrast === 'true' || false;
   });
+
+  // Initialize theme on component mount
+  useEffect(() => {
+    // Update theme appearance based on initial state
+    updateThemeAppearance(isDarkMode);
+  }, []);
 
   // Save settings to localStorage when they change
   useEffect(() => {
@@ -39,12 +74,8 @@ export function AccessibilityProvider({ children }: { children: ReactNode }) {
     document.documentElement.dataset.theme = isDarkMode ? 'dark' : 'light';
     document.documentElement.dataset.highContrast = highContrast ? 'true' : 'false';
     
-    // Apply dark mode class for tailwind
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    // Apply dark mode updates
+    updateThemeAppearance(isDarkMode);
   }, [fontSize, isDarkMode, highContrast]);
 
   const toggleDarkMode = () => {

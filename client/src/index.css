@@ -3,6 +3,30 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 70%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 224 71% 4%;
+  }
+  
   * {
     @apply border-border;
   }
@@ -36,23 +60,100 @@
     --accent: 0 0% 0%;
     --destructive: 0 100% 35%;
   }
-  
-  /* Dark mode custom styles */
-  .dark .emergency-card {
-    @apply bg-gray-800 border-gray-700;
-  }
-  
-  .dark .emergency-card:hover {
-    @apply bg-gray-700 border-gray-600;
-  }
-  
-  .dark .hospital-card {
-    @apply bg-gray-800 border-gray-700 text-gray-100;
-  }
-  
-  .dark .protocol-card {
-    @apply bg-gray-800 border-gray-700;
-  }
+}
+
+/* Dark mode styles for components */
+.dark {
+  color-scheme: dark;
+}
+
+.dark .bg-white,
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  @apply bg-gray-900;
+}
+
+.dark .bg-gray-200 {
+  @apply bg-gray-800;
+}
+
+.dark .bg-primary {
+  @apply bg-blue-600;
+}
+
+.dark .bg-red-50 {
+  @apply bg-red-900/30;
+}
+
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-gray-900,
+.dark .text-black {
+  @apply text-gray-200;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  @apply border-gray-700;
+}
+
+.dark .shadow-lg,
+.dark .shadow-md,
+.dark .shadow-sm {
+  @apply shadow-gray-900/50;
+}
+
+/* Component-specific dark mode styles */
+.dark .emergency-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .emergency-card:hover {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.dark .hospital-card {
+  @apply bg-gray-800 border-gray-700 text-gray-100;
+}
+
+.dark .protocol-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+/* Navigation and buttons dark mode */
+.dark .nav-item {
+  @apply text-gray-200 hover:text-white;
+}
+
+.dark button {
+  @apply text-gray-200;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  @apply hover:bg-gray-800;
+}
+
+.dark .hover\:bg-gray-100:hover {
+  @apply hover:bg-gray-800;
+}
+
+/* Card backgrounds dark mode */
+.dark div[class*="rounded-lg"] {
+  @apply bg-gray-800 border-gray-700 text-gray-200;
+}
+
+.dark div[class*="bg-blue-50"] {
+  @apply bg-blue-900/30 text-blue-100 border-blue-800;
+}
+
+.dark div[class*="bg-red-50"] {
+  @apply bg-red-900/30 text-red-100 border-red-800;
 }
 
 @layer utilities {
