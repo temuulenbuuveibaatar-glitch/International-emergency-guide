@@ -2255,6 +2255,146 @@ export default function HospitalFinder() {
         address: "Hardwick Lane, Bury St Edmunds, UK",
         position: { lat: 52.2435, lng: 0.7039 },
         phone: "+441284713000"
+      },
+      {
+        id: "uk_41",
+        name: "Salisbury District Hospital",
+        address: "Odstock Road, Salisbury, UK",
+        position: { lat: 51.0341, lng: -1.8040 },
+        phone: "+441722336262"
+      },
+      {
+        id: "uk_42",
+        name: "Wythenshawe Hospital",
+        address: "Southmoor Road, Manchester, UK",
+        position: { lat: 53.3798, lng: -2.2673 },
+        phone: "+441612916000"
+      },
+      {
+        id: "uk_43",
+        name: "Blackpool Victoria Hospital",
+        address: "Whinney Heys Road, Blackpool, UK",
+        position: { lat: 53.8195, lng: -3.0366 },
+        phone: "+441253300000"
+      },
+      {
+        id: "uk_44",
+        name: "Milton Keynes University Hospital",
+        address: "Standing Way, Milton Keynes, UK",
+        position: { lat: 52.0259, lng: -0.7353 },
+        phone: "+441908660033"
+      },
+      {
+        id: "uk_45",
+        name: "Royal Bournemouth Hospital",
+        address: "Castle Lane East, Bournemouth, UK",
+        position: { lat: 50.7445, lng: -1.8383 },
+        phone: "+441202303626"
+      },
+      {
+        id: "uk_46",
+        name: "Pinderfields Hospital",
+        address: "Aberford Road, Wakefield, UK",
+        position: { lat: 53.7031, lng: -1.4942 },
+        phone: "+441924541000"
+      },
+      {
+        id: "uk_47",
+        name: "York Hospital",
+        address: "Wigginton Road, York, UK",
+        position: { lat: 53.9675, lng: -1.0872 },
+        phone: "+441904631313"
+      },
+      {
+        id: "uk_48",
+        name: "Royal Shrewsbury Hospital",
+        address: "Mytton Oak Road, Shrewsbury, UK",
+        position: { lat: 52.7017, lng: -2.7842 },
+        phone: "+441743261000"
+      },
+      {
+        id: "uk_49",
+        name: "Arrowe Park Hospital",
+        address: "Arrowe Park Road, Wirral, UK",
+        position: { lat: 53.3689, lng: -3.0728 },
+        phone: "+441516785111"
+      },
+      {
+        id: "uk_50",
+        name: "University Hospital Coventry",
+        address: "Clifford Bridge Road, Coventry, UK",
+        position: { lat: 52.4208, lng: -1.4361 },
+        phone: "+442476964000"
+      },
+      {
+        id: "uk_51",
+        name: "Nottingham City Hospital",
+        address: "Hucknall Road, Nottingham, UK",
+        position: { lat: 52.9879, lng: -1.1536 },
+        phone: "+441159691169"
+      },
+      {
+        id: "uk_52",
+        name: "Sunderland Royal Hospital",
+        address: "Kayll Road, Sunderland, UK",
+        position: { lat: 54.9031, lng: -1.4039 },
+        phone: "+441915656256"
+      },
+      {
+        id: "uk_53",
+        name: "Queen Elizabeth The Queen Mother Hospital",
+        address: "St Peters Road, Margate, UK",
+        position: { lat: 51.3781, lng: 1.3919 },
+        phone: "+441843225544"
+      },
+      {
+        id: "uk_54",
+        name: "Royal Sussex County Hospital",
+        address: "Eastern Road, Brighton, UK",
+        position: { lat: 50.8192, lng: -0.1194 },
+        phone: "+441273696955"
+      },
+      {
+        id: "uk_55",
+        name: "Whiston Hospital",
+        address: "Warrington Road, Prescot, UK",
+        position: { lat: 53.4178, lng: -2.7631 },
+        phone: "+441514261600"
+      },
+      {
+        id: "uk_56",
+        name: "Luton and Dunstable University Hospital",
+        address: "Lewsey Road, Luton, UK",
+        position: { lat: 51.8970, lng: -0.4784 },
+        phone: "+441582491166"
+      },
+      {
+        id: "uk_57",
+        name: "Alder Hey Children's Hospital",
+        address: "E Prescot Road, Liverpool, UK",
+        position: { lat: 53.4207, lng: -2.8989 },
+        phone: "+441512525252"
+      },
+      {
+        id: "uk_58",
+        name: "Northampton General Hospital",
+        address: "Cliftonville, Northampton, UK",
+        position: { lat: 52.2388, lng: -0.8812 },
+        phone: "+441604634700"
+      },
+      {
+        id: "uk_59",
+        name: "Royal Gwent Hospital",
+        address: "Cardiff Road, Newport, UK",
+        position: { lat: 51.5831, lng: -2.9973 },
+        phone: "+441633234234"
+      },
+      {
+        id: "uk_60",
+        name: "Stoke Mandeville Hospital",
+        address: "Mandeville Road, Aylesbury, UK",
+        position: { lat: 51.7967, lng: -0.8025 },
+        phone: "+441296315000"
       }
     ],
     "Germany": [
@@ -2537,6 +2677,146 @@ export default function HospitalFinder() {
         address: "Kriegsbergstraße 60, Stuttgart, Germany",
         position: { lat: 48.7846, lng: 9.1749 },
         phone: "+497112781"
+      },
+      {
+        id: "de_41",
+        name: "Klinikum Nürnberg",
+        address: "Prof.-Ernst-Nathan-Straße 1, Nuremberg, Germany",
+        position: { lat: 49.4491, lng: 11.0839 },
+        phone: "+499113982000"
+      },
+      {
+        id: "de_42",
+        name: "Universitätsklinikum Essen",
+        address: "Hufelandstraße 55, Essen, Germany",
+        position: { lat: 51.4339, lng: 7.0123 },
+        phone: "+492017230"
+      },
+      {
+        id: "de_43",
+        name: "Klinikum Fulda",
+        address: "Pacelliallee 4, Fulda, Germany",
+        position: { lat: 50.5566, lng: 9.6796 },
+        phone: "+49661840"
+      },
+      {
+        id: "de_44",
+        name: "Städtisches Klinikum Karlsruhe",
+        address: "Moltkestraße 90, Karlsruhe, Germany",
+        position: { lat: 49.0168, lng: 8.3831 },
+        phone: "+497219740"
+      },
+      {
+        id: "de_45",
+        name: "Klinikum Ingolstadt",
+        address: "Krumenauerstraße 25, Ingolstadt, Germany",
+        position: { lat: 48.7746, lng: 11.4372 },
+        phone: "+498418800"
+      },
+      {
+        id: "de_46",
+        name: "Klinikum Krefeld",
+        address: "Lutherplatz 40, Krefeld, Germany",
+        position: { lat: 51.3336, lng: 6.5861 },
+        phone: "+492151320"
+      },
+      {
+        id: "de_47",
+        name: "Universitätsklinikum Schleswig-Holstein - Campus Lübeck",
+        address: "Ratzeburger Allee 160, Lübeck, Germany",
+        position: { lat: 53.8487, lng: 10.7062 },
+        phone: "+494515000"
+      },
+      {
+        id: "de_48",
+        name: "SLK-Kliniken Heilbronn GmbH",
+        address: "Am Gesundbrunnen 20, Heilbronn, Germany",
+        position: { lat: 49.1498, lng: 9.2213 },
+        phone: "+497131490"
+      },
+      {
+        id: "de_49",
+        name: "Universitätsklinikum des Saarlandes",
+        address: "Kirrberger Straße 100, Homburg, Germany",
+        position: { lat: 49.3015, lng: 7.3470 },
+        phone: "+496841160"
+      },
+      {
+        id: "de_50",
+        name: "Klinikum Bremen-Mitte",
+        address: "St.-Jürgen-Straße 1, Bremen, Germany",
+        position: { lat: 53.0798, lng: 8.8175 },
+        phone: "+494214970"
+      },
+      {
+        id: "de_51",
+        name: "Klinikum Kassel",
+        address: "Mönchebergstraße 41, Kassel, Germany",
+        position: { lat: 51.3151, lng: 9.4841 },
+        phone: "+495619800"
+      },
+      {
+        id: "de_52",
+        name: "Universitätsklinikum Heidelberg",
+        address: "Im Neuenheimer Feld 672, Heidelberg, Germany",
+        position: { lat: 49.4174, lng: 8.6714 },
+        phone: "+496221560"
+      },
+      {
+        id: "de_53",
+        name: "Klinikum Chemnitz",
+        address: "Flemmingstraße 2, Chemnitz, Germany",
+        position: { lat: 50.8350, lng: 12.9180 },
+        phone: "+4937133330"
+      },
+      {
+        id: "de_54",
+        name: "Medizinische Hochschule Hannover",
+        address: "Carl-Neuberg-Straße 1, Hannover, Germany",
+        position: { lat: 52.3836, lng: 9.8059 },
+        phone: "+495115320"
+      },
+      {
+        id: "de_55",
+        name: "Universitätsklinikum Mainz",
+        address: "Langenbeckstraße 1, Mainz, Germany",
+        position: { lat: 49.9925, lng: 8.2321 },
+        phone: "+496131170"
+      },
+      {
+        id: "de_56",
+        name: "Klinikum Ernst von Bergmann",
+        address: "Charlottenstraße 72, Potsdam, Germany",
+        position: { lat: 52.3997, lng: 13.0678 },
+        phone: "+493312410"
+      },
+      {
+        id: "de_57",
+        name: "Rems-Murr-Klinikum Winnenden",
+        address: "Am Jakobsweg 1, Winnenden, Germany",
+        position: { lat: 48.8771, lng: 9.3927 },
+        phone: "+4971951030"
+      },
+      {
+        id: "de_58",
+        name: "Klinikum Bielefeld",
+        address: "Teutoburger Straße 50, Bielefeld, Germany",
+        position: { lat: 52.0200, lng: 8.5167 },
+        phone: "+495215810"
+      },
+      {
+        id: "de_59",
+        name: "Universitätsklinikum Halle",
+        address: "Ernst-Grube-Straße 40, Halle, Germany",
+        position: { lat: 51.4879, lng: 11.9751 },
+        phone: "+493455570"
+      },
+      {
+        id: "de_60",
+        name: "Klinikum Wolfsburg",
+        address: "Sauerbruchstraße 7, Wolfsburg, Germany",
+        position: { lat: 52.4229, lng: 10.7862 },
+        phone: "+495361800"
       }
     ],
     "Russia": [
@@ -2819,6 +3099,146 @@ export default function HospitalFinder() {
         address: "57 Russkaya St, Vladivostok, Russia",
         position: { lat: 43.1198, lng: 131.9234 },
         phone: "+74232322130"
+      },
+      {
+        id: "ru_41",
+        name: "Chelyabinsk Regional Clinical Hospital",
+        address: "70 Vorovskogo St, Chelyabinsk, Russia",
+        position: { lat: 55.1739, lng: 61.3729 },
+        phone: "+73512327871"
+      },
+      {
+        id: "ru_42",
+        name: "Omsk Regional Clinical Hospital",
+        address: "3 Berezovaya St, Omsk, Russia",
+        position: { lat: 55.0371, lng: 73.3266 },
+        phone: "+73812359333"
+      },
+      {
+        id: "ru_43",
+        name: "Stavropol Regional Clinical Hospital",
+        address: "14 Semashko St, Stavropol, Russia",
+        position: { lat: 45.0411, lng: 41.9653 },
+        phone: "+78652295309"
+      },
+      {
+        id: "ru_44",
+        name: "Yaroslavl Regional Clinical Hospital",
+        address: "39 Yakovlevskaya St, Yaroslavl, Russia",
+        position: { lat: 57.6292, lng: 39.8718 },
+        phone: "+74852243382"
+      },
+      {
+        id: "ru_45",
+        name: "Kemerovo Regional Clinical Hospital",
+        address: "22 Oktyabrsky Prospekt, Kemerovo, Russia",
+        position: { lat: 55.3557, lng: 86.1490 },
+        phone: "+73842396383"
+      },
+      {
+        id: "ru_46",
+        name: "Lipetsk Regional Clinical Hospital",
+        address: "6a Moskovskaya St, Lipetsk, Russia",
+        position: { lat: 52.6055, lng: 39.5947 },
+        phone: "+74742366155"
+      },
+      {
+        id: "ru_47",
+        name: "Republican Clinical Hospital of Tatarstan",
+        address: "138 Orenburgsky Trakt, Kazan, Russia",
+        position: { lat: 55.7649, lng: 49.2346 },
+        phone: "+78432312186"
+      },
+      {
+        id: "ru_48",
+        name: "Saratov Regional Clinical Hospital",
+        address: "1 Smirnovskoe Ushchel'e, Saratov, Russia",
+        position: { lat: 51.5392, lng: 45.9650 },
+        phone: "+78452498911"
+      },
+      {
+        id: "ru_49",
+        name: "Voronezh Regional Clinical Hospital No. 1",
+        address: "151 Moskovskiy Prospekt, Voronezh, Russia",
+        position: { lat: 51.7200, lng: 39.1843 },
+        phone: "+74732575805"
+      },
+      {
+        id: "ru_50",
+        name: "Krasnoyarsk Regional Clinical Hospital",
+        address: "3a Partizana Zheleznyaka St, Krasnoyarsk, Russia",
+        position: { lat: 56.0293, lng: 92.8832 },
+        phone: "+73912220382"
+      },
+      {
+        id: "ru_51",
+        name: "Arkhangelsk Regional Clinical Hospital",
+        address: "292 Lomonosova St, Arkhangelsk, Russia",
+        position: { lat: 64.5557, lng: 40.5806 },
+        phone: "+78182632830"
+      },
+      {
+        id: "ru_52",
+        name: "Ryazan Regional Clinical Hospital",
+        address: "3g Internationalnaya St, Ryazan, Russia",
+        position: { lat: 54.6138, lng: 39.7533 },
+        phone: "+74912770813"
+      },
+      {
+        id: "ru_53",
+        name: "Yakutsk Republican Hospital No. 2",
+        address: "83a Petr Alekseev St, Yakutsk, Russia",
+        position: { lat: 62.0355, lng: 129.7152 },
+        phone: "+74112432202"
+      },
+      {
+        id: "ru_54",
+        name: "Clinical Hospital of Emergency Medical Care, Smolensk",
+        address: "15 Tenisheva St, Smolensk, Russia",
+        position: { lat: 54.7815, lng: 32.0391 },
+        phone: "+74812242424"
+      },
+      {
+        id: "ru_55",
+        name: "Bryansk Regional Hospital No. 1",
+        address: "86 Stanke Dimitrova Prospect, Bryansk, Russia",
+        position: { lat: 53.2827, lng: 34.3325 },
+        phone: "+74832288676"
+      },
+      {
+        id: "ru_56",
+        name: "Chelyabinsk City Clinical Hospital No. 1",
+        address: "16 Vorovskogo St, Chelyabinsk, Russia",
+        position: { lat: 55.1633, lng: 61.3816 },
+        phone: "+73512281666"
+      },
+      {
+        id: "ru_57",
+        name: "Tomsk Regional Clinical Hospital",
+        address: "96 Ivan Chernykh St, Tomsk, Russia",
+        position: { lat: 56.4954, lng: 84.9673 },
+        phone: "+73822630183"
+      },
+      {
+        id: "ru_58",
+        name: "Republican Clinical Hospital of Chuvashia",
+        address: "47 Moskovskiy Prospekt, Cheboksary, Russia",
+        position: { lat: 56.1305, lng: 47.2680 },
+        phone: "+78352582616"
+      },
+      {
+        id: "ru_59",
+        name: "City Clinical Hospital No. 15 named after O. M. Filatov, Moscow",
+        address: "23 Veshnyakovskaya St, Moscow, Russia",
+        position: { lat: 55.7291, lng: 37.8274 },
+        phone: "+74957759000"
+      },
+      {
+        id: "ru_60",
+        name: "Primorsky Regional Clinical Hospital No. 1",
+        address: "57 Aleutskaya St, Vladivostok, Russia",
+        position: { lat: 43.1146, lng: 131.8864 },
+        phone: "+74232404939"
       }
     ]
   };
