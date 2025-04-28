@@ -3601,7 +3601,7 @@ export default function HospitalFinder() {
       {/* Map and Results */}
       <div className="grid md:grid-cols-5">
         {/* Map Container */}
-        <div className="md:col-span-3 h-96 bg-gray-100 relative">
+        <div className={`md:col-span-3 h-[50vh] md:h-96 bg-gray-100 relative transition-all duration-300 ease-in-out ${showListView ? 'hidden md:block' : 'block'}`}>
           {loadError ? (
             <div className="h-full flex flex-col items-center justify-center p-4 bg-gray-100">
               <div className="bg-white p-4 rounded-lg shadow-md max-w-md text-center">
@@ -3788,7 +3788,7 @@ export default function HospitalFinder() {
         </div>
         
         {/* Results List */}
-        <div className={`md:col-span-2 border-l border-gray-200 ${showListView ? 'block' : 'hidden md:block'}`}>
+        <div className={`md:col-span-2 border-l border-gray-200 transition-all duration-300 ease-in-out ${showListView ? 'block' : 'hidden md:block'}`}>
           <div className="p-4 border-b border-gray-200 flex justify-between items-center">
             <h3 className="font-medium">{t('hospitals.results')}</h3>
             <div className="flex items-center gap-2">
@@ -3806,7 +3806,7 @@ export default function HospitalFinder() {
               </button>
             </div>
           </div>
-          <div className="overflow-y-auto" style={{ maxHeight: "320px" }}>
+          <div className="overflow-y-auto" style={{ maxHeight: showListView ? "calc(100vh - 220px)" : "320px" }}>
             {hospitals.length > 0 ? (
               hospitals.map((hospital) => (
                 <div 

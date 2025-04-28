@@ -51,7 +51,12 @@
     "results": "Results",
     "call": "Call",
     "useCurrentLocation": "Use current location",
-    "noResults": "No hospitals found in this area"
+    "noResults": "No hospitals found in this area",
+    "found": "hospitals found",
+    "directions": "Directions",
+    "mapLoadError": "Map could not be loaded",
+    "usingListOnly": "Using list view only",
+    "apiKeyRequired": "A Google Maps API key is required to view the map"
   },
   "protocols": {
     "title": "Emergency Protocols",
