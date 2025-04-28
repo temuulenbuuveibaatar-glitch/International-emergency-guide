@@ -285,6 +285,76 @@ export default function HospitalFinder() {
         address: "Chingeltei District, Ulaanbaatar, Mongolia",
         position: { lat: 47.9245, lng: 106.9102 },
         phone: "+97611324002"
+      },
+      {
+        id: "mn_31",
+        name: "Urgoo Maternity Hospital",
+        address: "Ulaanbaatar, Mongolia",
+        position: { lat: 47.9182, lng: 106.9321 },
+        phone: "+97677262600"
+      },
+      {
+        id: "mn_32",
+        name: "Achtan Elite Hospital",
+        address: "Ulaanbaatar, Mongolia",
+        position: { lat: 47.9212, lng: 106.9452 },
+        phone: "+97677100003"
+      },
+      {
+        id: "mn_33",
+        name: "Bayan-Ulgii Provincial Hospital",
+        address: "Ulgii, Bayan-Ulgii, Mongolia",
+        position: { lat: 48.9681, lng: 89.9620 },
+        phone: "+97614222456"
+      },
+      {
+        id: "mn_34",
+        name: "Sukhbaatar District Medical Center",
+        address: "Sukhbaatar District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9232, lng: 106.9398 },
+        phone: "+97677120000"
+      },
+      {
+        id: "mn_35",
+        name: "Songinokhairkhan District Hospital",
+        address: "Songinokhairkhan District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9312, lng: 106.8756 },
+        phone: "+97611633074"
+      },
+      {
+        id: "mn_36",
+        name: "Enerel Hospital",
+        address: "Khan-Uul District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.8924, lng: 106.8844 },
+        phone: "+97675757888"
+      },
+      {
+        id: "mn_37",
+        name: "Bayanzurkh District Hospital",
+        address: "Bayanzurkh District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9367, lng: 106.9523 },
+        phone: "+97611453073"
+      },
+      {
+        id: "mn_38",
+        name: "Amgalan Hospital",
+        address: "Bayanzurkh District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9475, lng: 106.9821 },
+        phone: "+97611456789"
+      },
+      {
+        id: "mn_39",
+        name: "National Center for Infectious Diseases",
+        address: "Bayanzurkh District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9281, lng: 106.9434 },
+        phone: "+97611289175"
+      },
+      {
+        id: "mn_40",
+        name: "Millennium Health Center",
+        address: "Sukhbaatar District, Ulaanbaatar, Mongolia",
+        position: { lat: 47.9176, lng: 106.9285 },
+        phone: "+97611319926"
       }
     ],
     "China": [
@@ -497,6 +567,76 @@ export default function HospitalFinder() {
         address: "95 Yongan Rd, Beijing, China",
         position: { lat: 39.8836, lng: 116.3664 },
         phone: "+861063138888"
+      },
+      {
+        id: "cn_31",
+        name: "Beijing Anzhen Hospital",
+        address: "2 Anzhen Rd, Chaoyang District, Beijing, China",
+        position: { lat: 39.9778, lng: 116.4175 },
+        phone: "+861064456677"
+      },
+      {
+        id: "cn_32",
+        name: "Shanghai Tenth People's Hospital",
+        address: "301 Yanchang Middle Rd, Shanghai, China",
+        position: { lat: 31.2602, lng: 121.4592 },
+        phone: "+862166301000"
+      },
+      {
+        id: "cn_33",
+        name: "Guangzhou Women and Children's Medical Center",
+        address: "9 Jinsui Rd, Guangzhou, China",
+        position: { lat: 23.1175, lng: 113.3245 },
+        phone: "+862038367602"
+      },
+      {
+        id: "cn_34",
+        name: "Shanghai Chest Hospital",
+        address: "241 Huaihai West Rd, Shanghai, China",
+        position: { lat: 31.2005, lng: 121.4288 },
+        phone: "+862162821990"
+      },
+      {
+        id: "cn_35",
+        name: "West China Second University Hospital",
+        address: "20 Renmin South Rd, Chengdu, China",
+        position: { lat: 30.6285, lng: 104.0614 },
+        phone: "+862885503601"
+      },
+      {
+        id: "cn_36",
+        name: "Tianjin First Central Hospital",
+        address: "24 Fukang Rd, Tianjin, China",
+        position: { lat: 39.0897, lng: 117.1957 },
+        phone: "+862223626988"
+      },
+      {
+        id: "cn_37",
+        name: "Zhejiang Provincial People's Hospital",
+        address: "158 Shangtang Rd, Hangzhou, China",
+        position: { lat: 30.3031, lng: 120.1418 },
+        phone: "+865718893333"
+      },
+      {
+        id: "cn_38",
+        name: "Henan Provincial People's Hospital",
+        address: "7 Weiwu Rd, Zhengzhou, China",
+        position: { lat: 34.7561, lng: 113.6653 },
+        phone: "+863716580114"
+      },
+      {
+        id: "cn_39",
+        name: "Sichuan Provincial People's Hospital",
+        address: "32 West Second Section First Ring Rd, Chengdu, China",
+        position: { lat: 30.6532, lng: 104.0655 },
+        phone: "+862887393339"
+      },
+      {
+        id: "cn_40",
+        name: "Zhujiang Hospital of Southern Medical University",
+        address: "253 Gongye Ave, Guangzhou, China",
+        position: { lat: 23.1725, lng: 113.3428 },
+        phone: "+862061643010"
       }
     ],
     "Japan": [
@@ -709,6 +849,76 @@ export default function HospitalFinder() {
         address: "13-1 Takara-machi, Kanazawa, Ishikawa, Japan",
         position: { lat: 36.5649, lng: 136.6628 },
         phone: "+81762652000"
+      },
+      {
+        id: "jp_31",
+        name: "Japanese Red Cross Medical Center",
+        address: "4-1-22 Hiroo, Shibuya, Tokyo, Japan",
+        position: { lat: 35.6506, lng: 139.7113 },
+        phone: "+81334001311"
+      },
+      {
+        id: "jp_32",
+        name: "Osaka City University Hospital",
+        address: "1-5-7 Asahi-machi, Abeno, Osaka, Japan",
+        position: { lat: 34.6366, lng: 135.5166 },
+        phone: "+81666453096"
+      },
+      {
+        id: "jp_33",
+        name: "Tokai University Hospital",
+        address: "143 Shimokasuya, Isehara, Kanagawa, Japan",
+        position: { lat: 35.3738, lng: 139.2731 },
+        phone: "+81463931121"
+      },
+      {
+        id: "jp_34",
+        name: "Fujita Health University Hospital",
+        address: "1-98 Dengakugakubo, Kutsukake-cho, Toyoake, Aichi, Japan",
+        position: { lat: 35.0481, lng: 137.0114 },
+        phone: "+81562939288"
+      },
+      {
+        id: "jp_35",
+        name: "Gifu University Hospital",
+        address: "1-1 Yanagido, Gifu, Japan",
+        position: { lat: 35.4644, lng: 136.7615 },
+        phone: "+81582303131"
+      },
+      {
+        id: "jp_36",
+        name: "Kurume University Hospital",
+        address: "67 Asahi-machi, Kurume, Fukuoka, Japan",
+        position: { lat: 33.3111, lng: 130.5211 },
+        phone: "+81942353311"
+      },
+      {
+        id: "jp_37",
+        name: "Shiga University of Medical Science Hospital",
+        address: "Seta Tsukinowa-cho, Otsu, Shiga, Japan",
+        position: { lat: 35.0026, lng: 135.9954 },
+        phone: "+81775482111"
+      },
+      {
+        id: "jp_38",
+        name: "Yamaguchi University Hospital",
+        address: "1-1-1 Minamikogushi, Ube, Yamaguchi, Japan",
+        position: { lat: 33.9518, lng: 131.2617 },
+        phone: "+81836222111"
+      },
+      {
+        id: "jp_39",
+        name: "Akita University Hospital",
+        address: "1-1-1 Hondo, Akita, Japan",
+        position: { lat: 39.8172, lng: 140.0743 },
+        phone: "+81188341111"
+      },
+      {
+        id: "jp_40",
+        name: "Iwate Medical University Hospital",
+        address: "1-1-1 Idaidori, Yahaba-cho, Shiwa-gun, Iwate, Japan",
+        position: { lat: 39.6126, lng: 141.1545 },
+        phone: "+81196515111"
       }
     ],
     "Korea": [

@@ -635,8 +635,8 @@ function generateMedicationDatabase(): Medication[] {
     allMedications.push(medication);
   });
 
-  // Generate additional medications to reach 500+
-  for (let i = 0; i < 490; i++) {
+  // Generate additional medications to reach 700+
+  for (let i = 0; i < 690; i++) {
     const baseIndex = i % baseMedications.length;
     const baseMed = baseMedications[baseIndex];
     
