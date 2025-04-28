@@ -1,10 +1,11 @@
+// We'll define icons that will be imported in the Navigation component
 export const navigationItems = [
-  { path: "/", key: "home" },
-  { path: "/emergency", key: "emergency" },
-  { path: "/treatment", key: "treatment" },
-  { path: "/medications", key: "medications" },
-  { path: "/symptoms", key: "symptoms" },
-  { path: "/hospitals", key: "hospitals" },
-  { path: "/contacts", key: "contacts" },
-  { path: "/fire-safety", key: "fireSafety" }
+  { path: "/", key: "home", icon: "Home" },
+  { path: "/emergency", key: "emergency", icon: "AlertTriangle" },
+  { path: "/treatment", key: "treatment", icon: "Stethoscope" },
+  { path: "/medications", key: "medications", icon: "Pill" },
+  { path: "/symptoms", key: "symptoms", icon: "ActivitySquare" },
+  { path: "/hospitals", key: "hospitals", icon: "Building2" },
+  { path: "/contacts", key: "contacts", icon: "Phone" },
+  { path: "/fire-safety", key: "fireSafety", icon: "Flame" }
 ];
