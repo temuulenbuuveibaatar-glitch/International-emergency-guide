@@ -1131,6 +1131,76 @@ export default function HospitalFinder() {
         address: "222-1 Wangsimni-ro, Seongdong-gu, Seoul, Korea",
         position: { lat: 37.5574, lng: 127.0442 },
         phone: "+82222908114"
+      },
+      {
+        id: "kr_31",
+        name: "CHA Bundang Medical Center",
+        address: "59 Yatap-ro, Bundang-gu, Seongnam, Korea",
+        position: { lat: 37.3846, lng: 127.1246 },
+        phone: "+82317801114"
+      },
+      {
+        id: "kr_32",
+        name: "Kyung Hee University Hospital at Gangdong",
+        address: "892 Dongnam-ro, Gangdong-gu, Seoul, Korea",
+        position: { lat: 37.5536, lng: 127.1575 },
+        phone: "+82214405114"
+      },
+      {
+        id: "kr_33",
+        name: "Keimyung University Dongsan Medical Center",
+        address: "56 Dalseong-ro, Jung-gu, Daegu, Korea",
+        position: { lat: 35.8686, lng: 128.5935 },
+        phone: "+82532507114"
+      },
+      {
+        id: "kr_34",
+        name: "Gyeongsang National University Hospital",
+        address: "79 Gangnam-ro, Jinju, Korea",
+        position: { lat: 35.1761, lng: 128.0933 },
+        phone: "+82557508114"
+      },
+      {
+        id: "kr_35",
+        name: "Pusan National University Yangsan Hospital",
+        address: "20 Geumo-ro, Mulgeum-eup, Yangsan, Korea",
+        position: { lat: 35.2392, lng: 129.0177 },
+        phone: "+82553601000"
+      },
+      {
+        id: "kr_36",
+        name: "Catholic Kwandong University International St. Mary's Hospital",
+        address: "25 Simgok-ro 100beon-gil, Seo-gu, Incheon, Korea",
+        position: { lat: 37.5644, lng: 126.6672 },
+        phone: "+82327116000"
+      },
+      {
+        id: "kr_37",
+        name: "Kangwon National University Hospital",
+        address: "156 Baengnyeong-ro, Chuncheon, Korea",
+        position: { lat: 37.8566, lng: 127.7505 },
+        phone: "+82332582000"
+      },
+      {
+        id: "kr_38",
+        name: "Dankook University Hospital",
+        address: "201 Manghyang-ro, Dongnam-gu, Cheonan, Korea",
+        position: { lat: 36.8220, lng: 127.1478 },
+        phone: "+82415506000"
+      },
+      {
+        id: "kr_39",
+        name: "Gangnam Sacred Heart Hospital",
+        address: "1 Singil-ro, Yeongdeungpo-gu, Seoul, Korea",
+        position: { lat: 37.5267, lng: 126.9000 },
+        phone: "+82228298200"
+      },
+      {
+        id: "kr_40",
+        name: "Korea Cancer Center Hospital",
+        address: "75 Nowon-ro, Nowon-gu, Seoul, Korea",
+        position: { lat: 37.6486, lng: 127.0787 },
+        phone: "+82220701000"
       }
     ],
     "USA": [
@@ -1555,6 +1625,76 @@ export default function HospitalFinder() {
         address: "Ninewells Ave, Dundee, UK",
         position: { lat: 56.4633, lng: -3.0128 },
         phone: "+441382660111"
+      },
+      {
+        id: "uk_31",
+        name: "Poole Hospital",
+        address: "Longfleet Road, Poole, UK",
+        position: { lat: 50.7287, lng: -1.9714 },
+        phone: "+441202665511"
+      },
+      {
+        id: "uk_32",
+        name: "Peterborough City Hospital",
+        address: "Bretton Gate, Peterborough, UK",
+        position: { lat: 52.5887, lng: -0.2712 },
+        phone: "+441733678000"
+      },
+      {
+        id: "uk_33",
+        name: "Queen's Medical Centre",
+        address: "Derby Road, Nottingham, UK",
+        position: { lat: 52.9412, lng: -1.1836 },
+        phone: "+441159249924"
+      },
+      {
+        id: "uk_34",
+        name: "Gloucestershire Royal Hospital",
+        address: "Great Western Road, Gloucester, UK",
+        position: { lat: 51.8624, lng: -2.2407 },
+        phone: "+441452394000"
+      },
+      {
+        id: "uk_35",
+        name: "Aberdeen Royal Infirmary",
+        address: "Foresterhill Rd, Aberdeen, UK",
+        position: { lat: 57.1522, lng: -2.1300 },
+        phone: "+441224681818"
+      },
+      {
+        id: "uk_36",
+        name: "Royal Cornwall Hospital",
+        address: "Treliske, Truro, UK",
+        position: { lat: 50.2645, lng: -5.0920 },
+        phone: "+441872250000"
+      },
+      {
+        id: "uk_37",
+        name: "Dumfries and Galloway Royal Infirmary",
+        address: "Bankend Road, Dumfries, UK",
+        position: { lat: 55.0529, lng: -3.5853 },
+        phone: "+441387246246"
+      },
+      {
+        id: "uk_38",
+        name: "James Cook University Hospital",
+        address: "Marton Road, Middlesbrough, UK",
+        position: { lat: 54.5614, lng: -1.2007 },
+        phone: "+441642850850"
+      },
+      {
+        id: "uk_39",
+        name: "Royal Berkshire Hospital",
+        address: "London Road, Reading, UK",
+        position: { lat: 51.4521, lng: -0.9558 },
+        phone: "+441183225111"
+      },
+      {
+        id: "uk_40",
+        name: "West Suffolk Hospital",
+        address: "Hardwick Lane, Bury St Edmunds, UK",
+        position: { lat: 52.2435, lng: 0.7039 },
+        phone: "+441284713000"
       }
     ],
     "Germany": [
@@ -1767,6 +1907,76 @@ export default function HospitalFinder() {
         address: "Stenglinstraße 2, Augsburg, Germany",
         position: { lat: 48.3491, lng: 10.8949 },
         phone: "+498214000"
+      },
+      {
+        id: "de_31",
+        name: "Asklepios Klinik St. Georg Hamburg",
+        address: "Lohmühlenstraße 5, Hamburg, Germany",
+        position: { lat: 53.5594, lng: 10.0134 },
+        phone: "+4940181850"
+      },
+      {
+        id: "de_32",
+        name: "Sana Klinikum Offenbach",
+        address: "Starkenburgring 66, Offenbach, Germany",
+        position: { lat: 50.0892, lng: 8.7759 },
+        phone: "+4969840050"
+      },
+      {
+        id: "de_33",
+        name: "Städtisches Klinikum München",
+        address: "Thalkirchner Str. 48, Munich, Germany",
+        position: { lat: 48.1187, lng: 11.5587 },
+        phone: "+498951600"
+      },
+      {
+        id: "de_34",
+        name: "Vivantes Klinikum Neukölln",
+        address: "Rudower Straße 48, Berlin, Germany",
+        position: { lat: 52.4539, lng: 13.4425 },
+        phone: "+4930130140"
+      },
+      {
+        id: "de_35",
+        name: "Universitätsklinikum des Saarlandes",
+        address: "Kirrberger Straße 100, Homburg, Germany",
+        position: { lat: 49.3016, lng: 7.3366 },
+        phone: "+496841160"
+      },
+      {
+        id: "de_36",
+        name: "Klinikum Dortmund",
+        address: "Beurhausstraße 40, Dortmund, Germany",
+        position: { lat: 51.5097, lng: 7.4633 },
+        phone: "+492315021"
+      },
+      {
+        id: "de_37",
+        name: "Helios Universitätsklinikum Wuppertal",
+        address: "Heusnerstraße 40, Wuppertal, Germany",
+        position: { lat: 51.2661, lng: 7.1767 },
+        phone: "+49202896-0"
+      },
+      {
+        id: "de_38",
+        name: "Uniklinik RWTH Aachen",
+        address: "Pauwelsstraße 30, Aachen, Germany",
+        position: { lat: 50.7823, lng: 6.0457 },
+        phone: "+492418088444"
+      },
+      {
+        id: "de_39",
+        name: "Universitätsklinikum Würzburg",
+        address: "Josef-Schneider-Str. 2, Würzburg, Germany",
+        position: { lat: 49.8016, lng: 9.9648 },
+        phone: "+4993120100"
+      },
+      {
+        id: "de_40",
+        name: "Klinikum Stuttgart",
+        address: "Kriegsbergstraße 60, Stuttgart, Germany",
+        position: { lat: 48.7846, lng: 9.1749 },
+        phone: "+497112781"
       }
     ],
     "Russia": [
