@@ -17,6 +17,50 @@ const mapContainerStyle = {
   height: "100%",
 };
 
+// Custom map style to make it more user-friendly and consistent with our app design
+const mapStyles = [
+  {
+    featureType: "all",
+    elementType: "geometry.fill",
+    stylers: [{ visibility: "on" }]
+  },
+  {
+    featureType: "administrative",
+    elementType: "all",
+    stylers: [{ visibility: "on" }, { saturation: -100 }, { lightness: 20 }]
+  },
+  {
+    featureType: "poi",
+    elementType: "all",
+    stylers: [{ visibility: "simplified" }, { saturation: -100 }, { lightness: 51 }]
+  },
+  {
+    featureType: "road",
+    elementType: "all",
+    stylers: [{ saturation: -100 }, { lightness: 40 }]
+  },
+  {
+    featureType: "road.highway",
+    elementType: "all",
+    stylers: [{ visibility: "simplified" }, { saturation: -100 }]
+  },
+  {
+    featureType: "transit.station",
+    elementType: "all",
+    stylers: [{ visibility: "on" }]
+  },
+  {
+    featureType: "water",
+    elementType: "all",
+    stylers: [{ visibility: "on" }, { color: "#C5E1EA" }]
+  },
+  {
+    featureType: "poi.medical",
+    elementType: "all",
+    stylers: [{ visibility: "on" }, { color: "#F6CBCF" }, { weight: 1 }]
+  }
+];
+
 const center = {
   lat: 47.9049,  // Orkhon Province, Mongolia approximate coordinates
   lng: 106.8866,
@@ -55,7 +99,10 @@ export default function HospitalFinder() {
     // Add zoom changed listener
     map.addListener("zoom_changed", () => {
       if (mapRef.current) {
-        setMapZoom(mapRef.current.getZoom());
+        const zoom = mapRef.current.getZoom();
+        if (zoom !== undefined) {
+          setMapZoom(zoom);
+        }
       }
     });
 
@@ -3575,70 +3622,248 @@ export default function HospitalFinder() {
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={mapCenter}
-              zoom={14}
+              zoom={mapZoom}
               onLoad={onMapLoad}
+              options={{
+                fullscreenControl: true,
+                streetViewControl: false,
+                mapTypeControl: true,
+                zoomControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControlOptions: {
+                  style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                  position: google.maps.ControlPosition.TOP_RIGHT
+                },
+                styles: mapStyles
+              }}
             >
               {hospitals.map((hospital) => (
                 <Marker
                   key={hospital.id}
                   position={hospital.position}
-                  onClick={() => selectHospital(hospital)}
+                  onClick={() => {
+                    selectHospital(hospital);
+                    setIsInfoWindowOpen(true);
+                  }}
+                  icon={{
+                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="36" viewBox="0 0 24 36">
+                        <path fill="#004A9F" d="M12 0C5.383 0 0 5.383 0 12c0 9 12 24 12 24s12-15 12-24c0-6.617-5.383-12-12-12z"/>
+                        <path fill="white" d="M12 6c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2c2.205 0 4 1.794 4 4s-1.794 4-4 4-4-1.794-4-4 1.794-4 4-4z"/>
+                        <text x="12" y="14" font-family="Arial" font-size="12" text-anchor="middle" fill="white">H</text>
+                      </svg>
+                    `),
+                    scaledSize: new google.maps.Size(32, 40),
+                    anchor: new google.maps.Point(16, 40),
+                  }}
                 />
               ))}
               
-              {selectedHospital && (
+              {selectedHospital && isInfoWindowOpen && (
                 <InfoWindow
                   position={selectedHospital.position}
-                  onCloseClick={() => setSelectedHospital(null)}
+                  onCloseClick={() => {
+                    setSelectedHospital(null);
+                    setIsInfoWindowOpen(false);
+                  }}
                 >
-                  <div>
-                    <h3 className="font-medium">{selectedHospital.name}</h3>
-                    <p className="text-sm">{selectedHospital.address}</p>
-                    <p className="text-sm mt-1">
+                  <div className="hospital-info-window" style={{ padding: '8px', maxWidth: '280px' }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#004A9F', marginBottom: '8px' }}>
+                      {selectedHospital.name}
+                    </h3>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                      <div style={{ 
+                        width: '20px', 
+                        height: '20px', 
+                        marginRight: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <p style={{ fontSize: '14px', color: '#444', margin: 0 }}>{selectedHospital.address}</p>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                      <div style={{ 
+                        width: '20px', 
+                        height: '20px', 
+                        marginRight: '8px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                      </div>
                       <a
                         href={`tel:${selectedHospital.phone}`}
-                        className="text-primary"
+                        style={{ fontSize: '14px', color: '#004A9F', fontWeight: 'bold', margin: 0, textDecoration: 'none' }}
                       >
                         {selectedHospital.phone}
                       </a>
-                    </p>
+                    </div>
+                    {selectedHospital.distance && (
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <div style={{ 
+                          width: '20px', 
+                          height: '20px', 
+                          marginRight: '8px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                        </div>
+                        <p style={{ fontSize: '14px', color: '#444', margin: 0 }}>Distance: {selectedHospital.distance}</p>
+                      </div>
+                    )}
+                    <div style={{ marginTop: '12px' }}>
+                      <button
+                        onClick={() => {
+                          window.open(`https://www.google.com/maps/dir/?api=1&destination=${selectedHospital.position.lat},${selectedHospital.position.lng}`, '_blank');
+                        }}
+                        style={{
+                          backgroundColor: '#004A9F',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '4px',
+                          padding: '8px 12px',
+                          fontSize: '14px',
+                          cursor: 'pointer',
+                          width: '100%',
+                          textAlign: 'center',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '8px'
+                        }}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                        Get Directions
+                      </button>
+                    </div>
                   </div>
                 </InfoWindow>
               )}
             </GoogleMap>
           )}
           
-          {/* Geolocation Button */}
-          <button 
-            className="absolute bottom-4 right-4 bg-white p-2 rounded-full shadow-md border border-gray-300"
-            onClick={handleUseCurrentLocation}
-            title={t('hospitals.useCurrentLocation')}
-          >
-            <MapPin className="w-5 h-5 text-gray-700" />
-          </button>
+          {/* Mobile Controls */}
+          <div className="absolute bottom-4 right-4 flex flex-col gap-2">
+            {/* List View Toggle Button (Mobile only) */}
+            <button 
+              className="md:hidden bg-white p-2 rounded-full shadow-md border border-gray-300"
+              onClick={() => setShowListView(true)}
+              title="Show list view"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </button>
+            
+            {/* Geolocation Button */}
+            <button 
+              className="bg-white p-2 rounded-full shadow-md border border-gray-300"
+              onClick={handleUseCurrentLocation}
+              title={t('hospitals.useCurrentLocation')}
+            >
+              <MapPin className="w-5 h-5 text-gray-700" />
+            </button>
+          </div>
         </div>
         
         {/* Results List */}
-        <div className="md:col-span-2 border-l border-gray-200">
-          <div className="p-4 border-b border-gray-200">
+        <div className={`md:col-span-2 border-l border-gray-200 ${showListView ? 'block' : 'hidden md:block'}`}>
+          <div className="p-4 border-b border-gray-200 flex justify-between items-center">
             <h3 className="font-medium">{t('hospitals.results')}</h3>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-500">{hospitals.length} {t('hospitals.found')}</span>
+              <button 
+                onClick={() => setShowListView(false)}
+                className="md:hidden bg-gray-100 p-1 rounded-full hover:bg-gray-200"
+                title="Back to map"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <path d="M9 21V9"></path>
+                </svg>
+              </button>
+            </div>
           </div>
           <div className="overflow-y-auto" style={{ maxHeight: "320px" }}>
             {hospitals.length > 0 ? (
               hospitals.map((hospital) => (
                 <div 
                   key={hospital.id} 
-                  className="p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer"
-                  onClick={() => selectHospital(hospital)}
+                  className={`p-4 border-b border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors duration-200 ${selectedHospital?.id === hospital.id ? 'bg-blue-50 border-l-4 border-l-[#004A9F]' : ''}`}
+                  onClick={() => {
+                    selectHospital(hospital);
+                    setIsInfoWindowOpen(true);
+                    // On mobile, go back to map view when selecting a hospital
+                    if (window.innerWidth < 768) {
+                      setShowListView(false);
+                    }
+                  }}
                 >
-                  <h4 className="font-medium text-[#004A9F]">{hospital.name}</h4>
-                  <p className="text-sm text-gray-600 mt-1">{hospital.address}</p>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-xs text-gray-500">{hospital.distance}</span>
-                    <a href={`tel:${hospital.phone}`} className="text-primary flex items-center text-sm">
-                      <Phone className="w-4 h-4 mr-1" />
-                      <span>{t('hospitals.call')}</span>
-                    </a>
+                  <div className="flex items-start">
+                    <div className="text-[#004A9F] mr-3 mt-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-medium text-[#004A9F]">{hospital.name}</h4>
+                      <p className="text-sm text-gray-600 mt-1">{hospital.address}</p>
+                      
+                      <div className="flex items-center justify-between mt-3">
+                        <div className="flex items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          <span className="text-xs text-gray-500">{hospital.distance}</span>
+                        </div>
+                        <div className="flex gap-2">
+                          <a 
+                            href={`tel:${hospital.phone}`} 
+                            className="bg-[#004A9F] text-white px-3 py-1 rounded-md flex items-center text-xs"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Phone className="w-3 h-3 mr-1" />
+                            <span>{t('hospitals.call')}</span>
+                          </a>
+                          <a 
+                            href={`https://www.google.com/maps/dir/?api=1&destination=${hospital.position.lat},${hospital.position.lng}`}
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-gray-100 text-gray-800 px-3 py-1 rounded-md flex items-center text-xs"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                            </svg>
+                            <span>{t('hospitals.directions')}</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))
