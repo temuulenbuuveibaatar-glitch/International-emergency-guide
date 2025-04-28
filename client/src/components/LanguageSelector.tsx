@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../contexts/LanguageContext";
+import { Globe, Check, ChevronDown } from "lucide-react";
 
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage } = useLanguage();
   const { t, i18n } = useTranslation();
+  const [animateIcon, setAnimateIcon] = useState(false);
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -18,6 +20,13 @@ export default function LanguageSelector() {
     { code: 'ru', name: 'Русский' }
   ];
   
+  // Animate globe icon when the component mounts
+  useEffect(() => {
+    setAnimateIcon(true);
+    const timer = setTimeout(() => setAnimateIcon(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+  
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -26,6 +35,10 @@ export default function LanguageSelector() {
     i18n.changeLanguage(code);
     setLanguage({ code, name });
     setIsOpen(false);
+    
+    // Trigger animation when language changes
+    setAnimateIcon(true);
+    setTimeout(() => setAnimateIcon(false), 2000);
   };
   
   // Close dropdown when clicking outside
@@ -37,32 +50,47 @@ export default function LanguageSelector() {
   };
   
   // Add event listener for clicking outside
-  useState(() => {
+  useEffect(() => {
     document.addEventListener('click', handleClickOutside);
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  });
+  }, []);
   
   return (
     <div className="relative language-selector">
       <button 
-        className="flex items-center gap-2 bg-white text-gray-700 py-2 px-3 rounded-md border border-gray-300 text-sm"
+        className={`flex items-center gap-2 py-2 px-3 rounded-full text-sm transition-all duration-300 ${
+          isOpen 
+            ? "bg-gray-100 text-gray-900 shadow-inner" 
+            : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+        }`}
         onClick={toggleDropdown}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
+        <Globe className={`w-4 h-4 text-primary ${animateIcon ? 'animate-spin' : ''}`} />
         <span>{language.name}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
-          <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-        </svg>
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
-      <div className={`absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-10 ${isOpen ? 'block' : 'hidden'}`}>
+      
+      <div 
+        className={`absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-10 transition-all duration-200 transform origin-top-right ${
+          isOpen 
+            ? 'scale-100 opacity-100' 
+            : 'scale-95 opacity-0 pointer-events-none'
+        }`}
+      >
         {languages.map((lang) => (
           <button
             key={lang.code}
-            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            className={`flex items-center justify-between w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+              language.code === lang.code ? 'text-primary font-medium' : 'text-gray-700'
+            }`}
             onClick={() => changeLanguage(lang.code, lang.name)}
           >
             {lang.name}
+            {language.code === lang.code && <Check className="w-4 h-4" />}
           </button>
         ))}
       </div>
