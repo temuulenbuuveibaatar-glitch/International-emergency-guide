@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "국제 응급 가이드",
-    "subtitle": "응급 가이드"
+    "subtitle": "의료 응급 상황을 위한 종합 자료"
   },
   "nav": {
     "home": "홈",
@@ -15,7 +15,7 @@
   },
   "emergency": {
     "title": "응급상황? 전화하세요",
-    "number": "103"
+    "number": "119"
   },
   "home": {
     "title": "국제 응급 가이드",
@@ -33,9 +33,19 @@
     "police": "경찰서",
     "emergency": "응급 서비스",
     "redcross": "의료 지원팀",
+    "hospital": "병원",
+    "rescue": "수색 및 구조",
+    "gas": "가스 응급 상황",
+    "children": "아동 보호",
     "nonEmergency": "비응급",
+    "poison": "독극물 관리 센터",
     "selectCountry": "국가를 선택하여 긴급 연락처를 확인하세요",
-    "noData": "이 국가의 긴급 연락처 정보가 없습니다"
+    "noData": "이 국가의 긴급 연락처 정보가 없습니다",
+    "found": "병원 찾음",
+    "directions": "길 안내",
+    "mapLoadError": "지도를 불러올 수 없습니다",
+    "usingListOnly": "목록 보기만 사용",
+    "apiKeyRequired": "지도를 보려면 Google Maps API 키가 필요합니다"
   },
   "hospitals": {
     "title": "주변 병원 찾기",
@@ -53,7 +63,71 @@
     "title": "응급 처치 프로토콜",
     "description": "즉각적인 의료 조치가 필요한 위급 상황을 위한 단계별 응급 처치 프로토콜.",
     "viewDetails": "자세히 보기",
-    "viewAll": "모든 응급 처치 프로토콜 보기"
+    "viewAll": "모든 응급 처치 프로토콜 보기",
+    "stepTitle": "단계",
+    "warningTitle": "경고",
+    "notesTitle": "참고사항",
+    "important": "중요"
+  },
+  "protocolTitles": {
+    "fire-emergency": "화재 응급 대응",
+    "fire-hose": "비상 소화 호스 사용법",
+    "cpr": "심폐소생술 프로토콜",
+    "choking": "기도 막힘 대응",
+    "bleeding": "심각한 출혈",
+    "burns": "화상 치료",
+    "fracture": "골절 및 탈구",
+    "heart-attack": "심장 마비",
+    "stroke": "뇌졸중 대응",
+    "seizure": "발작 관리",
+    "anaphylaxis": "아나필락시스 쇼크",
+    "hypothermia": "저체온증 및 동상",
+    "heatstroke": "열탈진 및 열사병",
+    "poisoning": "중독 대응",
+    "drowning": "익사 대응",
+    "diabetic": "당뇨병 응급 상황",
+    "spinalinjury": "척추 부상 관리",
+    "eyeinjury": "눈 부상 응급 처치",
+    "dental": "치과 응급 상황",
+    "electrical": "전기 부상",
+    "fire-safety-equipment": "화재 안전 장비 가이드",
+    "bites": "동물 및 곤충 물림",
+    "childbirth": "응급 출산",
+    "chest-pain": "흉통 평가",
+    "overdose": "약물 과다 복용",
+    "shock": "쇼크 관리",
+    "head-injury": "두부 부상 및 뇌진탕",
+    "psychiatric": "정신과적 응급 상황"
+  },
+  "protocolDescriptions": {
+    "fire-emergency": "화재 예방, 감지, 대피 및 기본 소화 기술을 포함한 화재 대응에 관한 종합 가이드.",
+    "fire-hose": "화재를 안전하고 효과적으로 진압하기 위한 비상 소화 호스 올바른 사용법에 대한 단계별 가이드.",
+    "cpr": "응급 상황에서의 심폐소생술을 위한 단계별 가이드.",
+    "choking": "하임리히 요법을 포함한 기도 막힘 사고에 대한 응급 절차.",
+    "bleeding": "심각한, 출혈을 제어하고 쇼크를 예방하기 위한 프로토콜.",
+    "burns": "다양한 유형과 정도의 화상에 대한 응급 처치.",
+    "fracture": "골절 및 관절 탈구를 안전하게 처리하는 방법.",
+    "heart-attack": "심장 마비 증상 인식 및 응급 대응.",
+    "stroke": "뇌졸중 피해자를 위한 FAST 프로토콜 및 응급 처치.",
+    "seizure": "발작 중 및 후의 적절한 처치와 응급 도움을 요청해야 할 시기.",
+    "anaphylaxis": "심각한 알레르기 반응에 대한 대응 및 에피네프린 자동 주사기 사용법.",
+    "hypothermia": "저체온증 및 동상과 같은 한랭 관련 응급 상황을 식별하고 치료하며 추가 부상 방지.",
+    "heatstroke": "생명을 위협할 수 있는 열 관련 응급 상황을 인식하고 대응하는 방법.",
+    "poisoning": "섭취, 흡입 및 피부 접촉과 같은 다양한 유형의 중독에 대한 응급 처치.",
+    "drowning": "익사 피해자를 위한 구조 기술 및 응급 처치.",
+    "diabetic": "저혈당, 고혈당 및 당뇨병성 케톤산증 응급 상황 관리.",
+    "spinalinjury": "의심되는 척추 부상에 대한 고정 기술 및 예방 조치.",
+    "eyeinjury": "화학물질 노출, 이물질 및 외상성 눈 부상에 대한 응급 절차.",
+    "dental": "부러진 치아, 심한 통증 및 기타 치과 응급 상황 관리.",
+    "electrical": "감전 및 전기 화상에 대한 안전 절차 및 응급 처치.",
+    "fire-safety-equipment": "소화기, 경보기, 스프링클러 및 안전 장비를 포함한 화재 안전 장비에 대한 종합 가이드.",
+    "bites": "동물, 곤충 및 독성 생물의 물림 및 쏘임에 대한 치료.",
+    "childbirth": "의료 시설 외부에서 예상치 못한 출산 지원.",
+    "chest-pain": "흉통 평가 및 적절한 응급 대응 결정.",
+    "overdose": "오피오이드 과다 복용 대응을 포함한 약물 과다 복용 응급 상황 인식 및 관리.",
+    "shock": "다양한 유형의 쇼크 식별 및 적절한 응급 처치 제공.",
+    "head-injury": "외상성 두부 부상 및 뇌진탕 프로토콜에 대한 평가 및 관리.",
+    "psychiatric": "급성 정신 건강 위기 및 정신과적 응급 상황에 안전하게 대응하는 방법."
   },
   "treatment": {
     "title": "치료 지침",
@@ -71,13 +145,185 @@
     "title": "증상 확인기",
     "description": "증상을 기반으로 잠재적 의학적 상태를 파악하세요.",
     "comingSoon": "곧 제공 예정",
-    "comingSoonDesc": "대화형 증상 확인기가 현재 개발 중입니다. 곧 확인해 주세요."
+    "comingSoonDesc": "대화형 증상 확인기가 현재 개발 중입니다. 곧 확인해 주세요.",
+    "selectBodyPart": "신체 부위 선택",
+    "selectSymptoms": "증상 선택",
+    "selectedSymptoms": "선택된 증상",
+    "checkSymptoms": "증상 확인",
+    "results": "결과",
+    "possibleConditions": "가능한 상태",
+    "urgency": "긴급도",
+    "recommendation": "권장사항",
+    "disclaimer": "면책 조항: 이는 의학적 조언이 아닙니다. 심각한 증상이 있으면 즉시 의료 전문가에게 문의하세요.",
+    "emergency": "응급 상황",
+    "urgent": "긴급",
+    "nonUrgent": "비긴급",
+    "criticalSymptom": "중요 증상",
+    "noResults": "선택한 증상으로 결과를 찾을 수 없습니다",
+    "bodyParts": {
+      "head": "머리",
+      "chest": "가슴",
+      "abdomen": "복부",
+      "limbs": "사지",
+      "skin": "피부",
+      "general": "일반"
+    },
+    "symptomNames": {
+      "headache": "두통",
+      "dizziness": "어지러움",
+      "vision_changes": "시력 변화",
+      "severe_headache": "심한 두통",
+      "nausea_vomiting": "구역질/구토",
+      "chest_pain": "가슴 통증",
+      "shortness_of_breath": "호흡 곤란",
+      "palpitations": "심계항진",
+      "abdominal_pain": "복통",
+      "severe_abdominal_pain": "심한 복통",
+      "diarrhea": "설사",
+      "arm_pain": "팔 통증/쇠약",
+      "leg_pain": "다리 통증/쇠약",
+      "rash": "발진",
+      "fever": "발열",
+      "high_fever": "고열(>39°C/102°F)",
+      "fatigue": "피로",
+      "difficulty_speaking": "말하기 어려움",
+      "facial_drooping": "안면 처짐"
+    },
+    "conditionNames": {
+      "stroke": "뇌졸중(가능성 있음)",
+      "heart_attack": "심장 마비(가능성 있음)",
+      "appendicitis": "충수염(가능성 있음)",
+      "migraine": "편두통",
+      "flu": "독감",
+      "common_cold": "감기",
+      "gastroenteritis": "위장염",
+      "dehydration": "탈수"
+    }
+  },
+  "fireSafety": {
+    "title": "화재 안전 장비",
+    "description": "안전을 위한 화재 안전 장비의 사용 및 유지 관리에 대한 자세한 안내서.",
+    "itemCategories": "장비 카테고리",
+    "useCases": "사용 사례",
+    "maintenance": "유지 관리",
+    "safetyTips": "안전 팁",
+    "noItems": "이 카테고리에 사용 가능한 장비가 없습니다",
+    "equipment": {
+      "extinguisher": {
+        "name": "소화기",
+        "description": "화재 사면체에서 열, 산소 또는 화학 연쇄 반응을 제거하는 소화제를 방출하여 작은 화재를 진압하는 데 사용되는 휴대용 장치.",
+        "useCases": [
+          "A급 화재: 목재, 종이, 천과 같은 일반 가연성 물질",
+          "B급 화재: 기름, 가솔린, 그리스와 같은 가연성 액체",
+          "C급 화재: 전기 장비",
+          "D급 화재: 가연성 금속(특수 소화기만 해당)",
+          "K급 화재: 조리용 기름 및 지방을 포함한 주방 화재"
+        ],
+        "maintenance": [
+          "월간 시각적 검사: 압력계 확인, 손상 검사",
+          "연간 전문 검사",
+          "사용 후 교체 또는 재충전",
+          "제조업체의 교체 권장 사항 준수(일반적으로 5-15년)",
+          "접근 가능하고 장애물이 없는 상태로 유지"
+        ],
+        "safetyTips": [
+          "작고 제한된 화재만 진압 시도",
+          "항상 뒤에 출구가 있는 위치에서 진행",
+          "PASS 기술 사용: Pull(당기기), Aim(조준), Squeeze(쥐기), Sweep(쓸기)",
+          "화재로부터 2-2.5미터 떨어져 있기",
+          "화재가 커지면 즉시 대피"
+        ]
+      },
+      "alarms": {
+        "name": "화재 경보기 및 감지기",
+        "description": "재앙적인 상황이 되기 전에 화재를 예방하고 대응할 중요한 시간을 제공하는 생명을 구하는 장치들입니다.",
+        "useCases": [
+          "초기 화재 및 연기 감지",
+          "거주자에게 잠재적 위험 경고",
+          "통합 시스템에서 응급 서비스 자동 알림",
+          "화재 감지를 위한 24시간 모니터링 제공",
+          "상업 시설에서 화재 억제 시스템 활성화"
+        ],
+        "maintenance": [
+          "테스트 버튼을 사용하여 주간 감지기 확인",
+          "배터리 연 2회 교체(또는 장치가 배터리 부족 신호를 보낼 때)",
+          "6개월마다 먼지 및 파편 청소",
+          "10년마다 완전 교체",
+          "상업용 시스템의 경우 추가 전문 테스트"
+        ],
+        "safetyTips": [
+          "지하실을 포함한 집의 각 층에 설치",
+          "주방 외부에 설치(조리 기구로부터 최소 3미터)",
+          "침실 구역 근처 및 각 침실 내부에 설치",
+          "오작동을 일으키더라도 비활성화하지 말 것",
+          "경보가 활성화될 때 대피 계획을 수립하고 연습"
+        ]
+      },
+      "sprinklers": {
+        "name": "스프링클러 시스템",
+        "description": "영향을 받는 지역에 물이나 기타 소화제를 분배하여 인간의 개입 없이 화재를 감지하고 제어하는 자동 화재 진압 시스템.",
+        "useCases": [
+          "주거 및 상업 건물에서 화재 자동 억제",
+          "화재 및 연기 확산 방지",
+          "화재 손상으로부터 재산 및 자산 보호",
+          "안전한 대피를 위한 시간 제공",
+          "소방대 도착까지 화재 억제"
+        ],
+        "maintenance": [
+          "분기별 전문 검사 및 테스트",
+          "월간 밸브 및 압력 게이지 확인",
+          "주간 시각적 방해물 확인",
+          "연간 전체 시스템 평가",
+          "발견된 모든 문제 즉시 수리"
+        ],
+        "safetyTips": [
+          "스프링클러에 물체를 걸거나 매달지 말 것",
+          "스프링클러 아래 최소 45cm 간격 유지",
+          "스프링클러 헤드를 페인트로 칠하지 말 것",
+          "오작동 시 제어 밸브 위치 알기",
+          "스프링클러 헤드가 가려지지 않도록 유지"
+        ]
+      }
+    }
+  },
+  "offline": {
+    "title": "오프라인 액세스",
+    "savePrompt": "오프라인 사용을 위해 저장",
+    "description": "오프라인 사용을 위해 응급 정보를 저장하세요 - 인터넷 없이도 중요한 프로토콜, 전화번호 및 약물 정보에 액세스할 수 있습니다.",
+    "syncNow": "지금 동기화",
+    "syncing": "동기화 중...",
+    "lastSynced": "마지막 동기화",
+    "syncComplete": "데이터가 성공적으로 동기화되었습니다",
+    "syncFailed": "동기화 실패",
+    "syncCompleteMessage": "응급 정보가 이제 오프라인으로 사용 가능합니다",
+    "syncFailedMessage": "오프라인 사용을 위해 데이터를 저장하는 중 문제가 발생했습니다",
+    "offlineMessage": "오프라인 상태입니다",
+    "connectPrompt": "데이터를 동기화하려면 인터넷에 연결하세요",
+    "offlineMode": "오프라인 모드",
+    "online": "온라인",
+    "offline": "오프라인",
+    "storageAvailable": "사용 가능한 저장 공간"
+  },
+  "showMore": "자세히 보기",
+  "showLess": "간략히 보기",
+  "install": {
+    "title": "응급 가이드 설치",
+    "androidDesc": "빠른 액세스 및 오프라인 사용을 위해 이 앱을 설치하세요.",
+    "iosDesc": "중요한 응급 정보에 오프라인으로 액세스하기 위해 이 앱을 장치에 설치하세요.",
+    "install": "설치",
+    "later": "나중에",
+    "iosInstructionsTitle": "iOS에 설치",
+    "iosInstructions": "공유 버튼을 탭한 다음 '홈 화면에 추가'를 탭하세요",
+    "success": "설치 시작됨",
+    "successDesc": "앱을 설치해 주셔서 감사합니다!"
   },
   "footer": {
     "title": "국제 응급 가이드",
     "description": "생명을 구하는 데 도움이 되는 응급 의료 정보와 자원을 제공합니다.",
     "quickLinks": "빠른 링크",
     "contact": "연락처",
+    "phone": "99291221",
+    "instagram": "youtuber_temka",
     "address": "몽골",
     "rights": "모든 권리 보유."
   },
@@ -90,5 +336,33 @@
     "us": "미국",
     "uk": "영국",
     "ru": "러시아"
+  },
+  "promotion": {
+    "title": "응급 대비 능력 향상",
+    "description": "인증 프로그램에 등록하여 응급 대응 기술을 향상시키세요.",
+    "benefits": "혜택 포함:",
+    "benefit1": "국제적으로 인정된 인증",
+    "benefit2": "모든 응급 프로토콜에 대한 고급 교육",
+    "benefit3": "전문 의료 자원에 대한 특별 액세스",
+    "benefit4": "전 세계 응급 대응 네트워크와 연결",
+    "signUp": "프로모션 등록",
+    "subscribe": "업데이트 구독",
+    "emailPlaceholder": "이메일 주소 입력",
+    "namePlaceholder": "전체 이름 입력",
+    "successMessage": "관심을 가져주셔서 감사합니다! 곧 더 많은 정보로 연락드리겠습니다.",
+    "errorMessage": "유효한 이메일 주소를 제공해 주세요."
+  },
+  "accessibility": {
+    "title": "접근성 설정",
+    "fontSize": "글꼴 크기",
+    "theme": "표시 모드",
+    "contrast": "고대비",
+    "darkMode": "다크 모드",
+    "lightMode": "라이트 모드",
+    "highContrast": "고대비",
+    "normal": "보통",
+    "large": "크게",
+    "xlarge": "매우 크게",
+    "note": "설정은 자동으로 저장되며 돌아올 때 유지됩니다."
   }
 }
