@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "Internationaler Notfallführer",
-    "subtitle": "Notfallführer"
+    "subtitle": "Ihre umfassende Ressource für medizinische Notfälle"
   },
   "nav": {
     "home": "Startseite",
@@ -15,7 +15,7 @@
   },
   "emergency": {
     "title": "Notfall? Rufen Sie",
-    "number": "103"
+    "number": "112"
   },
   "home": {
     "title": "Internationaler Notfallführer",
@@ -33,9 +33,19 @@
     "police": "Polizei",
     "emergency": "Notdienst",
     "redcross": "Medizinisches Unterstützungsteam",
+    "hospital": "Krankenhaus",
+    "rescue": "Such- und Rettungsdienst",
+    "gas": "Gasnotdienst",
+    "children": "Kinderschutz",
     "nonEmergency": "Nicht-Notfall",
+    "poison": "Giftnotrufzentrale",
     "selectCountry": "Bitte wählen Sie ein Land, um Notfallnummern anzuzeigen",
-    "noData": "Für dieses Land sind keine Notfallnummern verfügbar"
+    "noData": "Für dieses Land sind keine Notfallnummern verfügbar",
+    "found": "Krankenhäuser gefunden",
+    "directions": "Route anzeigen",
+    "mapLoadError": "Karte konnte nicht geladen werden",
+    "usingListOnly": "Nur Listenansicht verfügbar",
+    "apiKeyRequired": "Google Maps API-Schlüssel erforderlich, um Karte anzuzeigen"
   },
   "hospitals": {
     "title": "Krankenhäuser in der Nähe finden",
@@ -53,7 +63,71 @@
     "title": "Notfallprotokolle",
     "description": "Schrittweise Notfallprotokolle für kritische Situationen, die sofortige medizinische Aufmerksamkeit erfordern.",
     "viewDetails": "Details anzeigen",
-    "viewAll": "Alle Notfallprotokolle anzeigen"
+    "viewAll": "Alle Notfallprotokolle anzeigen",
+    "stepTitle": "Schritt",
+    "warningTitle": "Warnhinweise",
+    "notesTitle": "Hinweise",
+    "important": "Wichtig"
+  },
+  "protocolTitles": {
+    "fire-emergency": "Feuernotfall-Maßnahmen",
+    "fire-hose": "Notfall-Feuerlöschschlauch-Verwendung",
+    "cpr": "Wiederbelebungsprotokoll",
+    "choking": "Erstickungsmaßnahmen",
+    "bleeding": "Starke Blutungen",
+    "burns": "Verbrennungsbehandlung",
+    "fracture": "Knochenbrüche & Verrenkungen",
+    "heart-attack": "Herzinfarkt",
+    "stroke": "Schlaganfallmaßnahmen",
+    "seizure": "Krampfanfallmanagement",
+    "anaphylaxis": "Anaphylaktischer Schock",
+    "hypothermia": "Unterkühlung & Erfrierungen",
+    "heatstroke": "Hitzeerschöpfung & Hitzschlag",
+    "poisoning": "Vergiftungsmaßnahmen",
+    "drowning": "Ertrinkungsmaßnahmen",
+    "diabetic": "Diabetische Notfälle",
+    "spinalinjury": "Wirbelsäulenverletzungsmanagement",
+    "eyeinjury": "Erste Hilfe bei Augenverletzungen",
+    "dental": "Zahnmedizinische Notfälle",
+    "electrical": "Elektrische Verletzungen",
+    "fire-safety-equipment": "Brandschutzausrüstungsleitfaden",
+    "bites": "Tier- & Insektenbisse",
+    "childbirth": "Notfallgeburt",
+    "chest-pain": "Brustschmerz-Beurteilung",
+    "overdose": "Drogenüberdosierung",
+    "shock": "Schockmanagement",
+    "head-injury": "Kopfverletzung & Gehirnerschütterung",
+    "psychiatric": "Psychiatrische Notfälle"
+  },
+  "protocolDescriptions": {
+    "fire-emergency": "Umfassender Leitfaden zur Reaktion auf Brände, einschließlich Prävention, Erkennung, Evakuierung und grundlegende Brandbekämpfungstechniken.",
+    "fire-hose": "Schrittweise Anleitung zur richtigen Verwendung von Notfall-Feuerlöschschläuchen zur sicheren und effektiven Brandbekämpfung.",
+    "cpr": "Schrittweise Anleitung für die Herz-Lungen-Wiederbelebung in Notfallsituationen.",
+    "choking": "Notfallverfahren bei Erstickungsfällen einschließlich der Heimlich-Methode.",
+    "bleeding": "Protokoll zur Kontrolle schwerer Blutungen und zur Verhinderung von Schock.",
+    "burns": "Erste Hilfe für verschiedene Arten und Grade von Verbrennungen.",
+    "fracture": "Sicherer Umgang mit Knochenbrüchen und Gelenkverrenkungen.",
+    "heart-attack": "Erkennen von Symptomen und Notfallmaßnahmen bei Herzinfarkt.",
+    "stroke": "FAST-Protokoll und Notfallversorgung für Schlaganfallopfer.",
+    "seizure": "Richtige Betreuung während und nach Krampfanfällen und wann man Notfallhilfe suchen sollte.",
+    "anaphylaxis": "Reaktion auf schwere allergische Reaktionen und Verwendung von Adrenalin-Autoinjektoren.",
+    "hypothermia": "Identifikation und Behandlung von kältebedingten Notfällen und Verhinderung weiterer Verletzungen.",
+    "heatstroke": "Erkennen und Reagieren auf hitzebedingte Notfälle, die lebensbedrohlich sein können.",
+    "poisoning": "Erste Hilfe bei verschiedenen Arten von Vergiftungen einschließlich Verschlucken, Einatmen und Hautkontakt.",
+    "drowning": "Rettungstechniken und Notfallversorgung für Ertrinkungsopfer.",
+    "diabetic": "Management von Hypoglykämie, Hyperglykämie und diabetischen Ketoazidose-Notfällen.",
+    "spinalinjury": "Immobilisierungstechniken und Vorsichtsmaßnahmen bei vermuteten Wirbelsäulenverletzungen.",
+    "eyeinjury": "Notfallverfahren für chemische Expositionen, Fremdkörper und traumatische Augenverletzungen.",
+    "dental": "Management von gebrochenen Zähnen, starken Schmerzen und anderen zahnmedizinischen Notfällen.",
+    "electrical": "Sicherheitsverfahren und Erste Hilfe bei Stromschlag und Elektrokution.",
+    "fire-safety-equipment": "Umfassender Leitfaden zu Brandschutzausrüstung einschließlich Feuerlöschern, Alarmen, Sprinklern und Sicherheitsausrüstung.",
+    "bites": "Behandlung von Bissen und Stichen von Tieren, Insekten und giftigen Geschöpfen.",
+    "childbirth": "Unterstützung bei unerwarteten Geburten außerhalb medizinischer Einrichtungen.",
+    "chest-pain": "Bewertung von Brustschmerzen und Bestimmung der angemessenen Notfallreaktion.",
+    "overdose": "Erkennung und Management von Drogenüberdosierungsnotfällen einschließlich Opioid-Überdosierungsreaktion.",
+    "shock": "Identifizierung verschiedener Arten von Schock und Bereitstellung entsprechender Notfallversorgung.",
+    "head-injury": "Beurteilung und Management von traumatischen Kopfverletzungen und Gehirnerschütterungsprotokoll.",
+    "psychiatric": "Sicheres Reagieren auf akute psychische Gesundheitskrisen und psychiatrische Notfälle."
   },
   "treatment": {
     "title": "Behandlungsrichtlinien",
@@ -71,13 +145,185 @@
     "title": "Symptomprüfer",
     "description": "Identifizieren Sie potenzielle medizinische Zustände basierend auf Ihren Symptomen.",
     "comingSoon": "Demnächst verfügbar",
-    "comingSoonDesc": "Unser interaktiver Symptomprüfer befindet sich derzeit in Entwicklung. Bitte schauen Sie bald wieder vorbei."
+    "comingSoonDesc": "Unser interaktiver Symptomprüfer befindet sich derzeit in Entwicklung. Bitte schauen Sie bald wieder vorbei.",
+    "selectBodyPart": "Körperteil auswählen",
+    "selectSymptoms": "Symptome auswählen",
+    "selectedSymptoms": "Ausgewählte Symptome",
+    "checkSymptoms": "Symptome überprüfen",
+    "results": "Ergebnisse",
+    "possibleConditions": "Mögliche Zustände",
+    "urgency": "Dringlichkeit",
+    "recommendation": "Empfehlung",
+    "disclaimer": "Haftungsausschluss: Dies ist kein medizinischer Rat. Bei ernsthaften Symptomen suchen Sie bitte sofort einen Arzt auf.",
+    "emergency": "NOTFALL",
+    "urgent": "Dringend",
+    "nonUrgent": "Nicht dringend",
+    "criticalSymptom": "KRITISCHES SYMPTOM",
+    "noResults": "Keine Ergebnisse mit ausgewählten Symptomen",
+    "bodyParts": {
+      "head": "Kopf",
+      "chest": "Brust",
+      "abdomen": "Bauch",
+      "limbs": "Gliedmaßen",
+      "skin": "Haut",
+      "general": "Allgemein"
+    },
+    "symptomNames": {
+      "headache": "Kopfschmerzen",
+      "dizziness": "Schwindel",
+      "vision_changes": "Sehveränderungen",
+      "severe_headache": "Starke Kopfschmerzen",
+      "nausea_vomiting": "Übelkeit/Erbrechen",
+      "chest_pain": "Brustschmerzen",
+      "shortness_of_breath": "Atemnot",
+      "palpitations": "Herzklopfen",
+      "abdominal_pain": "Bauchschmerzen",
+      "severe_abdominal_pain": "Starke Bauchschmerzen",
+      "diarrhea": "Durchfall",
+      "arm_pain": "Armschmerzen/Schwäche",
+      "leg_pain": "Beinschmerzen/Schwäche",
+      "rash": "Hautausschlag",
+      "fever": "Fieber",
+      "high_fever": "Hohes Fieber (>39°C/102°F)",
+      "fatigue": "Müdigkeit",
+      "difficulty_speaking": "Sprachschwierigkeiten",
+      "facial_drooping": "Gesichtslähmung"
+    },
+    "conditionNames": {
+      "stroke": "Schlaganfall (Möglich)",
+      "heart_attack": "Herzinfarkt (Möglich)",
+      "appendicitis": "Blinddarmentzündung (Möglich)",
+      "migraine": "Migräne",
+      "flu": "Grippe",
+      "common_cold": "Erkältung",
+      "gastroenteritis": "Magen-Darm-Grippe",
+      "dehydration": "Dehydration"
+    }
+  },
+  "fireSafety": {
+    "title": "Brandschutzausrüstung",
+    "description": "Detaillierte Anleitung zur Nutzung und Wartung von Brandschutzausrüstung für Ihre Sicherheit.",
+    "itemCategories": "Ausrüstungskategorien",
+    "useCases": "Anwendungsfälle",
+    "maintenance": "Wartung",
+    "safetyTips": "Sicherheitstipps",
+    "noItems": "Keine Ausrüstung für diese Kategorie verfügbar",
+    "equipment": {
+      "extinguisher": {
+        "name": "Feuerlöscher",
+        "description": "Tragbare Geräte zur Bekämpfung kleiner Brände durch Abgabe eines Löschmittels, das entweder Hitze, Sauerstoff oder die chemische Kettenreaktion aus dem Feuertetraeder entfernt.",
+        "useCases": [
+          "Klasse A Brände: Gewöhnliche brennbare Materialien wie Holz, Papier und Stoff",
+          "Klasse B Brände: Brennbare Flüssigkeiten wie Öl, Benzin und Fett",
+          "Klasse C Brände: Elektrische Geräte",
+          "Klasse D Brände: Brennbare Metalle (nur spezielle Feuerlöscher)",
+          "Klasse K Brände: Küchenbrände mit Speiseölen und Fetten"
+        ],
+        "maintenance": [
+          "Monatliche Sichtprüfung: Druckanzeige prüfen, auf Beschädigungen untersuchen",
+          "Jährliche professionelle Inspektion",
+          "Nach jedem Gebrauch austauschen oder neu befüllen",
+          "Herstellerempfehlungen für den Austausch befolgen (typischerweise 5-15 Jahre)",
+          "Zugänglich und ungehindert aufbewahren"
+        ],
+        "safetyTips": [
+          "Nur versuchen, kleine, eingedämmte Brände zu bekämpfen",
+          "Immer mit einem Ausgang hinter sich positionieren",
+          "PASS-Technik verwenden: Pull (ziehen), Aim (zielen), Squeeze (drücken), Sweep (schwenken)",
+          "2-2,5 Meter Abstand zum Feuer halten",
+          "Wenn das Feuer größer wird, sofort evakuieren"
+        ]
+      },
+      "alarms": {
+        "name": "Rauchmelder & Detektoren",
+        "description": "Lebensrettende Geräte, die frühzeitig vor Rauch oder Feuer warnen und den Bewohnern kritische Zeit geben, um zu evakuieren oder auf Notfälle zu reagieren, bevor sie katastrophal werden.",
+        "useCases": [
+          "Früherkennung von Rauch und Feuer",
+          "Warnung der Bewohner vor potenzieller Gefahr",
+          "Automatische Benachrichtigung von Notdiensten in integrierten Systemen",
+          "Bereitstellung von 24-Stunden-Überwachung zur Branderkennung",
+          "Aktivierung von Brandbekämpfungssystemen in gewerblichen Einrichtungen"
+        ],
+        "maintenance": [
+          "Wöchentliche Überprüfung der Melder mit der Testtaste",
+          "Batterien zweimal jährlich austauschen (oder wenn das Gerät einen niedrigen Batteriestand signalisiert)",
+          "Alle 6 Monate von Staub und Ablagerungen reinigen",
+          "Vollständiger Austausch alle 10 Jahre",
+          "Zusätzliche professionelle Tests für kommerzielle Systeme"
+        ],
+        "safetyTips": [
+          "Auf jeder Ebene des Hauses installieren, einschließlich Keller",
+          "Außerhalb der Küche installieren (mindestens 3 Meter von Kochgeräten entfernt)",
+          "In der Nähe von Schlafbereichen und in jedem Schlafzimmer installieren",
+          "Nicht deaktivieren, auch wenn sie Fehlalarme auslösen",
+          "Evakuierungsplan entwickeln und üben, wenn der Alarm aktiviert wird"
+        ]
+      },
+      "sprinklers": {
+        "name": "Sprinklersysteme",
+        "description": "Automatische Brandbekämpfungssysteme, die Brände ohne menschliches Eingreifen erkennen und kontrollieren, indem sie Wasser oder andere Löschmittel in betroffenen Bereichen verteilen.",
+        "useCases": [
+          "Automatische Unterdrückung von Bränden in Wohn- und Gewerbegebäuden",
+          "Verhinderung der Ausbreitung von Feuer und Rauch",
+          "Schutz von Eigentum und Vermögenswerten vor Brandschäden",
+          "Bereitstellung von Zeit für eine sichere Evakuierung",
+          "Eindämmung von Bränden bis zum Eintreffen der Feuerwehr"
+        ],
+        "maintenance": [
+          "Vierteljährliche professionelle Inspektion und Tests",
+          "Monatliche Überprüfung von Ventilen und Druckanzeigen",
+          "Wöchentliche Sichtprüfung auf Hindernisse",
+          "Jährliche vollständige Systembewertung",
+          "Sofortige Reparatur aller festgestellten Probleme"
+        ],
+        "safetyTips": [
+          "Niemals Gegenstände an Sprinklern aufhängen",
+          "Mindestens 45 cm Abstand unter Sprinklern einhalten",
+          "Sprinklerköpfe nicht anstreichen",
+          "Lage des Kontrollventils für den Fall einer versehentlichen Aktivierung kennen",
+          "Sicherstellen, dass Sprinklerköpfe nicht verdeckt sind"
+        ]
+      }
+    }
+  },
+  "offline": {
+    "title": "Offline-Zugriff",
+    "savePrompt": "Für Offline-Nutzung speichern",
+    "description": "Speichern Sie Notfallinformationen für die Offline-Nutzung - Zugriff auf kritische Protokolle, Telefonnummern und Medikamenteninformationen auch ohne Internet.",
+    "syncNow": "Jetzt synchronisieren",
+    "syncing": "Synchronisierung...",
+    "lastSynced": "Zuletzt synchronisiert",
+    "syncComplete": "Daten erfolgreich synchronisiert",
+    "syncFailed": "Synchronisierung fehlgeschlagen",
+    "syncCompleteMessage": "Notfallinformationen sind jetzt offline verfügbar",
+    "syncFailedMessage": "Problem beim Speichern von Daten für Offline-Nutzung",
+    "offlineMessage": "Sie sind offline",
+    "connectPrompt": "Bitte verbinden Sie sich mit dem Internet, um Daten zu synchronisieren",
+    "offlineMode": "Offline-Modus",
+    "online": "Online",
+    "offline": "Offline",
+    "storageAvailable": "Verfügbarer Speicher"
+  },
+  "showMore": "Mehr anzeigen",
+  "showLess": "Weniger anzeigen",
+  "install": {
+    "title": "Notfallführer installieren",
+    "androidDesc": "Installieren Sie diese App für schnellen Zugriff und Offline-Nutzung.",
+    "iosDesc": "Installieren Sie diese App auf Ihrem Gerät für Offline-Zugriff auf kritische Notfallinformationen.",
+    "install": "Installieren",
+    "later": "Später",
+    "iosInstructionsTitle": "Installation auf iOS",
+    "iosInstructions": "Tippen Sie auf die Schaltfläche 'Teilen' und dann auf 'Zum Startbildschirm hinzufügen'",
+    "success": "Installation gestartet",
+    "successDesc": "Vielen Dank für die Installation unserer App!"
   },
   "footer": {
     "title": "Internationaler Notfallführer",
     "description": "Bereitstellung von Notfallinformationen und Ressourcen, um Leben zu retten.",
     "quickLinks": "Schnelllinks",
     "contact": "Kontakt",
+    "phone": "99291221",
+    "instagram": "youtuber_temka",
     "address": "Mongolei",
     "rights": "Alle Rechte vorbehalten."
   },
@@ -90,5 +336,33 @@
     "us": "USA",
     "uk": "UK",
     "ru": "Russland"
+  },
+  "promotion": {
+    "title": "Verbessern Sie Ihre Notfallbereitschaft",
+    "description": "Verbessern Sie Ihre Notfallreaktionsfähigkeiten, indem Sie sich für unser Zertifizierungsprogramm anmelden.",
+    "benefits": "Vorteile umfassen:",
+    "benefit1": "International anerkanntes Zertifikat",
+    "benefit2": "Fortgeschrittenes Training in allen Notfallprotokollen",
+    "benefit3": "Spezieller Zugang zu professionellen medizinischen Ressourcen",
+    "benefit4": "Verbindung zu Notfallreaktionsnetzwerken weltweit",
+    "signUp": "Für Promotion anmelden",
+    "subscribe": "Updates abonnieren",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "namePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
+    "successMessage": "Vielen Dank für Ihr Interesse! Wir werden uns in Kürze mit weiteren Informationen bei Ihnen melden.",
+    "errorMessage": "Bitte geben Sie eine gültige E-Mail-Adresse an."
+  },
+  "accessibility": {
+    "title": "Zugänglichkeitseinstellungen",
+    "fontSize": "Schriftgröße",
+    "theme": "Anzeigemodus",
+    "contrast": "Hoher Kontrast",
+    "darkMode": "Dunkelmodus",
+    "lightMode": "Hellmodus",
+    "highContrast": "Hoher Kontrast",
+    "normal": "Normal",
+    "large": "Groß",
+    "xlarge": "Extra groß",
+    "note": "Einstellungen werden automatisch gespeichert und bleiben bei Ihrer Rückkehr erhalten."
   }
 }

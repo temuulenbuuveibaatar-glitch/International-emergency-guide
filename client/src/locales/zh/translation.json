@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "国际急救指南",
-    "subtitle": "急救指南"
+    "subtitle": "医疗紧急情况的综合资源"
   },
   "nav": {
     "home": "首页",
@@ -15,7 +15,7 @@
   },
   "emergency": {
     "title": "紧急情况？请拨打",
-    "number": "103"
+    "number": "120"
   },
   "home": {
     "title": "国际急救指南",
@@ -33,9 +33,19 @@
     "police": "警察",
     "emergency": "紧急服务",
     "redcross": "医疗支援团队",
+    "hospital": "医院",
+    "rescue": "搜救",
+    "gas": "煤气紧急情况",
+    "children": "儿童保护",
     "nonEmergency": "非紧急",
+    "poison": "中毒控制中心",
     "selectCountry": "请选择一个国家查看紧急电话",
-    "noData": "此国家没有可用的紧急电话号码数据"
+    "noData": "此国家没有可用的紧急电话号码数据",
+    "found": "找到的医院",
+    "directions": "路线",
+    "mapLoadError": "无法加载地图",
+    "usingListOnly": "仅使用列表视图",
+    "apiKeyRequired": "需要Google地图API密钥才能查看地图"
   },
   "hospitals": {
     "title": "查找附近医院",
@@ -53,7 +63,71 @@
     "title": "紧急救护协议",
     "description": "针对需要立即医疗关注的危急情况的逐步紧急协议。",
     "viewDetails": "查看详情",
-    "viewAll": "查看所有紧急救护协议"
+    "viewAll": "查看所有紧急救护协议",
+    "stepTitle": "步骤",
+    "warningTitle": "警告",
+    "notesTitle": "注释",
+    "important": "重要"
+  },
+  "protocolTitles": {
+    "fire-emergency": "火灾应急响应",
+    "fire-hose": "紧急消防水带使用",
+    "cpr": "心肺复苏协议",
+    "choking": "窒息应对",
+    "bleeding": "严重出血",
+    "burns": "烧伤治疗",
+    "fracture": "骨折和脱位",
+    "heart-attack": "心脏病发作",
+    "stroke": "中风应对",
+    "seizure": "癫痫发作管理",
+    "anaphylaxis": "过敏性休克",
+    "hypothermia": "低体温和冻伤",
+    "heatstroke": "热衰竭和中暑",
+    "poisoning": "中毒应对",
+    "drowning": "溺水应对",
+    "diabetic": "糖尿病紧急情况",
+    "spinalinjury": "脊椎损伤管理",
+    "eyeinjury": "眼睛伤害急救",
+    "dental": "牙科紧急情况",
+    "electrical": "电气伤害",
+    "fire-safety-equipment": "消防安全设备指南",
+    "bites": "动物和昆虫咬伤",
+    "childbirth": "紧急分娩",
+    "chest-pain": "胸痛评估",
+    "overdose": "药物过量",
+    "shock": "休克管理",
+    "head-injury": "头部受伤和脑震荡",
+    "psychiatric": "精神科紧急情况"
+  },
+  "protocolDescriptions": {
+    "fire-emergency": "关于如何应对火灾的综合指南，包括预防、检测、疏散和基本灭火技术。",
+    "fire-hose": "关于如何正确使用紧急消防水带安全有效地扑灭火灾的分步指南。",
+    "cpr": "紧急情况下进行心肺复苏的分步指南。",
+    "choking": "窒息事件的紧急程序，包括海姆立克急救法。",
+    "bleeding": "控制严重出血和防止休克的协议。",
+    "burns": "不同类型和程度烧伤的急救。",
+    "fracture": "安全处理骨折和关节脱位。",
+    "heart-attack": "识别心脏病发作症状和紧急应对。",
+    "stroke": "中风患者的FAST协议和紧急护理。",
+    "seizure": "在癫痫发作期间和之后的适当护理，以及何时寻求紧急帮助。",
+    "anaphylaxis": "应对严重过敏反应和使用肾上腺素自动注射器。",
+    "hypothermia": "识别和治疗与寒冷相关的紧急情况，防止进一步伤害。",
+    "heatstroke": "识别和应对可能危及生命的与热相关的紧急情况。",
+    "poisoning": "不同类型中毒的急救，包括摄入、吸入和皮肤接触。",
+    "drowning": "溺水受害者的救援技术和紧急护理。",
+    "diabetic": "低血糖、高血糖和糖尿病酮症酸中毒紧急情况的管理。",
+    "spinalinjury": "疑似脊椎损伤的固定技术和预防措施。",
+    "eyeinjury": "化学物质暴露、异物和外伤性眼伤的紧急程序。",
+    "dental": "管理断牙、严重疼痛和其他牙科紧急情况。",
+    "electrical": "电击和触电的安全程序和急救。",
+    "fire-safety-equipment": "消防安全设备的综合指南，包括灭火器、警报器、喷水系统和安全装备。",
+    "bites": "动物、昆虫和毒物咬伤和叮咬的治疗。",
+    "childbirth": "在医疗设施外进行意外分娩的协助。",
+    "chest-pain": "评估胸痛并确定适当的紧急响应。",
+    "overdose": "识别和管理药物过量紧急情况，包括阿片类药物过量反应。",
+    "shock": "识别不同类型的休克并提供适当的紧急护理。",
+    "head-injury": "评估和管理外伤性头部伤害和脑震荡协议。",
+    "psychiatric": "安全应对急性精神健康危机和精神科紧急情况。"
   },
   "treatment": {
     "title": "治疗指南",
@@ -71,13 +145,185 @@
     "title": "症状检查器",
     "description": "根据您的症状识别潜在的医疗状况。",
     "comingSoon": "即将推出",
-    "comingSoonDesc": "我们的交互式症状检查器目前正在开发中。请稍后再查看。"
+    "comingSoonDesc": "我们的交互式症状检查器目前正在开发中。请稍后再查看。",
+    "selectBodyPart": "选择身体部位",
+    "selectSymptoms": "选择症状",
+    "selectedSymptoms": "已选症状",
+    "checkSymptoms": "检查症状",
+    "results": "结果",
+    "possibleConditions": "可能的情况",
+    "urgency": "紧急程度",
+    "recommendation": "建议",
+    "disclaimer": "免责声明：这不是医疗建议。如果有严重症状，请立即就医。",
+    "emergency": "紧急",
+    "urgent": "急迫",
+    "nonUrgent": "非紧急",
+    "criticalSymptom": "危急症状",
+    "noResults": "没有与所选症状匹配的结果",
+    "bodyParts": {
+      "head": "头部",
+      "chest": "胸部",
+      "abdomen": "腹部",
+      "limbs": "四肢",
+      "skin": "皮肤",
+      "general": "全身"
+    },
+    "symptomNames": {
+      "headache": "头痛",
+      "dizziness": "头晕",
+      "vision_changes": "视力变化",
+      "severe_headache": "严重头痛",
+      "nausea_vomiting": "恶心/呕吐",
+      "chest_pain": "胸痛",
+      "shortness_of_breath": "呼吸急促",
+      "palpitations": "心悸",
+      "abdominal_pain": "腹痛",
+      "severe_abdominal_pain": "严重腹痛",
+      "diarrhea": "腹泻",
+      "arm_pain": "手臂疼痛/无力",
+      "leg_pain": "腿部疼痛/无力",
+      "rash": "皮疹",
+      "fever": "发热",
+      "high_fever": "高烧 (>39°C/102°F)",
+      "fatigue": "疲劳",
+      "difficulty_speaking": "说话困难",
+      "facial_drooping": "面部下垂"
+    },
+    "conditionNames": {
+      "stroke": "中风（可能）",
+      "heart_attack": "心脏病发作（可能）",
+      "appendicitis": "阑尾炎（可能）",
+      "migraine": "偏头痛",
+      "flu": "流感",
+      "common_cold": "普通感冒",
+      "gastroenteritis": "胃肠炎",
+      "dehydration": "脱水"
+    }
+  },
+  "fireSafety": {
+    "title": "消防安全设备",
+    "description": "关于使用和维护消防安全设备的详细指南，确保您的安全。",
+    "itemCategories": "设备类别",
+    "useCases": "使用场景",
+    "maintenance": "维护",
+    "safetyTips": "安全提示",
+    "noItems": "该类别没有可用设备",
+    "equipment": {
+      "extinguisher": {
+        "name": "灭火器",
+        "description": "便携式设备，通过释放灭火剂来抑制小型火灾，该灭火剂可从火灾四面体中去除热量、氧气或化学链式反应。",
+        "useCases": [
+          "A类火灾：普通可燃物如木材、纸张和布料",
+          "B类火灾：可燃液体如油、汽油和油脂",
+          "C类火灾：电气设备",
+          "D类火灾：可燃金属（仅专用灭火器）",
+          "K类火灾：涉及烹饪油和脂肪的厨房火灾"
+        ],
+        "maintenance": [
+          "每月目视检查：检查压力表，检查是否有损坏",
+          "每年专业检查",
+          "任何使用后更换或重新充填",
+          "遵循制造商的更换建议（通常5-15年）",
+          "保持可访问且无障碍"
+        ],
+        "safetyTips": [
+          "仅尝试扑灭小型、受控的火灾",
+          "始终保持身后有出口的位置",
+          "使用PASS技术：拉（Pull），瞄准（Aim），挤压（Squeeze），扫射（Sweep）",
+          "与火源保持2-2.5米的距离",
+          "如果火势增大，立即疏散"
+        ]
+      },
+      "alarms": {
+        "name": "烟雾报警器和探测器",
+        "description": "救生设备，提供烟雾或火灾的早期警告，让居住者在灾难发生前有宝贵的时间疏散或应对紧急情况。",
+        "useCases": [
+          "检测烟雾和火灾的早期迹象",
+          "向居住者警告潜在危险",
+          "在集成系统中自动通知紧急服务",
+          "提供24小时监控进行火灾检测",
+          "在商业设施中激活消防系统"
+        ],
+        "maintenance": [
+          "使用测试按钮每周检查探测器",
+          "每年两次更换电池（或当设备发出低电量信号时）",
+          "每6个月清洁灰尘和碎屑",
+          "每10年完全更换",
+          "商业系统需要额外的专业测试"
+        ],
+        "safetyTips": [
+          "在房屋的每个楼层安装，包括地下室",
+          "安装在厨房外（与烹饪用具至少3米距离）",
+          "安装在睡眠区域附近和每个卧室内",
+          "即使会引起误报也不要停用",
+          "制定并练习警报激活时的疏散计划"
+        ]
+      },
+      "sprinklers": {
+        "name": "喷水灭火系统",
+        "description": "自动消防系统，无需人工干预即可通过在受影响区域分配水或其他灭火剂来检测和控制火灾。",
+        "useCases": [
+          "在住宅和商业建筑中自动抑制火灾",
+          "防止火灾和烟雾蔓延",
+          "保护财产和资产免受火灾损害",
+          "提供安全疏散的时间",
+          "在消防人员到达前控制火灾"
+        ],
+        "maintenance": [
+          "每季度专业检查和测试",
+          "每月检查阀门和压力表",
+          "每周检查视觉障碍物",
+          "每年全面系统评估",
+          "立即修复所有发现的问题"
+        ],
+        "safetyTips": [
+          "切勿在喷水头上悬挂物品",
+          "在喷水头下保持至少45厘米的空间",
+          "不要给喷水头喷漆",
+          "知道控制阀的位置，以防意外激活",
+          "确保喷水头不被遮挡"
+        ]
+      }
+    }
+  },
+  "offline": {
+    "title": "离线访问",
+    "savePrompt": "保存以供离线使用",
+    "description": "保存紧急信息以供离线使用 - 即使没有互联网也能访问关键协议、电话号码和药物信息。",
+    "syncNow": "立即同步",
+    "syncing": "同步中...",
+    "lastSynced": "上次同步",
+    "syncComplete": "数据同步成功",
+    "syncFailed": "同步失败",
+    "syncCompleteMessage": "紧急信息现在可离线使用",
+    "syncFailedMessage": "保存数据以供离线使用时出现问题",
+    "offlineMessage": "您处于离线状态",
+    "connectPrompt": "请连接到互联网以同步数据",
+    "offlineMode": "离线模式",
+    "online": "在线",
+    "offline": "离线",
+    "storageAvailable": "可用存储空间"
+  },
+  "showMore": "显示更多",
+  "showLess": "显示更少",
+  "install": {
+    "title": "安装急救指南",
+    "androidDesc": "安装此应用程序以便快速访问和离线使用。",
+    "iosDesc": "在您的设备上安装此应用程序，以便离线访问关键紧急信息。",
+    "install": "安装",
+    "later": "稍后",
+    "iosInstructionsTitle": "在iOS上安装",
+    "iosInstructions": "点击\"分享\"按钮，然后\"添加到主屏幕\"",
+    "success": "安装已开始",
+    "successDesc": "感谢您安装我们的应用！"
   },
   "footer": {
     "title": "国际急救指南",
     "description": "提供紧急医疗信息和资源，帮助拯救生命。",
     "quickLinks": "快速链接",
     "contact": "联系我们",
+    "phone": "99291221",
+    "instagram": "youtuber_temka",
     "address": "蒙古国",
     "rights": "版权所有。"
   },
@@ -90,5 +336,33 @@
     "us": "美国",
     "uk": "英国",
     "ru": "俄罗斯"
+  },
+  "promotion": {
+    "title": "提高您的紧急准备能力",
+    "description": "通过注册我们的认证计划提高您的紧急响应技能。",
+    "benefits": "福利包括：",
+    "benefit1": "国际认可的证书",
+    "benefit2": "所有紧急协议的高级培训",
+    "benefit3": "专业医疗资源的特别访问权限",
+    "benefit4": "与全球紧急响应网络连接",
+    "signUp": "注册促销",
+    "subscribe": "订阅更新",
+    "emailPlaceholder": "输入您的电子邮件地址",
+    "namePlaceholder": "输入您的全名",
+    "successMessage": "感谢您的兴趣！我们将很快与您联系提供更多信息。",
+    "errorMessage": "请提供有效的电子邮件地址。"
+  },
+  "accessibility": {
+    "title": "无障碍设置",
+    "fontSize": "字体大小",
+    "theme": "显示模式",
+    "contrast": "高对比度",
+    "darkMode": "暗模式",
+    "lightMode": "亮模式",
+    "highContrast": "高对比度",
+    "normal": "正常",
+    "large": "大",
+    "xlarge": "特大",
+    "note": "设置会自动保存，并在您返回时保持不变。"
   }
 }

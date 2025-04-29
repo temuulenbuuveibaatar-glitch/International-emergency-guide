@@ -1,7 +1,7 @@
 {
   "header": {
-    "title": "Cruz Roja de la Provincia de Orkhon",
-    "subtitle": "Guía de Emergencias"
+    "title": "Guía Internacional de Emergencias",
+    "subtitle": "Su recurso completo para emergencias médicas"
   },
   "nav": {
     "home": "Inicio",
@@ -15,10 +15,10 @@
   },
   "emergency": {
     "title": "¿Emergencia? Llame al",
-    "number": "103"
+    "number": "112"
   },
   "home": {
-    "title": "Cruz Roja de la Provincia de Orkhon",
+    "title": "Guía Internacional de Emergencias",
     "subtitle": "Su fuente confiable de información médica de emergencia",
     "description": "Acceda a procedimientos de emergencia paso a paso, guías de tratamiento, información sobre medicamentos y localice hospitales cercanos - todo en un solo lugar.",
     "emergencyButton": "Protocolos de Emergencia",
@@ -32,10 +32,20 @@
     "fire": "Bomberos",
     "police": "Policía",
     "emergency": "Servicio de Emergencia",
-    "redcross": "Cruz Roja de Orkhon",
+    "redcross": "Equipo de Apoyo Médico",
+    "hospital": "Hospital",
+    "rescue": "Búsqueda y Rescate",
+    "gas": "Emergencia de Gas",
+    "children": "Protección Infantil",
     "nonEmergency": "No Emergencia",
+    "poison": "Centro de Control de Envenenamientos",
     "selectCountry": "Por favor seleccione un país para ver números de emergencia",
-    "noData": "No hay datos de números de emergencia disponibles para este país"
+    "noData": "No hay datos de números de emergencia disponibles para este país",
+    "found": "hospitales encontrados",
+    "directions": "Cómo llegar",
+    "mapLoadError": "No se pudo cargar el mapa",
+    "usingListOnly": "Usando solo vista de lista",
+    "apiKeyRequired": "Se requiere clave API de Google Maps para ver el mapa"
   },
   "hospitals": {
     "title": "Encontrar Hospitales Cercanos",
@@ -53,7 +63,71 @@
     "title": "Protocolos de Emergencia",
     "description": "Protocolos de emergencia paso a paso para situaciones críticas que requieren atención médica inmediata.",
     "viewDetails": "Ver Detalles",
-    "viewAll": "Ver Todos los Protocolos de Emergencia"
+    "viewAll": "Ver Todos los Protocolos de Emergencia",
+    "stepTitle": "Paso",
+    "warningTitle": "Advertencias",
+    "notesTitle": "Notas",
+    "important": "Importante"
+  },
+  "protocolTitles": {
+    "fire-emergency": "Respuesta a Emergencia de Incendio",
+    "fire-hose": "Uso de Manguera de Incendios",
+    "cpr": "Protocolo de RCP",
+    "choking": "Respuesta a Asfixia",
+    "bleeding": "Sangrado Severo",
+    "burns": "Tratamiento de Quemaduras",
+    "fracture": "Fracturas y Dislocaciones",
+    "heart-attack": "Ataque Cardíaco",
+    "stroke": "Respuesta a Derrame Cerebral",
+    "seizure": "Manejo de Convulsiones",
+    "anaphylaxis": "Shock Anafiláctico",
+    "hypothermia": "Hipotermia y Congelación",
+    "heatstroke": "Agotamiento por Calor y Golpe de Calor",
+    "poisoning": "Respuesta a Envenenamiento",
+    "drowning": "Respuesta a Ahogamiento",
+    "diabetic": "Emergencias Diabéticas",
+    "spinalinjury": "Manejo de Lesión Espinal",
+    "eyeinjury": "Primeros Auxilios para Lesiones Oculares",
+    "dental": "Emergencias Dentales",
+    "electrical": "Lesiones Eléctricas",
+    "fire-safety-equipment": "Guía de Equipos de Seguridad contra Incendios",
+    "bites": "Mordeduras de Animales e Insectos",
+    "childbirth": "Parto de Emergencia",
+    "chest-pain": "Evaluación de Dolor en el Pecho",
+    "overdose": "Sobredosis de Drogas",
+    "shock": "Manejo de Shock",
+    "head-injury": "Lesión en la Cabeza y Conmoción Cerebral",
+    "psychiatric": "Emergencias Psiquiátricas"
+  },
+  "protocolDescriptions": {
+    "fire-emergency": "Guía completa sobre cómo responder a incendios, incluyendo prevención, detección, evacuación y técnicas básicas de extinción de incendios.",
+    "fire-hose": "Guía paso a paso sobre cómo usar correctamente las mangueras de emergencia contra incendios para combatir incendios de manera segura y efectiva.",
+    "cpr": "Guía paso a paso para la reanimación cardiopulmonar en situaciones de emergencia.",
+    "choking": "Procedimientos de emergencia para incidentes de asfixia, incluyendo la maniobra de Heimlich.",
+    "bleeding": "Protocolo para controlar el sangrado severo y prevenir el shock.",
+    "burns": "Primeros auxilios para diferentes tipos y grados de quemaduras.",
+    "fracture": "Manejo seguro de fracturas óseas y dislocaciones articulares.",
+    "heart-attack": "Reconocimiento de síntomas y respuesta de emergencia para ataque cardíaco.",
+    "stroke": "Protocolo RAPIDO y cuidados de emergencia para víctimas de derrame cerebral.",
+    "seizure": "Cuidado adecuado durante y después de las convulsiones y cuándo buscar ayuda de emergencia.",
+    "anaphylaxis": "Respuesta a reacciones alérgicas severas y uso de auto-inyectores de epinefrina.",
+    "hypothermia": "Identificación y tratamiento de emergencias relacionadas con el frío y prevención de lesiones adicionales.",
+    "heatstroke": "Reconocimiento y respuesta a emergencias relacionadas con el calor que pueden ser potencialmente mortales.",
+    "poisoning": "Primeros auxilios para diferentes tipos de envenenamiento, incluyendo ingestión, inhalación y contacto con la piel.",
+    "drowning": "Técnicas de rescate y atención de emergencia para víctimas de ahogamiento.",
+    "diabetic": "Manejo de emergencias de hipoglucemia, hiperglucemia y cetoacidosis diabética.",
+    "spinalinjury": "Técnicas de inmovilización y precauciones para sospechas de lesiones espinales.",
+    "eyeinjury": "Procedimientos de emergencia para exposiciones químicas, objetos extraños y lesiones oculares traumáticas.",
+    "dental": "Manejo de dientes rotos, dolor severo y otras emergencias dentales.",
+    "electrical": "Procedimientos de seguridad y primeros auxilios para shock eléctrico y electrocución.",
+    "fire-safety-equipment": "Guía completa para equipos de seguridad contra incendios, incluyendo extintores, alarmas, rociadores y equipo de seguridad.",
+    "bites": "Tratamiento para mordeduras y picaduras de animales, insectos y criaturas venenosas.",
+    "childbirth": "Asistencia en partos inesperados fuera de instalaciones médicas.",
+    "chest-pain": "Evaluación del dolor en el pecho y determinación de la respuesta de emergencia apropiada.",
+    "overdose": "Reconocimiento y manejo de emergencias por sobredosis de drogas, incluyendo respuesta a sobredosis de opioides.",
+    "shock": "Identificación de diferentes tipos de shock y provisión de cuidados de emergencia apropiados.",
+    "head-injury": "Evaluación y manejo de lesiones traumáticas en la cabeza y protocolo de conmoción cerebral.",
+    "psychiatric": "Respuesta segura a crisis agudas de salud mental y emergencias psiquiátricas."
   },
   "treatment": {
     "title": "Guías de Tratamiento",
@@ -71,14 +145,186 @@
     "title": "Verificador de Síntomas",
     "description": "Identifique posibles condiciones médicas basadas en sus síntomas.",
     "comingSoon": "Próximamente",
-    "comingSoonDesc": "Nuestro verificador de síntomas interactivo está actualmente en desarrollo. Por favor, vuelva pronto."
+    "comingSoonDesc": "Nuestro verificador de síntomas interactivo está actualmente en desarrollo. Por favor, vuelva pronto.",
+    "selectBodyPart": "Seleccionar parte del cuerpo",
+    "selectSymptoms": "Seleccionar síntomas",
+    "selectedSymptoms": "Síntomas seleccionados",
+    "checkSymptoms": "Verificar síntomas",
+    "results": "Resultados",
+    "possibleConditions": "Condiciones posibles",
+    "urgency": "Urgencia",
+    "recommendation": "Recomendación",
+    "disclaimer": "Aviso legal: Esto no es un consejo médico. Si tiene síntomas graves, busque atención médica inmediatamente.",
+    "emergency": "EMERGENCIA",
+    "urgent": "Urgente",
+    "nonUrgent": "No urgente",
+    "criticalSymptom": "SÍNTOMA CRÍTICO",
+    "noResults": "No hay resultados con los síntomas seleccionados",
+    "bodyParts": {
+      "head": "Cabeza",
+      "chest": "Pecho",
+      "abdomen": "Abdomen",
+      "limbs": "Extremidades",
+      "skin": "Piel",
+      "general": "General"
+    },
+    "symptomNames": {
+      "headache": "Dolor de cabeza",
+      "dizziness": "Mareo",
+      "vision_changes": "Cambios en la visión",
+      "severe_headache": "Dolor de cabeza severo",
+      "nausea_vomiting": "Náuseas/Vómitos",
+      "chest_pain": "Dolor en el pecho",
+      "shortness_of_breath": "Dificultad para respirar",
+      "palpitations": "Palpitaciones",
+      "abdominal_pain": "Dolor abdominal",
+      "severe_abdominal_pain": "Dolor abdominal severo",
+      "diarrhea": "Diarrea",
+      "arm_pain": "Dolor/Debilidad en brazo",
+      "leg_pain": "Dolor/Debilidad en pierna",
+      "rash": "Erupción cutánea",
+      "fever": "Fiebre",
+      "high_fever": "Fiebre alta (>39°C/102°F)",
+      "fatigue": "Fatiga",
+      "difficulty_speaking": "Dificultad para hablar",
+      "facial_drooping": "Caída facial"
+    },
+    "conditionNames": {
+      "stroke": "Derrame cerebral (Posible)",
+      "heart_attack": "Ataque cardíaco (Posible)",
+      "appendicitis": "Apendicitis (Posible)",
+      "migraine": "Migraña",
+      "flu": "Gripe",
+      "common_cold": "Resfriado común",
+      "gastroenteritis": "Gastroenteritis",
+      "dehydration": "Deshidratación"
+    }
+  },
+  "fireSafety": {
+    "title": "Equipos de Seguridad contra Incendios",
+    "description": "Guía detallada sobre el uso y mantenimiento de equipos de seguridad contra incendios para su seguridad.",
+    "itemCategories": "Categorías de equipos",
+    "useCases": "Casos de uso",
+    "maintenance": "Mantenimiento",
+    "safetyTips": "Consejos de seguridad",
+    "noItems": "No hay equipos disponibles para esta categoría",
+    "equipment": {
+      "extinguisher": {
+        "name": "Extintores",
+        "description": "Dispositivos portátiles utilizados para suprimir pequeños incendios liberando un agente extintor que elimina el calor, el oxígeno o la reacción química en cadena del tetraedro del fuego.",
+        "useCases": [
+          "Incendios Clase A: Combustibles ordinarios como madera, papel y tela",
+          "Incendios Clase B: Líquidos inflamables como aceite, gasolina y grasa",
+          "Incendios Clase C: Equipo eléctrico",
+          "Incendios Clase D: Metales combustibles (solo extintores especializados)",
+          "Incendios Clase K: Incendios de cocina que involucran aceites y grasas para cocinar"
+        ],
+        "maintenance": [
+          "Inspección visual mensual: Revisar manómetro, examinar si hay daños",
+          "Inspección profesional anual",
+          "Reemplazar o recargar después de cualquier uso",
+          "Seguir las recomendaciones del fabricante para el reemplazo (típicamente 5-15 años)",
+          "Mantener accesible y sin obstrucciones"
+        ],
+        "safetyTips": [
+          "Solo intente combatir incendios pequeños y contenidos",
+          "Siempre posiciónese con una salida detrás de usted",
+          "Use la técnica PASS: Pull (Tirar), Aim (Apuntar), Squeeze (Apretar), Sweep (Barrer)",
+          "Manténgase a 2-2.5 metros de distancia del fuego",
+          "Si el fuego crece, evacúe inmediatamente"
+        ]
+      },
+      "alarms": {
+        "name": "Alarmas y Detectores de Humo",
+        "description": "Dispositivos que salvan vidas proporcionando una alerta temprana de humo o fuego, dando a los ocupantes tiempo crítico para evacuar o responder a emergencias antes de que se vuelvan catastróficas.",
+        "useCases": [
+          "Detección temprana de signos de humo y fuego",
+          "Advertencia a los ocupantes de peligro potencial",
+          "Notificación automática a servicios de emergencia en sistemas integrados",
+          "Proporcionan monitoreo las 24 horas para la detección de incendios",
+          "Activación de sistemas de supresión de incendios en instalaciones comerciales"
+        ],
+        "maintenance": [
+          "Verificación semanal de detectores usando el botón de prueba",
+          "Reemplazo de baterías dos veces al año (o cuando el dispositivo señale batería baja)",
+          "Limpieza de polvo y escombros cada 6 meses",
+          "Reemplazo completo cada 10 años",
+          "Pruebas profesionales adicionales para sistemas comerciales"
+        ],
+        "safetyTips": [
+          "Instalar en cada nivel de la casa, incluyendo el sótano",
+          "Instalar fuera de la cocina (mínimo 3 metros de los aparatos de cocina)",
+          "Instalar cerca de áreas de dormir y dentro de cada dormitorio",
+          "No desactivar, incluso si causan falsas alarmas",
+          "Desarrollar y practicar un plan de evacuación cuando se active la alarma"
+        ]
+      },
+      "sprinklers": {
+        "name": "Sistemas de Rociadores",
+        "description": "Sistemas automáticos de supresión de incendios que detectan y controlan incendios sin intervención humana distribuyendo agua u otros agentes extintores en las áreas afectadas.",
+        "useCases": [
+          "Supresión automática de incendios en edificios residenciales y comerciales",
+          "Prevención de la propagación de fuego y humo",
+          "Protección de propiedad y activos de daños por incendio",
+          "Proporcionan tiempo para una evacuación segura",
+          "Contención de incendios hasta la llegada de los bomberos"
+        ],
+        "maintenance": [
+          "Inspección y pruebas profesionales trimestrales",
+          "Verificación mensual de válvulas y medidores de presión",
+          "Verificación semanal de obstrucciones visuales",
+          "Evaluación completa del sistema anualmente",
+          "Reparación inmediata de cualquier problema identificado"
+        ],
+        "safetyTips": [
+          "Nunca cuelgue objetos de los rociadores",
+          "Mantenga un mínimo de 45 cm de espacio debajo de los rociadores",
+          "No pinte los cabezales de los rociadores",
+          "Conozca la ubicación de la válvula de control en caso de activación accidental",
+          "Asegúrese de que los cabezales de los rociadores no estén obstruidos"
+        ]
+      }
+    }
+  },
+  "offline": {
+    "title": "Acceso Offline",
+    "savePrompt": "Guardar para uso offline",
+    "description": "Guarde información de emergencia para uso offline - acceda a protocolos críticos, números de teléfono e información de medicamentos incluso sin internet.",
+    "syncNow": "Sincronizar ahora",
+    "syncing": "Sincronizando...",
+    "lastSynced": "Última sincronización",
+    "syncComplete": "Datos sincronizados exitosamente",
+    "syncFailed": "Fallo en la sincronización",
+    "syncCompleteMessage": "La información de emergencia ahora está disponible offline",
+    "syncFailedMessage": "Hubo un problema al guardar datos para uso offline",
+    "offlineMessage": "Está offline",
+    "connectPrompt": "Por favor conecte a internet para sincronizar datos",
+    "offlineMode": "Modo offline",
+    "online": "En línea",
+    "offline": "Fuera de línea",
+    "storageAvailable": "Almacenamiento disponible"
+  },
+  "showMore": "Mostrar más",
+  "showLess": "Mostrar menos",
+  "install": {
+    "title": "Instalar Guía de Emergencias",
+    "androidDesc": "Instale esta aplicación para acceso rápido y uso offline.",
+    "iosDesc": "Instale esta aplicación en su dispositivo para acceso offline a información crítica de emergencias.",
+    "install": "Instalar",
+    "later": "Más tarde",
+    "iosInstructionsTitle": "Instalación en iOS",
+    "iosInstructions": "Toque el botón 'Compartir', luego 'Añadir a Pantalla de Inicio'",
+    "success": "Instalación iniciada",
+    "successDesc": "¡Gracias por instalar nuestra aplicación!"
   },
   "footer": {
-    "title": "Cruz Roja de la Provincia de Orkhon",
+    "title": "Guía Internacional de Emergencias",
     "description": "Proporcionando información médica de emergencia y recursos para ayudar a salvar vidas.",
     "quickLinks": "Enlaces Rápidos",
     "contact": "Contacto",
-    "address": "Provincia de Orkhon, Mongolia",
+    "phone": "99291221",
+    "instagram": "youtuber_temka",
+    "address": "Mongolia",
     "rights": "Todos los derechos reservados."
   },
   "countries": {
@@ -90,5 +336,33 @@
     "us": "EEUU",
     "uk": "Reino Unido",
     "ru": "Rusia"
+  },
+  "promotion": {
+    "title": "Mejore su preparación para emergencias",
+    "description": "Mejore sus habilidades de respuesta a emergencias inscribiéndose en nuestro programa de certificación.",
+    "benefits": "Los beneficios incluyen:",
+    "benefit1": "Certificado reconocido internacionalmente",
+    "benefit2": "Entrenamiento avanzado en todos los protocolos de emergencia",
+    "benefit3": "Acceso especial a recursos médicos profesionales",
+    "benefit4": "Conexión con redes de respuesta a emergencias en todo el mundo",
+    "signUp": "Registrarse para promoción",
+    "subscribe": "Suscribirse a actualizaciones",
+    "emailPlaceholder": "Ingrese su dirección de correo electrónico",
+    "namePlaceholder": "Ingrese su nombre completo",
+    "successMessage": "¡Gracias por su interés! Nos pondremos en contacto con usted pronto con más información.",
+    "errorMessage": "Por favor proporcione una dirección de correo electrónico válida."
+  },
+  "accessibility": {
+    "title": "Configuración de accesibilidad",
+    "fontSize": "Tamaño de fuente",
+    "theme": "Modo de visualización",
+    "contrast": "Alto contraste",
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro",
+    "highContrast": "Alto contraste",
+    "normal": "Normal",
+    "large": "Grande",
+    "xlarge": "Extra grande",
+    "note": "La configuración se guarda automáticamente y permanecerá cuando regrese."
   }
 }
