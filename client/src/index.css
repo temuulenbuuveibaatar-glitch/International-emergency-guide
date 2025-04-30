@@ -2,6 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Print styles for Treatment Guidelines */
+@media print {
+  body {
+    font-size: 12pt;
+    color: #000 !important;
+    background-color: #fff !important;
+  }
+  
+  .print-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header, footer, nav, button:not(.print-content), .print-hidden {
+    display: none !important;
+  }
+  
+  .print-container h1, .print-container h2, .print-container h3 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .print-container img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  .print-container a {
+    text-decoration: underline;
+    color: #000 !important;
+  }
+  
+  .print-container a::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+  
+  .print-container div {
+    page-break-inside: avoid;
+  }
+  
+  .print-container ul, .print-container ol {
+    padding-left: 20px !important;
+  }
+
+  /* Ensure proper page breaks */
+  .print-container .print-break-before {
+    page-break-before: always;
+  }
+  
+  .print-container .print-break-after {
+    page-break-after: always;
+  }
+  
+  /* Better spacing for printed content */
+  .print-container .print-my-4 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Hide UI elements not needed in printed version */
+  .print-container button,
+  .print-container .mobile-only,
+  .print-container .search-area,
+  .print-container .action-buttons {
+    display: none !important;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

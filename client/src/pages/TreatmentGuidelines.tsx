@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useState, useRef } from "react";
 import { Search, ChevronDown, ChevronUp, AlertCircle, ClipboardList, Printer, BookOpen, ThermometerSnowflake, Thermometer, Activity, DownloadCloud } from "lucide-react";
-import type { ReactToPrintProps } from "react-to-print";
 import { useReactToPrint } from "react-to-print";
 
 // Define treatment guideline type
@@ -38,6 +37,7 @@ const treatmentGuidelines: TreatmentGuideline[] = [
     id: "hypertension",
     condition: "Hypertension (High Blood Pressure)",
     category: "cardiovascular",
+    severity: "moderate",
     overview: "A chronic condition in which the blood pressure in the arteries is elevated. It is defined as a systolic BP ≥140 mmHg or a diastolic BP ≥90 mmHg.",
     symptoms: [
       "Often asymptomatic",
@@ -52,11 +52,44 @@ const treatmentGuidelines: TreatmentGuideline[] = [
       nonPharmacological: "Regular exercise, reduce salt intake, maintain healthy weight, limit alcohol, quit smoking, stress management.",
       followUp: "Regular BP monitoring. Follow-up every 3-6 months for controlled hypertension, more frequently for uncontrolled."
     },
+    medications: [
+      {
+        name: "Lisinopril",
+        class: "ACE Inhibitor",
+        dosing: "Initial: 10mg once daily. Maintenance: 20-40mg once daily.",
+        interactions: [
+          "NSAIDs may reduce antihypertensive effects",
+          "Potassium supplements or potassium-sparing diuretics increase risk of hyperkalemia",
+          "Lithium levels may be increased by ACE inhibitors"
+        ]
+      },
+      {
+        name: "Amlodipine",
+        class: "Calcium Channel Blocker",
+        dosing: "Initial: 5mg once daily. Maximum: 10mg once daily.",
+        interactions: [
+          "CYP3A4 inhibitors may increase amlodipine levels",
+          "May enhance hypotensive effect of other antihypertensives",
+          "Grapefruit juice may increase blood levels"
+        ]
+      }
+    ],
     warnings: [
       "Sudden drop in BP can lead to dizziness and falls, especially in elderly",
-      "Some medications may affect kidney function"
+      "Some medications may affect kidney function",
+      "ACE inhibitors and ARBs are contraindicated in pregnancy"
     ],
-    referral: "Refer to specialist for resistant hypertension, suspected secondary causes, or hypertensive emergencies."
+    referral: "Refer to specialist for resistant hypertension, suspected secondary causes, or hypertensive emergencies.",
+    resources: [
+      {
+        title: "American Heart Association - High Blood Pressure",
+        url: "https://www.heart.org/en/health-topics/high-blood-pressure"
+      },
+      {
+        title: "DASH Eating Plan",
+        url: "https://www.nhlbi.nih.gov/education/dash-eating-plan"
+      }
+    ]
   },
   {
     id: "type2diabetes",
@@ -110,6 +143,7 @@ const treatmentGuidelines: TreatmentGuideline[] = [
     id: "pneumonia",
     condition: "Pneumonia",
     category: "respiratory",
+    severity: "severe",
     overview: "An inflammatory condition of the lung affecting primarily the small air sacs (alveoli), typically caused by infection.",
     symptoms: [
       "Fever, chills, rigors",
@@ -125,11 +159,44 @@ const treatmentGuidelines: TreatmentGuideline[] = [
       nonPharmacological: "Adequate hydration, rest, fever control. Consider oxygen therapy if saturation <90%.",
       followUp: "Clinical reassessment within 48-72 hours. Consider follow-up chest X-ray in 6-12 weeks for select patients."
     },
+    medications: [
+      {
+        name: "Amoxicillin",
+        class: "Penicillin Antibiotic",
+        dosing: "Adults: 500 mg three times daily for 5-7 days.",
+        interactions: [
+          "Probenecid increases amoxicillin levels",
+          "May reduce effectiveness of oral contraceptives",
+          "Allopurinol increases risk of skin rash"
+        ]
+      },
+      {
+        name: "Azithromycin",
+        class: "Macrolide Antibiotic",
+        dosing: "500 mg on day 1, then 250 mg daily for 4 days",
+        interactions: [
+          "QT interval prolongation with other QT-prolonging medications",
+          "Antacids containing aluminum or magnesium may decrease absorption",
+          "Increased effect when used with statins (risk of myopathy)"
+        ]
+      }
+    ],
     warnings: [
       "Watch for signs of respiratory failure requiring ventilatory support",
-      "Consider hospitalization for elderly, those with comorbidities, or severe presentation"
+      "Consider hospitalization for elderly, those with comorbidities, or severe presentation",
+      "Altered mental status, respiratory rate >30/min, or hypotension are signs of severe disease"
     ],
-    referral: "Hospital admission for severe pneumonia, hypoxemia, inability to maintain oral intake, or significant comorbidities."
+    referral: "Hospital admission for severe pneumonia, hypoxemia, inability to maintain oral intake, or significant comorbidities.",
+    resources: [
+      {
+        title: "CDC - Pneumonia Management",
+        url: "https://www.cdc.gov/pneumonia/management.html"
+      },
+      {
+        title: "American Lung Association - Pneumonia Treatment and Recovery",
+        url: "https://www.lung.org/lung-health-diseases/lung-disease-lookup/pneumonia/treatment-and-recovery"
+      }
+    ]
   },
   {
     id: "bronchitis",
@@ -211,6 +278,7 @@ const treatmentGuidelines: TreatmentGuideline[] = [
     id: "migraine",
     condition: "Migraine",
     category: "neurological",
+    severity: "moderate",
     overview: "A primary headache disorder characterized by recurrent headaches that are moderate to severe, often with associated symptoms such as nausea, vomiting, and sensitivity to light and sound.",
     symptoms: [
       "Throbbing or pulsating headache (often one-sided)",
@@ -226,12 +294,44 @@ const treatmentGuidelines: TreatmentGuideline[] = [
       nonPharmacological: "Identify and avoid triggers, maintain regular sleep schedule, stress management, regular exercise, adequate hydration.",
       followUp: "Regular assessment of headache frequency, severity, and response to therapy. Adjust preventive medications as needed."
     },
+    medications: [
+      {
+        name: "Sumatriptan",
+        class: "Triptan (5-HT1 receptor agonist)",
+        dosing: "Oral: 25-100 mg at onset, may repeat after 2 hours (max 200 mg/day). Nasal: 5-20 mg at onset.",
+        interactions: [
+          "MAO inhibitors may increase sumatriptan levels and effects",
+          "Ergot derivatives: avoid within 24 hours of each other (risk of vasospasm)",
+          "SSRIs/SNRIs: potential for serotonin syndrome"
+        ]
+      },
+      {
+        name: "Propranolol",
+        class: "Beta-blocker",
+        dosing: "Prevention: 40-160 mg twice daily",
+        interactions: [
+          "NSAIDs may reduce antihypertensive effects",
+          "Calcium channel blockers may have additive effects",
+          "Contraindicated with certain antiarrhythmics"
+        ]
+      }
+    ],
     warnings: [
       "Medication overuse can lead to rebound headaches",
       "Triptan contraindications include coronary artery disease and uncontrolled hypertension",
       "New onset severe headache may indicate secondary causes requiring urgent evaluation"
     ],
-    referral: "Refer to neurologist for atypical features, treatment-resistant migraines, or consideration of newer therapeutic options."
+    referral: "Refer to neurologist for atypical features, treatment-resistant migraines, or consideration of newer therapeutic options.",
+    resources: [
+      {
+        title: "American Migraine Foundation",
+        url: "https://americanmigrainefoundation.org/"
+      },
+      {
+        title: "International Headache Society",
+        url: "https://www.ihs-headache.org/en/"
+      }
+    ]
   },
   {
     id: "depression",
