@@ -635,8 +635,8 @@ function generateMedicationDatabase(): Medication[] {
     allMedications.push(medication);
   });
 
-  // Generate additional medications to reach 1000+
-  for (let i = 0; i < 990; i++) {
+  // Generate additional medications to reach 3500+
+  for (let i = 0; i < 3490; i++) {
     const baseIndex = i % baseMedications.length;
     const baseMed = baseMedications[baseIndex];
     
@@ -811,11 +811,18 @@ export default function Medications() {
 
   // Generate medications on component mount
   useEffect(() => {
+    // Use requestAnimationFrame to avoid blocking the UI when generating large dataset
+    const generateMeds = () => {
+      requestAnimationFrame(() => {
+        console.log("Generating 3500+ medications...");
+        setMedications(generateMedicationDatabase());
+        setLoading(false);
+        console.log("Medication database generation complete");
+      });
+    };
+    
     // Simulate loading delay
-    const timer = setTimeout(() => {
-      setMedications(generateMedicationDatabase());
-      setLoading(false);
-    }, 1000);
+    const timer = setTimeout(generateMeds, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -865,9 +872,12 @@ export default function Medications() {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold mb-8 text-center text-[#004A9F]">
+        <h1 className="text-3xl font-bold mb-2 text-center text-[#004A9F]">
           {t('medications.title')}
         </h1>
+        <p className="text-center mb-8 text-gray-600">
+          {loading ? 'Loading database...' : `Comprehensive Database of ${medications.length.toLocaleString()}+ Medications`}
+        </p>
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-md overflow-hidden mb-6">
