@@ -14,6 +14,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Damage analysis API endpoint
   app.post("/api/analyze-damage", analyzeDamage);
+  
+  // X-ray analysis API endpoint
+  app.post("/api/analyze-xray", (req, res) => {
+    req.body.analysisType = 'xray';
+    analyzeDamage(req, res);
+  });
+  
+  // MRI analysis API endpoint
+  app.post("/api/analyze-mri", (req, res) => {
+    req.body.analysisType = 'mri';
+    analyzeDamage(req, res);
+  });
+  
+  // General medical image analysis API endpoint
+  app.post("/api/analyze-medical", (req, res) => {
+    req.body.analysisType = 'medical';
+    analyzeDamage(req, res);
+  });
 
   // use storage to perform CRUD operations on the storage interface
   // e.g. storage.insertUser(user) or storage.getUserByUsername(username)

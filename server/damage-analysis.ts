@@ -41,7 +41,7 @@ export async function analyzeDamage(req: Request, res: Response) {
       });
     }
 
-    const { image } = req.body;
+    const { image, analysisType = 'damage' } = req.body;
     
     if (!image) {
       return res.status(400).json({ error: 'No image provided' });
@@ -56,30 +56,84 @@ export async function analyzeDamage(req: Request, res: Response) {
       return res.status(400).json({ error: 'Invalid image format' });
     }
     
+    // Select the appropriate system prompt based on analysis type
+    let systemPrompt = '';
+    let userPrompt = '';
+    
+    if (analysisType === 'xray') {
+      systemPrompt = `You are an AI medical assistant specializing in X-ray image interpretation. 
+        You can identify common findings in X-ray images including fractures, dislocations, pneumonia, pleural effusions, etc.
+        Format responses as JSON with the following structure:
+        {
+          "finding_type": "Primary radiological finding",
+          "severity": "Normal/Mild/Moderate/Severe",
+          "description": "Detailed description of what is observed in the image",
+          "possible_diagnosis": "List of possible diagnoses based on findings",
+          "recommendation": "Follow-up recommendations or further tests needed",
+          "limitations": "Limitations of this analysis (always mention this is not a replacement for professional radiologist evaluation)"
+        }
+        Always be clinical, accurate, and mention that this analysis should be confirmed by a qualified radiologist or physician.`;
+      userPrompt = "Analyze this X-ray image and provide a detailed interpretation. What findings are visible, what is their significance, and what follow-up might be recommended?";
+    } 
+    else if (analysisType === 'mri') {
+      systemPrompt = `You are an AI medical assistant specializing in MRI image interpretation. 
+        You can identify common findings in MRI images including soft tissue injuries, ligament tears, tumors, and various abnormalities.
+        Format responses as JSON with the following structure:
+        {
+          "finding_type": "Primary radiological finding",
+          "location": "Anatomical location of the finding",
+          "description": "Detailed description of what is observed in the image",
+          "possible_diagnosis": "List of possible diagnoses based on findings",
+          "recommendation": "Follow-up recommendations or further tests needed",
+          "limitations": "Limitations of this analysis (always mention this is not a replacement for professional radiologist evaluation)"
+        }
+        Always be clinical, accurate, and mention that this analysis should be confirmed by a qualified radiologist or physician.`;
+      userPrompt = "Analyze this MRI image and provide a detailed interpretation. What findings are visible, what is their significance, and what follow-up might be recommended?";
+    } 
+    else if (analysisType === 'medical') {
+      systemPrompt = `You are an AI medical assistant specializing in analyzing various medical images. 
+        You can identify common findings in different types of medical images including skin conditions, visible symptoms, wounds, and more.
+        Format responses as JSON with the following structure:
+        {
+          "finding_type": "Primary medical finding",
+          "severity": "Mild/Moderate/Severe",
+          "description": "Detailed description of what is observed in the image",
+          "possible_diagnosis": "List of possible diagnoses based on findings",
+          "recommendation": "First aid or medical recommendations",
+          "limitations": "Limitations of this analysis (always mention this is not a replacement for professional medical evaluation)"
+        }
+        Always be clinical, accurate, and mention that this analysis should be confirmed by a qualified healthcare professional.`;
+      userPrompt = "Analyze this medical image and provide a detailed interpretation. What conditions are visible, what might they indicate, and what actions should be taken?";
+    } 
+    else { // Default damage assessment
+      systemPrompt = `You are an emergency damage assessment AI that analyzes images to identify injuries, wounds, or damage to structures. 
+        For personal injuries, provide severity assessment, description, and first aid recommendations.
+        For structural damage (buildings, vehicles, etc.), estimate damage severity and safety recommendations.
+        Format responses as JSON with the following structure:
+        {
+          "damage_type": "Injury type or damage category",
+          "severity": "Minor/Moderate/Severe",
+          "description": "Detailed description of what is observed",
+          "recommendation": "What actions should be taken next"
+        }
+        Always be clinical, accurate, but also reassuring. For severe injuries, always recommend seeking immediate medical attention.`;
+      userPrompt = "Analyze this image and provide a detailed damage assessment. What type of damage is shown, what is the severity, and what actions should be taken?";
+    }
+    
     // Call OpenAI Vision API to analyze the image
     const response = await openai!.chat.completions.create({
       model: "gpt-4o", // Using the latest model with vision capabilities
       messages: [
         {
           role: "system",
-          content: `You are an emergency damage assessment AI that analyzes images to identify injuries, wounds, or damage to structures. 
-            For personal injuries, provide severity assessment, description, and first aid recommendations.
-            For structural damage (buildings, vehicles, etc.), estimate damage severity and safety recommendations.
-            Format responses as JSON with the following structure:
-            {
-              "damage_type": "Injury type or damage category",
-              "severity": "Minor/Moderate/Severe",
-              "description": "Detailed description of what is observed",
-              "recommendation": "What actions should be taken next"
-            }
-            Always be clinical, accurate, but also reassuring. For severe injuries, always recommend seeking immediate medical attention.`
+          content: systemPrompt
         },
         {
           role: "user",
           content: [
             { 
               type: "text", 
-              text: "Analyze this image and provide a detailed damage assessment. What type of damage is shown, what is the severity, and what actions should be taken?" 
+              text: userPrompt 
             },
             {
               type: "image_url",
@@ -91,7 +145,7 @@ export async function analyzeDamage(req: Request, res: Response) {
         }
       ],
       response_format: { type: "json_object" },
-      max_tokens: 1000
+      max_tokens: 1500
     });
     
     // Parse the response to ensure it's valid JSON
