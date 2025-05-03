@@ -8,5 +8,6 @@ export const navigationItems = [
   { path: "/hospitals", key: "hospitals", icon: "Building2" },
   { path: "/contacts", key: "contacts", icon: "Phone" },
   { path: "/fire-safety", key: "fireSafety", icon: "Flame" },
-  { path: "/damage-assessment", key: "damageAssessment", icon: "Camera" }
+  { path: "/damage-assessment", key: "damageAssessment", icon: "Camera" },
+  { path: "/medical-imaging", key: "medicalImaging", icon: "FileImage" }
 ];

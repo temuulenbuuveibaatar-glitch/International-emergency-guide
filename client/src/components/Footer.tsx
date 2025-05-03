@@ -40,11 +40,15 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 mt-0.5" />
-                <span>{t('footer.phone')}</span>
+                <span>+97699291221</span>
               </li>
               <li className="flex items-start gap-2">
                 <Instagram className="w-5 h-5 mt-0.5" />
-                <span>{t('footer.instagram')}</span>
+                <span>@youtuber_temka</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail className="w-5 h-5 mt-0.5" />
+                <span>contact@emergencyguide.org</span>
               </li>
             </ul>
           </div>

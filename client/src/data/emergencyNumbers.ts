@@ -13,14 +13,7 @@ export const mongoliaEmergencyNumbers = [
     description: "National Ambulance Service",
     available: "24/7"
   },
-  {
-    id: "mn11",
-    type: "emergency",
-    number: "+97699291221",
-    icon: "emergency",
-    description: "Emergency Medical Assistance",
-    available: "24/7"
-  },
+
   {
     id: "mn2",
     type: "fire",
