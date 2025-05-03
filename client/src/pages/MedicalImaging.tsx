@@ -72,36 +72,117 @@ export default function MedicalImaging() {
   };
   
   // Capture image from camera
-  const captureImage = () => {
+  const captureImage = async () => {
     if (videoRef.current && canvasRef.current) {
-      const video = videoRef.current;
-      const canvas = canvasRef.current;
-      
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const imageData = canvas.toDataURL('image/jpeg');
+      try {
+        setIsProcessing(true);
+        const video = videoRef.current;
+        const canvas = canvasRef.current;
         
-        analyzeImage(imageData);
-        stopCamera();
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        
+        const context = canvas.getContext('2d');
+        if (context) {
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          const imageData = canvas.toDataURL('image/jpeg', 0.9); // Already use 90% quality for initial capture
+          
+          console.log('Camera image captured, compressing...');
+          const compressedImageData = await compressImage(imageData);
+          console.log('Camera image compressed successfully, sending for analysis');
+          
+          analyzeImage(compressedImageData);
+          stopCamera();
+        }
+      } catch (error) {
+        console.error('Error capturing or processing camera image:', error);
+        setErrorMessage('Failed to process the camera image. Please try again or upload a photo instead.');
+        setIsProcessing(false);
       }
     }
   };
   
+  // Compress and resize image before sending to API
+  const compressImage = (dataUrl: string, maxWidth = 800): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        // Calculate new dimensions while maintaining aspect ratio
+        let width = img.width;
+        let height = img.height;
+        
+        if (width > maxWidth) {
+          const ratio = maxWidth / width;
+          width = maxWidth;
+          height = height * ratio;
+        }
+        
+        // Create canvas and draw resized image
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          reject(new Error('Failed to get canvas context'));
+          return;
+        }
+        
+        // Draw and compress
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        // Convert to JPEG with 80% quality
+        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        
+        console.log(`Original size: ~${Math.round(dataUrl.length/1024)}KB, Compressed: ~${Math.round(compressedDataUrl.length/1024)}KB`);
+        resolve(compressedDataUrl);
+      };
+      
+      img.onerror = () => {
+        reject(new Error('Failed to load image'));
+      };
+      
+      img.src = dataUrl;
+    });
+  };
+
   // Handle file upload
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       const file = files[0];
+      
+      // Check file size (max 15MB before compression)
+      if (file.size > 15 * 1024 * 1024) {
+        setErrorMessage(t('medicalImaging.error_file_too_large', 'Image is too large. Please select an image under 15MB.'));
+        return;
+      }
+      
+      setIsProcessing(true);
+      setErrorMessage(null);
+      
       const reader = new FileReader();
       
-      reader.onload = (e) => {
-        if (e.target && typeof e.target.result === 'string') {
-          analyzeImage(e.target.result);
+      reader.onload = async (e) => {
+        try {
+          if (e.target && typeof e.target.result === 'string') {
+            // Compress the image before sending to API
+            const dataUrl = e.target.result;
+            console.log('Original image loaded, compressing...');
+            const compressedDataUrl = await compressImage(dataUrl);
+            console.log('Image compressed successfully, sending for analysis');
+            analyzeImage(compressedDataUrl);
+          }
+        } catch (error) {
+          console.error('Error processing image:', error);
+          setErrorMessage('Failed to process the image. Please try another image.');
+          setIsProcessing(false);
         }
+      };
+      
+      reader.onerror = () => {
+        setErrorMessage('Failed to read the image file. Please try again.');
+        setIsProcessing(false);
       };
       
       reader.readAsDataURL(file);
