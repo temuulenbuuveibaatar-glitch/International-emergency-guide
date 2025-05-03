@@ -677,10 +677,262 @@ const treatmentGuidelines: TreatmentGuideline[] = [
       "Distinguishing AOM from otitis media with effusion is important for management"
     ],
     referral: "Refer to otolaryngologist for complications, recurrent AOM (3+ episodes in 6 months), or consideration of tympanostomy tubes."
+  },
+  {
+    id: "tendinitis",
+    condition: "Tendinitis",
+    category: "musculoskeletal",
+    overview: "Inflammation or irritation of a tendon, the thick fibrous cords that attach muscle to bone, causing pain and tenderness just outside a joint.",
+    severity: "mild",
+    symptoms: [
+      "Pain and tenderness along the affected tendon",
+      "Mild swelling",
+      "Pain that worsens with movement",
+      "Decreased range of motion",
+      "Feeling of crepitus or grinding when moving the tendon"
+    ],
+    treatment: {
+      firstLine: "Rest, ice, compression, and elevation (RICE) along with NSAIDs for pain and inflammation. Activity modification to avoid aggravating movements.",
+      alternatives: "Acetaminophen for pain if NSAIDs are contraindicated. Topical NSAIDs may be used as an alternative.",
+      nonPharmacological: "Physical therapy focusing on stretching and strengthening exercises. Proper warm-up before activity. Ergonomic adjustments to work or sports equipment.",
+      followUp: "Follow up if no improvement after 2-4 weeks of conservative treatment."
+    },
+    medications: [
+      {
+        name: "Ibuprofen",
+        class: "NSAID",
+        dosing: "400-800 mg orally three times daily with food",
+        interactions: [
+          "Increased risk of GI bleeding with corticosteroids",
+          "May decrease effectiveness of some antihypertensive medications",
+          "Increased bleeding risk with anticoagulants"
+        ]
+      },
+      {
+        name: "Naproxen",
+        class: "NSAID",
+        dosing: "250-500 mg orally twice daily with food",
+        interactions: [
+          "Increased risk of GI bleeding with corticosteroids",
+          "May decrease effectiveness of some antihypertensive medications",
+          "Increased bleeding risk with anticoagulants"
+        ]
+      }
+    ],
+    warnings: [
+      "Chronic tendinitis may lead to tendon rupture if not properly treated",
+      "NSAIDs may mask pain, leading to overuse of the affected tendon",
+      "NSAIDs are associated with increased cardiovascular and GI risks"
+    ],
+    referral: "Refer to orthopedic specialist or sports medicine physician for persistent symptoms, suspected rupture, or if symptoms interfere significantly with daily activities."
+  },
+  {
+    id: "anaphylaxis",
+    condition: "Anaphylaxis",
+    category: "emergency",
+    severity: "severe",
+    overview: "A severe, potentially life-threatening allergic reaction that can occur within seconds or minutes of exposure to an allergen. It causes the immune system to release a flood of chemicals that can cause shock.",
+    symptoms: [
+      "Skin reactions (hives, itching, flushed or pale skin)",
+      "Swelling of the lips, tongue, or throat",
+      "Shortness of breath, wheezing, or trouble breathing",
+      "Weak, rapid pulse",
+      "Nausea, vomiting, or diarrhea",
+      "Dizziness, fainting, or loss of consciousness"
+    ],
+    treatment: {
+      firstLine: "Immediate epinephrine (adrenaline) injection, typically via an auto-injector. Call emergency services immediately after administration.",
+      alternatives: "If epinephrine is not available, transport to emergency services immediately. Antihistamines and corticosteroids may be given as adjunctive therapy but are not substitutes for epinephrine.",
+      nonPharmacological: "Lay patient flat unless they are having breathing difficulties or vomiting, in which case allow them to sit up. Keep patient warm. Monitor vital signs. Administer CPR if necessary.",
+      followUp: "All patients should be observed for at least 4-6 hours in a medical facility after anaphylaxis, as biphasic reactions can occur. Referral to an allergist for future prevention."
+    },
+    medications: [
+      {
+        name: "Epinephrine",
+        class: "Sympathomimetic amine",
+        dosing: "Adult: 0.3-0.5 mg IM of 1:1000 (1 mg/mL) solution. Child: 0.01 mg/kg to max of 0.3 mg. May repeat every 5-15 minutes if needed.",
+        interactions: [
+          "Beta-blockers may decrease effectiveness",
+          "Use caution with cardiac medications",
+          "MAO inhibitors may potentiate effects"
+        ]
+      },
+      {
+        name: "Diphenhydramine",
+        class: "H1 Antihistamine",
+        dosing: "Adult: 25-50 mg IV/IM/PO. Child: 1-2 mg/kg IV/IM/PO (max 50 mg).",
+        interactions: [
+          "Additive sedative effects with other CNS depressants",
+          "MAO inhibitors may increase anticholinergic effects"
+        ]
+      }
+    ],
+    warnings: [
+      "Delay in administering epinephrine increases mortality risk",
+      "Previous anaphylaxis is the strongest predictor of future episodes",
+      "Exercise after exposure to an allergen can trigger or worsen anaphylaxis"
+    ],
+    referral: "Emergency department for all cases. Follow-up with allergist/immunologist for identification of triggers and long-term management.",
+    resources: [
+      {
+        title: "American Academy of Allergy, Asthma & Immunology",
+        url: "https://www.aaaai.org/conditions-treatments/allergies/anaphylaxis"
+      },
+      {
+        title: "World Allergy Organization Anaphylaxis Guidelines",
+        url: "https://www.worldallergy.org/education-and-programs/education/allergic-disease-resource-center/professionals/anaphylaxis-guidelines"
+      }
+    ]
+  },
+  {
+    id: "iron_deficiency_anemia",
+    condition: "Iron Deficiency Anemia",
+    category: "hematological",
+    severity: "moderate",
+    overview: "A common type of anemia caused by insufficient iron in the body, leading to reduced production of hemoglobin, the protein in red blood cells that enables them to carry oxygen.",
+    symptoms: [
+      "Fatigue and weakness",
+      "Pale skin",
+      "Shortness of breath",
+      "Dizziness or lightheadedness",
+      "Cold hands and feet",
+      "Brittle nails",
+      "Pica (craving non-food items like ice or dirt)",
+      "Sore or smooth tongue",
+      "Restless legs syndrome"
+    ],
+    treatment: {
+      firstLine: "Oral iron supplements (ferrous sulfate, ferrous gluconate, or ferrous fumarate). Address underlying cause when identified.",
+      alternatives: "Intravenous iron for those who cannot tolerate oral preparations, have malabsorption issues, or need rapid repletion (e.g., severe anemia, ongoing blood loss, third trimester pregnancy).",
+      nonPharmacological: "Dietary changes to increase iron intake (red meat, poultry, fish, leafy greens, iron-fortified foods). Take vitamin C with iron-rich foods to enhance absorption.",
+      followUp: "Check hemoglobin and ferritin levels after 4 weeks of treatment. Continue treatment for 3-6 months after normalization to replenish iron stores."
+    },
+    medications: [
+      {
+        name: "Ferrous Sulfate",
+        class: "Iron supplement",
+        dosing: "Adult: 325 mg (65 mg elemental iron) orally 1-3 times daily. Child: 3-6 mg/kg/day of elemental iron in 2-3 divided doses.",
+        interactions: [
+          "Decreased absorption with antacids, proton pump inhibitors, calcium supplements",
+          "Decreased absorption of certain antibiotics (tetracyclines, quinolones)",
+          "Decreased absorption with tea, coffee, dairy products, calcium-rich foods"
+        ]
+      },
+      {
+        name: "Iron Sucrose",
+        class: "Intravenous iron supplement",
+        dosing: "100-200 mg IV 1-3 times weekly until desired dose achieved. Total dose calculated based on body weight and hemoglobin deficit.",
+        interactions: [
+          "Do not mix with other medications or administer during blood transfusion"
+        ]
+      }
+    ],
+    warnings: [
+      "Take oral iron with vitamin C to enhance absorption, but avoid taking with calcium, dairy, tea, or coffee",
+      "Oral iron can cause GI side effects (constipation, nausea, abdominal pain)",
+      "IV iron carries risk of hypersensitivity reactions",
+      "Unexplained iron deficiency in adults requires evaluation for source of blood loss, particularly GI investigation"
+    ],
+    referral: "Refer to gastroenterologist if iron deficiency anemia is unexplained, particularly in men or postmenopausal women. Refer to hematologist if response to therapy is poor or anemia is severe."
+  },
+  {
+    id: "dermatitis",
+    condition: "Atopic Dermatitis (Eczema)",
+    category: "dermatological",
+    severity: "moderate",
+    overview: "A chronic, inflammatory skin condition characterized by dry, itchy skin and recurrent flare-ups. It commonly begins in childhood and may persist or resolve with age.",
+    symptoms: [
+      "Dry, scaly, or thickened skin",
+      "Intense itching, especially at night",
+      "Red to brownish-gray patches, particularly on hands, feet, ankles, wrists, neck, eyelids, and inside elbows and knees",
+      "Small, raised bumps that may leak fluid when scratched",
+      "Raw, sensitive skin from scratching",
+      "Swollen and cracked skin"
+    ],
+    treatment: {
+      firstLine: "Daily skin care with gentle, fragrance-free moisturizers. Topical corticosteroids for flare-ups, with potency matched to severity and location. Topical calcineurin inhibitors (tacrolimus, pimecrolimus) for sensitive areas.",
+      alternatives: "Topical PDE4 inhibitors (crisaborole), oral immunosuppressants (cyclosporine, methotrexate) for severe cases. Biologics (dupilumab) for moderate-to-severe cases unresponsive to other treatments.",
+      nonPharmacological: "Identify and avoid triggers. Use lukewarm water for bathing and gentle, fragrance-free cleansers. Apply moisturizer immediately after bathing. Use cotton clothing and avoid rough fabrics. Maintain cool, humid environment. Stress management.",
+      followUp: "Regular follow-up based on severity. More frequent during flares or when initiating new therapies."
+    },
+    medications: [
+      {
+        name: "Hydrocortisone",
+        class: "Low-potency topical corticosteroid",
+        dosing: "Apply thin layer to affected areas 1-2 times daily for up to 2 weeks during flares.",
+        interactions: [
+          "No significant drug interactions for topical use in appropriate amounts"
+        ]
+      },
+      {
+        name: "Tacrolimus ointment",
+        class: "Topical calcineurin inhibitor",
+        dosing: "Apply thin layer to affected areas twice daily. Can be used for longer periods and on sensitive skin (face, neck, folds).",
+        interactions: [
+          "May increase absorption when used with occlusive dressings"
+        ]
+      }
+    ],
+    warnings: [
+      "Prolonged use of topical corticosteroids can cause skin thinning and other local side effects",
+      "Topical calcineurin inhibitors may cause burning/stinging upon application",
+      "Increased risk of skin infections during flares",
+      "Avoid triggers such as specific allergens, irritants, stress, and extreme temperatures"
+    ],
+    referral: "Refer to dermatologist for severe, widespread, or recalcitrant disease, or if diagnosis is uncertain. Consider allergy testing if specific triggers are suspected."
+  },
+  {
+    id: "gout",
+    condition: "Gout",
+    category: "rheumatological",
+    severity: "moderate",
+    overview: "A form of inflammatory arthritis characterized by recurrent attacks of a red, tender, hot, and swollen joint, most commonly affecting the big toe. It's caused by elevated levels of uric acid in the blood which crystallize and deposit in joints, tendons, and surrounding tissues.",
+    symptoms: [
+      "Intense joint pain, particularly in the big toe (podagra)",
+      "Swelling and redness around the affected joint",
+      "Limited range of motion",
+      "Lingering discomfort after the initial severe pain subsides",
+      "Tophi (urate crystal deposits under the skin) in chronic gout"
+    ],
+    treatment: {
+      firstLine: "Acute attack: NSAIDs, colchicine, or corticosteroids depending on comorbidities and contraindications. Long-term: Urate-lowering therapy (allopurinol, febuxostat) for frequent attacks, tophi, or urate nephropathy.",
+      alternatives: "IL-1 inhibitors (anakinra, canakinumab) for refractory cases. Pegloticase for chronic tophaceous gout unresponsive to conventional therapy.",
+      nonPharmacological: "Limit purine-rich foods (red meat, organ meats, seafood), limit alcohol (especially beer) and fructose-sweetened drinks. Weight loss if overweight. Adequate hydration. Avoid crash dieting.",
+      followUp: "Monitor serum uric acid levels every 2-5 weeks during urate-lowering therapy initiation, then every 6 months once at target. Target uric acid < 6 mg/dL, or < 5 mg/dL in severe cases."
+    },
+    medications: [
+      {
+        name: "Colchicine",
+        class: "Anti-inflammatory",
+        dosing: "Acute: 1.2 mg at first sign of flare, followed by 0.6 mg one hour later. Prophylaxis: 0.6 mg once or twice daily.",
+        interactions: [
+          "Increased toxicity with CYP3A4 inhibitors and P-glycoprotein inhibitors",
+          "Increased risk of myopathy with statins",
+          "Dose adjustment required in renal impairment"
+        ]
+      },
+      {
+        name: "Allopurinol",
+        class: "Xanthine oxidase inhibitor",
+        dosing: "Start at 100 mg daily, then titrate monthly in 100 mg increments to reach target uric acid level. Typical maintenance: 300-600 mg daily.",
+        interactions: [
+          "Increased risk of rash with ampicillin/amoxicillin",
+          "Increased risk of toxicity with azathioprine or 6-mercaptopurine",
+          "Increased risk of hypersensitivity reaction with thiazide diuretics"
+        ]
+      }
+    ],
+    warnings: [
+      "Do not start urate-lowering therapy during acute attack (may worsen symptoms)",
+      "Risk of allopurinol hypersensitivity syndrome, especially in certain Asian populations with HLA-B*5801 allele",
+      "Colchicine toxicity can occur with renal or hepatic impairment",
+      "NSAIDs may exacerbate renal function, hypertension, or GI bleeding risk"
+    ],
+    referral: "Refer to rheumatologist for atypical presentation, frequent attacks despite therapy, contraindications to standard therapy, or need for biologics."
   }
 ];
 
-// Added 15+ comprehensive conditions covering various medical specialties
+// Added 25+ comprehensive conditions covering various medical specialties
 
 // Medical category names
 const categories = {
@@ -689,12 +941,14 @@ const categories = {
   gastrointestinal: "Gastrointestinal Conditions",
   neurological: "Neurological Conditions",
   psychiatric: "Mental Health Conditions",
-  endocrine: "Endocrine Conditions",
+  emergency: "Emergency Conditions",
+  rheumatological: "Rheumatological Conditions",
   musculoskeletal: "Musculoskeletal Conditions",
-  infectious: "Infectious Diseases",
-  dermatological: "Skin Conditions",
-  urological: "Urological Conditions",
   hematological: "Blood Disorders",
+  dermatological: "Skin Conditions",
+  endocrine: "Endocrine Conditions",
+  infectious: "Infectious Diseases",
+  urological: "Urological Conditions",
   ent: "Ear, Nose & Throat Conditions"
 };
 
@@ -880,7 +1134,7 @@ export default function TreatmentGuidelines() {
                           )}
                         </button>
                         
-                        {(expandedItem === guideline.id || viewMode === 'all') && (
+                        {(expandedItem === guideline.id || (viewMode === 'all' && !expandedItem)) && (
                           <div className="p-4 border-t border-gray-200">
                             <div className="space-y-4">
                               <div>
