@@ -183,6 +183,8 @@
     "errorAnalyzing": "Error analyzing image",
     "apiKeyMissing": "API key required for damage assessment",
     "uploadInstructions": "Upload a photo or take one with your camera to assess damage",
-    "noImageSelected": "No image selected"
+    "noImageSelected": "No image selected",
+    "disclaimer": "This AI assessment provides an initial evaluation only and should not replace professional medical or emergency services judgment. In case of serious injury, seek professional help immediately.",
+    "analyzeImage": "Analyze Image"
   }
 }

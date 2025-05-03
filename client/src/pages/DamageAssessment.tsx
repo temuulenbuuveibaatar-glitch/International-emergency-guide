@@ -262,7 +262,7 @@ export default function DamageAssessment() {
                       className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                     >
                       <Search className="h-5 w-5" />
-                      Analyze Image
+                      {t('damageAssessment.analyzeImage', 'Analyze Image')}
                     </button>
                   </div>
                 )}
@@ -270,7 +270,7 @@ export default function DamageAssessment() {
                 {analyzing && (
                   <div className="flex flex-col items-center justify-center py-6">
                     <RefreshCw className="h-8 w-8 text-blue-600 animate-spin mb-3" />
-                    <p className="text-gray-600">Analyzing image using AI...</p>
+                    <p className="text-gray-600">{t('damageAssessment.analyzing', 'Analyzing image using AI...')}</p>
                   </div>
                 )}
 
@@ -289,30 +289,38 @@ export default function DamageAssessment() {
 
                 {assessment && (
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Assessment Results</h3>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                      {t('damageAssessment.results', 'Assessment Results')}
+                    </h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="text-sm font-medium text-gray-500">DAMAGE TYPE</h4>
+                        <h4 className="text-sm font-medium text-gray-500">
+                          {t('damageAssessment.damageType', 'DAMAGE TYPE')}
+                        </h4>
                         <p className="text-lg font-medium text-gray-900">{assessment.damage_type}</p>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-medium text-gray-500">SEVERITY</h4>
+                        <h4 className="text-sm font-medium text-gray-500">
+                          {t('damageAssessment.severity', 'SEVERITY')}
+                        </h4>
                         <span className={`inline-block px-3 py-1 text-sm font-medium rounded-full border ${getSeverityColor(assessment.severity)}`}>
                           {assessment.severity}
                         </span>
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-medium text-gray-500">DESCRIPTION</h4>
+                        <h4 className="text-sm font-medium text-gray-500">
+                          {t('damageAssessment.description', 'DESCRIPTION')}
+                        </h4>
                         <p className="text-gray-700">{assessment.description}</p>
                       </div>
                       
                       <div className="bg-blue-50 p-4 rounded-md border border-blue-100">
                         <h4 className="text-sm font-medium text-blue-700 flex items-center">
                           <Check className="h-4 w-4 mr-1" />
-                          RECOMMENDATION
+                          {t('damageAssessment.recommendation', 'RECOMMENDATION')}
                         </h4>
                         <p className="text-blue-700 mt-1">{assessment.recommendation}</p>
                       </div>
@@ -323,7 +331,7 @@ export default function DamageAssessment() {
                           className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
                         >
                           <RefreshCw className="h-4 w-4" />
-                          Start New Assessment
+                          {t('damageAssessment.tryAgain', 'Start New Assessment')}
                         </button>
                       </div>
                     </div>
