@@ -28,7 +28,7 @@ export default function MedicalImaging() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       role: 'assistant',
-      content: 'Hello! I\'m your medical imaging assistant. I can help analyze X-rays, MRIs, and other medical images. Upload an image or ask me questions about medical imaging.',
+      content: t('medicalImaging.welcomeMessage'),
       timestamp: Date.now()
     }
   ]);

@@ -12,7 +12,8 @@
     "hospitals": "Nearby Hospitals",
     "contacts": "Emergency Numbers",
     "fireSafety": "Fire Safety Equipment",
-    "damageAssessment": "AI Damage Assessment"
+    "damageAssessment": "AI Damage Assessment",
+    "medicalImaging": "Medical Imaging"
   },
   "emergency": {
     "title": "Emergency? Call",
@@ -186,5 +187,34 @@
     "noImageSelected": "No image selected",
     "disclaimer": "This AI assessment provides an initial evaluation only and should not replace professional medical or emergency services judgment. In case of serious injury, seek professional help immediately.",
     "analyzeImage": "Analyze Image"
+  },
+  "medicalImaging": {
+    "title": "Medical Imaging Analysis",
+    "description": "Upload X-ray, MRI, or other medical images for AI-powered analysis and insights.",
+    "capture": "Capture",
+    "history": "History",
+    "chat": "Chat",
+    "takePhoto": "Take Photo",
+    "uploadImage": "Upload Image",
+    "xray": "X-ray",
+    "mri": "MRI",
+    "medical": "Medical Image",
+    "analyzing": "Analyzing Image...",
+    "noImages": "No images in history",
+    "uploadFirst": "Upload or capture an image to get started",
+    "askQuestion": "Ask a question about medical imaging...",
+    "send": "Send",
+    "welcomeMessage": "Hello! I'm your medical imaging assistant. I can help analyze X-rays, MRIs, and other medical images. Upload an image or ask me questions about medical imaging.",
+    "resultTitle": "Analysis Result",
+    "finding": "Finding",
+    "location": "Location",
+    "description": "Description",
+    "diagnosis": "Possible Diagnosis",
+    "severity": "Severity",
+    "recommendation": "Recommendation",
+    "limitation": "Limitations",
+    "imageError": "Error analyzing image",
+    "apiKeyRequired": "An API key is required for medical imaging analysis",
+    "disclaimer": "This AI analysis is for informational purposes only and does not replace professional medical diagnosis. Always consult with a qualified healthcare provider for proper interpretation of medical images and treatment decisions."
   }
 }
