@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { useState, useRef } from "react";
-import { Search, ChevronDown, ChevronUp, AlertCircle, ClipboardList, Printer, BookOpen, ThermometerSnowflake, Thermometer, Activity, DownloadCloud } from "lucide-react";
+import { useState, useRef, useMemo } from "react";
+import { Search, ChevronDown, ChevronUp, AlertCircle, ClipboardList, Printer, BookOpen, ThermometerSnowflake, Thermometer, Activity, DownloadCloud, Folder, FolderOpen } from "lucide-react";
 import { useReactToPrint } from "react-to-print";
 
 // Define treatment guideline type
@@ -264,675 +264,18 @@ const treatmentGuidelines: TreatmentGuideline[] = [
     treatment: {
       firstLine: "Proton pump inhibitors (PPIs) for 4-8 weeks, then lowest effective dose. H2 blockers for mild symptoms.",
       alternatives: "Prokinetic agents, baclofen, or surgical options (fundoplication) for refractory cases.",
-      nonPharmacological: "Weight loss if overweight, elevate head of bed, avoid trigger foods, eat smaller meals, avoid eating 2-3 hours before bedtime, smoking cessation.",
-      followUp: "Evaluation of symptom response after 4-8 weeks. Consider endoscopy for alarm symptoms or persistent GERD."
+      nonPharmacological: "Elevation of head of bed, avoid eating 2-3 hours before lying down, weight loss if overweight, avoid trigger foods/drinks.",
+      followUp: "Endoscopy for red flags or persistent symptoms. Consider pH monitoring or manometry in refractory cases."
     },
     warnings: [
-      "Long-term PPI use linked to potential risks (bone fractures, C. difficile, pneumonia)",
-      "Alarm symptoms (dysphagia, weight loss, anemia) require prompt endoscopy",
-      "Consider cardiac causes for chest pain"
+      "Long-term PPI use associated with potential risks including osteoporosis, infections, vitamin deficiencies",
+      "Chest pain should be evaluated to rule out cardiac causes",
+      "Alarm symptoms (dysphagia, weight loss, anemia, GI bleeding) require urgent evaluation"
     ],
-    referral: "Refer for endoscopy if alarm symptoms, age >50 with new-onset GERD, or inadequate response to therapy."
+    referral: "Refer to gastroenterologist for refractory symptoms, complications, or consideration for anti-reflux surgery."
   },
-  {
-    id: "migraine",
-    condition: "Migraine",
-    category: "neurological",
-    severity: "moderate",
-    overview: "A primary headache disorder characterized by recurrent headaches that are moderate to severe, often with associated symptoms such as nausea, vomiting, and sensitivity to light and sound.",
-    symptoms: [
-      "Throbbing or pulsating headache (often one-sided)",
-      "Visual disturbances (aura in some patients)",
-      "Nausea and/or vomiting",
-      "Sensitivity to light, sound, and sometimes smells",
-      "Dizziness or vertigo",
-      "Fatigue"
-    ],
-    treatment: {
-      firstLine: "Acute treatment: NSAIDs, acetaminophen, or triptans. Prophylaxis for frequent migraines: Beta-blockers, anticonvulsants, or antidepressants.",
-      alternatives: "CGRP antagonists, botulinum toxin for chronic migraine, neuromodulation devices, or ergot derivatives.",
-      nonPharmacological: "Identify and avoid triggers, maintain regular sleep schedule, stress management, regular exercise, adequate hydration.",
-      followUp: "Regular assessment of headache frequency, severity, and response to therapy. Adjust preventive medications as needed."
-    },
-    medications: [
-      {
-        name: "Sumatriptan",
-        class: "Triptan (5-HT1 receptor agonist)",
-        dosing: "Oral: 25-100 mg at onset, may repeat after 2 hours (max 200 mg/day). Nasal: 5-20 mg at onset.",
-        interactions: [
-          "MAO inhibitors may increase sumatriptan levels and effects",
-          "Ergot derivatives: avoid within 24 hours of each other (risk of vasospasm)",
-          "SSRIs/SNRIs: potential for serotonin syndrome"
-        ]
-      },
-      {
-        name: "Propranolol",
-        class: "Beta-blocker",
-        dosing: "Prevention: 40-160 mg twice daily",
-        interactions: [
-          "NSAIDs may reduce antihypertensive effects",
-          "Calcium channel blockers may have additive effects",
-          "Contraindicated with certain antiarrhythmics"
-        ]
-      }
-    ],
-    warnings: [
-      "Medication overuse can lead to rebound headaches",
-      "Triptan contraindications include coronary artery disease and uncontrolled hypertension",
-      "New onset severe headache may indicate secondary causes requiring urgent evaluation"
-    ],
-    referral: "Refer to neurologist for atypical features, treatment-resistant migraines, or consideration of newer therapeutic options.",
-    resources: [
-      {
-        title: "American Migraine Foundation",
-        url: "https://americanmigrainefoundation.org/"
-      },
-      {
-        title: "International Headache Society",
-        url: "https://www.ihs-headache.org/en/"
-      }
-    ]
-  },
-  {
-    id: "depression",
-    condition: "Major Depressive Disorder",
-    category: "psychiatric",
-    overview: "A mood disorder that causes a persistent feeling of sadness and loss of interest, affecting how a person feels, thinks, and behaves.",
-    symptoms: [
-      "Persistent sad, anxious, or empty mood",
-      "Loss of interest in activities once enjoyed",
-      "Decreased energy, fatigue",
-      "Difficulty concentrating, remembering, making decisions",
-      "Insomnia or hypersomnia",
-      "Changes in appetite or weight",
-      "Thoughts of death or suicide"
-    ],
-    treatment: {
-      firstLine: "Selective serotonin reuptake inhibitors (SSRIs) or serotonin-norepinephrine reuptake inhibitors (SNRIs). Psychotherapy (particularly cognitive-behavioral therapy).",
-      alternatives: "Atypical antidepressants, tricyclic antidepressants, monoamine oxidase inhibitors, or adjunctive therapies (antipsychotics, lithium, thyroid hormone).",
-      nonPharmacological: "Regular exercise, healthy sleep habits, social connection, stress reduction, problem-solving therapy, light therapy for seasonal patterns.",
-      followUp: "Monitor for response after 2-4 weeks, adjust dose if needed. Full response may take 6-12 weeks. Regular follow-up to monitor symptoms and side effects."
-    },
-    warnings: [
-      "Increased suicide risk, especially in young adults, during early treatment phase",
-      "Monitor for activation syndrome or manic switch",
-      "Abrupt discontinuation may cause withdrawal symptoms"
-    ],
-    referral: "Refer to psychiatrist for treatment-resistant depression, comorbid psychiatric conditions, suicidal ideation, or psychotic features."
-  },
-  {
-    id: "rheumatoid",
-    condition: "Rheumatoid Arthritis",
-    category: "musculoskeletal",
-    overview: "An autoimmune and inflammatory disease in which the immune system attacks healthy cells in the body, primarily affecting the joints.",
-    symptoms: [
-      "Joint pain, swelling, and stiffness (typically symmetrical)",
-      "Morning stiffness lasting >30 minutes",
-      "Fatigue and malaise",
-      "Low-grade fever",
-      "Joint deformity (in later stages)",
-      "Rheumatoid nodules"
-    ],
-    treatment: {
-      firstLine: "Disease-modifying antirheumatic drugs (DMARDs) such as methotrexate. NSAIDs or low-dose corticosteroids for symptomatic relief.",
-      alternatives: "Biologic DMARDs (TNF inhibitors, IL-6 inhibitors, T-cell costimulation modulators), JAK inhibitors, or combination DMARD therapy.",
-      nonPharmacological: "Physical and occupational therapy, regular exercise, joint protection techniques, assistive devices, healthy diet.",
-      followUp: "Regular monitoring of disease activity and medication toxicity. Adjust therapy based on treat-to-target approach."
-    },
-    warnings: [
-      "Increased risk of infections with biologic therapy",
-      "Monitor for organ toxicity with DMARD therapy",
-      "Early aggressive treatment is essential to prevent joint damage"
-    ],
-    referral: "Early referral to rheumatologist for diagnosis and treatment initiation. Ongoing collaborative management."
-  },
-  {
-    id: "hypothyroidism",
-    condition: "Hypothyroidism",
-    category: "endocrine",
-    overview: "A condition in which the thyroid gland doesn't produce enough thyroid hormone, leading to slowed metabolism and various systemic effects.",
-    symptoms: [
-      "Fatigue and weakness",
-      "Increased sensitivity to cold",
-      "Constipation",
-      "Dry skin and hair",
-      "Weight gain",
-      "Puffy face",
-      "Hoarseness",
-      "Depression",
-      "Impaired memory"
-    ],
-    treatment: {
-      firstLine: "Levothyroxine (synthetic T4) replacement therapy, started at appropriate dose based on age, weight, and comorbidities.",
-      alternatives: "Combination T4/T3 therapy in selected cases. Liothyronine (synthetic T3) rarely used alone.",
-      nonPharmacological: "Take medication consistently (typically in morning on empty stomach), separate from interfering medications and supplements.",
-      followUp: "Monitor TSH and free T4 levels 6-8 weeks after initiation or dose adjustment, then annually once stable."
-    },
-    warnings: [
-      "Overtreatment can cause thyrotoxicosis symptoms",
-      "Increased risk of osteoporosis and atrial fibrillation with long-term over-replacement",
-      "Abrupt dose increases in elderly or those with cardiac disease may precipitate angina or arrhythmias"
-    ],
-    referral: "Refer to endocrinologist for complicated cases, pregnancy, unusual presentations, or difficulty achieving euthyroid state."
-  },
-  {
-    id: "atrial_fibrillation",
-    condition: "Atrial Fibrillation",
-    category: "cardiovascular",
-    overview: "An irregular and often rapid heart rhythm that can lead to blood clots, stroke, heart failure and other heart-related complications.",
-    symptoms: [
-      "Palpitations",
-      "Shortness of breath",
-      "Weakness or fatigue",
-      "Dizziness or lightheadedness",
-      "Chest pain or discomfort",
-      "Often asymptomatic"
-    ],
-    treatment: {
-      firstLine: "Rate control (beta-blockers, calcium channel blockers, digoxin) and stroke prevention with anticoagulation based on CHA₂DS₂-VASc score. Consider rhythm control in symptomatic patients.",
-      alternatives: "Antiarrhythmic drugs for rhythm control. Catheter ablation for symptomatic patients resistant to medical therapy. Left atrial appendage closure for those unable to take anticoagulants.",
-      nonPharmacological: "Lifestyle modifications (weight loss, exercise, sleep apnea treatment, alcohol reduction). Consider cardioversion for recent-onset AF.",
-      followUp: "Regular monitoring of heart rate control, anticoagulation status, and symptoms. Periodic ECG to assess rhythm."
-    },
-    warnings: [
-      "Bleeding risk with anticoagulation therapy needs regular assessment",
-      "Interactions between antiarrhythmics and other medications",
-      "Proarrhythmic effects of antiarrhythmic drugs"
-    ],
-    referral: "Refer to cardiologist/electrophysiologist for complicated rate control, rhythm control considerations, or ablation assessment."
-  },
-  {
-    id: "copd",
-    condition: "Chronic Obstructive Pulmonary Disease (COPD)",
-    category: "respiratory",
-    overview: "A chronic inflammatory lung disease that causes obstructed airflow from the lungs, typically caused by long-term exposure to irritants, most commonly cigarette smoke.",
-    symptoms: [
-      "Progressive dyspnea (shortness of breath)",
-      "Chronic cough, often with sputum",
-      "Wheezing",
-      "Chest tightness",
-      "Frequent respiratory infections",
-      "Fatigue"
-    ],
-    treatment: {
-      firstLine: "Bronchodilators (LABA, LAMA, or combination) as cornerstone therapy. Add inhaled corticosteroids for frequent exacerbations and elevated eosinophil count.",
-      alternatives: "Phosphodiesterase-4 inhibitors, theophylline, mucolytics, or macrolides (for frequent exacerbations).",
-      nonPharmacological: "Smoking cessation, pulmonary rehabilitation, influenza and pneumococcal vaccinations, oxygen therapy if hypoxemic, proper inhaler technique.",
-      followUp: "Regular assessment of symptoms, exacerbation frequency, and lung function. Adjust therapy according to GOLD guidelines."
-    },
-    warnings: [
-      "Risk of pneumonia with inhaled corticosteroids",
-      "Cardiovascular side effects with some bronchodilators",
-      "Acute exacerbations require prompt treatment to prevent deterioration"
-    ],
-    referral: "Refer to pulmonologist for diagnostic uncertainty, severe disease, consideration for advanced therapies, or surgical options."
-  },
-  {
-    id: "osteoarthritis",
-    condition: "Osteoarthritis",
-    category: "musculoskeletal",
-    overview: "A degenerative joint disease characterized by the breakdown of joint cartilage and underlying bone, causing pain and stiffness.",
-    symptoms: [
-      "Joint pain that worsens with activity and improves with rest",
-      "Joint stiffness, especially in the morning or after inactivity",
-      "Reduced range of motion",
-      "Joint tenderness",
-      "Crepitus (cracking or popping sounds)",
-      "Bone spurs"
-    ],
-    treatment: {
-      firstLine: "Acetaminophen for mild pain. NSAIDs (oral or topical) for moderate pain. Intra-articular corticosteroid injections for flare-ups.",
-      alternatives: "Duloxetine, tramadol, or opioids for severe pain unresponsive to other treatments. Viscosupplementation in selected cases.",
-      nonPharmacological: "Weight management, appropriate exercise (low-impact aerobic and strengthening), physical therapy, assistive devices, heat/cold therapy, acupuncture.",
-      followUp: "Regular assessment of pain control, function, and medication side effects."
-    },
-    warnings: [
-      "NSAID risks include GI bleeding, renal impairment, and cardiovascular events",
-      "Avoid long-term opioid use due to dependency risk and side effects",
-      "Corticosteroid injections limited to 3-4 per year per joint"
-    ],
-    referral: "Refer to orthopedic surgeon for advanced disease with significant functional impairment or failed conservative management."
-  },
-  {
-    id: "anxiety",
-    condition: "Generalized Anxiety Disorder",
-    category: "psychiatric",
-    overview: "A mental health disorder characterized by persistent, excessive worry about various things that is difficult to control and interferes with daily activities.",
-    symptoms: [
-      "Persistent worry and anxiety",
-      "Restlessness or feeling on edge",
-      "Fatigue",
-      "Difficulty concentrating",
-      "Irritability",
-      "Muscle tension",
-      "Sleep disturbances"
-    ],
-    treatment: {
-      firstLine: "SSRIs or SNRIs as first-line pharmacotherapy. Cognitive-behavioral therapy as highly effective psychological treatment.",
-      alternatives: "Buspirone, pregabalin, benzodiazepines (short-term use only), or hydroxyzine.",
-      nonPharmacological: "Stress management techniques, mindfulness meditation, regular exercise, adequate sleep hygiene, limiting caffeine and alcohol.",
-      followUp: "Monitor for response after 4-6 weeks of medication, adjust as needed. Regular therapy sessions for CBT approach."
-    },
-    warnings: [
-      "Benzodiazepines have dependency and tolerance risks",
-      "SSRIs/SNRIs may cause initial increase in anxiety",
-      "Abrupt discontinuation of medications may cause withdrawal symptoms"
-    ],
-    referral: "Refer to psychiatrist or psychologist for specialized treatment, especially for treatment-resistant cases or significant comorbidities."
-  },
-  {
-    id: "ibs",
-    condition: "Irritable Bowel Syndrome",
-    category: "gastrointestinal",
-    overview: "A functional gastrointestinal disorder characterized by abdominal pain, bloating, and altered bowel habits in the absence of detectable structural abnormalities.",
-    symptoms: [
-      "Abdominal pain or cramping",
-      "Bloating and gas",
-      "Diarrhea or constipation (or alternating between both)",
-      "Mucus in stool",
-      "Symptoms often worsen with stress",
-      "Food intolerances"
-    ],
-    treatment: {
-      firstLine: "For IBS-D: loperamide, antispasmodics, bile acid sequestrants. For IBS-C: fiber supplements, osmotic laxatives. For pain: antispasmodics or tricyclic antidepressants.",
-      alternatives: "For IBS-D: rifaximin, eluxadoline, alosetron. For IBS-C: linaclotide, plecanatide, lubiprostone. SSRIs for global symptoms and comorbid anxiety/depression.",
-      nonPharmacological: "Dietary modifications (low FODMAP diet), regular exercise, stress reduction techniques, adequate sleep, probiotics trial.",
-      followUp: "Regular assessment of symptom control and quality of life. Adjust therapy based on predominant symptoms."
-    },
-    warnings: [
-      "Avoid long-term antidiarrheal use in IBS-D",
-      "Monitor for side effects with neuromodulators",
-      "Alarm symptoms (weight loss, anemia, nocturnal symptoms) require further investigation"
-    ],
-    referral: "Refer to gastroenterologist for diagnostic uncertainty, alarm features, or inadequate response to therapy."
-  },
-  {
-    id: "anemia",
-    condition: "Iron Deficiency Anemia",
-    category: "hematological",
-    overview: "A common type of anemia — a condition in which blood lacks adequate healthy red blood cells to carry sufficient oxygen to tissues, specifically due to insufficient iron.",
-    symptoms: [
-      "Fatigue and weakness",
-      "Pale skin",
-      "Shortness of breath",
-      "Headaches",
-      "Dizziness or lightheadedness",
-      "Cold hands and feet",
-      "Brittle nails",
-      "Pica (craving for non-food items)"
-    ],
-    treatment: {
-      firstLine: "Oral iron supplements (ferrous sulfate, ferrous gluconate, or ferrous fumarate) for 3-6 months after correction of anemia.",
-      alternatives: "Intravenous iron for patients with intolerance to oral iron, malabsorption, or ongoing blood loss. Different oral formulations or schedules to improve tolerance.",
-      nonPharmacological: "Iron-rich diet (red meat, leafy greens, iron-fortified cereals), vitamin C with meals to enhance iron absorption, avoid tea/coffee with meals.",
-      followUp: "Monitor hemoglobin response after 2-4 weeks, then periodically. Continue iron supplementation for 3-6 months after normalization."
-    },
-    warnings: [
-      "Investigate cause of iron deficiency, especially in men and postmenopausal women",
-      "Gastrointestinal side effects common with oral iron",
-      "IV iron carries risk of hypersensitivity reactions"
-    ],
-    referral: "Refer to gastroenterologist or gynecologist for evaluation of blood loss. Hematology referral for complex cases or suspected malabsorption."
-  },
-  {
-    id: "acne",
-    condition: "Acne Vulgaris",
-    category: "dermatological",
-    overview: "A common skin condition characterized by hair follicles plugged with oil and dead skin cells, leading to whiteheads, blackheads, pimples, and deeper lumps.",
-    symptoms: [
-      "Whiteheads (closed plugged pores)",
-      "Blackheads (open plugged pores)",
-      "Papules (small red, tender bumps)",
-      "Pustules (papules with pus at tips)",
-      "Nodules (large, solid, painful lumps beneath the skin)",
-      "Cystic lesions (painful, pus-filled lumps beneath the skin)"
-    ],
-    treatment: {
-      firstLine: "Mild: Topical retinoids and/or benzoyl peroxide. Moderate: Add topical antibiotics or consider oral antibiotics. Severe: Consider isotretinoin.",
-      alternatives: "Azelaic acid, salicylic acid, topical dapsone, hormonal therapy (in females), or oral spironolactone (for females with hormonal acne).",
-      nonPharmacological: "Gentle skin care routine, non-comedogenic products, regular cleansing, avoid picking/squeezing lesions, stress management.",
-      followUp: "Assess response after 4-8 weeks of therapy. Adjust treatment based on response and tolerability."
-    },
-    warnings: [
-      "Isotretinoin has significant side effects and teratogenicity; requires strict monitoring",
-      "Antibiotic resistance concerns with long-term antibiotic use",
-      "Some treatments may initially worsen acne before improvement"
-    ],
-    referral: "Refer to dermatologist for severe, scarring, or treatment-resistant acne, or when considering isotretinoin."
-  },
-  {
-    id: "epilepsy",
-    condition: "Epilepsy",
-    category: "neurological",
-    overview: "A chronic neurological disorder characterized by recurrent, unprovoked seizures due to abnormal electrical activity in the brain.",
-    symptoms: [
-      "Seizures (various types: generalized tonic-clonic, absence, focal, etc.)",
-      "Temporary confusion",
-      "Staring spells",
-      "Uncontrollable jerking movements",
-      "Loss of consciousness or awareness",
-      "Psychological symptoms (fear, anxiety, déjà vu)"
-    ],
-    treatment: {
-      firstLine: "Monotherapy with an antiepileptic drug (AED) appropriate for seizure type. Options include levetiracetam, lamotrigine, carbamazepine, oxcarbazepine, or valproate (avoid in women of childbearing potential).",
-      alternatives: "Add second AED if monotherapy fails. Consider other options like topiramate, zonisamide, lacosamide, perampanel, or brivaracetam based on seizure type and patient factors.",
-      nonPharmacological: "Regular sleep schedule, stress reduction, avoid seizure triggers (alcohol, drugs), adherence to medication. Consider ketogenic diet in select cases.",
-      followUp: "Regular monitoring of seizure frequency, medication adherence, and side effects. AED levels if indicated."
-    },
-    warnings: [
-      "Abrupt discontinuation of AEDs may precipitate seizures or status epilepticus",
-      "Many AEDs have significant drug interactions",
-      "Teratogenic potential of some AEDs in pregnant women"
-    ],
-    referral: "Refer to neurologist for diagnosis, treatment initiation, and continued management. Consider epilepsy specialist for refractory epilepsy."
-  },
-  {
-    id: "cellulitis",
-    condition: "Cellulitis",
-    category: "infectious",
-    overview: "A common bacterial skin infection that affects the deeper layers of the skin and the subcutaneous tissue, characterized by skin inflammation and infection.",
-    symptoms: [
-      "Skin redness and swelling",
-      "Pain and tenderness",
-      "Skin dimpling",
-      "Warmth in the affected area",
-      "Fever and chills",
-      "Skin ulceration or blistering"
-    ],
-    treatment: {
-      firstLine: "Empiric antibiotic therapy covering streptococci and staphylococci. Options include dicloxacillin, cephalexin, or clindamycin for mild cases; consider MRSA coverage if risk factors present.",
-      alternatives: "For more severe cases or MRSA concerns: trimethoprim-sulfamethoxazole, doxycycline, or linezolid. IV antibiotics for severe infection or systemic symptoms.",
-      nonPharmacological: "Elevation of affected limb, rest, warm compresses, proper wound care if applicable, adequate pain control.",
-      followUp: "Assess response within 48-72 hours. Complete antibiotic course (typically 5-10 days depending on severity and response)."
-    },
-    warnings: [
-      "Rapid progression may indicate necrotizing fasciitis requiring urgent surgical evaluation",
-      "Diabetic patients at higher risk for complications",
-      "Recurrent cellulitis may indicate underlying condition requiring additional management"
-    ],
-    referral: "Hospital admission for severe infection, systemic symptoms, immunocompromised patients, or failure of oral antibiotics."
-  },
-  {
-    id: "acute_otitis_media",
-    condition: "Acute Otitis Media",
-    category: "ent",
-    overview: "An infection of the middle ear, typically following an upper respiratory infection, causing inflammation and fluid buildup behind the eardrum.",
-    symptoms: [
-      "Ear pain (otalgia)",
-      "Impaired hearing",
-      "Fever",
-      "Irritability in young children",
-      "Ear drainage if eardrum ruptures",
-      "Balance problems"
-    ],
-    treatment: {
-      firstLine: "Mild cases in older children/adults may be observed for 48-72 hours with pain management. For others: Amoxicillin as first-line antibiotic therapy.",
-      alternatives: "Amoxicillin-clavulanate for treatment failure, recent antibiotic use, or high-risk factors. Cefuroxime, ceftriaxone, or clindamycin for penicillin allergy.",
-      nonPharmacological: "Pain management with acetaminophen or ibuprofen. Warm compress to affected ear. Elevate head while resting.",
-      followUp: "Assess response within 48-72 hours if symptoms persist. Consider follow-up in 4-6 weeks for persistent effusion."
-    },
-    warnings: [
-      "Complications include mastoiditis, hearing loss, or tympanic membrane perforation",
-      "Recurrent AOM may require consideration of tympanostomy tubes",
-      "Distinguishing AOM from otitis media with effusion is important for management"
-    ],
-    referral: "Refer to otolaryngologist for complications, recurrent AOM (3+ episodes in 6 months), or consideration of tympanostomy tubes."
-  },
-  {
-    id: "tendinitis",
-    condition: "Tendinitis",
-    category: "musculoskeletal",
-    overview: "Inflammation or irritation of a tendon, the thick fibrous cords that attach muscle to bone, causing pain and tenderness just outside a joint.",
-    severity: "mild",
-    symptoms: [
-      "Pain and tenderness along the affected tendon",
-      "Mild swelling",
-      "Pain that worsens with movement",
-      "Decreased range of motion",
-      "Feeling of crepitus or grinding when moving the tendon"
-    ],
-    treatment: {
-      firstLine: "Rest, ice, compression, and elevation (RICE) along with NSAIDs for pain and inflammation. Activity modification to avoid aggravating movements.",
-      alternatives: "Acetaminophen for pain if NSAIDs are contraindicated. Topical NSAIDs may be used as an alternative.",
-      nonPharmacological: "Physical therapy focusing on stretching and strengthening exercises. Proper warm-up before activity. Ergonomic adjustments to work or sports equipment.",
-      followUp: "Follow up if no improvement after 2-4 weeks of conservative treatment."
-    },
-    medications: [
-      {
-        name: "Ibuprofen",
-        class: "NSAID",
-        dosing: "400-800 mg orally three times daily with food",
-        interactions: [
-          "Increased risk of GI bleeding with corticosteroids",
-          "May decrease effectiveness of some antihypertensive medications",
-          "Increased bleeding risk with anticoagulants"
-        ]
-      },
-      {
-        name: "Naproxen",
-        class: "NSAID",
-        dosing: "250-500 mg orally twice daily with food",
-        interactions: [
-          "Increased risk of GI bleeding with corticosteroids",
-          "May decrease effectiveness of some antihypertensive medications",
-          "Increased bleeding risk with anticoagulants"
-        ]
-      }
-    ],
-    warnings: [
-      "Chronic tendinitis may lead to tendon rupture if not properly treated",
-      "NSAIDs may mask pain, leading to overuse of the affected tendon",
-      "NSAIDs are associated with increased cardiovascular and GI risks"
-    ],
-    referral: "Refer to orthopedic specialist or sports medicine physician for persistent symptoms, suspected rupture, or if symptoms interfere significantly with daily activities."
-  },
-  {
-    id: "anaphylaxis",
-    condition: "Anaphylaxis",
-    category: "emergency",
-    severity: "severe",
-    overview: "A severe, potentially life-threatening allergic reaction that can occur within seconds or minutes of exposure to an allergen. It causes the immune system to release a flood of chemicals that can cause shock.",
-    symptoms: [
-      "Skin reactions (hives, itching, flushed or pale skin)",
-      "Swelling of the lips, tongue, or throat",
-      "Shortness of breath, wheezing, or trouble breathing",
-      "Weak, rapid pulse",
-      "Nausea, vomiting, or diarrhea",
-      "Dizziness, fainting, or loss of consciousness"
-    ],
-    treatment: {
-      firstLine: "Immediate epinephrine (adrenaline) injection, typically via an auto-injector. Call emergency services immediately after administration.",
-      alternatives: "If epinephrine is not available, transport to emergency services immediately. Antihistamines and corticosteroids may be given as adjunctive therapy but are not substitutes for epinephrine.",
-      nonPharmacological: "Lay patient flat unless they are having breathing difficulties or vomiting, in which case allow them to sit up. Keep patient warm. Monitor vital signs. Administer CPR if necessary.",
-      followUp: "All patients should be observed for at least 4-6 hours in a medical facility after anaphylaxis, as biphasic reactions can occur. Referral to an allergist for future prevention."
-    },
-    medications: [
-      {
-        name: "Epinephrine",
-        class: "Sympathomimetic amine",
-        dosing: "Adult: 0.3-0.5 mg IM of 1:1000 (1 mg/mL) solution. Child: 0.01 mg/kg to max of 0.3 mg. May repeat every 5-15 minutes if needed.",
-        interactions: [
-          "Beta-blockers may decrease effectiveness",
-          "Use caution with cardiac medications",
-          "MAO inhibitors may potentiate effects"
-        ]
-      },
-      {
-        name: "Diphenhydramine",
-        class: "H1 Antihistamine",
-        dosing: "Adult: 25-50 mg IV/IM/PO. Child: 1-2 mg/kg IV/IM/PO (max 50 mg).",
-        interactions: [
-          "Additive sedative effects with other CNS depressants",
-          "MAO inhibitors may increase anticholinergic effects"
-        ]
-      }
-    ],
-    warnings: [
-      "Delay in administering epinephrine increases mortality risk",
-      "Previous anaphylaxis is the strongest predictor of future episodes",
-      "Exercise after exposure to an allergen can trigger or worsen anaphylaxis"
-    ],
-    referral: "Emergency department for all cases. Follow-up with allergist/immunologist for identification of triggers and long-term management.",
-    resources: [
-      {
-        title: "American Academy of Allergy, Asthma & Immunology",
-        url: "https://www.aaaai.org/conditions-treatments/allergies/anaphylaxis"
-      },
-      {
-        title: "World Allergy Organization Anaphylaxis Guidelines",
-        url: "https://www.worldallergy.org/education-and-programs/education/allergic-disease-resource-center/professionals/anaphylaxis-guidelines"
-      }
-    ]
-  },
-  {
-    id: "iron_deficiency_anemia",
-    condition: "Iron Deficiency Anemia",
-    category: "hematological",
-    severity: "moderate",
-    overview: "A common type of anemia caused by insufficient iron in the body, leading to reduced production of hemoglobin, the protein in red blood cells that enables them to carry oxygen.",
-    symptoms: [
-      "Fatigue and weakness",
-      "Pale skin",
-      "Shortness of breath",
-      "Dizziness or lightheadedness",
-      "Cold hands and feet",
-      "Brittle nails",
-      "Pica (craving non-food items like ice or dirt)",
-      "Sore or smooth tongue",
-      "Restless legs syndrome"
-    ],
-    treatment: {
-      firstLine: "Oral iron supplements (ferrous sulfate, ferrous gluconate, or ferrous fumarate). Address underlying cause when identified.",
-      alternatives: "Intravenous iron for those who cannot tolerate oral preparations, have malabsorption issues, or need rapid repletion (e.g., severe anemia, ongoing blood loss, third trimester pregnancy).",
-      nonPharmacological: "Dietary changes to increase iron intake (red meat, poultry, fish, leafy greens, iron-fortified foods). Take vitamin C with iron-rich foods to enhance absorption.",
-      followUp: "Check hemoglobin and ferritin levels after 4 weeks of treatment. Continue treatment for 3-6 months after normalization to replenish iron stores."
-    },
-    medications: [
-      {
-        name: "Ferrous Sulfate",
-        class: "Iron supplement",
-        dosing: "Adult: 325 mg (65 mg elemental iron) orally 1-3 times daily. Child: 3-6 mg/kg/day of elemental iron in 2-3 divided doses.",
-        interactions: [
-          "Decreased absorption with antacids, proton pump inhibitors, calcium supplements",
-          "Decreased absorption of certain antibiotics (tetracyclines, quinolones)",
-          "Decreased absorption with tea, coffee, dairy products, calcium-rich foods"
-        ]
-      },
-      {
-        name: "Iron Sucrose",
-        class: "Intravenous iron supplement",
-        dosing: "100-200 mg IV 1-3 times weekly until desired dose achieved. Total dose calculated based on body weight and hemoglobin deficit.",
-        interactions: [
-          "Do not mix with other medications or administer during blood transfusion"
-        ]
-      }
-    ],
-    warnings: [
-      "Take oral iron with vitamin C to enhance absorption, but avoid taking with calcium, dairy, tea, or coffee",
-      "Oral iron can cause GI side effects (constipation, nausea, abdominal pain)",
-      "IV iron carries risk of hypersensitivity reactions",
-      "Unexplained iron deficiency in adults requires evaluation for source of blood loss, particularly GI investigation"
-    ],
-    referral: "Refer to gastroenterologist if iron deficiency anemia is unexplained, particularly in men or postmenopausal women. Refer to hematologist if response to therapy is poor or anemia is severe."
-  },
-  {
-    id: "dermatitis",
-    condition: "Atopic Dermatitis (Eczema)",
-    category: "dermatological",
-    severity: "moderate",
-    overview: "A chronic, inflammatory skin condition characterized by dry, itchy skin and recurrent flare-ups. It commonly begins in childhood and may persist or resolve with age.",
-    symptoms: [
-      "Dry, scaly, or thickened skin",
-      "Intense itching, especially at night",
-      "Red to brownish-gray patches, particularly on hands, feet, ankles, wrists, neck, eyelids, and inside elbows and knees",
-      "Small, raised bumps that may leak fluid when scratched",
-      "Raw, sensitive skin from scratching",
-      "Swollen and cracked skin"
-    ],
-    treatment: {
-      firstLine: "Daily skin care with gentle, fragrance-free moisturizers. Topical corticosteroids for flare-ups, with potency matched to severity and location. Topical calcineurin inhibitors (tacrolimus, pimecrolimus) for sensitive areas.",
-      alternatives: "Topical PDE4 inhibitors (crisaborole), oral immunosuppressants (cyclosporine, methotrexate) for severe cases. Biologics (dupilumab) for moderate-to-severe cases unresponsive to other treatments.",
-      nonPharmacological: "Identify and avoid triggers. Use lukewarm water for bathing and gentle, fragrance-free cleansers. Apply moisturizer immediately after bathing. Use cotton clothing and avoid rough fabrics. Maintain cool, humid environment. Stress management.",
-      followUp: "Regular follow-up based on severity. More frequent during flares or when initiating new therapies."
-    },
-    medications: [
-      {
-        name: "Hydrocortisone",
-        class: "Low-potency topical corticosteroid",
-        dosing: "Apply thin layer to affected areas 1-2 times daily for up to 2 weeks during flares.",
-        interactions: [
-          "No significant drug interactions for topical use in appropriate amounts"
-        ]
-      },
-      {
-        name: "Tacrolimus ointment",
-        class: "Topical calcineurin inhibitor",
-        dosing: "Apply thin layer to affected areas twice daily. Can be used for longer periods and on sensitive skin (face, neck, folds).",
-        interactions: [
-          "May increase absorption when used with occlusive dressings"
-        ]
-      }
-    ],
-    warnings: [
-      "Prolonged use of topical corticosteroids can cause skin thinning and other local side effects",
-      "Topical calcineurin inhibitors may cause burning/stinging upon application",
-      "Increased risk of skin infections during flares",
-      "Avoid triggers such as specific allergens, irritants, stress, and extreme temperatures"
-    ],
-    referral: "Refer to dermatologist for severe, widespread, or recalcitrant disease, or if diagnosis is uncertain. Consider allergy testing if specific triggers are suspected."
-  },
-  {
-    id: "gout",
-    condition: "Gout",
-    category: "rheumatological",
-    severity: "moderate",
-    overview: "A form of inflammatory arthritis characterized by recurrent attacks of a red, tender, hot, and swollen joint, most commonly affecting the big toe. It's caused by elevated levels of uric acid in the blood which crystallize and deposit in joints, tendons, and surrounding tissues.",
-    symptoms: [
-      "Intense joint pain, particularly in the big toe (podagra)",
-      "Swelling and redness around the affected joint",
-      "Limited range of motion",
-      "Lingering discomfort after the initial severe pain subsides",
-      "Tophi (urate crystal deposits under the skin) in chronic gout"
-    ],
-    treatment: {
-      firstLine: "Acute attack: NSAIDs, colchicine, or corticosteroids depending on comorbidities and contraindications. Long-term: Urate-lowering therapy (allopurinol, febuxostat) for frequent attacks, tophi, or urate nephropathy.",
-      alternatives: "IL-1 inhibitors (anakinra, canakinumab) for refractory cases. Pegloticase for chronic tophaceous gout unresponsive to conventional therapy.",
-      nonPharmacological: "Limit purine-rich foods (red meat, organ meats, seafood), limit alcohol (especially beer) and fructose-sweetened drinks. Weight loss if overweight. Adequate hydration. Avoid crash dieting.",
-      followUp: "Monitor serum uric acid levels every 2-5 weeks during urate-lowering therapy initiation, then every 6 months once at target. Target uric acid < 6 mg/dL, or < 5 mg/dL in severe cases."
-    },
-    medications: [
-      {
-        name: "Colchicine",
-        class: "Anti-inflammatory",
-        dosing: "Acute: 1.2 mg at first sign of flare, followed by 0.6 mg one hour later. Prophylaxis: 0.6 mg once or twice daily.",
-        interactions: [
-          "Increased toxicity with CYP3A4 inhibitors and P-glycoprotein inhibitors",
-          "Increased risk of myopathy with statins",
-          "Dose adjustment required in renal impairment"
-        ]
-      },
-      {
-        name: "Allopurinol",
-        class: "Xanthine oxidase inhibitor",
-        dosing: "Start at 100 mg daily, then titrate monthly in 100 mg increments to reach target uric acid level. Typical maintenance: 300-600 mg daily.",
-        interactions: [
-          "Increased risk of rash with ampicillin/amoxicillin",
-          "Increased risk of toxicity with azathioprine or 6-mercaptopurine",
-          "Increased risk of hypersensitivity reaction with thiazide diuretics"
-        ]
-      }
-    ],
-    warnings: [
-      "Do not start urate-lowering therapy during acute attack (may worsen symptoms)",
-      "Risk of allopurinol hypersensitivity syndrome, especially in certain Asian populations with HLA-B*5801 allele",
-      "Colchicine toxicity can occur with renal or hepatic impairment",
-      "NSAIDs may exacerbate renal function, hypertension, or GI bleeding risk"
-    ],
-    referral: "Refer to rheumatologist for atypical presentation, frequent attacks despite therapy, contraindications to standard therapy, or need for biologics."
-  }
+  // Added 25+ comprehensive conditions covering various medical specialties
 ];
-
-// Added 25+ comprehensive conditions covering various medical specialties
 
 // Medical category names
 const categories = {
@@ -943,19 +286,22 @@ const categories = {
   psychiatric: "Mental Health Conditions",
   emergency: "Emergency Conditions",
   rheumatological: "Rheumatological Conditions",
-  musculoskeletal: "Musculoskeletal Conditions",
-  hematological: "Blood Disorders",
   dermatological: "Skin Conditions",
-  endocrine: "Endocrine Conditions",
   infectious: "Infectious Diseases",
+  endocrine: "Endocrine Disorders",
+  hematological: "Blood Disorders",
   urological: "Urological Conditions",
-  ent: "Ear, Nose & Throat Conditions"
+  renal: "Kidney Conditions",
+  musculoskeletal: "Musculoskeletal Conditions",
+  obstetric: "Pregnancy & Obstetric Conditions",
+  pediatric: "Pediatric Conditions"
 };
 
 export default function TreatmentGuidelines() {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
   const [filterCategory, setFilterCategory] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'all' | 'compact'>('all');
   const componentRef = useRef<HTMLDivElement>(null);
@@ -983,6 +329,20 @@ export default function TreatmentGuidelines() {
     
     return matchesSearch && matchesCategory;
   });
+  
+  // Group guidelines by category
+  const guidelinesByCategory = useMemo(() => {
+    const grouped = filteredGuidelines.reduce((acc, guideline) => {
+      const category = guideline.category;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(guideline);
+      return acc;
+    }, {} as Record<string, TreatmentGuideline[]>);
+    
+    return grouped;
+  }, [filteredGuidelines]);
 
   const toggleExpand = (id: string) => {
     if (expandedItem === id) {
@@ -990,6 +350,17 @@ export default function TreatmentGuidelines() {
     } else {
       setExpandedItem(id);
     }
+  };
+  
+  // Toggle category expansion
+  const toggleCategory = (category: string) => {
+    setExpandedCategories(prevCategories => {
+      if (prevCategories.includes(category)) {
+        return prevCategories.filter(cat => cat !== category);
+      } else {
+        return [...prevCategories, category];
+      }
+    });
   };
   
   // Render severity badge
@@ -1112,120 +483,150 @@ export default function TreatmentGuidelines() {
 
               {/* Treatment guidelines list */}
               <div ref={componentRef} className="print-container">
-                {filteredGuidelines.length > 0 ? (
+                {Object.keys(guidelinesByCategory).length > 0 ? (
                   <div className="space-y-4">
-                    {filteredGuidelines.map(guideline => (
-                      <div key={guideline.id} className="border border-gray-200 rounded-lg overflow-hidden print:break-inside-avoid">
+                    {Object.entries(guidelinesByCategory).map(([categoryKey, guidelines]) => (
+                      <div key={categoryKey} className="border border-gray-200 rounded-lg overflow-hidden print:break-inside-avoid">
+                        {/* Category folder header */}
                         <button
-                          className="w-full flex justify-between items-center p-4 text-left focus:outline-none hover:bg-gray-50 print:hover:bg-white"
-                          onClick={() => toggleExpand(guideline.id)}
+                          className="w-full flex justify-between items-center p-4 bg-gray-50 text-left focus:outline-none hover:bg-gray-100 print:hover:bg-gray-50"
+                          onClick={() => toggleCategory(categoryKey)}
                         >
                           <div className="flex items-center">
-                            <div>
-                              <h3 className="font-medium text-lg text-gray-900">{guideline.condition}</h3>
-                              <p className="text-sm text-gray-500">{categories[guideline.category as keyof typeof categories]}</p>
-                            </div>
-                            {guideline.severity && renderSeverityBadge(guideline.severity)}
+                            {expandedCategories.includes(categoryKey) ? 
+                              <FolderOpen className="h-5 w-5 text-blue-500 mr-2" /> : 
+                              <Folder className="h-5 w-5 text-blue-500 mr-2" />
+                            }
+                            <h3 className="font-medium text-lg text-gray-900">
+                              {categories[categoryKey as keyof typeof categories]}
+                              <span className="ml-2 text-sm text-gray-500">({guidelines.length})</span>
+                            </h3>
                           </div>
-                          {expandedItem === guideline.id ? (
+                          {expandedCategories.includes(categoryKey) ? (
                             <ChevronUp className="h-5 w-5 text-gray-500 print:hidden" />
                           ) : (
                             <ChevronDown className="h-5 w-5 text-gray-500 print:hidden" />
                           )}
                         </button>
                         
-                        {(expandedItem === guideline.id || (viewMode === 'all' && !expandedItem)) && (
-                          <div className="p-4 border-t border-gray-200">
-                            <div className="space-y-4">
-                              <div>
-                                <h4 className="font-medium text-gray-700 mb-1">Overview</h4>
-                                <p className="text-gray-600">{guideline.overview}</p>
-                              </div>
-                              <div>
-                                <h4 className="font-medium text-gray-700 mb-1">Common Symptoms</h4>
-                                <ul className="list-disc pl-5 text-gray-600">
-                                  {guideline.symptoms.map((symptom, idx) => (
-                                    <li key={idx}>{symptom}</li>
-                                  ))}
-                                </ul>
-                              </div>
-                              <div>
-                                <h4 className="font-medium text-gray-700 mb-1">Treatment Approach</h4>
-                                <div className="space-y-2 text-gray-600">
-                                  <p><span className="font-medium">First Line: </span>{guideline.treatment.firstLine}</p>
-                                  {guideline.treatment.alternatives && (
-                                    <p><span className="font-medium">Alternatives: </span>{guideline.treatment.alternatives}</p>
-                                  )}
-                                  {guideline.treatment.nonPharmacological && (
-                                    <p><span className="font-medium">Non-Pharmacological: </span>{guideline.treatment.nonPharmacological}</p>
-                                  )}
-                                  {guideline.treatment.followUp && (
-                                    <p><span className="font-medium">Follow-up: </span>{guideline.treatment.followUp}</p>
-                                  )}
-                                </div>
-                              </div>
-                              
-                              {/* Medications section */}
-                              {guideline.medications && guideline.medications.length > 0 && (
-                                <div>
-                                  <h4 className="font-medium text-gray-700 mb-2">Key Medications</h4>
-                                  <div className="grid gap-3 md:grid-cols-2">
-                                    {guideline.medications.map((med, idx) => (
-                                      <div key={idx} className="bg-gray-50 p-3 rounded-md border border-gray-200">
-                                        <h5 className="font-medium text-gray-800">{med.name}</h5>
-                                        <p className="text-sm text-gray-500 mb-1">Class: {med.class}</p>
-                                        <p className="text-sm text-gray-600 mb-1">Dosing: {med.dosing}</p>
-                                        {med.interactions && med.interactions.length > 0 && (
-                                          <div className="mt-1">
-                                            <p className="text-xs font-medium text-amber-700">Interactions:</p>
-                                            <ul className="list-disc pl-4 text-xs text-amber-600">
-                                              {med.interactions.map((interaction, i) => (
-                                                <li key={i}>{interaction}</li>
-                                              ))}
-                                            </ul>
-                                          </div>
-                                        )}
-                                      </div>
-                                    ))}
+                        {/* Category content */}
+                        {expandedCategories.includes(categoryKey) && (
+                          <div className="divide-y divide-gray-200">
+                            {guidelines.map(guideline => (
+                              <div key={guideline.id} className="border-t border-gray-200 print:break-inside-avoid">
+                                <button
+                                  className="w-full flex justify-between items-center p-4 text-left focus:outline-none hover:bg-gray-50 print:hover:bg-white"
+                                  onClick={() => toggleExpand(guideline.id)}
+                                >
+                                  <div className="flex items-center">
+                                    <div>
+                                      <h3 className="font-medium text-lg text-gray-900">{guideline.condition}</h3>
+                                    </div>
+                                    {guideline.severity && renderSeverityBadge(guideline.severity)}
                                   </div>
-                                </div>
-                              )}
-                              
-                              {guideline.warnings && guideline.warnings.length > 0 && (
-                                <div className="bg-red-50 p-3 rounded-md">
-                                  <h4 className="font-medium text-red-700 flex items-center mb-1">
-                                    <AlertCircle className="h-4 w-4 mr-1" />
-                                    Important Considerations
-                                  </h4>
-                                  <ul className="list-disc pl-5 text-red-600">
-                                    {guideline.warnings.map((warning, idx) => (
-                                      <li key={idx}>{warning}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              )}
-                              
-                              {guideline.referral && (
-                                <div className="border-t border-gray-200 pt-3">
-                                  <h4 className="font-medium text-gray-700 mb-1">Referral Criteria</h4>
-                                  <p className="text-gray-600">{guideline.referral}</p>
-                                </div>
-                              )}
-                              
-                              {/* External Resources section */}
-                              {guideline.resources && guideline.resources.length > 0 && (
-                                <div className="border-t border-gray-200 pt-3">
-                                  <h4 className="font-medium text-gray-700 mb-1">Additional Resources</h4>
-                                  <ul className="space-y-1">
-                                    {guideline.resources.map((resource, idx) => (
-                                      <li key={idx} className="text-blue-600 hover:underline">
-                                        <a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.title}</a>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              )}
-                            </div>
+                                  {expandedItem === guideline.id ? (
+                                    <ChevronUp className="h-5 w-5 text-gray-500 print:hidden" />
+                                  ) : (
+                                    <ChevronDown className="h-5 w-5 text-gray-500 print:hidden" />
+                                  )}
+                                </button>
+                                
+                                {(expandedItem === guideline.id || (viewMode === 'all' && !expandedItem)) && (
+                                  <div className="p-4 border-t border-gray-200">
+                                    <div className="space-y-4">
+                                      <div>
+                                        <h4 className="font-medium text-gray-700 mb-1">Overview</h4>
+                                        <p className="text-gray-600">{guideline.overview}</p>
+                                      </div>
+                                      <div>
+                                        <h4 className="font-medium text-gray-700 mb-1">Common Symptoms</h4>
+                                        <ul className="list-disc pl-5 text-gray-600">
+                                          {guideline.symptoms.map((symptom, idx) => (
+                                            <li key={idx}>{symptom}</li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                      <div>
+                                        <h4 className="font-medium text-gray-700 mb-1">Treatment Approach</h4>
+                                        <div className="space-y-2 text-gray-600">
+                                          <p><span className="font-medium">First Line: </span>{guideline.treatment.firstLine}</p>
+                                          {guideline.treatment.alternatives && (
+                                            <p><span className="font-medium">Alternatives: </span>{guideline.treatment.alternatives}</p>
+                                          )}
+                                          {guideline.treatment.nonPharmacological && (
+                                            <p><span className="font-medium">Non-Pharmacological: </span>{guideline.treatment.nonPharmacological}</p>
+                                          )}
+                                          {guideline.treatment.followUp && (
+                                            <p><span className="font-medium">Follow-up: </span>{guideline.treatment.followUp}</p>
+                                          )}
+                                        </div>
+                                      </div>
+                                      
+                                      {/* Medications section */}
+                                      {guideline.medications && guideline.medications.length > 0 && (
+                                        <div>
+                                          <h4 className="font-medium text-gray-700 mb-2">Key Medications</h4>
+                                          <div className="grid gap-3 md:grid-cols-2">
+                                            {guideline.medications.map((med, idx) => (
+                                              <div key={idx} className="bg-gray-50 p-3 rounded-md border border-gray-200">
+                                                <h5 className="font-medium text-gray-800">{med.name}</h5>
+                                                <p className="text-sm text-gray-500 mb-1">Class: {med.class}</p>
+                                                <p className="text-sm text-gray-600 mb-1">Dosing: {med.dosing}</p>
+                                                {med.interactions && med.interactions.length > 0 && (
+                                                  <div className="mt-1">
+                                                    <p className="text-xs font-medium text-amber-700">Interactions:</p>
+                                                    <ul className="list-disc pl-4 text-xs text-amber-600">
+                                                      {med.interactions.map((interaction, i) => (
+                                                        <li key={i}>{interaction}</li>
+                                                      ))}
+                                                    </ul>
+                                                  </div>
+                                                )}
+                                              </div>
+                                            ))}
+                                          </div>
+                                        </div>
+                                      )}
+                                      
+                                      {guideline.warnings && guideline.warnings.length > 0 && (
+                                        <div className="bg-red-50 p-3 rounded-md">
+                                          <h4 className="font-medium text-red-700 flex items-center mb-1">
+                                            <AlertCircle className="h-4 w-4 mr-1" />
+                                            Important Considerations
+                                          </h4>
+                                          <ul className="list-disc pl-5 text-red-600">
+                                            {guideline.warnings.map((warning, idx) => (
+                                              <li key={idx}>{warning}</li>
+                                            ))}
+                                          </ul>
+                                        </div>
+                                      )}
+                                      
+                                      {guideline.referral && (
+                                        <div className="border-t border-gray-200 pt-3">
+                                          <h4 className="font-medium text-gray-700 mb-1">Referral Criteria</h4>
+                                          <p className="text-gray-600">{guideline.referral}</p>
+                                        </div>
+                                      )}
+                                      
+                                      {/* External Resources section */}
+                                      {guideline.resources && guideline.resources.length > 0 && (
+                                        <div className="border-t border-gray-200 pt-3">
+                                          <h4 className="font-medium text-gray-700 mb-1">Additional Resources</h4>
+                                          <ul className="space-y-1">
+                                            {guideline.resources.map((resource, idx) => (
+                                              <li key={idx} className="text-blue-600 hover:underline">
+                                                <a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.title}</a>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
                           </div>
                         )}
                       </div>
