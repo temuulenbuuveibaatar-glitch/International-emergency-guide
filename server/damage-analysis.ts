@@ -35,9 +35,10 @@ export async function analyzeDamage(req: Request, res: Response) {
   try {
     // Check if OpenAI client is available
     if (!openai) {
+      console.error('OpenAI client not initialized - OPENAI_API_KEY may be missing or invalid');
       return res.status(503).json({ 
         error: 'AI service unavailable',
-        message: 'OpenAI API key is missing. Please provide an API key to use this feature.'
+        message: 'OpenAI API key is missing or invalid. Please provide a valid API key to use this feature.'
       });
     }
 
@@ -120,33 +121,47 @@ export async function analyzeDamage(req: Request, res: Response) {
       userPrompt = "Analyze this image and provide a detailed damage assessment. What type of damage is shown, what is the severity, and what actions should be taken?";
     }
     
-    // Call OpenAI Vision API to analyze the image
-    const response = await openai!.chat.completions.create({
-      model: "gpt-4o", // Using the latest model with vision capabilities
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt
-        },
-        {
-          role: "user",
-          content: [
-            { 
-              type: "text", 
-              text: userPrompt 
-            },
-            {
-              type: "image_url",
-              image_url: {
-                url: `data:image/jpeg;base64,${base64Image}`
+    try {
+      console.log(`Making OpenAI API call with ${analysisType} image...`);
+      
+      // Call OpenAI Vision API to analyze the image
+      const response = await openai!.chat.completions.create({
+        model: "gpt-4o", // Using the latest model with vision capabilities
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt
+          },
+          {
+            role: "user",
+            content: [
+              { 
+                type: "text", 
+                text: userPrompt 
+              },
+              {
+                type: "image_url",
+                image_url: {
+                  url: `data:image/jpeg;base64,${base64Image}`
+                }
               }
-            }
-          ]
-        }
-      ],
-      response_format: { type: "json_object" },
-      max_tokens: 1500
-    });
+            ]
+          }
+        ],
+        response_format: { type: "json_object" },
+        max_tokens: 1500
+      });
+      
+      console.log("OpenAI API response received successfully");
+      return response;
+    } catch (error) {
+      console.error("OpenAI API call failed:", error);
+      // Rethrow with more specific message
+      if (error instanceof Error) {
+        throw new Error(`OpenAI API error: ${error.message}`);
+      }
+      throw error;
+    }
     
     // Parse the response to ensure it's valid JSON
     try {

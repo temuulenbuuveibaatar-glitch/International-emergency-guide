@@ -131,6 +131,7 @@ export default function MedicalImaging() {
         pending: true
       };
       
+      // Add the image to state
       setImages(prev => [newImage, ...prev]);
       
       // Select the endpoint based on analysis type
@@ -146,6 +147,8 @@ export default function MedicalImaging() {
           endpoint = '/api/analyze-medical';
       }
       
+      console.log(`Sending ${analysisType} image for analysis to ${endpoint}`);
+      
       // Call the API
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -155,10 +158,19 @@ export default function MedicalImaging() {
         body: JSON.stringify({ image: imageData })
       });
       
+      // Handle non-OK responses
       if (!response.ok) {
-        throw new Error(`Analysis failed with status: ${response.status}`);
+        const errorData = await response.json().catch(() => null);
+        console.error('Analysis API error:', errorData);
+        
+        if (errorData && errorData.message) {
+          throw new Error(`Analysis failed: ${errorData.message}`);
+        } else {
+          throw new Error(`Analysis failed with status: ${response.status}`);
+        }
       }
       
+      // Parse the response
       const analysisResult = await response.json();
       
       // Update the image with analysis results
