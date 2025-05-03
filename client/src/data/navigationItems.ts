@@ -7,5 +7,6 @@ export const navigationItems = [
   { path: "/symptoms", key: "symptoms", icon: "ActivitySquare" },
   { path: "/hospitals", key: "hospitals", icon: "Building2" },
   { path: "/contacts", key: "contacts", icon: "Phone" },
-  { path: "/fire-safety", key: "fireSafety", icon: "Flame" }
+  { path: "/fire-safety", key: "fireSafety", icon: "Flame" },
+  { path: "/damage-assessment", key: "damageAssessment", icon: "Camera" }
 ];

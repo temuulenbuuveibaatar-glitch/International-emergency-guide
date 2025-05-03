@@ -1,10 +1,18 @@
 import { Request, Response } from "express";
 import OpenAI from "openai";
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-});
+// Initialize OpenAI client only if API key is available
+let openai: OpenAI | null = null;
+
+try {
+  if (process.env.OPENAI_API_KEY) {
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+    });
+  }
+} catch (error) {
+  console.warn('Could not initialize OpenAI client:', error);
+}
 
 // Function to extract base64 data from dataURL
 function extractBase64FromDataURL(dataURL: string): string {
@@ -25,6 +33,14 @@ function extractBase64FromDataURL(dataURL: string): string {
 // Main analysis function
 export async function analyzeDamage(req: Request, res: Response) {
   try {
+    // Check if OpenAI client is available
+    if (!openai) {
+      return res.status(503).json({ 
+        error: 'AI service unavailable',
+        message: 'OpenAI API key is missing. Please provide an API key to use this feature.'
+      });
+    }
+
     const { image } = req.body;
     
     if (!image) {
@@ -41,7 +57,7 @@ export async function analyzeDamage(req: Request, res: Response) {
     }
     
     // Call OpenAI Vision API to analyze the image
-    const response = await openai.chat.completions.create({
+    const response = await openai!.chat.completions.create({
       model: "gpt-4o", // Using the latest model with vision capabilities
       messages: [
         {

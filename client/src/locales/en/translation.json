@@ -11,7 +11,8 @@
     "symptoms": "Symptom Checker",
     "hospitals": "Nearby Hospitals",
     "contacts": "Emergency Numbers",
-    "fireSafety": "Fire Safety Equipment"
+    "fireSafety": "Fire Safety Equipment",
+    "damageAssessment": "AI Damage Assessment"
   },
   "emergency": {
     "title": "Emergency? Call",
@@ -161,5 +162,27 @@
     "large": "Large",
     "xlarge": "Extra Large",
     "note": "Settings are saved automatically and will persist when you return."
+  },
+  "damageAssessment": {
+    "title": "AI Damage Assessment",
+    "description": "Use your camera to assess damage in real-time and get safety recommendations.",
+    "takePhoto": "Take Photo",
+    "useCamera": "Use Camera",
+    "selectImage": "Select Image",
+    "analyzing": "Analyzing...",
+    "results": "Analysis Results",
+    "damageType": "Type of Damage",
+    "severity": "Severity",
+    "description": "Description",
+    "recommendation": "Recommendation",
+    "minor": "Minor",
+    "moderate": "Moderate", 
+    "severe": "Severe",
+    "tryAgain": "Try Again",
+    "cameraPermission": "Camera access is required for this feature",
+    "errorAnalyzing": "Error analyzing image",
+    "apiKeyMissing": "API key required for damage assessment",
+    "uploadInstructions": "Upload a photo or take one with your camera to assess damage",
+    "noImageSelected": "No image selected"
   }
 }

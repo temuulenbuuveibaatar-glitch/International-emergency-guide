@@ -18,6 +18,7 @@ import SymptomChecker from "./pages/SymptomChecker";
 import Hospitals from "./pages/Hospitals";
 import EmergencyContacts from "./pages/EmergencyContacts";
 import FireSafetyEquipment from "./pages/FireSafetyEquipment";
+import DamageAssessment from "./pages/DamageAssessment";
 
 function Router() {
   return (
@@ -32,6 +33,7 @@ function Router() {
         <Route path="/hospitals" component={Hospitals} />
         <Route path="/contacts" component={EmergencyContacts} />
         <Route path="/fire-safety" component={FireSafetyEquipment} />
+        <Route path="/damage-assessment" component={DamageAssessment} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

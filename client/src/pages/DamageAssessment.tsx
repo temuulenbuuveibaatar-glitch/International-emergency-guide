@@ -193,14 +193,14 @@ export default function DamageAssessment() {
                       className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
                     >
                       <Camera className="h-5 w-5" />
-                      Use Camera
+                      {t('damageAssessment.useCamera')}
                     </button>
                     <button
                       onClick={() => fileInputRef.current?.click()}
                       className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200 transition-colors"
                     >
                       <ImageIcon className="h-5 w-5" />
-                      Upload Image
+                      {t('damageAssessment.selectImage')}
                     </button>
                     <input
                       type="file"
