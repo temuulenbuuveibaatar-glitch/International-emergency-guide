@@ -258,53 +258,68 @@ export default function MedicalImaging() {
       timestamp: Date.now()
     };
     
+    const currentInput = chatInput;
     setChatMessages(prev => [...prev, userMessage]);
     setChatInput('');
     
     try {
-      // Simulate a response - in a real app, connect to a backend chatbot API
-      setTimeout(() => {
-        const botResponse: ChatMessage = {
-          role: 'assistant',
-          content: getAIResponse(chatInput),
-          timestamp: Date.now()
-        };
-        setChatMessages(prev => [...prev, botResponse]);
-        
-        // Scroll to the bottom of chat
-        if (chatContainerRef.current) {
-          chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-        }
-      }, 1000);
-    } catch (error) {
-      console.error("Error sending message:", error);
+      // Show typing indicator
       setChatMessages(prev => [
-        ...prev,
+        ...prev, 
         {
           role: 'assistant',
-          content: "I'm sorry, I encountered an error processing your request. Please try again.",
+          content: '...',
           timestamp: Date.now()
         }
       ]);
-    }
-  };
-  
-  // Simple AI response generator - this would be replaced with a real AI API in production
-  const getAIResponse = (message: string): string => {
-    const lowerMessage = message.toLowerCase();
-    
-    if (lowerMessage.includes('xray') || lowerMessage.includes('x-ray')) {
-      return "X-rays use radiation to create images of the structures inside your body, especially bones. They're useful for detecting fractures, pneumonia, and some tumors. For X-ray analysis, upload an image and select 'X-ray' as the analysis type.";
-    } else if (lowerMessage.includes('mri')) {
-      return "MRI (Magnetic Resonance Imaging) uses strong magnetic fields and radio waves to create detailed images of organs and tissues. They're useful for examining soft tissues, the brain, joints, and internal organs. For MRI analysis, upload your scan and select 'MRI' as the analysis type.";
-    } else if (lowerMessage.includes('help') || lowerMessage.includes('how')) {
-      return "To analyze medical images, go to the Capture tab and either take a photo or upload an existing image. Select the appropriate analysis type (X-ray, MRI, or Medical) before capturing. Results will appear in the History tab. You can also chat with me about medical imaging concepts.";
-    } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
-      return "Hello! I'm your medical imaging assistant. How can I help you today? You can ask me about X-rays, MRIs, or upload an image for analysis.";
-    } else if (lowerMessage.includes('thank')) {
-      return "You're welcome! Is there anything else I can help you with regarding medical imaging?";
-    } else {
-      return "I understand you're asking about medical imaging. For specific analysis, please upload an image using the capture tab. I can analyze X-rays, MRIs, and other medical images. What would you like to know more about?";
+      
+      // Call the medical chat API
+      const response = await fetch('/api/medical-chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: currentInput })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Chat failed with status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      // Remove typing indicator and add actual response
+      setChatMessages(prev => {
+        const withoutTyping = prev.filter(msg => msg.content !== '...');
+        return [
+          ...withoutTyping,
+          {
+            role: 'assistant',
+            content: data.response || "I'm sorry, I couldn't process your request.",
+            timestamp: Date.now()
+          }
+        ];
+      });
+      
+      // Scroll to the bottom of chat
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      
+      // Remove typing indicator and add error message
+      setChatMessages(prev => {
+        const withoutTyping = prev.filter(msg => msg.content !== '...');
+        return [
+          ...withoutTyping,
+          {
+            role: 'assistant',
+            content: "I'm sorry, I encountered an error processing your request. Please try again.",
+            timestamp: Date.now()
+          }
+        ];
+      });
     }
   };
   
@@ -427,8 +442,11 @@ export default function MedicalImaging() {
     <section className="py-4 md:py-8">
       <div className="container mx-auto px-4">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center text-[#004A9F]">
-          {t('Advanced Medical Imaging Analysis')}
+          {t('medicalImaging.title')}
         </h1>
+        <p className="text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+          {t('medicalImaging.description')}
+        </p>
         
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           {/* Tab navigation */}
@@ -439,7 +457,7 @@ export default function MedicalImaging() {
             >
               <div className="flex justify-center items-center">
                 <Camera className="h-4 w-4 mr-2" />
-                <span>Capture & Analyze</span>
+                <span>{t('medicalImaging.capture')}</span>
               </div>
             </button>
             <button
