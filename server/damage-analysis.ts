@@ -121,11 +121,11 @@ export async function analyzeDamage(req: Request, res: Response) {
       userPrompt = "Analyze this image and provide a detailed damage assessment. What type of damage is shown, what is the severity, and what actions should be taken?";
     }
     
+    console.log(`Making OpenAI API call with ${analysisType} image...`);
+    
     try {
-      console.log(`Making OpenAI API call with ${analysisType} image...`);
-      
       // Call OpenAI Vision API to analyze the image
-      const response = await openai!.chat.completions.create({
+      const response = await openai.chat.completions.create({
         model: "gpt-4o", // Using the latest model with vision capabilities
         messages: [
           {
@@ -153,25 +153,23 @@ export async function analyzeDamage(req: Request, res: Response) {
       });
       
       console.log("OpenAI API response received successfully");
-      return response;
-    } catch (error) {
-      console.error("OpenAI API call failed:", error);
-      // Rethrow with more specific message
-      if (error instanceof Error) {
-        throw new Error(`OpenAI API error: ${error.message}`);
+      
+      // Parse the response to ensure it's valid JSON
+      try {
+        const result = JSON.parse(response.choices[0].message.content || '{}');
+        return res.json(result);
+      } catch (parseError) {
+        console.error('Error parsing OpenAI response:', parseError);
+        return res.status(500).json({ 
+          error: 'Failed to parse analysis results',
+          raw_response: response.choices[0].message.content
+        });
       }
-      throw error;
-    }
-    
-    // Parse the response to ensure it's valid JSON
-    try {
-      const result = JSON.parse(response.choices[0].message.content || '{}');
-      return res.json(result);
-    } catch (error) {
-      console.error('Error parsing OpenAI response:', error);
+    } catch (apiError) {
+      console.error("OpenAI API call failed:", apiError);
       return res.status(500).json({ 
-        error: 'Failed to parse analysis results',
-        raw_response: response.choices[0].message.content
+        error: 'OpenAI API error',
+        message: apiError instanceof Error ? apiError.message : 'Unknown API error'
       });
     }
   } catch (error) {
