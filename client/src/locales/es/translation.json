@@ -502,5 +502,57 @@
       "title": "Vigilar signos de shock",
       "description": "Monitoree piel pálida, respiración rápida, pulso rápido, náuseas o sed."
     }
+  },
+  "cprSteps": {
+    "assess": {
+      "title": "Verificar respuesta",
+      "description": "Toque ligeramente los hombros del paciente y grite '¿Está bien?' Si no hay respuesta, verifique la respiración."
+    },
+    "call": {
+      "title": "Llamar servicios de emergencia",
+      "description": "Llame inmediatamente al 911 y consiga un DEA si es posible. Pida ayuda a otros si es posible."
+    },
+    "position": {
+      "title": "Posición correcta",
+      "description": "Coloque al paciente en una superficie dura y plana, incline la cabeza hacia atrás para abrir las vías respiratorias. Coloque las manos en el centro de la parte inferior del pecho."
+    },
+    "compressions": {
+      "title": "Compresiones torácicas",
+      "description": "Presione fuerte y rápido al menos 5 cm de profundidad a una velocidad de 100-120 por minuto. Suelte completamente después de cada compresión."
+    },
+    "rescue": {
+      "title": "Respiración de rescate",
+      "description": "Incline la cabeza hacia atrás, levante la barbilla para abrir las vías respiratorias, tape la nariz y dé 2 respiraciones de rescate en la boca."
+    },
+    "continue": {
+      "title": "Continuar",
+      "description": "Repita 30 compresiones y 2 respiraciones de rescate. Continúe hasta que lleguen los paramédicos o el paciente recupere la conciencia."
+    }
+  },
+  "chokingSteps": {
+    "assess": {
+      "title": "Verificar obstrucción de vías respiratorias",
+      "description": "Verifique si el paciente puede toser, hablar o respirar. Si se agarra el cuello con las manos, es una señal de obstrucción de vías respiratorias."
+    },
+    "encourage": {
+      "title": "Alentar a toser",
+      "description": "Si el paciente puede toser, aliéntelo a seguir tosiendo. La tos es la forma más efectiva de eliminar un objeto extraño."
+    },
+    "backBlows": {
+      "title": "Golpes en la espalda",
+      "description": "Incline al paciente hacia adelante y golpee fuertemente entre los omóplatos con la palma de la mano 5 veces."
+    },
+    "heimlich": {
+      "title": "Maniobra de Heimlich",
+      "description": "Párese detrás del paciente, rodee la cintura con los brazos, coloque el puño entre el esternón y el ombligo y empuje hacia arriba con fuerza 5 veces."
+    },
+    "repeat": {
+      "title": "Repetir",
+      "description": "Alterne entre 5 golpes en la espalda y 5 maniobras de Heimlich hasta que salga el objeto extraño."
+    },
+    "unconscious": {
+      "title": "Si pierde la conciencia",
+      "description": "Si el paciente pierde la conciencia, acuéstelo en el suelo y comience RCP. Antes de la respiración de rescate, revise la boca y retire cualquier objeto extraño visible."
+    }
   }
 }

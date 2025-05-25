@@ -532,5 +532,57 @@
       "title": "Auf Schockzeichen achten", 
       "description": "Überwachen Sie blasse Haut, schnelle Atmung, schnellen Puls, Übelkeit oder Durst."
     }
+  },
+  "cprSteps": {
+    "assess": {
+      "title": "Reaktion prüfen",
+      "description": "Tippen Sie leicht auf die Schultern der Person und rufen Sie laut 'Geht es Ihnen gut?'. Wenn keine Reaktion erfolgt, prüfen Sie die Atmung."
+    },
+    "call": {
+      "title": "Notruf absetzen",
+      "description": "Rufen Sie sofort 112 an und lassen Sie einen AED bringen, falls verfügbar. Bitten Sie andere um Hilfe, wenn möglich."
+    },
+    "position": {
+      "title": "Richtige Position",
+      "description": "Legen Sie die Person auf eine harte, ebene Oberfläche und neigen Sie den Kopf nach hinten, um die Atemwege zu öffnen. Platzieren Sie Ihre Hände in der Mitte der unteren Brust."
+    },
+    "compressions": {
+      "title": "Herzdruckmassage",
+      "description": "Drücken Sie hart und schnell mindestens 5 cm tief mit einer Rate von 100-120 pro Minute. Lassen Sie zwischen den Kompressionen vollständig los."
+    },
+    "rescue": {
+      "title": "Beatmung",
+      "description": "Neigen Sie den Kopf nach hinten, heben Sie das Kinn an, verschließen Sie die Nase und geben Sie 2 Atemspenden in den Mund."
+    },
+    "continue": {
+      "title": "Fortsetzen",
+      "description": "Wiederholen Sie 30 Kompressionen und 2 Beatmungen. Setzen Sie fort, bis der Rettungsdienst eintrifft oder die Person das Bewusstsein wiedererlangt."
+    }
+  },
+  "chokingSteps": {
+    "assess": {
+      "title": "Atemwegsblockade prüfen",
+      "description": "Prüfen Sie, ob die Person husten, sprechen oder atmen kann. Wenn sie sich die Hände an den Hals legt, ist das ein Zeichen für eine Atemwegsblockade."
+    },
+    "encourage": {
+      "title": "Husten ermutigen",
+      "description": "Wenn die Person husten kann, ermutigen Sie sie weiterzuhusten. Husten ist der effektivste Weg, um einen Fremdkörper zu entfernen."
+    },
+    "backBlows": {
+      "title": "Rückenschläge",
+      "description": "Beugen Sie die Person nach vorne und schlagen Sie mit der Handfläche 5 Mal kräftig zwischen die Schulterblätter."
+    },
+    "heimlich": {
+      "title": "Heimlich-Manöver",
+      "description": "Stehen Sie hinter der Person, umfassen Sie die Taille mit den Armen, machen Sie eine Faust zwischen Brustbein und Nabel und drücken Sie 5 Mal kräftig nach oben."
+    },
+    "repeat": {
+      "title": "Wiederholen",
+      "description": "Wechseln Sie zwischen 5 Rückenschlägen und 5 Heimlich-Manövern ab, bis der Fremdkörper herauskommt."
+    },
+    "unconscious": {
+      "title": "Bei Bewusstlosigkeit",
+      "description": "Wenn die Person bewusstlos wird, legen Sie sie auf den Boden und beginnen Sie mit der CPR. Schauen Sie vor der Beatmung in den Mund und entfernen Sie sichtbare Fremdkörper."
+    }
   }
 }

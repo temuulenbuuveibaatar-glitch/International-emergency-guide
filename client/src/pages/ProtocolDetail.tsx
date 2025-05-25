@@ -317,8 +317,8 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
     },
     "choking": {
       id: "choking",
-      title: "Choking Response",
-      description: "Emergency procedures for choking incidents including the Heimlich maneuver.",
+      title: t("protocolTitles.choking"),
+      description: t("protocolDescriptions.choking"),
       demoVideo: "https://www.youtube.com/watch?v=ljL9JcK6RnM",
       demoImages: [
         "https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2016/10/07/18/03/heimlich-maneuver-8col.jpg",
@@ -327,30 +327,35 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
       ],
       steps: [
         {
-          title: "Assess the Severity",
-          description: "Determine if the airway is completely or partially blocked. If the person can speak, cough, or breathe, do not interfere.",
+          title: t("chokingSteps.assess.title"),
+          description: t("chokingSteps.assess.description"),
           imageUrl: "https://thumbs.dreamstime.com/b/universal-choking-sign-symbol-vector-illustration-international-signal-indicates-person-cannot-speak-breathe-needs-immediate-177597219.jpg"
         },
         {
-          title: "Call for Help",
-          description: "If the person cannot speak, cough, or breathe, call for emergency services (103 in Mongolia) or have someone else call.",
+          title: t("chokingSteps.encourage.title"),
+          description: t("chokingSteps.encourage.description"),
           important: true,
           imageUrl: "https://www.verywellhealth.com/thmb/M0pMrTdcStQmrpPSOXn9lp1pjWA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-675680446-5a8cd329c5542e003743880f.jpg"
         },
         {
-          title: "Heimlich Maneuver (Abdominal Thrusts)",
-          description: "Stand behind the person and wrap your arms around their waist. Make a fist with one hand and place it just above their navel. Grasp your fist with your other hand and press into their abdomen with quick upward thrusts.",
+          title: t("chokingSteps.backBlows.title"),
+          description: t("chokingSteps.backBlows.description"),
           important: true,
           videoUrl: "https://www.youtube.com/watch?v=2dn13zneEjo"
         },
         {
-          title: "Continue Until Object Is Expelled",
-          description: "Repeat abdominal thrusts until the object is expelled or the person loses consciousness.",
+          title: t("chokingSteps.heimlich.title"),
+          description: t("chokingSteps.heimlich.description"),
           imageUrl: "https://www.emssafetyservices.com/wp-content/uploads/2016/11/new-heimlich.jpg"
         },
         {
-          title: "If the Person Becomes Unconscious",
-          description: "Lower the person carefully to the ground and begin CPR, starting with chest compressions. Before giving breaths, look in the mouth for the object. If you see it, remove it, but never perform blind finger sweeps.",
+          title: t("chokingSteps.repeat.title"),
+          description: t("chokingSteps.repeat.description"),
+          videoUrl: "https://www.youtube.com/watch?v=UAcRa5IJU1I"
+        },
+        {
+          title: t("chokingSteps.unconscious.title"),
+          description: t("chokingSteps.unconscious.description"),
           videoUrl: "https://www.youtube.com/watch?v=UAcRa5IJU1I"
         }
       ],
