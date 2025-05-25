@@ -366,38 +366,38 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
     },
     "bleeding": {
       id: "bleeding",
-      title: "Severe Bleeding",
-      description: "Protocol for controlling severe bleeding and preventing shock.",
+      title: t("protocolTitles.bleeding"),
+      description: t("protocolDescriptions.bleeding"),
       steps: [
         {
-          title: "Ensure Safety",
-          description: "Make sure the scene is safe and use personal protective equipment if available (gloves, eye protection)."
+          title: t("bleedingSteps.safety.title"),
+          description: t("bleedingSteps.safety.description")
         },
         {
-          title: "Call for Help",
-          description: "Call emergency services (103 in Mongolia) or have someone else call immediately.",
+          title: t("bleedingSteps.call.title"),
+          description: t("bleedingSteps.call.description"),
           important: true
         },
         {
-          title: "Apply Direct Pressure",
-          description: "Use a clean cloth, gauze pad, or even clothing. Press firmly on the wound. If blood soaks through, add more material without removing the first layer.",
+          title: t("bleedingSteps.pressure.title"),
+          description: t("bleedingSteps.pressure.description"),
           important: true
         },
         {
-          title: "Elevate the Wound",
-          description: "If possible, raise the injured area above the level of the heart to help reduce blood flow."
+          title: t("bleedingSteps.elevate.title"),
+          description: t("bleedingSteps.elevate.description")
         },
         {
-          title: "Apply Tourniquet as Last Resort",
-          description: "If bleeding cannot be controlled with direct pressure, and the injury is on an arm or leg, apply a tourniquet between the wound and the heart, 2-3 inches from the wound. Note the time it was applied."
+          title: t("bleedingSteps.tourniquet.title"),
+          description: t("bleedingSteps.tourniquet.description")
         },
         {
-          title: "Keep the Person Warm",
-          description: "Cover them with a blanket or coat to prevent shock."
+          title: t("bleedingSteps.warmth.title"),
+          description: t("bleedingSteps.warmth.description")
         },
         {
-          title: "Watch for Signs of Shock",
-          description: "Monitor for pale skin, rapid breathing, rapid pulse, nausea, or thirst."
+          title: t("bleedingSteps.shock.title"),
+          description: t("bleedingSteps.shock.description")
         }
       ],
       warnings: [
