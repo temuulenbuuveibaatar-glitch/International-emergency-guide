@@ -163,6 +163,32 @@
       "description": "Block smoke from entering by placing wet towels or clothing under doors. Signal for help from windows. If possible, call emergency services to report your exact location. Cover your mouth and nose with a damp cloth."
     }
   },
+  "cprSteps": {
+    "assess": {
+      "title": "Check Responsiveness",
+      "description": "Tap the person's shoulders and shout 'Are you okay?' If no response, continue with CPR."
+    },
+    "call": {
+      "title": "Call for Help",
+      "description": "Call emergency services immediately and get an AED if available."
+    },
+    "position": {
+      "title": "Position the Person",
+      "description": "Place the person on their back on a firm, flat surface. Tilt the head back slightly and lift the chin."
+    },
+    "compressions": {
+      "title": "Begin Chest Compressions",
+      "description": "Place the heel of your hand on the center of the chest between the nipples. Push hard and fast at least 2 inches deep at a rate of 100-120 compressions per minute."
+    },
+    "rescue": {
+      "title": "Give Rescue Breaths",
+      "description": "After 30 compressions, give 2 rescue breaths. Tilt head back, lift chin, pinch nose closed, and give 2 breaths."
+    },
+    "continue": {
+      "title": "Continue CPR",
+      "description": "Continue cycles of 30 compressions and 2 breaths until emergency services arrive or the person starts breathing normally."
+    }
+  },
   "treatment": {
     "title": "Treatment Guidelines",
     "description": "Comprehensive treatment guidelines for various medical conditions.",

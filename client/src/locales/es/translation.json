@@ -129,6 +129,36 @@
     "head-injury": "Evaluación y manejo de lesiones traumáticas en la cabeza y protocolo de conmoción cerebral.",
     "psychiatric": "Respuesta segura a crisis agudas de salud mental y emergencias psiquiátricas."
   },
+  "fireEmergencySteps": {
+    "prevention": {
+      "title": "Prevención",
+      "description": "Instale alarmas de humo en cada piso y en áreas clave como dormitorios y cocinas. Pruébelas mensualmente y reemplace las baterías anualmente. Mantenga extintores accesibles y aprenda a usarlos. Cree y practique un plan de escape de incendio en casa con todos los miembros del hogar."
+    },
+    "detection": {
+      "title": "Detección Temprana de Incendios",
+      "description": "Conozca las señales de incendio: llamas visibles, humo, olor a quemado, calor inusual, sonidos de chisporroteo o alarmas de detectores de humo. La detección temprana salva vidas y propiedades."
+    },
+    "assess": {
+      "title": "Evaluar la Situación del Incendio",
+      "description": "Determine rápidamente el tamaño, ubicación y tipo de incendio (eléctrico, grasa, papel/madera, químico). Los incendios pequeños y contenidos pueden ser manejables, pero prepárese para evacuar inmediatamente si el fuego se está extendiendo rápidamente."
+    },
+    "alarm": {
+      "title": "Activar la Alarma y Llamar a Servicios de Emergencia",
+      "description": "Active la alarma de incendio si está en un edificio público. Llame a servicios de emergencia inmediatamente (España 112). Proporcione su ubicación exacta y detalles sobre el incendio. Nunca asuma que alguien más ya ha llamado."
+    },
+    "evacuation": {
+      "title": "Prioridades de Evacuación",
+      "description": "Personas primero, posesiones segundo. Alerte a todos en el edificio. Ayude a quienes necesiten asistencia. Nunca reingrese a un edificio en llamas por posesiones."
+    },
+    "safeescape": {
+      "title": "Técnicas de Escape Seguro",
+      "description": "Manténgase bajo para evitar la inhalación de humo (gatee si es necesario). Pruebe las puertas antes de abrirlas: use el dorso de su mano para sentir el calor. Si la puerta está caliente, encuentre otra ruta de salida. Cierre las puertas detrás suyo para ralentizar la propagación del fuego. Use escaleras, nunca ascensores."
+    },
+    "trapped": {
+      "title": "Si Está Atrapado en una Habitación",
+      "description": "Bloquee la entrada de humo colocando toallas húmedas o ropa bajo las puertas. Señale pidiendo ayuda desde las ventanas. Si es posible, llame a servicios de emergencia para reportar su ubicación exacta. Cubra su boca y nariz con un paño húmedo."
+    }
+  },
   "treatment": {
     "title": "Guías de Tratamiento",
     "description": "Guías de tratamiento completas para diversas condiciones médicas.",
