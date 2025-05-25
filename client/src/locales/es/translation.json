@@ -472,5 +472,35 @@
     "large": "Grande",
     "xlarge": "Extra grande",
     "note": "La configuración se guarda automáticamente y permanecerá cuando regrese."
+  },
+  "bleedingSteps": {
+    "safety": {
+      "title": "Asegurar la seguridad",
+      "description": "Asegúrese de que la escena sea segura y use equipo de protección personal si está disponible (guantes, protección ocular)."
+    },
+    "call": {
+      "title": "Pedir ayuda",
+      "description": "Llame a los servicios de emergencia (103 en Mongolia) o haga que alguien más llame inmediatamente."
+    },
+    "pressure": {
+      "title": "Aplicar presión directa",
+      "description": "Use un paño limpio, gasa o incluso ropa. Presione firmemente sobre la herida. Si la sangre se filtra, agregue más material sin quitar la primera capa."
+    },
+    "elevate": {
+      "title": "Elevar la herida",
+      "description": "Si es posible, eleve el área lesionada por encima del nivel del corazón para ayudar a reducir el flujo sanguíneo."
+    },
+    "tourniquet": {
+      "title": "Aplicar torniquete como último recurso",
+      "description": "Si el sangrado no se puede controlar con presión directa, y la lesión está en un brazo o pierna, aplique un torniquete entre la herida y el corazón, a 2-3 pulgadas de la herida. Anote la hora de aplicación."
+    },
+    "warmth": {
+      "title": "Mantener a la persona abrigada",
+      "description": "Cúbrala con una manta o abrigo para prevenir el shock."
+    },
+    "shock": {
+      "title": "Vigilar signos de shock",
+      "description": "Monitoree piel pálida, respiración rápida, pulso rápido, náuseas o sed."
+    }
   }
 }
