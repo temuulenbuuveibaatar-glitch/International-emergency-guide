@@ -502,5 +502,35 @@
     "large": "Groß",
     "xlarge": "Extra groß",
     "note": "Einstellungen werden automatisch gespeichert und bleiben bei Ihrer Rückkehr erhalten."
+  },
+  "bleedingSteps": {
+    "safety": {
+      "title": "Sicherheit gewährleisten",
+      "description": "Stellen Sie sicher, dass die Szene sicher ist und verwenden Sie persönliche Schutzausrüstung, falls verfügbar (Handschuhe, Augenschutz)."
+    },
+    "call": {
+      "title": "Hilfe rufen", 
+      "description": "Rufen Sie den Rettungsdienst (103 in der Mongolei) oder lassen Sie sofort jemand anderen anrufen."
+    },
+    "pressure": {
+      "title": "Direkten Druck anwenden",
+      "description": "Verwenden Sie ein sauberes Tuch, Mullpad oder sogar Kleidung. Drücken Sie fest auf die Wunde. Wenn Blut durchsickert, fügen Sie mehr Material hinzu, ohne die erste Schicht zu entfernen."
+    },
+    "elevate": {
+      "title": "Wunde hochlagern", 
+      "description": "Wenn möglich, heben Sie den verletzten Bereich über die Herzhöhe an, um den Blutfluss zu reduzieren."
+    },
+    "tourniquet": {
+      "title": "Tourniquet als letztes Mittel anwenden",
+      "description": "Wenn die Blutung nicht durch direkten Druck kontrolliert werden kann und die Verletzung an einem Arm oder Bein ist, legen Sie ein Tourniquet zwischen Wunde und Herz an, 2-3 Zoll von der Wunde entfernt. Notieren Sie die Anwendungszeit."
+    },
+    "warmth": {
+      "title": "Person warm halten",
+      "description": "Decken Sie sie mit einer Decke oder einem Mantel zu, um einen Schock zu verhindern."
+    },
+    "shock": {
+      "title": "Auf Schockzeichen achten", 
+      "description": "Überwachen Sie blasse Haut, schnelle Atmung, schnellen Puls, Übelkeit oder Durst."
+    }
   }
 }
