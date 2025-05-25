@@ -1,142 +1,142 @@
 export const emergencyProtocols = [
   {
     id: "fire-emergency",
-    title: "Fire Emergency Response",
-    description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques."
+    title: "protocolTitles.fire-emergency",
+    description: "protocolDescriptions.fire-emergency"
   },
   {
     id: "fire-hose",
-    title: "Emergency Fire Hose Usage",
-    description: "Step-by-step guide on how to properly use emergency fire hoses to combat fires safely and effectively."
+    title: "protocolTitles.fire-hose",
+    description: "protocolDescriptions.fire-hose"
   },
   {
     id: "cpr",
-    title: "CPR Protocol",
-    description: "Step-by-step guide for cardiopulmonary resuscitation in emergency situations."
+    title: "protocolTitles.cpr",
+    description: "protocolDescriptions.cpr"
   },
   {
     id: "choking",
-    title: "Choking Response",
-    description: "Emergency procedures for choking incidents including the Heimlich maneuver."
+    title: "protocolTitles.choking",
+    description: "protocolDescriptions.choking"
   },
   {
     id: "bleeding",
-    title: "Severe Bleeding",
-    description: "Protocol for controlling severe bleeding and preventing shock."
+    title: "protocolTitles.bleeding",
+    description: "protocolDescriptions.bleeding"
   },
   {
     id: "burns",
-    title: "Burn Treatment",
-    description: "First aid for different types and degrees of burns."
+    title: "protocolTitles.burns",
+    description: "protocolDescriptions.burns"
   },
   {
     id: "fracture",
-    title: "Fracture & Dislocation",
-    description: "Handling bone fractures and joint dislocations safely."
+    title: "protocolTitles.fracture",
+    description: "protocolDescriptions.fracture"
   },
   {
     id: "heart-attack",
-    title: "Heart Attack",
-    description: "Recognizing symptoms and emergency response for heart attack."
+    title: "protocolTitles.heart-attack",
+    description: "protocolDescriptions.heart-attack"
   },
   {
     id: "stroke",
-    title: "Stroke Response",
-    description: "FAST protocol and emergency care for stroke victims."
+    title: "protocolTitles.stroke",
+    description: "protocolDescriptions.stroke"
   },
   {
     id: "seizure",
-    title: "Seizure Management",
-    description: "Proper care during and after seizures and when to seek emergency help."
+    title: "protocolTitles.seizure",
+    description: "protocolDescriptions.seizure"
   },
   {
     id: "anaphylaxis",
-    title: "Anaphylactic Shock",
-    description: "Responding to severe allergic reactions and using epinephrine auto-injectors."
+    title: "protocolTitles.anaphylaxis",
+    description: "protocolDescriptions.anaphylaxis"
   },
   {
     id: "hypothermia",
-    title: "Hypothermia & Frostbite",
-    description: "Identifying and treating cold-related emergencies and preventing further injury."
+    title: "protocolTitles.hypothermia",
+    description: "protocolDescriptions.hypothermia"
   },
   {
     id: "heatstroke",
-    title: "Heat Exhaustion & Heatstroke",
-    description: "Recognizing and responding to heat-related emergencies that can be life-threatening."
+    title: "protocolTitles.heatstroke",
+    description: "protocolDescriptions.heatstroke"
   },
   {
     id: "poisoning",
-    title: "Poisoning Response",
-    description: "First aid for different types of poisoning including ingestion, inhalation, and skin contact."
+    title: "protocolTitles.poisoning",
+    description: "protocolDescriptions.poisoning"
   },
   {
     id: "drowning",
-    title: "Drowning Response",
-    description: "Rescue techniques and emergency care for drowning victims."
+    title: "protocolTitles.drowning",
+    description: "protocolDescriptions.drowning"
   },
   {
     id: "diabetic",
-    title: "Diabetic Emergencies",
-    description: "Managing hypoglycemia, hyperglycemia, and diabetic ketoacidosis emergencies."
+    title: "protocolTitles.diabetic",
+    description: "protocolDescriptions.diabetic"
   },
   {
     id: "spinalinjury",
-    title: "Spinal Injury Management",
-    description: "Immobilization techniques and precautions for suspected spinal injuries."
+    title: "protocolTitles.spinalinjury",
+    description: "protocolDescriptions.spinalinjury"
   },
   {
     id: "eyeinjury",
-    title: "Eye Injury First Aid",
-    description: "Emergency procedures for chemical exposures, foreign objects, and traumatic eye injuries."
+    title: "protocolTitles.eyeinjury",
+    description: "protocolDescriptions.eyeinjury"
   },
   {
     id: "dental",
-    title: "Dental Emergencies",
-    description: "Managing broken teeth, severe pain, and other dental emergencies."
+    title: "protocolTitles.dental",
+    description: "protocolDescriptions.dental"
   },
   {
     id: "electrical",
-    title: "Electrical Injuries",
-    description: "Safety procedures and first aid for electrical shock and electrocution."
+    title: "protocolTitles.electrical",
+    description: "protocolDescriptions.electrical"
   },
   {
     id: "fire-safety-equipment",
-    title: "Fire Safety Equipment Guide",
-    description: "Comprehensive guide to fire safety equipment including extinguishers, alarms, sprinklers, and safety gear."
+    title: "protocolTitles.fire-safety-equipment",
+    description: "protocolDescriptions.fire-safety-equipment"
   },
   {
     id: "bites",
-    title: "Animal & Insect Bites",
-    description: "Treatment for bites and stings from animals, insects, and venomous creatures."
+    title: "protocolTitles.bites",
+    description: "protocolDescriptions.bites"
   },
   {
     id: "childbirth",
-    title: "Emergency Childbirth",
-    description: "Assisting with unexpected childbirth outside of medical facilities."
+    title: "protocolTitles.childbirth",
+    description: "protocolDescriptions.childbirth"
   },
   {
     id: "chest-pain",
-    title: "Chest Pain Assessment",
-    description: "Evaluating chest pain and determining appropriate emergency response."
+    title: "protocolTitles.chest-pain",
+    description: "protocolDescriptions.chest-pain"
   },
   {
     id: "overdose",
-    title: "Drug Overdose",
-    description: "Recognition and management of drug overdose emergencies including opioid overdose response."
+    title: "protocolTitles.overdose",
+    description: "protocolDescriptions.overdose"
   },
   {
     id: "shock",
-    title: "Shock Management",
-    description: "Identifying different types of shock and providing appropriate emergency care."
+    title: "protocolTitles.shock",
+    description: "protocolDescriptions.shock"
   },
   {
     id: "head-injury",
-    title: "Head Injury & Concussion",
-    description: "Assessment and management of traumatic head injuries and concussion protocol."
+    title: "protocolTitles.head-injury",
+    description: "protocolDescriptions.head-injury"
   },
   {
     id: "psychiatric",
-    title: "Psychiatric Emergencies",
-    description: "Safely responding to acute mental health crises and psychiatric emergencies."
+    title: "protocolTitles.psychiatric",
+    description: "protocolDescriptions.psychiatric"
   }
 ];

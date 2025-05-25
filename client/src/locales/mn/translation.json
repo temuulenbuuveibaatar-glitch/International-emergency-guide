@@ -67,7 +67,13 @@
     "stepTitle": "Алхам",
     "warningTitle": "Анхааруулга",
     "notesTitle": "Тэмдэглэл",
-    "important": "Чухал"
+    "important": "Чухал",
+    "print": "Хэвлэх",
+    "share": "Хуваалцах", 
+    "save": "Хадгалах",
+    "stepByStep": "Алхам Алхмаар Заавар",
+    "warnings": "Чухал Анхааруулга",
+    "additionalNotes": "Нэмэлт Тэмдэглэл"
   },
   "protocolTitles": {
     "fire-emergency": "Гал Түймрийн Яаралтай Тусламж",
