@@ -26,7 +26,7 @@ i18n
       ru: { translation: ruTranslation }
     },
     fallbackLng: "en",
-    debug: process.env.NODE_ENV !== "production",
+    debug: true,
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default
     }
