@@ -67,7 +67,13 @@
     "stepTitle": "Schritt",
     "warningTitle": "Warnhinweise",
     "notesTitle": "Hinweise",
-    "important": "Wichtig"
+    "important": "Wichtig",
+    "print": "Drucken",
+    "share": "Teilen",
+    "save": "Speichern",
+    "stepByStep": "Schritt-für-Schritt Anleitung",
+    "warnings": "Wichtige Warnungen",
+    "additionalNotes": "Zusätzliche Hinweise"
   },
   "protocolTitles": {
     "fire-emergency": "Feuernotfall-Maßnahmen",
@@ -128,6 +134,36 @@
     "shock": "Identifizierung verschiedener Arten von Schock und Bereitstellung entsprechender Notfallversorgung.",
     "head-injury": "Beurteilung und Management von traumatischen Kopfverletzungen und Gehirnerschütterungsprotokoll.",
     "psychiatric": "Sicheres Reagieren auf akute psychische Gesundheitskrisen und psychiatrische Notfälle."
+  },
+  "fireEmergencySteps": {
+    "prevention": {
+      "title": "Prävention",
+      "description": "Installieren Sie Rauchmelder auf jeder Etage und in wichtigen Bereichen wie Schlafzimmern und Küchen. Testen Sie sie monatlich und wechseln Sie die Batterien jährlich. Halten Sie Feuerlöscher zugänglich und lernen Sie, wie man sie benutzt. Erstellen und üben Sie einen Fluchtplan für den Brandfall mit allen Hausbewohnern."
+    },
+    "detection": {
+      "title": "Frühe Branderkennung",
+      "description": "Kennen Sie die Anzeichen eines Brandes: sichtbare Flammen, Rauch, Brandgeruch, ungewöhnliche Wärme, knisternde Geräusche oder Rauchmelder-Alarme. Frühe Erkennung rettet Leben und Eigentum."
+    },
+    "assess": {
+      "title": "Brandlage einschätzen",
+      "description": "Bestimmen Sie schnell die Größe, den Ort und die Art des Brandes (elektrisch, Fett, Papier/Holz, Chemikalien). Kleine, begrenzte Brände können beherrschbar sein, aber bereiten Sie sich vor, sofort zu evakuieren, wenn sich das Feuer schnell ausbreitet."
+    },
+    "alarm": {
+      "title": "Alarm auslösen und Rettungsdienste rufen",
+      "description": "Lösen Sie den Feueralarm aus, wenn Sie sich in einem öffentlichen Gebäude befinden. Rufen Sie sofort die Rettungsdienste an (112 in Deutschland). Geben Sie Ihren genauen Standort und Details über das Feuer an. Gehen Sie niemals davon aus, dass jemand anderes bereits angerufen hat."
+    },
+    "evacuation": {
+      "title": "Evakuierungsprioritäten",
+      "description": "Menschen zuerst, Besitztümer zweitrangig. Warnen Sie alle im Gebäude. Helfen Sie denen, die Hilfe benötigen. Betreten Sie niemals wieder ein brennendes Gebäude für Gegenstände."
+    },
+    "safeescape": {
+      "title": "Sichere Evakuierungstechniken",
+      "description": "Bleiben Sie niedrig, um Rauchvergiftung zu vermeiden (kriechen Sie wenn nötig). Testen Sie Türen vor dem Öffnen - verwenden Sie den Handrücken, um nach Hitze zu fühlen. Wenn die Tür heiß ist, finden Sie einen anderen Fluchtweg. Schließen Sie Türen hinter sich, um die Brandausbreitung zu verlangsamen. Benutzen Sie Treppen, niemals Aufzüge."
+    },
+    "trapped": {
+      "title": "Wenn Sie in einem Raum gefangen sind",
+      "description": "Blockieren Sie das Eindringen von Rauch, indem Sie nasse Handtücher oder Kleidung unter Türen legen. Signalisieren Sie Hilfe von Fenstern aus. Wenn möglich, rufen Sie die Rettungsdienste an, um Ihren genauen Standort zu melden. Bedecken Sie Mund und Nase mit einem feuchten Tuch."
+    }
   },
   "treatment": {
     "title": "Behandlungsrichtlinien",

@@ -39,41 +39,40 @@ interface Protocol {
 }
 
 // This function would normally fetch data from an API
-const getProtocolById = (id: string): Protocol | null => {
+const getProtocolById = (id: string, t: any): Protocol | null => {
   // Extended data for specific protocols
   const protocolData: Record<string, Protocol> = {
     "fire-emergency": {
       id: "fire-emergency",
-      title: "Fire Emergency Response",
-      description: "Comprehensive guide on how to respond to fires, including prevention, detection, evacuation, and basic firefighting techniques.",
+      title: t("protocolTitles.fire-emergency"),
+      description: t("protocolDescriptions.fire-emergency"),
       demoVideo: "",
       demoImages: [],
       steps: [
         {
-          title: "Prevention",
-          description: "Install smoke alarms on every floor and in key areas like bedrooms and kitchens. Test them monthly and replace batteries annually. Keep fire extinguishers accessible and learn how to use them. Create and practice a home fire escape plan with all household members.",
+          title: t("fireEmergencySteps.prevention.title"),
+          description: t("fireEmergencySteps.prevention.description"),
           imageUrl: "https://cdn.ready.gov/icons/smoke-alarm-testing.png"
         },
         {
-          title: "Early Fire Detection",
-          description: "Know the signs of fire: visible flames, smoke, burning smell, unusual warmth, crackling sounds, or smoke detector alarms. Early detection saves lives and property.",
-          important: true,
-
-        },
-        {
-          title: "Assess the Fire Situation",
-          description: "Quickly determine the size, location, and type of fire (electrical, grease, paper/wood, chemical). Small, contained fires may be manageable, but prepare to evacuate immediately if the fire is spreading rapidly.",
+          title: t("fireEmergencySteps.detection.title"),
+          description: t("fireEmergencySteps.detection.description"),
           important: true
         },
         {
-          title: "Activate the Alarm and Call Emergency Services",
-          description: "Pull the fire alarm if in a public building. Call emergency services immediately (101 in Mongolia). Give your exact location and details about the fire. Never assume someone else has called.",
+          title: t("fireEmergencySteps.assess.title"),
+          description: t("fireEmergencySteps.assess.description"),
+          important: true
+        },
+        {
+          title: t("fireEmergencySteps.alarm.title"),
+          description: t("fireEmergencySteps.alarm.description"),
           important: true,
           imageUrl: "https://www.safeworkaustralia.gov.au/sites/default/files/2021-05/fire-alarm-600px.jpg"
         },
         {
-          title: "Evacuation Priorities",
-          description: "People first, possessions second. Alert everyone in the building. Help those who need assistance. Never re-enter a burning building for belongings.",
+          title: t("fireEmergencySteps.evacuation.title"),
+          description: t("fireEmergencySteps.evacuation.description"),
           important: true,
           imageUrl: "https://www.securitysystemsuk.com/images/blog/large/evacuation-procedure-in-case-of-fire.jpg"
         },
