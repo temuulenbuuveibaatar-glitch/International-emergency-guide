@@ -252,8 +252,8 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
     },
     "cpr": {
       id: "cpr",
-      title: "CPR Protocol",
-      description: "Step-by-step guide for cardiopulmonary resuscitation in emergency situations.",
+      title: t("protocolTitles.cpr"),
+      description: t("protocolDescriptions.cpr"),
       demoVideo: "https://www.youtube.com/watch?v=tD2qTmDsiHk",
       demoImages: [
         "https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2017/10/05/17/43/cpr-8col.jpg",
@@ -262,24 +262,24 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
       ],
       steps: [
         {
-          title: "Check Responsiveness",
-          description: "Tap the person's shoulder and shout 'Are you okay?' to ensure they're unconscious.",
+          title: t("cprSteps.assess.title"),
+          description: t("cprSteps.assess.description"),
           imageUrl: "https://cpr.heart.org/-/media/Images/Health-Topics/CPR/CPR_Check_for_Responsiveness.png"
         },
         {
-          title: "Call for Help",
-          description: "Ask someone to call emergency services (103 in Mongolia) and get an AED if available.",
+          title: t("cprSteps.call.title"),
+          description: t("cprSteps.call.description"),
           important: true,
           imageUrl: "https://www.verywellhealth.com/thmb/M0pMrTdcStQmrpPSOXn9lp1pjWA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-675680446-5a8cd329c5542e003743880f.jpg"
         },
         {
-          title: "Check Breathing",
-          description: "Look for chest movement, listen for breathing sounds, and feel for breath on your cheek for no more than 10 seconds.",
+          title: t("cprSteps.position.title"),
+          description: t("cprSteps.position.description"),
           videoUrl: "https://www.youtube.com/watch?v=39TjtahTxT8"
         },
         {
-          title: "Begin Chest Compressions",
-          description: "Place the heel of your hand on the center of the chest, place your other hand on top, position your shoulders above your hands, and push hard and fast at a rate of 100-120 compressions per minute. Allow the chest to completely recoil between compressions.",
+          title: t("cprSteps.compressions.title"),
+          description: t("cprSteps.compressions.description"),
           important: true,
           videoUrl: "https://www.youtube.com/watch?v=G8S-PFPsZMM"
         },

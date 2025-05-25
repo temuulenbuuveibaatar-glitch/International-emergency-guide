@@ -165,6 +165,84 @@
       "description": "Blockieren Sie das Eindringen von Rauch, indem Sie nasse Handtücher oder Kleidung unter Türen legen. Signalisieren Sie Hilfe von Fenstern aus. Wenn möglich, rufen Sie die Rettungsdienste an, um Ihren genauen Standort zu melden. Bedecken Sie Mund und Nase mit einem feuchten Tuch."
     }
   },
+  "cprSteps": {
+    "assess": {
+      "title": "Bewusstsein prüfen",
+      "description": "Klopfen Sie der Person auf die Schultern und rufen Sie 'Alles in Ordnung?' Wenn keine Antwort, mit HLW fortfahren."
+    },
+    "call": {
+      "title": "Hilfe rufen", 
+      "description": "Rufen Sie sofort den Rettungsdienst (112) und holen Sie einen AED, falls verfügbar."
+    },
+    "position": {
+      "title": "Person positionieren",
+      "description": "Legen Sie die Person auf den Rücken auf eine feste, ebene Fläche. Kopf leicht nach hinten neigen und Kinn anheben."
+    },
+    "compressions": {
+      "title": "Herzdruckmassage beginnen",
+      "description": "Handballen in die Mitte der Brust zwischen die Brustwarzen legen. Fest und schnell mindestens 5 cm tief mit 100-120 Kompressionen pro Minute drücken."
+    },
+    "rescue": {
+      "title": "Beatmung geben",
+      "description": "Nach 30 Kompressionen 2 Beatmungen geben. Kopf zurück neigen, Kinn anheben, Nase zuhalten und 2 Atemzüge geben."
+    },
+    "continue": {
+      "title": "HLW fortsetzen",
+      "description": "Zyklen von 30 Kompressionen und 2 Beatmungen fortsetzen bis Rettungsdienst eintrifft oder Person normal zu atmen beginnt."
+    }
+  },
+  "chokingSteps": {
+    "recognize": {
+      "title": "Ersticken erkennen",
+      "description": "Universelles Erstickungs-zeichen: Hände am Hals. Person kann nicht sprechen, husten oder atmen."
+    },
+    "encourage": {
+      "title": "Zum Husten ermutigen",
+      "description": "Wenn die Person noch husten kann, ermutigen Sie sie, weiter zu husten, um das Objekt auszuwerfen."
+    },
+    "backblows": {
+      "title": "Rückenschläge geben",
+      "description": "5 kräftige Schläge zwischen die Schulterblätter mit dem Handballen. Person nach vorne lehnen."
+    },
+    "heimlich": {
+      "title": "Heimlich-Manöver",
+      "description": "Von hinten um die Taille greifen. Eine Faust über dem Nabel platzieren, mit der anderen Hand greifen und 5 schnelle Aufwärtsstöße geben."
+    },
+    "infant": {
+      "title": "Bei Säuglingen",
+      "description": "5 Rückenschläge, dann 5 Bruststöße. Niemals Heimlich-Manöver bei Säuglingen unter 1 Jahr verwenden."
+    },
+    "unconscious": {
+      "title": "Wenn bewusstlos",
+      "description": "Mit HLW beginnen. Vor jeder Beatmung Mund auf sichtbare Objekte überprüfen und nur entfernen, wenn sichtbar."
+    }
+  },
+  "bleedingSteps": {
+    "assess": {
+      "title": "Blutung beurteilen",
+      "description": "Schwere der Blutung und Quelle identifizieren. Bei starker Blutung sofort Druck ausüben."
+    },
+    "pressure": {
+      "title": "Direkten Druck ausüben",
+      "description": "Sauberes Tuch oder Verband fest auf die Wunde drücken. Konstanten, festen Druck aufrechterhalten."
+    },
+    "elevate": {
+      "title": "Hochlagern",
+      "description": "Blutende Gliedmaße über Herzhöhe heben, falls möglich und keine Fraktur vermutet wird."
+    },
+    "pressure_points": {
+      "title": "Druckpunkte verwenden",
+      "description": "Bei anhaltender Blutung Druck auf Arterien zwischen Wunde und Herz ausüben."
+    },
+    "tourniquet": {
+      "title": "Tourniquet als letztes Mittel",
+      "description": "Nur bei lebensbedrohlicher Blutung. 5-10 cm oberhalb der Wunde anbringen. Zeit der Anwendung notieren."
+    },
+    "shock": {
+      "title": "Schock überwachen",
+      "description": "Auf Anzeichen von Schock achten: blasse Haut, schneller Puls, Schwäche. Person hinlegen und warm halten."
+    }
+  },
   "treatment": {
     "title": "Behandlungsrichtlinien",
     "description": "Umfassende Behandlungsrichtlinien für verschiedene medizinische Zustände.",

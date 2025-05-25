@@ -159,6 +159,84 @@
       "description": "Bloquee la entrada de humo colocando toallas húmedas o ropa bajo las puertas. Señale pidiendo ayuda desde las ventanas. Si es posible, llame a servicios de emergencia para reportar su ubicación exacta. Cubra su boca y nariz con un paño húmedo."
     }
   },
+  "cprSteps": {
+    "assess": {
+      "title": "Verificar capacidad de respuesta",
+      "description": "Golpee los hombros de la persona y grite '¿Está bien?' Si no responde, inicie RCP."
+    },
+    "call": {
+      "title": "Pedir ayuda",
+      "description": "Llame inmediatamente a servicios de emergencia (112) y consiga un DEA si está disponible."
+    },
+    "position": {
+      "title": "Posicionar a la persona",
+      "description": "Coloque a la persona boca arriba sobre una superficie firme y plana. Incline ligeramente la cabeza hacia atrás y levante la barbilla."
+    },
+    "compressions": {
+      "title": "Iniciar compresiones torácicas",
+      "description": "Coloque el talón de la mano en el centro del pecho entre los pezones. Presione fuerte y rápido al menos 5 cm de profundidad a un ritmo de 100-120 compresiones por minuto."
+    },
+    "rescue": {
+      "title": "Dar respiraciones de rescate",
+      "description": "Después de 30 compresiones, dé 2 respiraciones de rescate. Incline la cabeza hacia atrás, levante la barbilla, cierre la nariz y dé 2 respiraciones."
+    },
+    "continue": {
+      "title": "Continuar RCP",
+      "description": "Continúe ciclos de 30 compresiones y 2 respiraciones hasta que lleguen los servicios de emergencia o la persona comience a respirar normalmente."
+    }
+  },
+  "chokingSteps": {
+    "recognize": {
+      "title": "Reconocer asfixia",
+      "description": "Señal universal de asfixia: manos en el cuello. La persona no puede hablar, toser o respirar."
+    },
+    "encourage": {
+      "title": "Animar a toser",
+      "description": "Si la persona aún puede toser, anímela a seguir tosiendo para expulsar el objeto."
+    },
+    "backblows": {
+      "title": "Golpes en la espalda",
+      "description": "5 golpes fuertes entre los omóplatos con el talón de la mano. Incline a la persona hacia adelante."
+    },
+    "heimlich": {
+      "title": "Maniobra de Heimlich",
+      "description": "Rodee desde atrás por la cintura. Coloque un puño por encima del ombligo, agarre con la otra mano y dé 5 empujones rápidos hacia arriba."
+    },
+    "infant": {
+      "title": "Para bebés",
+      "description": "5 golpes en la espalda, luego 5 compresiones en el pecho. Nunca use la maniobra de Heimlich en bebés menores de 1 año."
+    },
+    "unconscious": {
+      "title": "Si pierde el conocimiento",
+      "description": "Inicie RCP. Antes de cada respiración, revise la boca para objetos visibles y retire solo los que pueda ver."
+    }
+  },
+  "bleedingSteps": {
+    "assess": {
+      "title": "Evaluar el sangrado",
+      "description": "Identifique la gravedad del sangrado y la fuente. Para sangrado severo, aplique presión inmediatamente."
+    },
+    "pressure": {
+      "title": "Presión directa",
+      "description": "Presione firmemente la herida con un paño limpio o vendaje. Mantenga presión constante y firme."
+    },
+    "elevate": {
+      "title": "Elevar",
+      "description": "Si es posible y no se sospecha fractura, eleve la extremidad sangrante por encima del nivel del corazón."
+    },
+    "pressure_points": {
+      "title": "Usar puntos de presión",
+      "description": "Para sangrado persistente, aplique presión en las arterias entre la herida y el corazón."
+    },
+    "tourniquet": {
+      "title": "Torniquete como último recurso",
+      "description": "Solo para sangrado que amenaza la vida. Aplique 5-10 cm por encima de la herida. Registre el tiempo de aplicación."
+    },
+    "shock": {
+      "title": "Monitorear shock",
+      "description": "Observe signos de shock: piel pálida, pulso rápido, debilidad. Acueste a la persona y manténgala caliente."
+    }
+  },
   "treatment": {
     "title": "Guías de Tratamiento",
     "description": "Guías de tratamiento completas para diversas condiciones médicas.",
