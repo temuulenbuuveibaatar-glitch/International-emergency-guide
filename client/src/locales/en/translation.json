@@ -133,6 +133,36 @@
     "head-injury": "Assessment and management of traumatic head injuries and concussion protocol.",
     "psychiatric": "Safely responding to acute mental health crises and psychiatric emergencies."
   },
+  "fireEmergencySteps": {
+    "prevention": {
+      "title": "Prevention",
+      "description": "Install smoke alarms on every floor and in key areas like bedrooms and kitchens. Test them monthly and replace batteries annually. Keep fire extinguishers accessible and learn how to use them. Create and practice a home fire escape plan with all household members."
+    },
+    "detection": {
+      "title": "Early Fire Detection",
+      "description": "Know the signs of fire: visible flames, smoke, burning smell, unusual warmth, crackling sounds, or smoke detector alarms. Early detection saves lives and property."
+    },
+    "assess": {
+      "title": "Assess the Fire Situation",
+      "description": "Quickly determine the size, location, and type of fire (electrical, grease, paper/wood, chemical). Small, contained fires may be manageable, but prepare to evacuate immediately if the fire is spreading rapidly."
+    },
+    "alarm": {
+      "title": "Activate the Alarm and Call Emergency Services",
+      "description": "Pull the fire alarm if in a public building. Call emergency services immediately (911 in US, 101 in Mongolia). Give your exact location and details about the fire. Never assume someone else has called."
+    },
+    "evacuation": {
+      "title": "Evacuation Priorities",
+      "description": "People first, possessions second. Alert everyone in the building. Help those who need assistance. Never re-enter a burning building for belongings."
+    },
+    "safeescape": {
+      "title": "Safe Evacuation Techniques",
+      "description": "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators."
+    },
+    "trapped": {
+      "title": "If Trapped in a Room",
+      "description": "Block smoke from entering by placing wet towels or clothing under doors. Signal for help from windows. If possible, call emergency services to report your exact location. Cover your mouth and nose with a damp cloth."
+    }
+  },
   "treatment": {
     "title": "Treatment Guidelines",
     "description": "Comprehensive treatment guidelines for various medical conditions.",

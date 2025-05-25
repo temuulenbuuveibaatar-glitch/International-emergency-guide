@@ -77,13 +77,13 @@ const getProtocolById = (id: string): Protocol | null => {
           imageUrl: "https://www.securitysystemsuk.com/images/blog/large/evacuation-procedure-in-case-of-fire.jpg"
         },
         {
-          title: "Safe Evacuation Techniques",
-          description: "Stay low to avoid smoke inhalation (crawl if necessary). Test doors before opening - use the back of your hand to feel for heat. If the door is hot, find another exit route. Close doors behind you to slow fire spread. Use stairs, never elevators.",
-
+          title: t("fireEmergencySteps.safeescape.title"),
+          description: t("fireEmergencySteps.safeescape.description"),
+          important: true
         },
         {
-          title: "If Trapped in a Room",
-          description: "Block smoke from entering by placing wet towels or clothing under doors. Signal for help from windows. If possible, call emergency services to report your exact location. Cover your mouth and nose with a damp cloth.",
+          title: t("fireEmergencySteps.trapped.title"),
+          description: t("fireEmergencySteps.trapped.description"),
           imageUrl: "https://www.nfpa.org/-/media/Images/Public-Education/By-topic/Fire-safety-equipment/Safety-messages-about-smoke-alarms/Close-the-door.ashx"
         },
         {
