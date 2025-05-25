@@ -189,6 +189,58 @@
       "description": "Continue cycles of 30 compressions and 2 breaths until emergency services arrive or the person starts breathing normally."
     }
   },
+  "chokingSteps": {
+    "recognize": {
+      "title": "Recognize Choking",
+      "description": "Universal choking sign: hands on throat. Person cannot speak, cough, or breathe."
+    },
+    "encourage": {
+      "title": "Encourage Coughing",
+      "description": "If person can still cough, encourage them to continue coughing to expel the object."
+    },
+    "backblows": {
+      "title": "Give Back Blows",
+      "description": "5 forceful blows between shoulder blades with heel of hand. Lean person forward."
+    },
+    "heimlich": {
+      "title": "Heimlich Maneuver",
+      "description": "From behind, wrap around waist. Place fist above navel, grasp with other hand, give 5 quick upward thrusts."
+    },
+    "infant": {
+      "title": "For Infants",
+      "description": "5 back blows, then 5 chest thrusts. Never use Heimlich maneuver on infants under 1 year."
+    },
+    "unconscious": {
+      "title": "If Unconscious",
+      "description": "Begin CPR. Before each rescue breath, check mouth for visible objects and remove only if visible."
+    }
+  },
+  "bleedingSteps": {
+    "assess": {
+      "title": "Assess Bleeding",
+      "description": "Identify severity of bleeding and source. For severe bleeding, apply pressure immediately."
+    },
+    "pressure": {
+      "title": "Direct Pressure",
+      "description": "Press clean cloth or bandage firmly on wound. Maintain constant, firm pressure."
+    },
+    "elevate": {
+      "title": "Elevate",
+      "description": "If possible and no fracture suspected, raise bleeding limb above heart level."
+    },
+    "pressure_points": {
+      "title": "Use Pressure Points",
+      "description": "For persistent bleeding, apply pressure on arteries between wound and heart."
+    },
+    "tourniquet": {
+      "title": "Tourniquet as Last Resort",
+      "description": "Only for life-threatening bleeding. Apply 2-4 inches above wound. Record time of application."
+    },
+    "shock": {
+      "title": "Monitor for Shock",
+      "description": "Watch for shock signs: pale skin, rapid pulse, weakness. Lay person down and keep warm."
+    }
+  },
   "treatment": {
     "title": "Treatment Guidelines",
     "description": "Comprehensive treatment guidelines for various medical conditions.",
@@ -198,14 +250,46 @@
   "medications": {
     "title": "Medication Database",
     "description": "Comprehensive information about medications including dosage, usage, and precautions.",
-    "comingSoon": "Coming Soon",
-    "comingSoonDesc": "Our medication database is under development. Please check back later for comprehensive medication information."
+    "searchPlaceholder": "Search medications...",
+    "category": "Category",
+    "dosageForm": "Dosage Form",
+    "dosage": "Dosage",
+    "sideEffects": "Side Effects",
+    "common": "Common",
+    "serious": "Serious",
+    "interactions": "Drug Interactions",
+    "contraindications": "Contraindications",
+    "warnings": "Warnings",
+    "notes": "Additional Notes",
+    "genericName": "Generic Name",
+    "noResults": "No medications found matching your search.",
+    "clearFilters": "Clear Filters",
+    "showingResults": "Showing medications",
+    "searchResults": "Search Results"
   },
   "symptoms": {
     "title": "Symptom Checker",
     "description": "Identify potential medical conditions based on your symptoms.",
-    "comingSoon": "Coming Soon",
-    "comingSoonDesc": "Our interactive symptom checker is currently under development. Please check back soon."
+    "selectSymptoms": "Select Your Symptoms",
+    "bodyPart": "Body Part",
+    "head": "Head",
+    "chest": "Chest", 
+    "abdomen": "Abdomen",
+    "limbs": "Arms & Legs",
+    "skin": "Skin",
+    "general": "General",
+    "selectedSymptoms": "Selected Symptoms",
+    "clearAll": "Clear All",
+    "checkSymptoms": "Check Symptoms",
+    "results": "Possible Conditions",
+    "urgency": "Urgency Level",
+    "emergency": "EMERGENCY - Seek immediate medical attention",
+    "urgent": "URGENT - See a doctor today",
+    "nonUrgent": "Non-urgent - Monitor symptoms",
+    "recommendation": "Recommendation",
+    "disclaimer": "This tool provides general guidance only. Always consult healthcare professionals for proper diagnosis.",
+    "noSymptoms": "Please select at least one symptom to continue.",
+    "criticalWarning": "CRITICAL: If experiencing severe symptoms, call emergency services immediately!"
   },
   "offline": {
     "title": "Offline Access",

@@ -284,18 +284,18 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
           videoUrl: "https://www.youtube.com/watch?v=G8S-PFPsZMM"
         },
         {
-          title: "Open the Airway",
-          description: "Place one hand on the forehead and gently tilt the head back. With your other hand, lift the chin forward to open the airway.",
+          title: t("cprSteps.rescue.title"),
+          description: t("cprSteps.rescue.description"),
           imageUrl: "https://www.thecprguys.com/wp-content/uploads/2019/02/The-Head-Tilt-Chin-Lift-Maneuver-for-Airway-Opening.jpg"
         },
         {
-          title: "Give Rescue Breaths",
-          description: "Pinch the nose closed, take a normal breath, cover the person's mouth with yours (or use a barrier device), and blow for about 1 second to make the chest rise. Deliver 2 rescue breaths.",
+          title: t("cprSteps.rescue.title"),
+          description: t("cprSteps.rescue.description"),
           imageUrl: "https://userfiles.steadyhealth.com/articles/info/5/55/rescue-breathing.jpg"
         },
         {
-          title: "Continue CPR",
-          description: "Continue cycles of 30 chest compressions followed by 2 rescue breaths until help arrives or the person shows signs of life.",
+          title: t("cprSteps.continue.title"),
+          description: t("cprSteps.continue.description"),
           videoUrl: "https://www.youtube.com/watch?v=gSrWn9yrjQc"
         },
         {
