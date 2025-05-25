@@ -289,20 +289,9 @@ const getProtocolById = (id: string, t: any): Protocol | null => {
           imageUrl: "https://www.thecprguys.com/wp-content/uploads/2019/02/The-Head-Tilt-Chin-Lift-Maneuver-for-Airway-Opening.jpg"
         },
         {
-          title: t("cprSteps.rescue.title"),
-          description: t("cprSteps.rescue.description"),
-          imageUrl: "https://userfiles.steadyhealth.com/articles/info/5/55/rescue-breathing.jpg"
-        },
-        {
           title: t("cprSteps.continue.title"),
           description: t("cprSteps.continue.description"),
           videoUrl: "https://www.youtube.com/watch?v=gSrWn9yrjQc"
-        },
-        {
-          title: "Use AED if Available",
-          description: "Turn on the AED and follow the prompts. Apply pads to bare chest as shown in the diagram on the pads.",
-          imageUrl: "https://www.heartsafesolution.com/wp-content/uploads/2018/10/pad-where-to-place-aed-pads1.jpg",
-          videoUrl: "https://www.youtube.com/watch?v=EuEPBkLKL9c"
         }
       ],
       warnings: [
