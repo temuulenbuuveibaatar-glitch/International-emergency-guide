@@ -1268,11 +1268,11 @@ export default function ProtocolDetail() {
 
   useEffect(() => {
     if (id) {
-      const protocolData = getProtocolById(id);
+      const protocolData = getProtocolById(id, t);
       setProtocol(protocolData);
       setLoading(false);
     }
-  }, [id]);
+  }, [id, t]);
 
   const handlePrint = () => {
     window.print();
