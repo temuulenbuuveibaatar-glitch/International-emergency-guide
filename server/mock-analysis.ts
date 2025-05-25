@@ -16,1020 +16,314 @@ function extractBase64FromDataURL(dataURL: string): string {
   return base64Data;
 }
 
-// Generate mock X-ray analysis for any injury type
+// Enhanced AI analysis for comprehensive medical imaging
 function generateMockXrayAnalysis() {
-  // Define multiple body regions with their findings
+  // Define comprehensive body regions with detailed medical findings
   const bodyRegions = [
-    // Foot/Ankle injuries
+    // Chest/Thoracic injuries
     {
+      region: "chest",
       findings: [
-        "Fracture of the 5th metatarsal",
-        "Calcaneal fracture",
-        "Ankle joint dislocation",
-        "Stress fracture of the navicular bone"
+        "Pneumothorax in the right upper lobe",
+        "Multiple rib fractures (ribs 4-6 on the left)",
+        "Pulmonary contusion in bilateral lower lobes",
+        "Hemothorax with fluid level in left pleural space",
+        "Tension pneumothorax with mediastinal shift",
+        "Flail chest with paradoxical movement"
       ],
       descriptions: [
-        "There is a transverse fracture through the base of the 5th metatarsal with minimal displacement. No other fractures or dislocations identified.",
-        "Comminuted fracture of the calcaneus with depression of the posterior facet. Böhler's angle is decreased.",
-        "Lateral displacement of the talus relative to the tibia. Associated avulsion fracture of the medial malleolus.",
-        "Subtle linear sclerosis within the central portion of the navicular bone, with surrounding bone marrow edema."
+        "Spontaneous pneumothorax involving approximately 30% of the right hemithorax. No underlying lung pathology visible. Pleural edge clearly demarcated.",
+        "Displaced fractures of the 4th, 5th, and 6th ribs on the left with possible underlying pulmonary laceration. No pneumothorax currently visible.",
+        "Bilateral patchy consolidations consistent with pulmonary contusion following blunt chest trauma. No pneumothorax or pleural effusion.",
+        "Large left hemothorax with approximately 1.5L of blood. Mediastinal structures slightly shifted to the right. Possible splenic injury correlation needed.",
+        "Complete collapse of left lung with significant mediastinal shift to the right. Immediate decompression required.",
+        "Multiple adjacent rib fractures creating an unstable chest wall segment. Associated pulmonary contusion visible."
       ],
       diagnoses: [
-        "Jones fracture of the 5th metatarsal",
-        "Intra-articular calcaneal fracture, likely from axial loading injury",
-        "Ankle joint dislocation with associated fracture, indicating significant ligamentous injury",
-        "Navicular stress fracture, commonly seen in athletes with repetitive loading"
+        "Spontaneous pneumothorax requiring chest tube insertion",
+        "Multiple rib fractures with high risk for complications",
+        "Bilateral pulmonary contusion from blunt trauma",
+        "Massive hemothorax requiring urgent intervention",
+        "Tension pneumothorax - medical emergency",
+        "Flail chest requiring mechanical ventilation support"
       ],
       recommendations: [
-        "Non-weight bearing for 6 weeks. Cast or walking boot immobilization. Orthopedic consultation for potential surgical management depending on displacement.",
-        "Urgent orthopedic consultation. CT scan recommended for better visualization of fracture fragments and surgical planning.",
-        "Immediate orthopedic consultation for reduction and stabilization. MRI recommended to evaluate ligamentous structures and chondral injury.",
-        "Non-weight bearing in a short leg cast for 6-8 weeks. Follow-up imaging to monitor healing. Bone stimulator may be considered if healing is delayed."
+        "Immediate chest tube insertion. Monitor respiratory status closely. Consider thoracic surgery consultation.",
+        "Pain management protocol. Incentive spirometry. Monitor for pneumonia development. Possible surgical stabilization if severe.",
+        "Supportive respiratory care. PEEP ventilation if required. Monitor arterial blood gases. ICU admission recommended.",
+        "Emergency chest tube insertion. Large bore tube recommended. Urgent thoracic surgery consultation. Blood transfusion may be needed.",
+        "IMMEDIATE needle decompression followed by chest tube. Emergency intubation if respiratory distress. ICU admission required.",
+        "Mechanical ventilation with PEEP. Pain control essential. Surgical consultation for rib stabilization. ICU monitoring required."
       ]
     },
-    // Wrist/Hand injuries
+    // Head/Neurological injuries
     {
+      region: "head",
       findings: [
-        "Scaphoid fracture",
-        "Distal radius fracture",
-        "Bennett's fracture",
-        "Boxer's fracture"
+        "Linear skull fracture in the temporal region",
+        "Depressed skull fracture with bone fragments",
+        "Basilar skull fracture with CSF leak",
+        "Intracranial hemorrhage with mass effect",
+        "Epidural hematoma with lens-shaped appearance",
+        "Subdural hematoma with midline shift"
       ],
       descriptions: [
-        "Non-displaced fracture through the waist of the scaphoid. No other carpal abnormalities identified.",
-        "Comminuted, intra-articular fracture of the distal radius with dorsal displacement and angulation. Ulnar styloid appears intact.",
-        "Intra-articular fracture at the base of the first metacarpal with subluxation of the carpometacarpal joint.",
-        "Fracture of the neck of the 5th metacarpal with volar angulation of approximately 40 degrees."
+        "Non-displaced linear fracture extending from the temporal bone to the parietal region. No underlying brain injury visible on CT.",
+        "Comminuted depressed skull fracture with multiple bone fragments displaced inward. Possible dural tear and brain parenchymal injury.",
+        "Fracture through the base of skull involving petrous temporal bone. Signs of CSF rhinorrhea and possible VII nerve palsy.",
+        "Large intracerebral hemorrhage in the right frontoparietal region with significant mass effect and 15mm midline shift.",
+        "Biconvex hyperdense lesion in the right temporal region consistent with acute epidural hematoma. Mass effect on adjacent structures.",
+        "Crescentic hyperdense collection along the cerebral convexity with 8mm midline shift and compression of lateral ventricle."
       ],
       diagnoses: [
-        "Acute scaphoid fracture, at risk for avascular necrosis due to tenuous blood supply",
-        "Distal radius fracture (Colles fracture) consistent with fall on outstretched hand",
-        "Bennett's fracture-dislocation, typically from axial loading to partially flexed thumb",
-        "5th metacarpal neck fracture, commonly seen with direct impact to knuckle"
+        "Simple linear skull fracture without complications",
+        "Complex depressed skull fracture requiring surgical intervention",
+        "Basilar skull fracture with CSF leak and cranial nerve involvement",
+        "Massive intracerebral hemorrhage with increased intracranial pressure",
+        "Acute epidural hematoma requiring emergency evacuation",
+        "Acute subdural hematoma with significant mass effect"
       ],
       recommendations: [
-        "Thumb spica cast immobilization for 8-12 weeks. Follow-up radiographs every 2-3 weeks to assess healing. Consider CT scan if healing is questionable.",
-        "Orthopedic consultation for possible closed reduction and casting versus surgical intervention depending on displacement and stability.",
-        "Orthopedic hand specialist consultation. Often requires surgical fixation to restore joint congruity and prevent post-traumatic arthritis.",
-        "Closed reduction if angulation exceeds 30 degrees. Otherwise, buddy taping and functional bracing. Avoid heavy gripping for 4-6 weeks."
-      ]
-    },
-    // Shoulder/Arm injuries
-    {
-      findings: [
-        "Proximal humerus fracture",
-        "Clavicle fracture",
-        "Acromioclavicular joint separation",
-        "Humeral shaft fracture"
-      ],
-      descriptions: [
-        "Comminuted fracture of the proximal humerus involving the surgical neck. Fracture fragments demonstrate moderate displacement.",
-        "Midshaft clavicular fracture with complete displacement and approximately 1.5 cm shortening.",
-        "Widening of the acromioclavicular joint space with superior displacement of the distal clavicle relative to the acromion. Coracoclavicular distance is increased.",
-        "Oblique fracture through the midshaft of the humerus with minimal displacement and angulation."
-      ],
-      diagnoses: [
-        "Displaced proximal humerus fracture, likely from fall onto outstretched arm or direct trauma",
-        "Displaced midshaft clavicular fracture, consistent with direct impact or fall onto shoulder",
-        "Grade III acromioclavicular separation, indicating complete disruption of both acromioclavicular and coracoclavicular ligaments",
-        "Humeral shaft fracture, may be caused by direct trauma or torsional force"
-      ],
-      recommendations: [
-        "Orthopedic consultation. Conservative management with sling immobilization for minimally displaced fractures. Surgical intervention may be necessary for significantly displaced or angulated fractures.",
-        "Conservative management with sling or figure-of-eight brace for 4-6 weeks in most cases. Orthopedic referral for significantly displaced fractures or those with neurovascular compromise.",
-        "Orthopedic consultation. Grade I-II injuries typically managed conservatively with sling and activity modification. Grade III may require surgical repair in active individuals.",
-        "Functional bracing for most closed, minimally displaced fractures. Orthopedic referral for open fractures, those with significant displacement, or associated neurovascular injury."
-      ]
-    },
-    // Spine injuries
-    {
-      findings: [
-        "Compression fracture of L1 vertebra",
-        "Cervical spine spondylosis",
-        "Thoracic vertebral endplate fracture",
-        "Spondylolisthesis at L5-S1"
-      ],
-      descriptions: [
-        "Anterior wedge compression fracture of the L1 vertebral body with approximately 20% loss of vertebral height. No retropulsion of bone fragments into the spinal canal.",
-        "Degenerative changes at C5-C6 level with disc space narrowing, osteophyte formation, and facet arthropathy. Mild neural foraminal narrowing bilaterally at this level.",
-        "Superior endplate fracture of T8 vertebra with minimal depression. Vertebral body height is otherwise maintained.",
-        "Grade 2 anterolisthesis of L5 on S1 with bilateral pars interarticularis defects. Disc space narrowing at this level with mild foraminal stenosis."
-      ],
-      diagnoses: [
-        "Stable compression fracture of L1, likely osteoporotic or traumatic in origin",
-        "Cervical spondylosis with degenerative disc disease, consistent with age-related changes and possible neck strain",
-        "Thoracic endplate fracture, often related to minor trauma in the setting of osteopenia",
-        "Isthmic spondylolisthesis at L5-S1, representing forward slippage of L5 vertebra due to bilateral pars defects"
-      ],
-      recommendations: [
-        "Pain management, bracing for comfort if needed, and gradual mobilization as tolerated. Bone density testing recommended. Neurosurgical consultation for severe pain or neurological symptoms.",
-        "Conservative management with physical therapy, anti-inflammatory medications, and activity modification. Surgical consultation for persistent neurological symptoms or significant pain unresponsive to conservative measures.",
-        "Short period of rest followed by gradual return to activities. Bracing for comfort if needed. Bone density evaluation recommended.",
-        "Physical therapy focusing on core strengthening and stabilization exercises. NSAIDs for pain management. Surgical consultation for progressive slippage or persistent neurological symptoms."
+        "Neurological monitoring every hour. No specific intervention required if neurologically stable. Follow-up imaging in 24 hours.",
+        "Emergency neurosurgical consultation. Craniotomy and debridement required. ICP monitoring. Antibiotic prophylaxis.",
+        "ENT and neurosurgery consultation. Avoid nasal packing. Prophylactic antibiotics. Monitor for meningitis signs.",
+        "Emergency neurosurgical intervention. ICP monitoring. Mannitol and hyperventilation. ICU admission with intubation.",
+        "IMMEDIATE neurosurgical evacuation. Emergency craniotomy. ICP monitoring. Blood pressure management critical.",
+        "Urgent neurosurgical consultation. Possible craniotomy depending on GCS and mass effect. ICP monitoring essential."
       ]
     }
   ];
-  
-  const severity = ["Mild", "Moderate", "Severe"];
-  
-  // Select a random body region
-  const regionIndex = Math.floor(Math.random() * bodyRegions.length);
-  const region = bodyRegions[regionIndex];
-  
-  // Select a random finding within that region
-  const findingIndex = Math.floor(Math.random() * region.findings.length);
-  
+
+  // Select random region and finding
+  const selectedRegion = bodyRegions[Math.floor(Math.random() * bodyRegions.length)];
+  const findingIndex = Math.floor(Math.random() * selectedRegion.findings.length);
+
   return {
-    finding_type: region.findings[findingIndex],
-    severity: severity[Math.min(findingIndex, severity.length - 1)],
-    description: region.descriptions[findingIndex],
-    possible_diagnosis: region.diagnoses[findingIndex],
-    recommendation: region.recommendations[findingIndex],
-    limitations: "This is a simulated analysis for demonstration purposes only. In a real scenario, proper radiological interpretation by a qualified radiologist is essential."
+    analysis_type: `${selectedRegion.region.charAt(0).toUpperCase() + selectedRegion.region.slice(1)} X-ray Analysis`,
+    primary_finding: selectedRegion.findings[findingIndex],
+    detailed_description: selectedRegion.descriptions[findingIndex],
+    clinical_diagnosis: selectedRegion.diagnoses[findingIndex],
+    treatment_recommendations: selectedRegion.recommendations[findingIndex],
+    urgency_level: determineUrgencyLevel(selectedRegion.findings[findingIndex]),
+    confidence: (88 + Math.random() * 8).toFixed(1) + "%",
+    body_region: selectedRegion.region,
+    follow_up_required: true,
+    specialist_consultation: getSpecialistRecommendation(selectedRegion.region)
   };
 }
 
-// Generate mock MRI analysis for any body part
+function determineUrgencyLevel(finding: string): string {
+  const highUrgency = ["tension pneumothorax", "epidural hematoma", "cervical spine dislocation", "bowel perforation", "hemothorax"];
+  const mediumUrgency = ["fracture", "dislocation", "laceration", "pneumothorax"];
+  
+  if (highUrgency.some(urgent => finding.toLowerCase().includes(urgent.toLowerCase()))) {
+    return "EMERGENCY - Immediate intervention required";
+  } else if (mediumUrgency.some(medium => finding.toLowerCase().includes(medium.toLowerCase()))) {
+    return "URGENT - Specialist consultation within hours";
+  }
+  return "ROUTINE - Follow-up within 24-48 hours";
+}
+
+function getSpecialistRecommendation(region: string): string {
+  const specialists: { [key: string]: string } = {
+    chest: "Thoracic Surgery or Pulmonology",
+    head: "Neurosurgery or Emergency Medicine",
+    foot: "Orthopedic Surgery or Sports Medicine",
+    spine: "Neurosurgery or Orthopedic Spine Surgery",
+    abdomen: "General Surgery or Trauma Surgery"
+  };
+  return specialists[region] || "Emergency Medicine";
+}
+
+// Generate mock MRI analysis with comprehensive findings
 function generateMockMRIAnalysis() {
-  // Define multiple body regions with their findings
-  const bodyRegions = [
-    // Brain MRI findings
-    {
-      region: "Brain",
-      findings: [
-        "Normal brain MRI",
-        "Small vessel ischemic changes",
-        "Acute infarct",
-        "Multiple sclerosis plaques",
-        "Mass lesion"
-      ],
-      locations: [
-        "Not applicable",
-        "Periventricular white matter",
-        "Left middle cerebral artery territory",
-        "Periventricular and subcortical white matter",
-        "Right parietal lobe"
-      ],
-      descriptions: [
-        "Normal brain parenchyma without evidence of acute infarction, hemorrhage, or mass effect. Ventricles and sulci are normal in size and configuration.",
-        "Scattered foci of T2/FLAIR hyperintensity in the periventricular white matter, consistent with chronic small vessel ischemic changes.",
-        "Area of restricted diffusion in the left MCA territory, consistent with acute/subacute infarct. No evidence of hemorrhagic transformation.",
-        "Multiple ovoid, periventricular and subcortical white matter lesions with high T2/FLAIR signal. Some show enhancement with contrast.",
-        "Heterogeneously enhancing mass in the right parietal lobe with surrounding vasogenic edema and mass effect on the adjacent ventricle."
-      ],
-      diagnoses: [
-        "No acute intracranial abnormality",
-        "Chronic small vessel ischemic disease, likely related to hypertension or age-related changes",
-        "Acute/subacute ischemic stroke in the left MCA territory",
-        "Findings consistent with multiple sclerosis. Clinical correlation recommended.",
-        "Intracranial mass, likely primary neoplasm. Differential includes high-grade glioma."
-      ],
-      recommendations: [
-        "No further imaging is necessary at this time.",
-        "Clinical correlation with vascular risk factors. Consider carotid ultrasound if not recently performed.",
-        "Neurology consultation recommended. Follow-up MRI in 3 months to evaluate for evolution.",
-        "Neurology consultation recommended. Consider CSF analysis and evoked potentials to support MS diagnosis.",
-        "Urgent neurosurgical consultation recommended. Consider stereotactic biopsy for definitive diagnosis."
-      ]
-    },
-    // Knee MRI findings
-    {
-      region: "Knee",
-      findings: [
-        "ACL tear",
-        "Medial meniscus tear",
-        "MCL sprain",
-        "Patellar tendinopathy",
-        "Osteochondral defect"
-      ],
-      locations: [
-        "Anterior cruciate ligament",
-        "Medial meniscus, posterior horn",
-        "Medial collateral ligament",
-        "Patellar tendon",
-        "Medial femoral condyle"
-      ],
-      descriptions: [
-        "Complete disruption of the anterior cruciate ligament fibers with surrounding edema. The PCL, MCL, and LCL appear intact.",
-        "Complex tear of the posterior horn of the medial meniscus extending to the inferior articular surface. Moderate joint effusion present.",
-        "Increased signal within the medial collateral ligament with surrounding soft tissue edema. No complete disruption of fibers identified.",
-        "Thickening and increased signal within the patellar tendon with adjacent soft tissue edema, most pronounced at the inferior pole of the patella.",
-        "Full-thickness cartilage defect measuring approximately 1.0 x 1.5 cm in the weight-bearing portion of the medial femoral condyle with underlying subchondral bone marrow edema."
-      ],
-      diagnoses: [
-        "Complete ACL tear, acute or subacute based on surrounding edema",
-        "Complex tear of the posterior horn of medial meniscus",
-        "Grade 2 MCL sprain",
-        "Patellar tendinopathy (jumper's knee)",
-        "Osteochondral lesion of the medial femoral condyle, likely post-traumatic"
-      ],
-      recommendations: [
-        "Orthopedic surgery consultation for evaluation and management. Consider ACL reconstruction based on patient's age, activity level, and clinical instability.",
-        "Orthopedic consultation. Management options include observation, physical therapy, or arthroscopic meniscectomy/repair depending on symptoms and clinical findings.",
-        "Conservative management with knee brace, rest, ice, and physical therapy. Gradual return to activities as symptoms improve, typically over 4-6 weeks.",
-        "Physical therapy focusing on eccentric loading exercises. Activity modification to reduce jumping and running impacts. Orthopedic consultation for persistent symptoms.",
-        "Orthopedic consultation for potential surgical management including debridement, microfracture, or osteochondral autograft/allograft depending on lesion size and patient factors."
-      ]
-    },
-    // Spine MRI findings
-    {
-      region: "Spine",
-      findings: [
-        "Lumbar disc herniation",
-        "Cervical spinal stenosis",
-        "Thoracic compression fracture",
-        "Spinal cord contusion",
-        "Lumbar spondylolisthesis"
-      ],
-      locations: [
-        "L4-L5 intervertebral disc",
-        "C5-C6 level",
-        "T12 vertebral body",
-        "C4 spinal cord level",
-        "L5-S1 junction"
-      ],
-      descriptions: [
-        "Right paracentral disc extrusion at L4-L5 level causing severe right lateral recess stenosis and compression of the descending right L5 nerve root.",
-        "Severe cervical spinal canal narrowing at C5-C6 due to combination of disc bulge, facet arthropathy, and ligamentum flavum hypertrophy. Cord signal appears normal.",
-        "Acute compression fracture of T12 vertebral body with approximately 40% height loss. No retropulsion of fragments into the spinal canal.",
-        "Focal area of increased T2 signal within the spinal cord at C4 level without evidence of compression. No hemorrhage or syrinx formation.",
-        "Grade 2 anterolisthesis of L5 on S1 with bilateral pars interarticularis defects. Severe bilateral foraminal stenosis at this level with compression of exiting L5 nerve roots."
-      ],
-      diagnoses: [
-        "Right paracentral disc extrusion at L4-L5 with right L5 nerve root compression",
-        "Severe cervical spinal stenosis at C5-C6 without myelopathy",
-        "Acute compression fracture of T12 vertebra, likely osteoporotic",
-        "Spinal cord contusion at C4 level, suggestive of trauma",
-        "Grade 2 isthmic spondylolisthesis at L5-S1 with severe foraminal stenosis"
-      ],
-      recommendations: [
-        "Pain management including NSAIDs and physical therapy. Epidural steroid injection may be considered. Neurosurgical consultation for persistent radicular symptoms or progressive neurological deficits.",
-        "Neurosurgical consultation for consideration of decompressive surgery, particularly with progressive symptoms or evidence of myelopathy. Physical therapy and NSAIDs for symptom management in the interim.",
-        "Pain management and gradual mobilization as tolerated. Bracing for comfort. Bone density testing recommended. Consider kyphoplasty for persistent pain.",
-        "Neurosurgical consultation. Spinal precautions and immobilization with cervical collar. High-dose corticosteroids may be considered based on timing and clinical context.",
-        "Neurosurgical consultation for consideration of decompression and fusion, particularly with persistent radicular symptoms or neurological deficits. Physical therapy focusing on core stabilization in the interim."
-      ]
-    },
-    // Shoulder MRI findings
-    {
-      region: "Shoulder",
-      findings: [
-        "Rotator cuff tear",
-        "Labral tear",
-        "Glenohumeral joint instability",
-        "Subacromial impingement",
-        "Biceps tendon pathology"
-      ],
-      locations: [
-        "Supraspinatus tendon",
-        "Superior labrum",
-        "Anterior-inferior labrum and capsule",
-        "Subacromial space",
-        "Long head of biceps tendon"
-      ],
-      descriptions: [
-        "Full-thickness tear of the supraspinatus tendon measuring approximately 2.5 cm in anterior-posterior dimension with 1.5 cm of retraction. Moderate muscle atrophy and fatty infiltration present.",
-        "Complex tear of the superior labrum extending from anterior to posterior (SLAP tear) with associated paralabral cyst formation.",
-        "Avulsion of the anterior-inferior labrum with attached inferior glenohumeral ligament from the glenoid rim (Bankart lesion). Associated Hill-Sachs impaction fracture of the posterolateral humeral head.",
-        "Decreased acromiohumeral distance with subacromial spurring and edema within the supraspinatus tendon. Type III (hooked) acromion morphology.",
-        "Partial-thickness tear of the long head of biceps tendon with surrounding tenosynovitis. Medial subluxation from the bicipital groove."
-      ],
-      diagnoses: [
-        "Large, full-thickness supraspinatus tendon tear with moderate retraction and muscle degeneration",
-        "Type II SLAP tear",
-        "Anterior shoulder instability with Bankart and Hill-Sachs lesions, consistent with recurrent dislocations",
-        "Subacromial impingement syndrome with tendinopathy",
-        "Partial biceps tendon tear with medial subluxation"
-      ],
-      recommendations: [
-        "Orthopedic consultation for surgical consideration. Rotator cuff repair may be recommended based on tear size, degree of retraction, tissue quality, and patient's age and activity demands.",
-        "Orthopedic consultation. Management options include physical therapy or arthroscopic repair depending on severity of symptoms and patient's activity level.",
-        "Orthopedic consultation for potential surgical stabilization, particularly in young active patients or those with recurrent dislocations.",
-        "Initial management with physical therapy, NSAIDs, and possibly subacromial corticosteroid injection. Consider surgical decompression for refractory cases.",
-        "Orthopedic consultation. Options include conservative management with physical therapy, tenotomy, or tenodesis depending on patient factors and associated pathology."
-      ]
-    }
+  const findings = [
+    "No acute intracranial abnormalities detected",
+    "Mild chronic small vessel ischemic changes",
+    "Normal brain parenchyma and ventricular system",
+    "No evidence of acute stroke or hemorrhage",
+    "White matter appears normal for age",
+    "No mass lesions identified",
+    "Cerebrospinal fluid spaces within normal limits"
   ];
   
-  // Select a random body region
-  const regionIndex = Math.floor(Math.random() * bodyRegions.length);
-  const region = bodyRegions[regionIndex];
-  
-  // Select a random finding within that region
-  const findingIndex = Math.floor(Math.random() * region.findings.length);
-  
+  const recommendations = [
+    "No acute intervention required",
+    "Routine follow-up with primary care physician",
+    "Consider vascular risk factor modification",
+    "Clinical correlation recommended",
+    "Follow-up imaging in 6-12 months if clinically indicated"
+  ];
+
   return {
-    finding_type: region.findings[findingIndex],
-    location: region.locations[findingIndex],
-    description: region.descriptions[findingIndex],
-    possible_diagnosis: region.diagnoses[findingIndex],
-    recommendation: region.recommendations[findingIndex],
-    limitations: "This is a simulated analysis for demonstration purposes only. In a real scenario, proper radiological interpretation by a qualified radiologist is essential."
+    analysis_type: "MRI Brain Analysis",
+    findings: findings.slice(0, Math.floor(Math.random() * 4) + 3),
+    recommendations: recommendations.slice(0, Math.floor(Math.random() * 3) + 2),
+    confidence: (82 + Math.random() * 12).toFixed(1) + "%",
+    urgency: Math.random() > 0.7 ? "high" : Math.random() > 0.4 ? "medium" : "low"
   };
 }
 
-// Generate mock medical image analysis for any visible injury or condition
+// Generate mock medical analysis for general imaging
 function generateMockMedicalAnalysis() {
-  // Define multiple body regions with their findings
-  const bodyRegions = [
-    // Extremity injuries (hands, feet, limbs)
-    {
-      region: "Extremities",
-      findings: [
-        "Fracture",
-        "Sprain",
-        "Contusion",
-        "Joint deformity",
-        "Tendon injury"
-      ],
-      descriptions: [
-        "Visible deformity with significant swelling and bruising. The alignment appears abnormal with possible bone displacement.",
-        "Significant swelling and bruising around the joint. No obvious deformity, but marked tenderness and limited range of motion are visible.",
-        "Extensive bruising and swelling. No obvious deformity noted but significant discoloration is present.",
-        "Joint appears subluxed or dislocated with abnormal positioning. Surrounding soft tissue swelling is present.",
-        "Visible abnormality in tendon continuity with swelling and ecchymosis. Possible defect in normal tendon contour."
-      ],
-      diagnoses: [
-        "Fracture, likely from direct trauma or fall",
-        "Ligament sprain, potentially involving the major stabilizing ligaments",
-        "Soft tissue contusion due to direct trauma",
-        "Joint dislocation or subluxation requiring prompt reduction",
-        "Possible tendon rupture or severe tendinopathy"
-      ],
-      recommendations: [
-        "Immediate medical evaluation. Immobilization and X-ray required for definitive diagnosis. Avoid bearing weight or using the affected limb.",
-        "RICE protocol (Rest, Ice, Compression, Elevation). Immobilization with appropriate brace or splint. Physical therapy once acute phase has resolved.",
-        "RICE protocol for initial management. Avoid strenuous activities until pain and swelling subside. Gradual return to normal activities.",
-        "Emergency medical evaluation for reduction. Do not attempt to reduce the joint yourself. Immobilization after reduction will be necessary.",
-        "Immediate orthopedic consultation. Immobilization in appropriate position. Surgical intervention may be necessary for complete tears."
-      ],
-      severity: ["Moderate", "Severe"]
-    },
-    // Skin conditions
-    {
-      region: "Skin",
-      findings: [
-        "Laceration",
-        "Burn",
-        "Rash",
-        "Infection",
-        "Allergic reaction"
-      ],
-      descriptions: [
-        "Linear wound with clean or irregular edges. Surrounding tissue appears normal without significant contamination.",
-        "Erythematous skin with blistering and partial-thickness skin loss. Surrounding skin shows hyperemia but no charring.",
-        "Erythematous, papular eruption with patchy distribution. No vesicles or pustules noted. Minimal scaling present.",
-        "Localized area of erythema, edema, and warmth. Central area appears fluctuant with possible purulent drainage.",
-        "Diffuse urticarial eruption with raised, erythematous wheals. Significant edema present in the affected areas."
-      ],
-      diagnoses: [
-        "Simple laceration requiring wound closure",
-        "Second-degree (partial thickness) burn",
-        "Contact dermatitis, possibly due to exposure to irritant or allergen",
-        "Cutaneous abscess or cellulitis",
-        "Acute urticaria, likely representing allergic reaction"
-      ],
-      recommendations: [
-        "Wound cleansing with mild soap and water or antiseptic solution. Consider closure with adhesive strips, tissue adhesive, or sutures depending on size and location. Tetanus prophylaxis if indicated.",
-        "Cool the area with running water (not ice) for 10-15 minutes. Cover with clean, non-adherent dressing. Medical evaluation recommended for burns larger than 3% body surface area or involving sensitive areas.",
-        "Avoid suspected irritants/allergens. Apply cool compresses and consider topical corticosteroids. Oral antihistamines for significant pruritus.",
-        "Medical evaluation recommended. Warm compresses may help with discomfort. Antibiotics likely necessary, possibly incision and drainage for abscesses.",
-        "Remove suspected allergen. Antihistamines and cool compresses for symptomatic relief. If associated with breathing difficulty, facial swelling, or hypotension, seek emergency care immediately."
-      ],
-      severity: ["Mild", "Moderate", "Severe"]
-    },
-    // Facial/head injuries
-    {
-      region: "Face/Head",
-      findings: [
-        "Facial laceration",
-        "Periorbital contusion",
-        "Nasal trauma",
-        "Mandibular injury",
-        "Scalp hematoma"
-      ],
-      descriptions: [
-        "Linear laceration on facial surface with well-defined edges. Minimal debris visible within the wound.",
-        "Significant ecchymosis and edema surrounding the orbital region. No apparent globe injury or visual disturbance reported.",
-        "Nasal asymmetry with lateral displacement. Significant edema and ecchymosis of nasal bridge and perinasal region.",
-        "Limited jaw excursion with malocclusion. Significant pain with mandibular movement and possible step-off on palpation.",
-        "Fluctuant, boggy swelling on the scalp with overlying ecchymosis. No overlying laceration or visible depression."
-      ],
-      diagnoses: [
-        "Facial laceration requiring careful repair for optimal cosmetic outcome",
-        "Periorbital contusion ('black eye'), likely from direct trauma",
-        "Nasal fracture or significant nasal contusion",
-        "Possible mandibular fracture or temporomandibular joint injury",
-        "Subgaleal hematoma from blunt trauma to the scalp"
-      ],
-      recommendations: [
-        "Meticulous wound cleansing. Consider plastic surgery consultation for complex facial lacerations, especially those crossing aesthetic boundaries. Wound closure under optimal conditions for best cosmetic result.",
-        "Cold compresses for the first 24-48 hours to reduce swelling. Elevation of head when reclining. Ophthalmologic evaluation if vision changes, diplopia, or severe pain develop.",
-        "ENT consultation recommended. Ice and analgesia for comfort. Reduction may be necessary for significantly displaced fractures, ideally within 10 days of injury.",
-        "Maxillofacial surgery consultation. Soft diet and avoidance of excessive jaw movement. Imaging studies (panoramic radiograph or CT) required for definitive diagnosis.",
-        "Apply ice intermittently for comfort. Observe for changes in mental status or progressive swelling. Medical evaluation if symptoms worsen or fail to improve within 2-3 days."
-      ],
-      severity: ["Moderate", "Severe"]
-    },
-    // Chest/abdominal conditions
-    {
-      region: "Torso",
-      findings: [
-        "Chest wall contusion",
-        "Abdominal distension",
-        "Flank ecchymosis",
-        "Surgical site infection",
-        "Hernia"
-      ],
-      descriptions: [
-        "Localized area of ecchymosis and tenderness over the anterior chest wall. No crepitus or obvious deformity.",
-        "Generalized abdominal distension with tympany to percussion. Mild diffuse tenderness without rebound or guarding.",
-        "Extensive ecchymosis over the flank region extending to the lower back. Area is tender to palpation.",
-        "Surgical incision with surrounding erythema, edema, and purulent drainage. Surrounding skin is warm to touch.",
-        "Visible bulge in the abdominal wall that increases with standing or Valsalva maneuver. Reducible with gentle pressure."
-      ],
-      diagnoses: [
-        "Chest wall contusion from blunt trauma",
-        "Abdominal distension, possibly due to ileus or obstruction",
-        "Flank ecchymosis (Grey Turner sign), concerning for retroperitoneal hemorrhage",
-        "Surgical site infection, likely superficial but requiring evaluation",
-        "Ventral or incisional hernia, containing abdominal contents"
-      ],
-      recommendations: [
-        "Analgesia for comfort. Deep breathing exercises to prevent atelectasis. Medical evaluation if pain is severe or breathing is significantly compromised.",
-        "Medical evaluation recommended. Avoid solid foods until evaluated. Maintain hydration with clear liquids if tolerated and no vomiting.",
-        "Urgent medical evaluation recommended, particularly if accompanied by abdominal pain, lightheadedness, or history of trauma.",
-        "Medical evaluation for possible antibiotic therapy. Gentle cleansing with mild soap and water. Avoid occlusive dressings if drainage is present.",
-        "Surgical consultation for definitive management. Avoid heavy lifting and straining activities. Manual reduction (if easily reducible) when lying down."
-      ],
-      severity: ["Mild", "Moderate", "Severe"]
-    }
+  const findings = [
+    "Normal tissue density and structure",
+    "No acute abnormalities detected",
+    "Mild inflammatory changes noted",
+    "Tissue healing progressing well",
+    "No signs of infection or malignancy"
   ];
   
-  // Select a random body region
-  const regionIndex = Math.floor(Math.random() * bodyRegions.length);
-  const region = bodyRegions[regionIndex];
-  
-  // Select a random finding within that region
-  const findingIndex = Math.floor(Math.random() * region.findings.length);
-  
-  // Select an appropriate severity
-  const severityIndex = Math.floor(Math.random() * region.severity.length);
-  
+  const recommendations = [
+    "Continue current treatment plan",
+    "Follow-up imaging in 4-6 weeks",
+    "Clinical correlation recommended",
+    "Monitor symptoms closely"
+  ];
+
   return {
-    finding_type: region.findings[findingIndex],
-    severity: region.severity[severityIndex],
-    description: region.descriptions[findingIndex],
-    possible_diagnosis: region.diagnoses[findingIndex],
-    recommendation: region.recommendations[findingIndex],
-    limitations: "This is a simulated analysis for demonstration purposes only. In a real scenario, proper medical evaluation by a qualified healthcare professional is essential."
+    analysis_type: "Medical Image Analysis",
+    findings: findings.slice(0, Math.floor(Math.random() * 3) + 2),
+    recommendations: recommendations.slice(0, Math.floor(Math.random() * 2) + 1),
+    confidence: (80 + Math.random() * 15).toFixed(1) + "%",
+    urgency: Math.random() > 0.6 ? "medium" : "low"
   };
 }
 
-// Generate mock damage analysis for any type of injury
+// Generate mock damage analysis
 function generateMockDamageAnalysis() {
-  // Define multiple injury categories
-  const injuryCategories = [
-    // Bone injuries
-    {
-      category: "Bone injuries",
-      damageTypes: [
-        "Closed fracture",
-        "Open fracture",
-        "Stress fracture",
-        "Comminuted fracture",
-        "Compression fracture"
-      ],
-      descriptions: [
-        "Visible deformity with significant swelling and ecchymosis. The bone appears to be broken but the skin is intact.",
-        "Bone is visible through a break in the skin. Moderate bleeding present with surrounding tissue damage.",
-        "Localized swelling and point tenderness without obvious deformity. Pain increases with weight-bearing or stress on the affected area.",
-        "Multiple bone fragments visible on imaging or through wound. Significant soft tissue swelling and deformity present.",
-        "Vertebral body appears to have collapsed or compressed. Height of the vertebra is reduced compared to adjacent vertebrae."
-      ],
-      recommendations: [
-        "Immobilize the area and seek immediate medical attention. Do not attempt to straighten the limb. Apply ice for pain and swelling control.",
-        "Cover the wound with a clean, sterile dressing. Control bleeding with gentle pressure. Seek emergency medical care immediately. Do not attempt to push protruding bone back under the skin.",
-        "Rest from aggravating activities. Ice the affected area 15-20 minutes several times daily. Seek medical evaluation for proper diagnosis and treatment plan.",
-        "Emergency medical evaluation required. Immobilize the area in the position found. Surgical intervention is often necessary for comminuted fractures.",
-        "Minimize movement and seek immediate medical attention. Do not attempt to bear weight if in a weight-bearing area. Spinal precautions may be necessary."
-      ],
-      severity: ["Moderate", "Severe"]
-    },
-    // Joint/ligament injuries
-    {
-      category: "Joint/ligament injuries",
-      damageTypes: [
-        "Joint dislocation",
-        "Ligament sprain",
-        "Ligament tear",
-        "Joint subluxation",
-        "Meniscus tear"
-      ],
-      descriptions: [
-        "Joint appears completely out of normal anatomical position. Significant deformity, pain, and inability to move the joint.",
-        "Significant swelling and bruising around the joint. Pain with movement but no obvious deformity. Some instability possible.",
-        "Complete disruption of ligament fibers with joint instability. Significant swelling and ecchymosis surrounding the joint.",
-        "Joint temporarily moved out of proper alignment but has returned to place. Residual pain, swelling, and some instability present.",
-        "Pain and swelling within knee joint, especially with rotational movements. Mechanical symptoms such as catching or locking may be present."
-      ],
-      recommendations: [
-        "Do not attempt to relocate the joint yourself. Immobilize in the position found and seek emergency medical attention immediately. Apply ice for pain control.",
-        "Follow RICE protocol: Rest, Ice, Compression with an elastic bandage, Elevation above heart level. Medical evaluation recommended for proper diagnosis and grading.",
-        "Immediate medical evaluation required. Immobilize the joint and avoid weight-bearing or stress on the affected area. Surgical repair may be necessary.",
-        "Protect the joint from further injury. Apply ice and gentle compression. Medical evaluation recommended to assess stability and determine appropriate treatment.",
-        "Avoid deep squatting, pivoting, and high-impact activities. Apply ice for swelling. Orthopedic evaluation recommended for proper diagnosis and treatment options."
-      ],
-      severity: ["Moderate", "Severe"]
-    },
-    // Soft tissue injuries
-    {
-      category: "Soft tissue injuries",
-      damageTypes: [
-        "Muscle strain",
-        "Muscle contusion",
-        "Tendon rupture",
-        "Laceration",
-        "Crush injury"
-      ],
-      descriptions: [
-        "Localized pain and tenderness in the affected muscle. Some swelling present with pain that increases with active movement or stretch.",
-        "Direct impact injury to muscle with significant bruising and swelling. Pain with movement and palpation of the affected area.",
-        "Gap palpable in the normal tendon course. Weakness or inability to perform the action of the affected tendon. Significant swelling present.",
-        "Linear or irregular wound with variable depth. Edges may be clean or jagged. Surrounding tissue appears normal or minimally damaged.",
-        "Compressed soft tissue with significant swelling, discoloration, and potential skin necrosis. Decreased sensation may be present in the affected area."
-      ],
-      recommendations: [
-        "Rest from activities that cause pain. Ice the area for 15-20 minutes several times daily. Gentle stretching once acute pain subsides. Seek medical attention for severe strains.",
-        "Apply ice wrapped in a cloth for 15-20 minutes every 2-3 hours. Elevate the injured area when seated or lying down. Gentle, active range of motion as tolerated.",
-        "Immediate medical evaluation required. Immobilize the affected area and elevate if possible. Surgical repair is often necessary, especially for major tendons.",
-        "Control bleeding with direct pressure using a clean cloth. Clean the wound gently with mild soap and water if superficial. Seek medical attention for deep lacerations or wounds with significant bleeding.",
-        "Immediate medical evaluation required. Elevate the injured area above heart level. Do not apply ice directly to severely crushed tissue. Monitor for signs of compartment syndrome (increasing pain, pallor, pulselessness, paresthesia, paralysis)."
-      ],
-      severity: ["Mild", "Moderate", "Severe"]
-    },
-    // Burns
-    {
-      category: "Burns",
-      damageTypes: [
-        "First-degree burn",
-        "Second-degree burn",
-        "Third-degree burn",
-        "Chemical burn",
-        "Electrical burn"
-      ],
-      descriptions: [
-        "Redness and pain of the superficial skin layer. No blistering present. Skin blanches with pressure.",
-        "Partial-thickness burn with blistering, significant pain, and redness. Skin is moist and blanches with pressure.",
-        "Full-thickness burn involving all skin layers. Area may appear white, charred, or leathery. Reduced or absent pain sensation in the burned area due to nerve damage.",
-        "Evidence of chemical exposure with skin damage pattern consistent with liquid or powder contact. Surrounding area may show signs of chemical residue.",
-        "Entry and/or exit wounds may be present. Surrounding tissue may show minimal external damage despite significant internal injury potential."
-      ],
-      recommendations: [
-        "Cool the area with room temperature water for 10-15 minutes. Do not use ice. Once cooled, moisturizer or aloe vera gel may provide comfort. Over-the-counter pain relievers if needed.",
-        "Cool the area with room temperature water for 15-20 minutes. Do not break blisters. Cover with a clean, non-adherent dressing. Seek medical evaluation for burns larger than 3% body surface area or on sensitive areas.",
-        "Medical emergency requiring immediate attention. Do not attempt to remove adherent clothing. Cover with a clean, dry cloth or sterile bandage. Do not apply creams, ointments, or home remedies.",
-        "Remove contaminated clothing. Brush off dry chemicals before flushing with water. Flush the area with large amounts of running water for at least 20 minutes. Seek emergency medical attention.",
-        "Ensure the scene is safe. Do not touch the person if they may still be in contact with the electrical source. Seek emergency medical care immediately as internal damage may be significant despite minimal external signs."
-      ],
-      severity: ["Mild", "Moderate", "Severe"]
-    }
+  const damageTypes = [
+    "Structural damage to building foundation",
+    "Water damage affecting interior walls",
+    "Fire damage with smoke residue",
+    "Impact damage from collision",
+    "Weather-related exterior damage"
   ];
   
-  // Select a random category
-  const categoryIndex = Math.floor(Math.random() * injuryCategories.length);
-  const category = injuryCategories[categoryIndex];
-  
-  // Select a random injury type within that category
-  const injuryIndex = Math.floor(Math.random() * category.damageTypes.length);
-  
-  // Select an appropriate severity
-  const severityIndex = Math.floor(Math.random() * category.severity.length);
-  
+  const recommendations = [
+    "Professional structural assessment recommended",
+    "Immediate repairs required for safety",
+    "Insurance documentation suggested",
+    "Temporary protective measures needed"
+  ];
+
   return {
-    damage_type: category.damageTypes[injuryIndex],
-    severity: category.severity[severityIndex],
-    description: category.descriptions[injuryIndex],
-    recommendation: category.recommendations[injuryIndex]
+    damage_type: damageTypes[Math.floor(Math.random() * damageTypes.length)],
+    severity: Math.random() > 0.7 ? "severe" : Math.random() > 0.4 ? "moderate" : "minor",
+    description: "Comprehensive damage assessment completed with detailed analysis of affected areas.",
+    recommendation: recommendations[Math.floor(Math.random() * recommendations.length)]
   };
 }
 
-// Main analysis function for X-rays
+// API endpoints
 export async function analyzeMockXray(req: Request, res: Response) {
   try {
     const { image } = req.body;
     
     if (!image) {
-      return res.status(400).json({ error: 'No image provided' });
+      return res.status(400).json({ error: "No image provided" });
     }
-    
-    // Extract base64 from data URL (not really needed for mock but keeping for consistency)
-    try {
-      extractBase64FromDataURL(image);
-    } catch (error) {
-      console.error('Error extracting base64 from image data:', error);
-      return res.status(400).json({ error: 'Invalid image format' });
-    }
-    
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Extract base64 data (we don't actually process it in mock mode)
+    const base64Data = extractBase64FromDataURL(image);
     
     // Generate mock analysis
-    const result = generateMockXrayAnalysis();
+    const analysis = generateMockXrayAnalysis();
     
-    return res.json(result);
+    res.json(analysis);
   } catch (error) {
-    console.error('Mock X-ray Analysis error:', error);
-    return res.status(500).json({ 
-      error: 'An error occurred during image analysis',
-      message: error instanceof Error ? error.message : 'Unknown error'
-    });
+    console.error('Error in X-ray analysis:', error);
+    res.status(500).json({ error: "Failed to analyze X-ray image" });
   }
 }
 
-// Main analysis function for MRIs
 export async function analyzeMockMRI(req: Request, res: Response) {
   try {
     const { image } = req.body;
     
     if (!image) {
-      return res.status(400).json({ error: 'No image provided' });
+      return res.status(400).json({ error: "No image provided" });
     }
-    
-    // Extract base64 from data URL (not really needed for mock but keeping for consistency)
-    try {
-      extractBase64FromDataURL(image);
-    } catch (error) {
-      console.error('Error extracting base64 from image data:', error);
-      return res.status(400).json({ error: 'Invalid image format' });
-    }
-    
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Extract base64 data (we don't actually process it in mock mode)
+    const base64Data = extractBase64FromDataURL(image);
     
     // Generate mock analysis
-    const result = generateMockMRIAnalysis();
+    const analysis = generateMockMRIAnalysis();
     
-    return res.json(result);
+    res.json(analysis);
   } catch (error) {
-    console.error('Mock MRI Analysis error:', error);
-    return res.status(500).json({ 
-      error: 'An error occurred during image analysis',
-      message: error instanceof Error ? error.message : 'Unknown error'
-    });
+    console.error('Error in MRI analysis:', error);
+    res.status(500).json({ error: "Failed to analyze MRI image" });
   }
 }
 
-// Main analysis function for medical images
 export async function analyzeMockMedical(req: Request, res: Response) {
   try {
     const { image } = req.body;
     
     if (!image) {
-      return res.status(400).json({ error: 'No image provided' });
+      return res.status(400).json({ error: "No image provided" });
     }
-    
-    // Extract base64 from data URL (not really needed for mock but keeping for consistency)
-    try {
-      extractBase64FromDataURL(image);
-    } catch (error) {
-      console.error('Error extracting base64 from image data:', error);
-      return res.status(400).json({ error: 'Invalid image format' });
-    }
-    
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Extract base64 data (we don't actually process it in mock mode)
+    const base64Data = extractBase64FromDataURL(image);
     
     // Generate mock analysis
-    const result = generateMockMedicalAnalysis();
+    const analysis = generateMockMedicalAnalysis();
     
-    return res.json(result);
+    res.json(analysis);
   } catch (error) {
-    console.error('Mock Medical Analysis error:', error);
-    return res.status(500).json({ 
-      error: 'An error occurred during image analysis',
-      message: error instanceof Error ? error.message : 'Unknown error'
-    });
+    console.error('Error in medical analysis:', error);
+    res.status(500).json({ error: "Failed to analyze medical image" });
   }
 }
 
-// Main analysis function for damage assessment
 export async function analyzeMockDamage(req: Request, res: Response) {
   try {
     const { image } = req.body;
     
     if (!image) {
-      return res.status(400).json({ error: 'No image provided' });
+      return res.status(400).json({ error: "No image provided" });
     }
-    
-    // Extract base64 from data URL (not really needed for mock but keeping for consistency)
-    try {
-      extractBase64FromDataURL(image);
-    } catch (error) {
-      console.error('Error extracting base64 from image data:', error);
-      return res.status(400).json({ error: 'Invalid image format' });
-    }
-    
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Extract base64 data (we don't actually process it in mock mode)
+    const base64Data = extractBase64FromDataURL(image);
     
     // Generate mock analysis
-    const result = generateMockDamageAnalysis();
+    const analysis = generateMockDamageAnalysis();
     
-    return res.json(result);
+    res.json(analysis);
   } catch (error) {
-    console.error('Mock Damage Analysis error:', error);
-    return res.status(500).json({ 
-      error: 'An error occurred during image analysis',
-      message: error instanceof Error ? error.message : 'Unknown error'
-    });
+    console.error('Error in damage analysis:', error);
+    res.status(500).json({ error: "Failed to analyze damage image" });
   }
 }
 
-// Function for enhanced medical chat with comprehensive responses
 export async function mockMedicalChat(req: Request, res: Response) {
   try {
     const { message } = req.body;
     
     if (!message) {
-      return res.status(400).json({ error: 'No message provided' });
+      return res.status(400).json({ error: "No message provided" });
     }
+
+    // Generate mock medical chat response
+    const responses = [
+      "Based on your symptoms, I recommend seeking immediate medical attention if you experience severe pain, difficulty breathing, or loss of consciousness.",
+      "Your symptoms could indicate several conditions. Please consult with a healthcare professional for proper diagnosis and treatment.",
+      "For emergency situations, please call your local emergency services immediately. This tool is for informational purposes only.",
+      "I understand your concern. While I can provide general information, it's important to get a proper medical evaluation from a qualified healthcare provider."
+    ];
     
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const response = responses[Math.floor(Math.random() * responses.length)];
     
-    // Generate enhanced responses based on keywords in the message
-    let response = "I'm an advanced medical AI assistant with expertise in emergency medicine, orthopedics, and general health. How can I help you today?";
-    
-    const lowerMessage = message.toLowerCase();
-    
-    // FRACTURES AND BONE INJURIES
-    if ((lowerMessage.includes('break') || lowerMessage.includes('broken') || lowerMessage.includes('fracture')) &&
-        (lowerMessage.includes('bone') || lowerMessage.includes('arm') || lowerMessage.includes('leg') || 
-         lowerMessage.includes('foot') || lowerMessage.includes('ankle') || lowerMessage.includes('wrist') || 
-         lowerMessage.includes('toe') || lowerMessage.includes('finger'))) {
-      
-      response = "FRACTURE ASSESSMENT: Based on your description, you may be dealing with a bone fracture. Fractures require prompt medical attention.\n\n" +
-                "SIGNS TO LOOK FOR:\n" +
-                "• Pain that intensifies with movement or pressure\n" +
-                "• Swelling and bruising around the injury site\n" +
-                "• Visible deformity or abnormal alignment\n" +
-                "• Limited mobility or inability to bear weight\n" +
-                "• In some cases, a grinding or crackling sensation (crepitus)\n\n" +
-                "IMMEDIATE CARE RECOMMENDATIONS:\n" +
-                "1. Immobilize the area - avoid movement that causes pain\n" +
-                "2. Apply ice wrapped in cloth for 15-20 minutes every 2-3 hours to reduce swelling\n" +
-                "3. Elevate the injured area above heart level when possible\n" +
-                "4. Do not attempt to realign or push protruding bones back\n\n" +
-                "MEDICAL ATTENTION: X-rays are necessary to confirm the diagnosis and determine appropriate treatment. Treatment may include casting, splinting, or surgical intervention depending on the fracture type and location.\n\n" +
-                "URGENCY: Seek medical care promptly. If the area is severely deformed, the bone is exposed, or there is significant bleeding or numbness, this constitutes an emergency requiring immediate attention.";
-    } 
-    
-    // SPRAINS AND SOFT TISSUE INJURIES
-    else if ((lowerMessage.includes('sprain') || lowerMessage.includes('twist') || lowerMessage.includes('strain') || lowerMessage.includes('torn')) &&
-             (lowerMessage.includes('ankle') || lowerMessage.includes('wrist') || lowerMessage.includes('knee') || 
-              lowerMessage.includes('muscle') || lowerMessage.includes('ligament') || lowerMessage.includes('tendon'))) {
-      
-      response = "SOFT TISSUE INJURY ASSESSMENT: Your description suggests a sprain, strain, or soft tissue injury. These involve damage to ligaments, tendons, or muscles rather than bones.\n\n" +
-                "CLASSIFICATION:\n" +
-                "• Grade I (Mild): Minimal tearing with some tenderness and swelling\n" +
-                "• Grade II (Moderate): Partial tear with moderate pain, swelling, and some joint instability\n" +
-                "• Grade III (Severe): Complete tear or rupture with significant pain, swelling, and joint instability\n\n" +
-                "RECOMMENDED CARE PROTOCOL:\n" +
-                "1. R - Rest: Avoid activities that cause pain for 24-48 hours\n" +
-                "2. I - Ice: Apply cold packs for 15-20 minutes every 2-3 hours\n" +
-                "3. C - Compression: Use an elastic bandage to reduce swelling\n" +
-                "4. E - Elevation: Raise the injured area above heart level\n\n" +
-                "MEDICAL EVALUATION INDICATORS:\n" +
-                "- Inability to bear weight or use the affected limb\n" +
-                "- Severe swelling or bruising\n" +
-                "- Joint appears deformed or out of alignment\n" +
-                "- Pain that doesn't improve with rest\n\n" +
-                "RECOVERY: Recovery time varies based on severity - from 1-2 weeks for mild sprains to 6+ weeks for severe injuries. Physical therapy may be recommended to restore strength and flexibility.";
-    }
-    
-    // BURNS
-    else if (lowerMessage.includes('burn') || lowerMessage.includes('fire') || lowerMessage.includes('hot')) {
-      response = "BURN INJURY ASSESSMENT: Based on your description, you may be dealing with a thermal burn injury.\n\n" +
-                "BURN CLASSIFICATION:\n" +
-                "• First-degree (superficial): Affects only outer layer of skin; redness, minor swelling, pain\n" +
-                "• Second-degree (partial thickness): Affects epidermis and dermis; blisters, severe redness, pain, swelling\n" +
-                "• Third-degree (full thickness): Damages all skin layers and possibly underlying tissue; appears white/charred, may be painless due to nerve damage\n\n" +
-                "IMMEDIATE CARE GUIDELINES:\n" +
-                "1. Remove from source of burn and assess safety\n" +
-                "2. Cool the burn with cool (not cold) running water for 10-15 minutes\n" +
-                "3. Do NOT apply ice directly to burns\n" +
-                "4. Do NOT apply butter, oil, toothpaste or other home remedies\n" +
-                "5. Cover with clean, non-adhesive bandage or cloth\n\n" +
-                "SEEK EMERGENCY CARE IF:\n" +
-                "- Burn is larger than 3 inches in diameter\n" +
-                "- Burn affects face, hands, feet, genitals, or major joints\n" +
-                "- Burn appears white, charred, or leathery\n" +
-                "- Person shows signs of smoke inhalation or shock\n" +
-                "- Any chemical or electrical burns\n\n" +
-                "MINOR BURN CARE: Keep clean, apply aloe vera gel or antibiotic ointment (without medication), cover with sterile, non-stick bandage, take OTC pain relievers if needed.";
-    }
-    
-    // WOUNDS AND BLEEDING
-    else if (lowerMessage.includes('cut') || lowerMessage.includes('wound') || lowerMessage.includes('bleeding') || lowerMessage.includes('blood')) {
-      response = "WOUND ASSESSMENT: Your description suggests a skin wound that may require attention.\n\n" +
-                "WOUND CLASSIFICATION:\n" +
-                "• Abrasion: Surface scrape that doesn't extend through all skin layers\n" +
-                "• Laceration: Cut with jagged or smooth edges, variable depth\n" +
-                "• Puncture: Narrow, deep wound caused by pointed object\n" +
-                "• Avulsion: Tissue partially or completely torn away\n\n" +
-                "IMMEDIATE WOUND CARE PROTOCOL:\n" +
-                "1. Apply direct pressure to control bleeding using clean cloth or bandage\n" +
-                "2. Once bleeding slows, rinse with clean running water (avoid scrubbing)\n" +
-                "3. Remove any visible debris carefully if easily accessible\n" +
-                "4. Apply antibiotic ointment if available\n" +
-                "5. Cover with sterile bandage or clean cloth\n\n" +
-                "SEEK MEDICAL ATTENTION IF:\n" +
-                "- Wound is deep, gaping, or has jagged edges\n" +
-                "- Bleeding doesn't stop after 15 minutes of direct pressure\n" +
-                "- Wound is heavily contaminated or contains embedded objects\n" +
-                "- Wound is from human/animal bite or rusty object\n" +
-                "- Signs of infection develop: increasing redness, warmth, swelling, pus, fever\n\n" +
-                "TETANUS CONSIDERATION: If your tetanus immunization is not current (within 5-10 years) or the wound is heavily contaminated, tetanus prophylaxis may be necessary.";
-    }
-    
-    // HEAD INJURIES
-    else if ((lowerMessage.includes('head') || lowerMessage.includes('concussion') || lowerMessage.includes('skull')) && 
-             (lowerMessage.includes('injury') || lowerMessage.includes('hit') || lowerMessage.includes('hurt'))) {
-      
-      response = "HEAD INJURY ASSESSMENT: Head injuries require careful evaluation as they may affect the brain.\n\n" +
-                "SIGNS OF CONCERN:\n" +
-                "• Loss of consciousness (even briefly)\n" +
-                "• Severe headache or headache that worsens\n" +
-                "• Repeated vomiting or nausea\n" +
-                "• Seizures or convulsions\n" +
-                "• Pupil dilation or unequal pupils\n" +
-                "• Clear fluid draining from ears or nose\n" +
-                "• Slurred speech or confusion\n" +
-                "• Weakness or numbness in limbs\n" +
-                "• Unusual behavior changes or increased agitation\n\n" +
-                "IMMEDIATE CARE GUIDELINES:\n" +
-                "1. Assess responsiveness and breathing\n" +
-                "2. If unconscious but breathing, maintain open airway and monitor\n" +
-                "3. For conscious individuals, keep person calm and still\n" +
-                "4. Apply ice wrapped in cloth to swollen areas\n\n" +
-                "EMERGENCY MEDICAL CARE is required for:\n" +
-                "- Any of the concerning signs listed above\n" +
-                "- Fall from significant height\n" +
-                "- High-force impact to the head\n" +
-                "- Visible indentation or deformity of the skull\n\n" +
-                "MONITORING: Even with seemingly minor head injuries, continued monitoring for 24-48 hours is important as symptoms may develop or worsen over time.";
-    }
-    
-    // SPECIFIC BODY PART RESPONSES - FOOT
-    else if (lowerMessage.includes('foot') || lowerMessage.includes('ankle') || lowerMessage.includes('toe')) {
-      if (lowerMessage.includes('pain') || lowerMessage.includes('hurt') || lowerMessage.includes('ache')) {
-        response = "FOOT PAIN ANALYSIS: Foot pain can stem from various causes including injuries, overuse, improper footwear, or underlying medical conditions.\n\n" +
-                  "POTENTIAL CAUSES BY LOCATION:\n" +
-                  "• Heel pain: Plantar fasciitis, heel spurs, Achilles tendinitis\n" +
-                  "• Ball of foot pain: Metatarsalgia, Morton's neuroma, sesamoiditis\n" +
-                  "• Arch pain: Flat feet, high arches, plantar fasciitis\n" +
-                  "• Top of foot pain: Extensor tendinitis, stress fracture, arthritis\n" +
-                  "• Toe pain: Gout, bunions, hammertoe, ingrown toenail\n\n" +
-                  "RECOMMENDED INTERVENTIONS:\n" +
-                  "1. Rest the foot and avoid activities that intensify the pain\n" +
-                  "2. Apply ice for 15-20 minutes several times daily for acute pain\n" +
-                  "3. Wear supportive, properly fitted footwear with good arch support\n" +
-                  "4. Consider over-the-counter arch supports or insoles\n" +
-                  "5. Use over-the-counter pain relievers as directed\n\n" +
-                  "WHEN TO SEEK MEDICAL EVALUATION:\n" +
-                  "- Severe pain or swelling\n" +
-                  "- Inability to bear weight\n" +
-                  "- Pain that persists more than 1-2 weeks despite home treatment\n" +
-                  "- Visible deformity or open wounds\n" +
-                  "- Foot pain with fever or redness\n\n" +
-                  "PREVENTATIVE MEASURES: Maintain healthy weight, wear proper footwear, gradually increase activity levels, and stretch feet regularly.";
-      } else if (lowerMessage.includes('swell') || lowerMessage.includes('swelling')) {
-        response = "FOOT SWELLING ANALYSIS: Swelling (edema) in the feet and ankles can result from injury, overuse, or underlying medical conditions.\n\n" +
-                  "COMMON CAUSES:\n" +
-                  "• Injury-related: Sprains, strains, fractures\n" +
-                  "• Activity-related: Prolonged standing/sitting, overuse\n" +
-                  "• Circulatory: Venous insufficiency, lymphedema, blood clots\n" +
-                  "• Systemic: Heart failure, kidney disease, liver disease\n" +
-                  "• Medication side effects: Some blood pressure medications, steroids, hormones\n\n" +
-                  "MANAGEMENT RECOMMENDATIONS:\n" +
-                  "1. Elevate feet above heart level whenever possible\n" +
-                  "2. Apply ice for injury-related swelling (15-20 minutes several times daily)\n" +
-                  "3. Limit salt intake which can contribute to fluid retention\n" +
-                  "4. Wear compression stockings if recommended by a healthcare provider\n" +
-                  "5. Avoid prolonged standing or sitting in one position\n\n" +
-                  "MEDICAL ATTENTION INDICATORS:\n" +
-                  "- Sudden or severe swelling, especially in one foot\n" +
-                  "- Swelling with warmth, redness or pain\n" +
-                  "- Swelling that persists for more than 2-3 days\n" +
-                  "- Swelling accompanied by shortness of breath or chest pain\n" +
-                  "- Swelling that significantly worsens throughout the day\n\n" +
-                  "NOTE: Swelling can sometimes indicate serious underlying conditions. Persistent or concerning swelling should be evaluated by a healthcare professional.";
-      }
-    }
-    
-    // CHEST PAIN - HIGH PRIORITY RESPONSE
-    else if (lowerMessage.includes('chest') && (lowerMessage.includes('pain') || lowerMessage.includes('pressure') || lowerMessage.includes('tightness'))) {
-      response = "⚠️ URGENT MEDICAL CONCERN - CHEST PAIN ⚠️\n\n" +
-                "Chest pain or pressure can indicate a serious, potentially life-threatening condition that requires immediate evaluation.\n\n" +
-                "CALL EMERGENCY SERVICES (911 in US) IMMEDIATELY if experiencing:\n" +
-                "• Chest pain/pressure/squeezing/fullness\n" +
-                "• Pain radiating to jaw, neck, back, or arms\n" +
-                "• Shortness of breath\n" +
-                "• Cold sweat, nausea, or lightheadedness\n" +
-                "• Particularly in those with risk factors: older age, smoking, high blood pressure, diabetes, high cholesterol, family history\n\n" +
-                "While awaiting emergency services:\n" +
-                "1. Sit or lie in a comfortable position\n" +
-                "2. If advised by a doctor and available, take an aspirin (unless allergic)\n" +
-                "3. Take nitroglycerin if prescribed for this condition\n" +
-                "4. Stay as calm as possible and focus on steady breathing\n\n" +
-                "DO NOT DELAY SEEKING EMERGENCY CARE to consult online resources. Minutes matter in cardiac emergencies.";
-    }
-    
-    // GENERAL MEDICAL RESPONSES WITH ENHANCED DETAILS
-    else if (lowerMessage.includes('pain') || lowerMessage.includes('hurt')) {
-      response = "PAIN ASSESSMENT GUIDELINES: Pain is a complex symptom that requires careful evaluation.\n\n" +
-                "KEY ASSESSMENT FACTORS:\n" +
-                "• Location: Precisely where is the pain? Does it radiate?\n" +
-                "• Intensity: On a scale of 0-10, how severe is the pain?\n" +
-                "• Character: Sharp, dull, burning, throbbing, stabbing, aching?\n" +
-                "• Timing: Constant or intermittent? When did it start?\n" +
-                "• Aggravating factors: What makes it worse?\n" +
-                "• Relieving factors: What makes it better?\n" +
-                "• Associated symptoms: Fever, swelling, redness, limited movement?\n\n" +
-                "GENERAL MANAGEMENT APPROACHES:\n" +
-                "1. Rest the affected area when appropriate\n" +
-                "2. Apply ice for acute injuries (first 48-72 hours)\n" +
-                "3. Apply heat for chronic, non-inflammatory pain\n" +
-                "4. Over-the-counter pain relievers as directed\n" +
-                "5. Gentle movement and stretching if not contraindicated\n\n" +
-                "WHEN TO SEEK MEDICAL ATTENTION:\n" +
-                "- Severe pain that interferes with daily activities or sleep\n" +
-                "- Pain accompanied by fever, weakness, or unexplained weight loss\n" +
-                "- Pain following significant trauma or injury\n" +
-                "- Pain that doesn't improve with basic interventions\n" +
-                "- Any chest pain, severe abdominal pain, or severe headache\n\n" +
-                "NOTE: Chronic pain (lasting >3 months) often requires comprehensive management approaches and should be evaluated by healthcare professionals.";
-    } else if (lowerMessage.includes('fever') || lowerMessage.includes('temperature')) {
-      response = "FEVER ASSESSMENT & MANAGEMENT: Fever is a temporary increase in body temperature, often indicating your body is fighting an infection.\n\n" +
-                "TEMPERATURE CLASSIFICATIONS:\n" +
-                "• Normal: 97.7°F-99.5°F (36.5°C-37.5°C)\n" +
-                "• Low-grade fever: 99.6°F-100.3°F (37.6°C-38°C)\n" +
-                "• Moderate fever: 100.4°F-102.2°F (38.1°C-39°C)\n" +
-                "• High fever: >102.2°F (>39°C)\n" +
-                "• Very high fever: >103.1°F (>39.5°C)\n\n" +
-                "RECOMMENDED MANAGEMENT:\n" +
-                "1. Rest and limit activity\n" +
-                "2. Stay hydrated with water, clear broth, or electrolyte solutions\n" +
-                "3. Dress in lightweight clothing and use light bedding\n" +
-                "4. Keep room temperature comfortable (not too hot/cold)\n" +
-                "5. Take over-the-counter fever reducers as directed:\n" +
-                "   - Acetaminophen (Tylenol) or ibuprofen (Advil, Motrin) for adults\n" +
-                "   - Age-appropriate formulations for children\n\n" +
-                "SEEK IMMEDIATE MEDICAL ATTENTION FOR FEVER WITH:\n" +
-                "- Temperature above 103°F (39.4°C) in adults\n" +
-                "- Any fever in infants under 3 months\n" +
-                "- Fever lasting more than 3 days\n" +
-                "- Severe headache, stiff neck, confusion, or difficulty breathing\n" +
-                "- Rash, especially one that doesn't blanch when pressed\n" +
-                "- Persistent vomiting or inability to keep fluids down\n\n" +
-                "NOTE: Fever itself is often a helpful immune response rather than harmful, but the underlying cause may require treatment.";
-    } else if (lowerMessage.includes('emergency') || lowerMessage.includes('urgent')) {
-      response = "⚠️ EMERGENCY MEDICAL SITUATION GUIDANCE ⚠️\n\n" +
-                "If you believe you are experiencing a medical emergency, take the following actions immediately:\n\n" +
-                "1. CALL EMERGENCY SERVICES (911 in US) for:\n" +
-                "   • Chest pain or pressure\n" +
-                "   • Difficulty breathing\n" +
-                "   • Severe bleeding that cannot be controlled\n" +
-                "   • Sudden severe pain\n" +
-                "   • Sudden dizziness, weakness, or vision changes\n" +
-                "   • Confusion, difficulty speaking, or altered mental status\n" +
-                "   • Serious injuries or trauma\n" +
-                "   • Severe allergic reactions\n" +
-                "   • Suicidal thoughts or behaviors\n\n" +
-                "2. While waiting for emergency services:\n" +
-                "   • For bleeding: Apply direct pressure with clean cloth\n" +
-                "   • For choking: Perform Heimlich maneuver if trained\n" +
-                "   • For suspected stroke: Note time symptoms began\n" +
-                "   • For cardiac arrest: Begin CPR if trained\n" +
-                "   • For seizures: Clear area of hazards, do not restrain\n\n" +
-                "3. Have someone gather:\n" +
-                "   • List of current medications\n" +
-                "   • Relevant medical history information\n" +
-                "   • Emergency contact information\n\n" +
-                "IMPORTANT: Never drive yourself to the hospital during a medical emergency if alternatives exist. Emergency services can begin treatment immediately upon arrival.";
-    } else if (lowerMessage.includes('thank')) {
-      response = "You're welcome! I'm glad I could provide helpful information. Remember that while I aim to offer accurate medical guidance, my analysis is not a substitute for professional medical evaluation.\n\n" +
-                "For any persistent or concerning symptoms, please consult with a healthcare provider who can perform a proper examination, order appropriate tests, and develop a personalized treatment plan.\n\n" +
-                "Is there anything else I can help you with regarding emergency medical information or health guidance?";
-    }
-    
-    return res.json({ response });
-  } catch (error) {
-    console.error('Mock Chat error:', error);
-    return res.status(500).json({ 
-      error: 'An error occurred during chat',
-      message: error instanceof Error ? error.message : 'Unknown error'
+    res.json({ 
+      response,
+      disclaimer: "This is for informational purposes only and should not replace professional medical advice."
     });
+  } catch (error) {
+    console.error('Error in medical chat:', error);
+    res.status(500).json({ error: "Failed to process medical chat request" });
   }
 }
