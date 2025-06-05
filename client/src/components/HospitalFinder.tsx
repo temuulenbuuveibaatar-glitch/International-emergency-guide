@@ -269,8 +269,8 @@ export default function HospitalFinder() {
     }
   };
 
-  // Global database of major hospitals by country
-  const hospitalDatabase: Record<string, Hospital[]> = {
+// Global database of major hospitals by country - moved outside component for fallback access
+const hospitalDatabase: Record<string, Hospital[]> = {
     "Mongolia": [
       {
         id: "mn_1",
