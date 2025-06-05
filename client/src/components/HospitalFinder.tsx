@@ -3,6 +3,95 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps
 import { useTranslation } from "react-i18next";
 import { Phone, MapPin } from "lucide-react";
 
+// Fallback component for when Google Maps can't load
+function HospitalListFallback({ hospitals, selectedCountry, onCountryChange }: {
+  hospitals: Hospital[];
+  selectedCountry: string;
+  onCountryChange: (country: string) => void;
+}) {
+  const { t } = useTranslation();
+  
+  // Get hospitals for selected country
+  const hospitalDatabase: Record<string, Hospital[]> = {
+    "Mongolia": hospitals.length > 0 ? hospitals : [
+      {
+        id: "mn_1",
+        name: "National Trauma Center",
+        address: "Ulaanbaatar, Mongolia",
+        position: { lat: 47.9077, lng: 106.8832 },
+        phone: "+976-11-123456"
+      }
+    ]
+  };
+  
+  const countryHospitals = hospitalDatabase[selectedCountry] || [];
+  
+  return (
+    <div className="p-4">
+      {/* Country Selector */}
+      <div className="mb-6">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Select Country</label>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {["Mongolia", "China", "Japan", "Korea", "USA", "UK", "Germany", "Russia"].map((country) => (
+            <button
+              key={country}
+              onClick={() => onCountryChange(country)}
+              className={`p-2 text-sm border rounded-md ${
+                selectedCountry === country
+                  ? 'bg-[#004A9F] text-white border-[#004A9F]'
+                  : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-50'
+              }`}
+            >
+              {country}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Hospital List */}
+      <div className="space-y-3">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          Hospitals in {selectedCountry} ({countryHospitals.length})
+        </h3>
+        {countryHospitals.map((hospital) => (
+          <div key={hospital.id} className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
+            <div className="flex items-start">
+              <div className="text-[#004A9F] mr-3 mt-1">
+                <MapPin size={16} />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-medium text-[#004A9F] mb-1">{hospital.name}</h4>
+                <p className="text-sm text-gray-600 mb-2">{hospital.address}</p>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <Phone size={14} className="text-gray-500 mr-1" />
+                    <a
+                      href={`tel:${hospital.phone}`}
+                      className="text-sm text-[#004A9F] hover:underline"
+                    >
+                      {hospital.phone}
+                    </a>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const query = encodeURIComponent(`${hospital.name} ${hospital.address}`);
+                      window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+                    }}
+                    className="bg-[#004A9F] text-white px-3 py-1 rounded text-sm hover:bg-blue-700"
+                  >
+                    Get Directions
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 interface Hospital {
   id: string;
   name: string;
@@ -79,11 +168,13 @@ export default function HospitalFinder() {
   const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
   const mapRef = useRef<google.maps.Map | null>(null);
   
-  // We'll continue to use the Google Maps API, but we'll also provide a fallback
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
     libraries: ["places"],
   });
+
+  // Handle API key missing or invalid
+  const hasValidApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY && import.meta.env.VITE_GOOGLE_MAPS_API_KEY.length > 0;
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
@@ -3529,6 +3620,43 @@ export default function HospitalFinder() {
     const defaultCountry = "Mongolia";
     const countryCenter = countryCenters[defaultCountry];
     searchNearbyHospitals(countryCenter, defaultCountry);
+  }
+
+  // Show error message if Google Maps fails to load
+  if (loadError) {
+    return (
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-6 text-center">
+          <div className="text-red-600 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8v4"></path>
+              <path d="M12 16h.01"></path>
+            </svg>
+          </div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Maps Service Unavailable</h3>
+          <p className="text-gray-600 mb-4">
+            Google Maps cannot load properly. This is usually due to a missing or invalid API key configuration.
+          </p>
+          <p className="text-sm text-gray-500">
+            Hospital directory is still available below with contact information and addresses.
+          </p>
+        </div>
+        <HospitalListFallback hospitals={hospitalDatabase[selectedCountry] || []} selectedCountry={selectedCountry} onCountryChange={handleCountryChange} />
+      </div>
+    );
+  }
+
+  // Show loading state
+  if (!isLoaded) {
+    return (
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="p-6 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#004A9F] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading hospital finder...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
