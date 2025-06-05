@@ -12,15 +12,24 @@ A comprehensive multilingual emergency response platform providing critical medi
 - **Offline Support**: Access critical information without internet
 - **Multilingual**: Support for 7 languages
 
-## Deploy to GitHub
+## Deploy from GitHub
 
-This project is ready for deployment from GitHub to multiple platforms:
+This project supports multiple deployment platforms from GitHub:
 
-### Deploy to Vercel
+### Deploy to Vercel (Full-Stack - Recommended)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
+*Supports backend API and database*
 
-### Deploy to Netlify
+### Deploy to Netlify (Full-Stack)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YOUR_USERNAME/YOUR_REPO_NAME)
+*Supports backend API and database*
+
+### GitHub Pages (Frontend Only)
+For static deployment without backend features:
+1. Enable GitHub Pages in repository settings
+2. Select "GitHub Actions" as source
+3. Push to main branch to trigger deployment
+*Note: AI features and database will not work on GitHub Pages*
 
 ## Required Environment Variables
 
