@@ -8,6 +8,7 @@ import HospitalFinder from "../components/HospitalFinder";
 import OfflineDataManager from "../components/OfflineDataManager";
 import { Flame, MapPin, ArrowRight, Download, Heart, AlertCircle, ArrowDown, Info, Shield, Zap, Globe, Users } from "lucide-react";
 import { useState, useEffect } from "react";
+import emergencyTeamImage from "@assets/emergency_1749561339422.jpg";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -111,7 +112,7 @@ export default function Home() {
                 
                 {/* Mongolian Emergency Service Personnel */}
                 <img 
-                  src="/attached_assets/emergency_1749561339422.jpg" 
+                  src={emergencyTeamImage} 
                   alt="Mongolian emergency service personnel and helicopter rescue team" 
                   className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
