@@ -101,27 +101,44 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 3D Floating Cards */}
+            {/* Hero Image with 3D Effects */}
             <div className="relative" style={{
               transform: `translateY(${scrollPosition * 0.05}px)`,
             }}>
-              <div className="grid grid-cols-2 gap-6">
-                {/* Emergency Card */}
-                <div className="group relative bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:rotate-1 hover:scale-105 border border-red-200/50">
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-lg group-hover:animate-pulse">
-                    <AlertCircle className="w-6 h-6 text-white" />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-[1.02]">
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent z-10"></div>
+                
+                {/* Professional Medical Team Image */}
+                <img 
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Professional medical emergency team in action" 
+                  className="w-full h-[400px] lg:h-[500px] object-cover"
+                />
+                
+                {/* Floating Stats Cards */}
+                <div className="absolute bottom-6 left-6 right-6 z-20">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg">
+                      <div className="text-2xl font-bold text-blue-600">24/7</div>
+                      <div className="text-sm text-gray-700">Available</div>
+                    </div>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg">
+                      <div className="text-2xl font-bold text-red-600">7</div>
+                      <div className="text-sm text-gray-700">Languages</div>
+                    </div>
+                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg">
+                      <div className="text-2xl font-bold text-green-600">50+</div>
+                      <div className="text-sm text-gray-700">Protocols</div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-red-800 dark:text-red-200 mb-2">Quick Emergency</h3>
-                  <p className="text-red-700 dark:text-red-300 text-sm">Immediate access to life-saving protocols</p>
                 </div>
-
-                {/* Hospital Card */}
-                <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-rotate-1 hover:scale-105 border border-blue-200/50">
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shadow-lg group-hover:animate-pulse">
-                    <MapPin className="w-6 h-6 text-white" />
+                
+                {/* Floating Action Button */}
+                <div className="absolute top-6 right-6 z-20">
+                  <div className="bg-red-500 hover:bg-red-600 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 cursor-pointer">
+                    <Heart className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-blue-800 dark:text-blue-200 mb-2">Find Care</h3>
-                  <p className="text-blue-700 dark:text-blue-300 text-sm">Locate nearby hospitals and medical facilities</p>
                 </div>
               </div>
             </div>
@@ -259,60 +276,102 @@ export default function Home() {
       </section>
 
       {/* Hospital Finder Section */}
-      <section id="hospitals" className="py-10 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#004A9F] dark:text-blue-300 mb-3">
-              {t('hospitals.title')}
+      <section id="hospitals" className="py-20 relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-blue-900/10 dark:via-gray-900 dark:to-cyan-900/10">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 right-20 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 left-20 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2.5s'}}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16" style={{
+            transform: `translateY(${scrollPosition > 500 ? '0' : '20px'})`,
+            opacity: scrollPosition > 500 ? 1 : 0,
+            transition: 'all 0.6s ease-out'
+          }}>
+            <div className="inline-flex items-center bg-blue-100 dark:bg-blue-900/30 border border-blue-200/50 px-6 py-2 rounded-full mb-6">
+              <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
+              <span className="text-blue-700 dark:text-blue-300 font-medium">Medical Facilities</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-800 bg-clip-text text-transparent mb-4">
+              Hospital Finder
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {t('hospitals.description')}
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Locate nearby hospitals and medical facilities with interactive maps and real-time information
             </p>
           </div>
           
-          <div className="transform transition-all duration-500" style={{
-            transform: scrollPosition > 500 ? 'translateY(0)' : 'translateY(20px)',
+          <div className="transform transition-all duration-700" style={{
+            transform: scrollPosition > 500 ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
             opacity: scrollPosition > 500 ? 1 : 0,
           }}>
-            <HospitalFinder />
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+              <HospitalFinder />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Emergency Protocols Section - Preview */}
-      <section id="emergency" className="py-10 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#004A9F] dark:text-blue-300 mb-3">
-              {t('protocols.title')}
+      <section id="emergency" className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-red-50 to-pink-50 dark:from-gray-900 dark:via-red-900/10 dark:to-pink-900/10">
+        {/* Dynamic Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16" style={{
+            transform: `translateY(${scrollPosition > 800 ? '0' : '20px'})`,
+            opacity: scrollPosition > 800 ? 1 : 0,
+            transition: 'all 0.6s ease-out'
+          }}>
+            <div className="inline-flex items-center bg-red-100 dark:bg-red-900/30 border border-red-200/50 px-6 py-2 rounded-full mb-6">
+              <Flame className="w-5 h-5 text-red-600 dark:text-red-400 mr-2" />
+              <span className="text-red-700 dark:text-red-300 font-medium">Life-Saving Protocols</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-600 via-pink-600 to-red-800 bg-clip-text text-transparent mb-4">
+              Emergency Protocols
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {t('protocols.description')}
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Comprehensive step-by-step emergency response procedures for critical medical situations
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transform transition-all duration-500" style={{
-            transform: scrollPosition > 800 ? 'translateY(0)' : 'translateY(20px)',
-            opacity: scrollPosition > 800 ? 1 : 0,
-          }}>
-            {emergencyProtocols.slice(0, 3).map((protocol) => (
-              <EmergencyProtocolCard
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {emergencyProtocols.slice(0, 3).map((protocol, index) => (
+              <div
                 key={protocol.id}
-                id={protocol.id}
-                title={protocol.title}
-                description={protocol.description}
-              />
+                className="transform transition-all duration-700"
+                style={{
+                  transform: scrollPosition > 800 ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+                  opacity: scrollPosition > 800 ? 1 : 0,
+                  transitionDelay: `${index * 0.1}s`
+                }}
+              >
+                <div className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative">
+                    <EmergencyProtocolCard
+                      id={protocol.id}
+                      title={protocol.title}
+                      description={protocol.description}
+                    />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
           
-          <div className="mt-10 text-center transform transition-all duration-500" style={{
-            transform: scrollPosition > 900 ? 'translateY(0)' : 'translateY(20px)',
+          <div className="text-center" style={{
+            transform: `translateY(${scrollPosition > 900 ? '0' : '20px'})`,
             opacity: scrollPosition > 900 ? 1 : 0,
+            transition: 'all 0.6s ease-out'
           }}>
             <Link href="/emergency">
-              <div className="bg-primary hover:bg-[#C41C2D] text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 inline-flex items-center gap-2 cursor-pointer hover:shadow-lg transform hover:translate-y-[-4px]">
-                <span>{t('protocols.viewAll')}</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <div className="group inline-flex items-center bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-red-500/25 cursor-pointer">
+                <span>View All Emergency Protocols</span>
+                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </Link>
           </div>
