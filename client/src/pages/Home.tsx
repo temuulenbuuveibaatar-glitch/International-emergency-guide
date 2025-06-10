@@ -32,13 +32,22 @@ export default function Home() {
   
   return (
     <>
-      {/* Hero Section with 3D Effects */}
+      {/* Hero Section with Advanced 3D Effects */}
       <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/20">
-        {/* Animated Background Elements */}
+        {/* Advanced Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/2 -left-40 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-20 right-20 w-60 h-60 bg-green-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-cyan-500/15 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/2 -left-40 w-[500px] h-[500px] bg-gradient-to-r from-red-500/15 to-pink-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-green-500/15 to-emerald-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+          
+          {/* Floating geometric shapes */}
+          <div className="absolute top-1/4 left-1/5 w-12 h-12 bg-white/30 backdrop-blur-sm rotate-45 animate-bounce shadow-2xl" style={{animationDelay: '0.5s', animationDuration: '3s'}}></div>
+          <div className="absolute top-3/4 right-1/4 w-8 h-8 bg-gradient-to-r from-cyan-400/40 to-blue-500/40 backdrop-blur-sm rounded-full animate-bounce shadow-xl" style={{animationDelay: '1.5s', animationDuration: '4s'}}></div>
+          <div className="absolute bottom-1/3 left-2/3 w-6 h-20 bg-gradient-to-b from-purple-400/30 to-pink-500/30 backdrop-blur-sm rounded-full animate-pulse shadow-lg" style={{animationDelay: '2.5s'}}></div>
+          <div className="absolute top-2/3 left-1/6 w-10 h-10 bg-gradient-to-r from-orange-400/35 to-red-500/30 backdrop-blur-sm rounded-lg rotate-12 animate-pulse shadow-xl" style={{animationDelay: '3.5s'}}></div>
+          
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '50px 50px'}}></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -62,42 +71,62 @@ export default function Home() {
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
                 Access detailed emergency protocols, locate nearby hospitals, find country-specific emergency numbers, and get AI-powered medical assistance - all available offline.
               </p>
-              <div className="flex flex-wrap gap-4 mt-8">
+              <div className="flex flex-wrap gap-6 mt-12">
                 <Link href="/emergency">
-                  <div className="group relative bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-red-500/25 cursor-pointer overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative flex items-center gap-3">
-                      <Flame className="w-5 h-5 group-hover:animate-pulse" />
-                      <span>Emergency Protocols</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="group relative bg-gradient-to-br from-red-600 via-red-500 to-red-700 hover:from-red-700 hover:via-red-600 hover:to-red-800 text-white px-10 py-5 rounded-3xl font-bold transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-3xl shadow-red-500/30 cursor-pointer overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-red-300/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+                    <div className="absolute top-2 left-2 w-3 h-3 bg-white/40 rounded-full animate-ping"></div>
+                    <div className="relative flex items-center gap-4">
+                      <div className="p-2 bg-white/20 rounded-xl group-hover:rotate-12 transition-transform duration-500">
+                        <Flame className="w-6 h-6 group-hover:animate-pulse" />
+                      </div>
+                      <span className="text-lg">Emergency Protocols</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
                     </div>
                   </div>
                 </Link>
                 <Link href="/hospitals">
-                  <div className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-blue-500/25 cursor-pointer overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative flex items-center gap-3">
-                      <MapPin className="w-5 h-5 group-hover:animate-pulse" />
-                      <span>Find Hospitals</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  <div className="group relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 hover:from-blue-700 hover:via-blue-600 hover:to-blue-800 text-white px-10 py-5 rounded-3xl font-bold transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-3xl shadow-blue-500/30 cursor-pointer overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-300/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
+                    <div className="absolute top-2 left-2 w-3 h-3 bg-white/40 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                    <div className="relative flex items-center gap-4">
+                      <div className="p-2 bg-white/20 rounded-xl group-hover:rotate-12 transition-transform duration-500">
+                        <MapPin className="w-6 h-6 group-hover:animate-pulse" />
+                      </div>
+                      <span className="text-lg">Find Hospitals</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
                     </div>
                   </div>
                 </Link>
               </div>
 
-              {/* Feature Pills */}
-              <div className="flex flex-wrap gap-3 mt-6">
-                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200/50 px-4 py-2 rounded-full text-sm shadow-lg">
-                  <Globe className="w-4 h-4 text-blue-600" />
-                  <span className="text-gray-700">7 Languages</span>
+              {/* Advanced Feature Pills */}
+              <div className="flex flex-wrap gap-4 mt-8" style={{
+                transform: `translateY(${scrollPosition * -0.05}px)`,
+                opacity: Math.max(0.5, 1 - scrollPosition * 0.001)
+              }}>
+                <div className="group flex items-center gap-3 bg-gradient-to-r from-white/30 via-white/25 to-white/20 backdrop-blur-xl border border-white/40 px-6 py-3 rounded-full text-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
+                  <div className="p-1.5 bg-blue-500/20 rounded-full group-hover:rotate-12 transition-transform duration-500">
+                    <Globe className="w-4 h-4 text-blue-600 group-hover:text-blue-500" />
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">7 Languages</span>
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
-                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200/50 px-4 py-2 rounded-full text-sm shadow-lg">
-                  <Shield className="w-4 h-4 text-green-600" />
-                  <span className="text-gray-700">Offline Ready</span>
+                <div className="group flex items-center gap-3 bg-gradient-to-r from-white/30 via-white/25 to-white/20 backdrop-blur-xl border border-white/40 px-6 py-3 rounded-full text-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
+                  <div className="p-1.5 bg-green-500/20 rounded-full group-hover:rotate-12 transition-transform duration-500">
+                    <Shield className="w-4 h-4 text-green-600 group-hover:text-green-500" />
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">Offline Ready</span>
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                 </div>
-                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-gray-200/50 px-4 py-2 rounded-full text-sm shadow-lg">
-                  <Zap className="w-4 h-4 text-yellow-600" />
-                  <span className="text-gray-700">AI Powered</span>
+                <div className="group flex items-center gap-3 bg-gradient-to-r from-white/30 via-white/25 to-white/20 backdrop-blur-xl border border-white/40 px-6 py-3 rounded-full text-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
+                  <div className="p-1.5 bg-yellow-500/20 rounded-full group-hover:rotate-12 transition-transform duration-500">
+                    <Zap className="w-4 h-4 text-yellow-600 group-hover:text-yellow-500" />
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">AI Powered</span>
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
                 </div>
               </div>
             </div>
@@ -117,20 +146,35 @@ export default function Home() {
                   className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
                 
-                {/* Floating Stats Cards */}
+                {/* Advanced Floating Stats Cards */}
                 <div className="absolute bottom-6 left-6 right-6 z-20">
                   <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg">
-                      <div className="text-2xl font-bold text-blue-600">24/7</div>
-                      <div className="text-sm text-gray-700">Available</div>
+                    <div className="group relative bg-gradient-to-br from-white/30 via-white/25 to-white/15 backdrop-blur-xl border border-white/50 p-5 rounded-3xl text-center shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-green-400/40 rounded-full blur-md animate-pulse"></div>
+                      <div className="absolute top-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-ping"></div>
+                      <div className="relative">
+                        <div className="text-3xl font-black text-white mb-2 drop-shadow-2xl">24/7</div>
+                        <div className="text-sm text-white/95 font-semibold tracking-wide">Available</div>
+                      </div>
                     </div>
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg">
-                      <div className="text-2xl font-bold text-red-600">7</div>
-                      <div className="text-sm text-gray-700">Languages</div>
+                    <div className="group relative bg-gradient-to-br from-white/30 via-white/25 to-white/15 backdrop-blur-xl border border-white/50 p-5 rounded-3xl text-center shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-cyan-400/40 rounded-full blur-md animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                      <div className="absolute top-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                      <div className="relative">
+                        <div className="text-3xl font-black text-white mb-2 drop-shadow-2xl">7</div>
+                        <div className="text-sm text-white/95 font-semibold tracking-wide">Languages</div>
+                      </div>
                     </div>
-                    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 text-center shadow-lg">
-                      <div className="text-2xl font-bold text-green-600">50+</div>
-                      <div className="text-sm text-gray-700">Protocols</div>
+                    <div className="group relative bg-gradient-to-br from-white/30 via-white/25 to-white/15 backdrop-blur-xl border border-white/50 p-5 rounded-3xl text-center shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-orange-400/40 rounded-full blur-md animate-pulse" style={{animationDelay: '1s'}}></div>
+                      <div className="absolute top-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+                      <div className="relative">
+                        <div className="text-3xl font-black text-white mb-2 drop-shadow-2xl">50+</div>
+                        <div className="text-sm text-white/95 font-semibold tracking-wide">Protocols</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -379,25 +423,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Offline Mode Section */}
-      <section id="offline-access" className="py-10 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-2xl shadow-sm">
-            <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-              <h2 className="text-2xl font-bold text-[#004A9F] dark:text-blue-300">
-                {t('offline.title', 'Offline Access')}
-              </h2>
-              <div className="flex items-center gap-2 text-sm bg-white dark:bg-gray-800 px-4 py-2 rounded-full text-[#004A9F] dark:text-blue-300 shadow-sm">
-                <Download className="w-4 h-4" />
-                <span>{t('offline.savePrompt', 'Save for offline use')}</span>
+      {/* Advanced Offline Mode Section */}
+      <section id="offline-access" className="py-20 relative overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 dark:from-indigo-900/10 dark:via-purple-900/10 dark:to-blue-900/10">
+        {/* Floating Particle Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/6 w-4 h-4 bg-indigo-400/30 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '4s'}}></div>
+          <div className="absolute top-3/4 right-1/4 w-6 h-6 bg-purple-400/25 rounded-full animate-bounce" style={{animationDelay: '1s', animationDuration: '5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-blue-400/35 rounded-full animate-bounce" style={{animationDelay: '2s', animationDuration: '3s'}}></div>
+          <div className="absolute top-20 right-20 w-8 h-8 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-sm animate-pulse" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-20 left-20 w-12 h-12 bg-gradient-to-r from-purple-400/15 to-pink-500/15 rounded-full blur-md animate-pulse" style={{animationDelay: '3s'}}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12" style={{
+              transform: `translateY(${scrollPosition > 1000 ? '0' : '20px'})`,
+              opacity: scrollPosition > 1000 ? 1 : 0,
+              transition: 'all 0.6s ease-out'
+            }}>
+              <div className="inline-flex items-center bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200/50 px-6 py-2 rounded-full mb-6">
+                <Download className="w-5 h-5 text-indigo-600 dark:text-indigo-400 mr-2" />
+                <span className="text-indigo-700 dark:text-indigo-300 font-medium">Offline Ready</span>
               </div>
+              <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4">
+                Offline Access
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Save emergency information for offline use - access critical protocols and medical data even without internet
+              </p>
             </div>
             
-            <OfflineDataManager />
-            
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-4">
-              {t('offline.description', 'Save emergency information for offline use - access critical protocols, phone numbers, and medication information even without internet.')}
-            </p>
+            <div className="transform transition-all duration-700" style={{
+              transform: scrollPosition > 1000 ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+              opacity: scrollPosition > 1000 ? 1 : 0,
+            }}>
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/50 dark:border-gray-700/50 p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5"></div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-r from-blue-400/10 to-purple-500/10 rounded-full blur-3xl"></div>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                      Emergency Data Manager
+                    </h3>
+                    <div className="flex items-center gap-3 text-sm bg-gradient-to-r from-green-500/10 to-emerald-500/10 backdrop-blur-sm border border-green-200/50 px-6 py-3 rounded-full text-green-700 dark:text-green-300 shadow-lg">
+                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="font-medium">Ready for Offline Use</span>
+                    </div>
+                  </div>
+                  
+                  <OfflineDataManager />
+                  
+                  <div className="mt-8 p-6 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/20 dark:to-indigo-900/20 backdrop-blur-sm border border-blue-200/30 rounded-2xl">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-blue-500/20 rounded-xl">
+                        <Info className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">How Offline Mode Works</h4>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                          All emergency protocols, contact numbers, and critical medical information are saved locally on your device. 
+                          This ensures you can access life-saving information even in areas with poor connectivity or during network outages.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
