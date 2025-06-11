@@ -71,62 +71,62 @@ export default function Home() {
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
                 Access detailed emergency protocols, locate nearby hospitals, find country-specific emergency numbers, and get AI-powered medical assistance - all available offline.
               </p>
-              <div className="flex flex-wrap gap-6 mt-12">
-                <Link href="/emergency">
-                  <div className="group relative bg-gradient-to-br from-red-600 via-red-500 to-red-700 hover:from-red-700 hover:via-red-600 hover:to-red-800 text-white px-10 py-5 rounded-3xl font-bold transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-3xl shadow-red-500/30 cursor-pointer overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-red-300/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-                    <div className="absolute top-2 left-2 w-3 h-3 bg-white/40 rounded-full animate-ping"></div>
-                    <div className="relative flex items-center gap-4">
-                      <div className="p-2 bg-white/20 rounded-xl group-hover:rotate-12 transition-transform duration-500">
-                        <Flame className="w-6 h-6 group-hover:animate-pulse" />
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-12">
+                <Link href="/emergency" className="w-full sm:w-auto">
+                  <div className="group relative bg-gradient-to-br from-red-600 via-red-500 to-red-700 active:from-red-700 active:via-red-600 active:to-red-800 hover:from-red-700 hover:via-red-600 hover:to-red-800 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-bold transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-2 shadow-lg sm:shadow-2xl active:shadow-md sm:hover:shadow-3xl shadow-red-500/30 cursor-pointer overflow-hidden touch-manipulation">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 sm:duration-500"></div>
+                    <div className="absolute -top-4 -right-4 w-16 sm:w-20 h-16 sm:h-20 bg-red-300/20 rounded-full blur-xl group-hover:scale-150 group-active:scale-125 transition-transform duration-300 sm:duration-500"></div>
+                    <div className="absolute top-2 left-2 w-2 sm:w-3 h-2 sm:h-3 bg-white/40 rounded-full animate-ping"></div>
+                    <div className="relative flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
+                      <div className="p-1.5 sm:p-2 bg-white/20 rounded-lg sm:rounded-xl group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
+                        <Flame className="w-5 sm:w-6 h-5 sm:h-6 group-hover:animate-pulse group-active:animate-pulse" />
                       </div>
-                      <span className="text-lg">Emergency Protocols</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
+                      <span className="text-base sm:text-lg text-center sm:text-left">Emergency Protocols</span>
+                      <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-2 group-active:translate-x-1 transition-transform duration-300 sm:duration-500 hidden sm:block" />
                     </div>
                   </div>
                 </Link>
-                <Link href="/hospitals">
-                  <div className="group relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 hover:from-blue-700 hover:via-blue-600 hover:to-blue-800 text-white px-10 py-5 rounded-3xl font-bold transition-all duration-500 transform hover:scale-110 hover:-translate-y-2 hover:shadow-3xl shadow-blue-500/30 cursor-pointer overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-300/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-                    <div className="absolute top-2 left-2 w-3 h-3 bg-white/40 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-                    <div className="relative flex items-center gap-4">
-                      <div className="p-2 bg-white/20 rounded-xl group-hover:rotate-12 transition-transform duration-500">
-                        <MapPin className="w-6 h-6 group-hover:animate-pulse" />
+                <Link href="/hospitals" className="w-full sm:w-auto">
+                  <div className="group relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 active:from-blue-700 active:via-blue-600 active:to-blue-800 hover:from-blue-700 hover:via-blue-600 hover:to-blue-800 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-bold transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-2 shadow-lg sm:shadow-2xl active:shadow-md sm:hover:shadow-3xl shadow-blue-500/30 cursor-pointer overflow-hidden touch-manipulation">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 sm:duration-500"></div>
+                    <div className="absolute -top-4 -right-4 w-16 sm:w-20 h-16 sm:h-20 bg-blue-300/20 rounded-full blur-xl group-hover:scale-150 group-active:scale-125 transition-transform duration-300 sm:duration-500"></div>
+                    <div className="absolute top-2 left-2 w-2 sm:w-3 h-2 sm:h-3 bg-white/40 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                    <div className="relative flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
+                      <div className="p-1.5 sm:p-2 bg-white/20 rounded-lg sm:rounded-xl group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
+                        <MapPin className="w-5 sm:w-6 h-5 sm:h-6 group-hover:animate-pulse group-active:animate-pulse" />
                       </div>
-                      <span className="text-lg">Find Hospitals</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500" />
+                      <span className="text-base sm:text-lg text-center sm:text-left">Find Hospitals</span>
+                      <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-2 group-active:translate-x-1 transition-transform duration-300 sm:duration-500 hidden sm:block" />
                     </div>
                   </div>
                 </Link>
               </div>
 
-              {/* Advanced Feature Pills */}
-              <div className="flex flex-wrap gap-4 mt-8" style={{
-                transform: `translateY(${scrollPosition * -0.05}px)`,
-                opacity: Math.max(0.5, 1 - scrollPosition * 0.001)
+              {/* Mobile-Optimized Feature Pills */}
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 mt-8" style={{
+                transform: `translateY(${scrollPosition * -0.02}px)`,
+                opacity: Math.max(0.7, 1 - scrollPosition * 0.0005)
               }}>
-                <div className="group flex items-center gap-3 bg-gradient-to-r from-white/30 via-white/25 to-white/20 backdrop-blur-xl border border-white/40 px-6 py-3 rounded-full text-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
-                  <div className="p-1.5 bg-blue-500/20 rounded-full group-hover:rotate-12 transition-transform duration-500">
-                    <Globe className="w-4 h-4 text-blue-600 group-hover:text-blue-500" />
+                <div className="group flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-white/35 via-white/30 to-white/25 backdrop-blur-xl border border-white/50 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-105 active:translate-y-0.5 sm:hover:-translate-y-1 touch-manipulation">
+                  <div className="p-1 sm:p-1.5 bg-blue-500/25 rounded-full group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
+                    <Globe className="w-3 sm:w-4 h-3 sm:h-4 text-blue-600 group-hover:text-blue-500 group-active:text-blue-500" />
                   </div>
                   <span className="text-gray-700 dark:text-gray-200 font-medium">7 Languages</span>
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
-                <div className="group flex items-center gap-3 bg-gradient-to-r from-white/30 via-white/25 to-white/20 backdrop-blur-xl border border-white/40 px-6 py-3 rounded-full text-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
-                  <div className="p-1.5 bg-green-500/20 rounded-full group-hover:rotate-12 transition-transform duration-500">
-                    <Shield className="w-4 h-4 text-green-600 group-hover:text-green-500" />
+                <div className="group flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-white/35 via-white/30 to-white/25 backdrop-blur-xl border border-white/50 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-105 active:translate-y-0.5 sm:hover:-translate-y-1 touch-manipulation">
+                  <div className="p-1 sm:p-1.5 bg-green-500/25 rounded-full group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
+                    <Shield className="w-3 sm:w-4 h-3 sm:h-4 text-green-600 group-hover:text-green-500 group-active:text-green-500" />
                   </div>
                   <span className="text-gray-700 dark:text-gray-200 font-medium">Offline Ready</span>
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                 </div>
-                <div className="group flex items-center gap-3 bg-gradient-to-r from-white/30 via-white/25 to-white/20 backdrop-blur-xl border border-white/40 px-6 py-3 rounded-full text-sm shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-1">
-                  <div className="p-1.5 bg-yellow-500/20 rounded-full group-hover:rotate-12 transition-transform duration-500">
-                    <Zap className="w-4 h-4 text-yellow-600 group-hover:text-yellow-500" />
+                <div className="group flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-white/35 via-white/30 to-white/25 backdrop-blur-xl border border-white/50 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-105 active:translate-y-0.5 sm:hover:-translate-y-1 touch-manipulation">
+                  <div className="p-1 sm:p-1.5 bg-yellow-500/25 rounded-full group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
+                    <Zap className="w-3 sm:w-4 h-3 sm:h-4 text-yellow-600 group-hover:text-yellow-500 group-active:text-yellow-500" />
                   </div>
                   <span className="text-gray-700 dark:text-gray-200 font-medium">AI Powered</span>
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
                 </div>
               </div>
             </div>
@@ -146,34 +146,34 @@ export default function Home() {
                   className="w-full h-[400px] lg:h-[500px] object-cover"
                 />
                 
-                {/* Advanced Floating Stats Cards */}
-                <div className="absolute bottom-6 left-6 right-6 z-20">
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="group relative bg-gradient-to-br from-white/30 via-white/25 to-white/15 backdrop-blur-xl border border-white/50 p-5 rounded-3xl text-center shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-green-400/40 rounded-full blur-md animate-pulse"></div>
-                      <div className="absolute top-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-ping"></div>
+                {/* Mobile-Optimized Floating Stats Cards */}
+                <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 z-20">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-4">
+                    <div className="group relative bg-gradient-to-br from-white/35 via-white/30 to-white/20 backdrop-blur-xl border border-white/60 p-3 sm:p-5 rounded-2xl sm:rounded-3xl text-center shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-700 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-3 overflow-hidden touch-manipulation">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 sm:duration-700"></div>
+                      <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 w-6 sm:w-10 h-6 sm:h-10 bg-green-400/40 rounded-full blur-sm sm:blur-md animate-pulse"></div>
+                      <div className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white/60 rounded-full animate-ping"></div>
                       <div className="relative">
-                        <div className="text-3xl font-black text-white mb-2 drop-shadow-2xl">24/7</div>
-                        <div className="text-sm text-white/95 font-semibold tracking-wide">Available</div>
+                        <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">24/7</div>
+                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">Available</div>
                       </div>
                     </div>
-                    <div className="group relative bg-gradient-to-br from-white/30 via-white/25 to-white/15 backdrop-blur-xl border border-white/50 p-5 rounded-3xl text-center shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-cyan-400/40 rounded-full blur-md animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                      <div className="absolute top-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                    <div className="group relative bg-gradient-to-br from-white/35 via-white/30 to-white/20 backdrop-blur-xl border border-white/60 p-3 sm:p-5 rounded-2xl sm:rounded-3xl text-center shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-700 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-3 overflow-hidden touch-manipulation">
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 sm:duration-700"></div>
+                      <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 w-6 sm:w-10 h-6 sm:h-10 bg-cyan-400/40 rounded-full blur-sm sm:blur-md animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                      <div className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
                       <div className="relative">
-                        <div className="text-3xl font-black text-white mb-2 drop-shadow-2xl">7</div>
-                        <div className="text-sm text-white/95 font-semibold tracking-wide">Languages</div>
+                        <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">7</div>
+                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">Languages</div>
                       </div>
                     </div>
-                    <div className="group relative bg-gradient-to-br from-white/30 via-white/25 to-white/15 backdrop-blur-xl border border-white/50 p-5 rounded-3xl text-center shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:scale-110 hover:-translate-y-3 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                      <div className="absolute -top-2 -right-2 w-10 h-10 bg-orange-400/40 rounded-full blur-md animate-pulse" style={{animationDelay: '1s'}}></div>
-                      <div className="absolute top-1 right-1 w-3 h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+                    <div className="group relative bg-gradient-to-br from-white/35 via-white/30 to-white/20 backdrop-blur-xl border border-white/60 p-3 sm:p-5 rounded-2xl sm:rounded-3xl text-center shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-700 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-3 overflow-hidden touch-manipulation">
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/30 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 sm:duration-700"></div>
+                      <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 w-6 sm:w-10 h-6 sm:h-10 bg-orange-400/40 rounded-full blur-sm sm:blur-md animate-pulse" style={{animationDelay: '1s'}}></div>
+                      <div className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
                       <div className="relative">
-                        <div className="text-3xl font-black text-white mb-2 drop-shadow-2xl">50+</div>
-                        <div className="text-sm text-white/95 font-semibold tracking-wide">Protocols</div>
+                        <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">50+</div>
+                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">Protocols</div>
                       </div>
                     </div>
                   </div>
@@ -346,12 +346,15 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="transform transition-all duration-700" style={{
-            transform: scrollPosition > 500 ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+          <div className="transform transition-all duration-500 sm:duration-700" style={{
+            transform: scrollPosition > 500 ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.98)',
             opacity: scrollPosition > 500 ? 1 : 0,
           }}>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
-              <HospitalFinder />
+            <div className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl border border-gray-200/60 dark:border-gray-700/60 overflow-hidden transition-all duration-300 sm:duration-500 transform active:scale-98 sm:hover:scale-[1.01] touch-manipulation">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 sm:duration-500"></div>
+              <div className="relative">
+                <HospitalFinder />
+              </div>
             </div>
           </div>
         </div>
@@ -383,19 +386,20 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
             {emergencyProtocols.slice(0, 3).map((protocol, index) => (
               <div
                 key={protocol.id}
-                className="transform transition-all duration-700"
+                className="transform transition-all duration-500 sm:duration-700"
                 style={{
-                  transform: scrollPosition > 800 ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+                  transform: scrollPosition > 800 ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.98)',
                   opacity: scrollPosition > 800 ? 1 : 0,
                   transitionDelay: `${index * 0.1}s`
                 }}
               >
-                <div className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="group relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 transform active:scale-98 sm:hover:scale-105 active:translate-y-1 sm:hover:-translate-y-2 border border-gray-200/60 dark:border-gray-700/60 overflow-hidden touch-manipulation">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/8 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 sm:duration-500"></div>
+                  <div className="absolute -top-4 -right-4 w-16 sm:w-20 h-16 sm:h-20 bg-red-400/10 rounded-full blur-xl group-hover:scale-150 group-active:scale-125 transition-transform duration-300 sm:duration-500"></div>
                   <div className="relative">
                     <EmergencyProtocolCard
                       id={protocol.id}
@@ -453,34 +457,34 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="transform transition-all duration-700" style={{
-              transform: scrollPosition > 1000 ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+            <div className="transform transition-all duration-500 sm:duration-700" style={{
+              transform: scrollPosition > 1000 ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.98)',
               opacity: scrollPosition > 1000 ? 1 : 0,
             }}>
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/50 dark:border-gray-700/50 p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-purple-500/5"></div>
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-r from-blue-400/10 to-purple-500/10 rounded-full blur-3xl"></div>
+              <div className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border border-white/60 dark:border-gray-700/60 p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 overflow-hidden relative transform active:scale-98 sm:hover:scale-[1.01] touch-manipulation">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/8 via-transparent to-purple-500/8 opacity-0 group-hover:opacity-100 group-active:opacity-50 transition-opacity duration-300 sm:duration-500"></div>
+                <div className="absolute -top-8 sm:-top-10 -right-8 sm:-right-10 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-r from-blue-400/15 to-purple-500/15 rounded-full blur-2xl sm:blur-3xl group-hover:scale-110 group-active:scale-105 transition-transform duration-300 sm:duration-500"></div>
                 <div className="relative">
-                  <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200">
+                  <div className="flex items-center justify-between mb-6 sm:mb-8 flex-wrap gap-3 sm:gap-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">
                       Emergency Data Manager
                     </h3>
-                    <div className="flex items-center gap-3 text-sm bg-gradient-to-r from-green-500/10 to-emerald-500/10 backdrop-blur-sm border border-green-200/50 px-6 py-3 rounded-full text-green-700 dark:text-green-300 shadow-lg">
-                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm bg-gradient-to-r from-green-500/15 to-emerald-500/15 backdrop-blur-sm border border-green-200/60 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-green-700 dark:text-green-300 shadow-lg active:shadow-md sm:hover:shadow-xl transition-all duration-300 touch-manipulation">
+                      <div className="w-2 sm:w-3 h-2 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
                       <span className="font-medium">Ready for Offline Use</span>
                     </div>
                   </div>
                   
                   <OfflineDataManager />
                   
-                  <div className="mt-8 p-6 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 dark:from-blue-900/20 dark:to-indigo-900/20 backdrop-blur-sm border border-blue-200/30 rounded-2xl">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-blue-500/20 rounded-xl">
-                        <Info className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gradient-to-r from-blue-50/90 to-indigo-50/90 dark:from-blue-900/25 dark:to-indigo-900/25 backdrop-blur-sm border border-blue-200/40 rounded-xl sm:rounded-2xl group-hover:border-blue-300/50 transition-all duration-300">
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="p-2 sm:p-3 bg-blue-500/25 rounded-lg sm:rounded-xl group-hover:bg-blue-500/30 transition-colors duration-300">
+                        <Info className="w-5 sm:w-6 h-5 sm:h-6 text-blue-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">How Offline Mode Works</h4>
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-2 text-sm sm:text-base">How Offline Mode Works</h4>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
                           All emergency protocols, contact numbers, and critical medical information are saved locally on your device. 
                           This ensures you can access life-saving information even in areas with poor connectivity or during network outages.
                         </p>
