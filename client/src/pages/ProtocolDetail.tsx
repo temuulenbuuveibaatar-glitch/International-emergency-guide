@@ -46,8 +46,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "10 seconds maximum",
         tips: ["Don't check for pulse as a layperson", "Gasping is not normal breathing", "Call for help immediately"],
-        videoUrl: "https://www.youtube.com/embed/TfjjYz8y0yM",
-        imageUrl: "https://www.redcross.org/content/dam/redcross/uncategorized/Adult_CPR_Chest_Compressions.jpg"
+        videoUrl: "https://www.youtube.com/embed/b-8FdGnrlBk",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Call 911 and Get AED",
@@ -55,8 +55,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["Be specific when asking for help", "Stay on the line with 911", "Don't leave the victim alone"],
-        videoUrl: "https://www.youtube.com/embed/Ko7e22yV8Vg",
-        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ryAx1CoFJ58",
+        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Position Your Hands Correctly",
@@ -64,8 +64,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "5-10 seconds",
         tips: ["Only heel of hand touches chest", "Keep fingers off ribs", "Position yourself directly over victim"],
-        videoUrl: "https://www.youtube.com/embed/TJGOKhQKZ9M",
-        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/TYaMgJhow_Q",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Begin High-Quality Chest Compressions",
@@ -73,8 +73,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Continuous until help arrives",
         tips: ["Think 'Stayin' Alive' song tempo", "Don't lean on chest between compressions", "Switch rescuers every 2 minutes if possible"],
-        videoUrl: "https://www.youtube.com/embed/sQzTtRAjGd8",
-        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/n5hP4DIBCEE",
+        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Add Rescue Breaths (If Trained)",
@@ -82,8 +82,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: false,
         duration: "30:2 ratio if trained",
         tips: ["Hands-only CPR is effective for untrained rescuers", "Each breath should make chest rise", "Don't over-ventilate"],
-        videoUrl: "https://www.youtube.com/embed/B2qhvZJJVjU",
-        imageUrl: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/PbtRvlred1o",
+        imageUrl: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Continue Until Help Arrives",
@@ -91,8 +91,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Until relieved by professionals",
         tips: ["Quality compressions save lives", "AED will guide you through process", "Don't give up - brain can survive longer than you think"],
-        videoUrl: "https://www.youtube.com/embed/3Pz0aLRaOlM",
-        imageUrl: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/gDwt7dD3awc",
+        imageUrl: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       }
     ],
     "choking-2025": [
@@ -102,8 +102,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "5-10 seconds",
         tips: ["Coughing means some air is moving", "Silent choking is more dangerous", "Act quickly but stay calm"],
-        videoUrl: "https://www.youtube.com/embed/7DhKqhOgkQ4",
-        imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/7vKSm0d3EhQ",
+        imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Position for Back Blows",
@@ -111,8 +111,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "5 seconds",
         tips: ["Forward position is crucial", "Support them securely", "Different technique for infants"],
-        videoUrl: "https://www.youtube.com/embed/Os2vHJMXjWo",
-        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ljz14n4yEiA",
+        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Give 5 Sharp Back Blows",
@@ -120,8 +120,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "15-20 seconds",
         tips: ["Each blow should be forceful", "Only remove visible objects", "Don't do blind finger sweeps"],
-        videoUrl: "https://www.youtube.com/embed/qfbPEDILbYk",
-        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ljz14n4yEiA",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Perform 5 Abdominal Thrusts",
@@ -129,8 +129,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "15-20 seconds",
         tips: ["Above navel, below ribs", "Quick, upward motion", "Modify for pregnancy/obesity"],
-        videoUrl: "https://www.youtube.com/embed/lvbJJqB3RHs",
-        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/7vKSm0d3EhQ",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Continue Alternating Techniques",
@@ -138,8 +138,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Until successful or unconscious",
         tips: ["Don't give up quickly", "Encourage coughing between cycles", "Be ready for sudden success"],
-        videoUrl: "https://www.youtube.com/embed/FEr9jjZ6fi8",
-        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ljz14n4yEiA",
+        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "If Person Becomes Unconscious",
@@ -147,8 +147,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Until EMS arrives",
         tips: ["CPR may dislodge object", "Check mouth before each breath cycle", "Don't stop compressions to search for object"],
-        videoUrl: "https://www.youtube.com/embed/mAzMJdoVnFQ",
-        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/b-8FdGnrlBk",
+        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       }
     ],
     "stroke-2025": [
