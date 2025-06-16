@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "wouter";
 import { emergencyProtocols } from "../data/protocols";
-import MultimediaButton from "../components/MultimediaButton";
 import { 
   AlertTriangle, 
   ArrowLeft, 
@@ -10,15 +9,17 @@ import {
   Printer, 
   Share2, 
   Info,
-  BookOpen
+  BookOpen,
+  Clock,
+  Shield
 } from "lucide-react";
 
 interface ProtocolStep {
   title: string;
   description: string;
   important?: boolean;
-  imageUrl?: string;
-  videoUrl?: string;
+  duration?: string;
+  tips?: string[];
 }
 
 interface Protocol {
@@ -28,8 +29,7 @@ interface Protocol {
   steps: ProtocolStep[];
   warnings?: string[];
   notes?: string[];
-  demoVideo?: string;
-  demoImages?: string[];
+  quickTips?: string[];
 }
 
 const getProtocolById = (id: string): Protocol | null => {
@@ -40,391 +40,214 @@ const getProtocolById = (id: string): Protocol | null => {
     "cpr-2025": [
       {
         title: "Check for Responsiveness and Breathing",
-        description: "Tap the person's shoulders firmly and shout 'Are you okay?' Check for normal breathing by looking for chest rise and fall for no more than 10 seconds. If there's no response and the person isn't breathing normally or only gasping, begin CPR immediately. Do not check for a pulse as a layperson - focus on responsiveness and breathing only.",
+        description: "Tap the person's shoulders firmly and shout 'Are you okay?' Check for normal breathing by looking for chest rise and fall for no more than 10 seconds. If there's no response and the person isn't breathing normally or only gasping, begin CPR immediately.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=OtKvQzpP-Dk",
-        imageUrl: "/images/cpr-responsiveness-check.jpg"
+        duration: "10 seconds maximum",
+        tips: ["Don't check for pulse as a layperson", "Gasping is not normal breathing", "Call for help immediately"]
       },
       {
         title: "Call 911 and Get AED",
-        description: "Call 911 immediately or designate someone specific to do it ('You in the red shirt, call 911'). Request an AED if available. If alone with a phone, put it on speaker. Don't leave the person unless absolutely necessary to get help. Provide the dispatcher with your exact location, the person's condition, and follow their instructions.",
+        description: "Call 911 immediately or designate someone specific ('You in the red shirt, call 911'). Request an AED if available. Put phone on speaker if alone. Provide exact location and follow dispatcher instructions.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=Ko7e22yV8Vg",
-        imageUrl: "/images/cpr-call-911.jpg"
+        duration: "30 seconds",
+        tips: ["Be specific when asking for help", "Stay on the line with 911", "Don't leave the victim alone"]
       },
       {
         title: "Position Your Hands Correctly",
-        description: "Kneel beside the person's chest. Place the heel of one hand on the center of the chest between the nipples (lower half of breastbone). Place your other hand on top, interlacing your fingers. Keep your arms straight and shoulders directly over your hands. Lift your fingers up so only the heel of your hand touches the chest.",
+        description: "Kneel beside the chest. Place heel of one hand on center of chest between nipples. Place other hand on top, interlocking fingers. Keep arms straight, shoulders over hands.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=TJGOKhQKZ9M",
-        imageUrl: "/images/cpr-hand-position.jpg"
+        duration: "5-10 seconds",
+        tips: ["Only heel of hand touches chest", "Keep fingers off ribs", "Position yourself directly over victim"]
       },
       {
         title: "Begin High-Quality Chest Compressions",
-        description: "Push hard and fast at least 2 inches deep (but no more than 2.4 inches). Allow complete chest recoil between compressions - don't lean on the chest. Compress at 100-120 times per minute. Count out loud: '1 and 2 and 3...' Minimize interruptions - compressions should be continuous.",
+        description: "Push hard and fast at least 2 inches deep (but no more than 2.4 inches). Allow complete chest recoil. Compress at 100-120 per minute. Count aloud: '1 and 2 and 3...' Minimize interruptions.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=sQzTtRAjGd8",
-        imageUrl: "/images/cpr-compressions.jpg"
+        duration: "Continuous until help arrives",
+        tips: ["Think 'Stayin' Alive' song tempo", "Don't lean on chest between compressions", "Switch rescuers every 2 minutes if possible"]
       },
       {
         title: "Add Rescue Breaths (If Trained)",
-        description: "If trained in CPR: After 30 compressions, tilt head back, lift chin, pinch nose closed, and give 2 breaths (each 1 second long). Watch for chest rise with each breath. If untrained, provide continuous chest compressions without rescue breaths (hands-only CPR).",
+        description: "After 30 compressions: tilt head back, lift chin, pinch nose, give 2 breaths (1 second each). Watch for chest rise. If untrained, provide continuous chest compressions only.",
         important: false,
-        videoUrl: "https://www.youtube.com/watch?v=B2qhvZJJVjU",
-        imageUrl: "/images/cpr-rescue-breaths.jpg"
+        duration: "30:2 ratio if trained",
+        tips: ["Hands-only CPR is effective for untrained rescuers", "Each breath should make chest rise", "Don't over-ventilate"]
       },
       {
-        title: "Continue Until Help Arrives or AED Becomes Available",
-        description: "Don't stop compressions until emergency services arrive, the person starts breathing normally, or you become too exhausted to continue. Switch with another rescuer every 2 minutes if possible to maintain quality. If an AED arrives, follow its voice prompts immediately.",
+        title: "Continue Until Help Arrives",
+        description: "Don't stop until EMS arrives, person starts breathing normally, or you become exhausted. Use AED immediately when available and follow voice prompts.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=3Pz0aLRaOlM",
-        imageUrl: "/images/cpr-continuous.jpg"
+        duration: "Until relieved by professionals",
+        tips: ["Quality compressions save lives", "AED will guide you through process", "Don't give up - brain can survive longer than you think"]
       }
     ],
     "choking-2025": [
       {
         title: "Assess the Choking Situation",
-        description: "Look for the universal choking sign (hands clutching the throat). Ask 'Are you choking?' If the person can cough forcefully, speak, or breathe, encourage continued coughing - this is a mild airway obstruction. If they cannot breathe, cough, speak, or make sounds, this is severe choking requiring immediate intervention. Call 911 or have someone else do it.",
+        description: "Look for universal choking sign (hands clutching throat). Ask 'Are you choking?' If person can cough, speak, or breathe, encourage coughing. If cannot breathe, cough, or speak, begin immediate intervention.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=7DhKqhOgkQ4",
-        imageUrl: "/images/choking-assessment.jpg"
+        duration: "5-10 seconds",
+        tips: ["Coughing means some air is moving", "Silent choking is more dangerous", "Act quickly but stay calm"]
       },
       {
         title: "Position for Back Blows",
-        description: "Stand to the side and slightly behind the person. For adults: support their chest with one hand and lean them forward at the waist so the object will fall out of the mouth rather than further down the throat. For children: support them over your forearm with their head lower than their chest.",
+        description: "Stand to side and slightly behind. Support chest with one hand, lean them forward so object falls out rather than down throat. For children, support over your forearm.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=Os2vHJMXjWo",
-        imageUrl: "/images/choking-back-blows-position.jpg"
+        duration: "5 seconds",
+        tips: ["Forward position is crucial", "Support them securely", "Different technique for infants"]
       },
       {
         title: "Give 5 Sharp Back Blows",
-        description: "Using the heel of your hand, give up to 5 sharp back blows between the shoulder blades. Each blow should be separate and distinct, delivered with the intent to dislodge the object. Check the mouth after each blow to see if the object has been expelled. Remove any visible objects with your fingers using a hooking motion.",
+        description: "Using heel of hand, give up to 5 sharp blows between shoulder blades. Each blow separate and distinct. Check mouth after each blow for expelled object using finger sweep if visible.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=qfbPEDILbYk",
-        imageUrl: "/images/choking-back-blows.jpg"
+        duration: "15-20 seconds",
+        tips: ["Each blow should be forceful", "Only remove visible objects", "Don't do blind finger sweeps"]
       },
       {
-        title: "Perform 5 Abdominal Thrusts (Heimlich Maneuver)",
-        description: "If back blows don't work, stand behind the person. Place your fist just above the navel and below the rib cage. Grasp your fist with your other hand and give up to 5 quick upward and inward thrusts. Each thrust should be separate and distinct. For pregnant women or obese individuals, use chest thrusts instead.",
+        title: "Perform 5 Abdominal Thrusts",
+        description: "Stand behind person. Place fist above navel, below ribs. Grasp with other hand, give 5 quick upward/inward thrusts. For pregnant/obese persons, use chest thrusts.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=lvbJJqB3RHs",
-        imageUrl: "/images/choking-abdominal-thrusts.jpg"
+        duration: "15-20 seconds",
+        tips: ["Above navel, below ribs", "Quick, upward motion", "Modify for pregnancy/obesity"]
       },
       {
         title: "Continue Alternating Techniques",
-        description: "Continue alternating 5 back blows and 5 abdominal thrusts until the object is expelled, the person can breathe/speak, or they become unconscious. Stay with the person and encourage them to keep trying to cough between interventions. Don't give up - continue until help arrives.",
+        description: "Keep alternating 5 back blows and 5 abdominal thrusts until object expelled, person can breathe/speak, or becomes unconscious. Stay with person throughout.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=FEr9jjZ6fi8",
-        imageUrl: "/images/choking-alternating-cycle.jpg"
+        duration: "Until successful or unconscious",
+        tips: ["Don't give up quickly", "Encourage coughing between cycles", "Be ready for sudden success"]
       },
       {
         title: "If Person Becomes Unconscious",
-        description: "Gently lower them to the ground and immediately call 911 if not already done. Begin CPR starting with chest compressions. Before giving rescue breaths, open the mouth and look for the object. If you see it, remove it with your fingers using a hooking motion. Don't do blind finger sweeps. Continue CPR until help arrives.",
+        description: "Lower to ground, call 911 if not done. Begin CPR with chest compressions. Before rescue breaths, check mouth and remove visible objects only. Continue CPR until help arrives.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=mAzMJdoVnFQ",
-        imageUrl: "/images/choking-unconscious-cpr.jpg"
+        duration: "Until EMS arrives",
+        tips: ["CPR may dislodge object", "Check mouth before each breath cycle", "Don't stop compressions to search for object"]
       }
     ],
     "stroke-2025": [
       {
         title: "Balance - Check for Loss of Coordination",
-        description: "Ask about sudden loss of balance, dizziness, or coordination problems. Look for sudden trouble walking, loss of coordination, or unexplained falls. If safe, ask the person to walk a few steps and observe for unsteadiness, veering to one side, or inability to walk straight. This may be the only sign of a posterior circulation stroke.",
+        description: "Ask about sudden balance loss, dizziness, or coordination problems. Look for trouble walking, loss of coordination, unexplained falls. If safe, ask person to walk and observe for unsteadiness.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=KFj0dOGSRpI",
-        imageUrl: "/images/stroke-balance-test.jpg"
+        duration: "30 seconds",
+        tips: ["May be only sign of posterior stroke", "Ask about recent falls", "Sudden onset is key"]
       },
       {
         title: "Eyes - Check for Vision Loss",
-        description: "Ask about sudden vision loss, double vision, or visual field cuts. Have them track your finger with their eyes in all directions. Ask if they can see your entire face or if parts are missing. Test peripheral vision by having them look at your nose while you wiggle fingers in their peripheral vision. Sudden vision changes can indicate stroke.",
+        description: "Ask about sudden vision loss, double vision, or visual field cuts. Have them track your finger. Ask if they can see your whole face. Test peripheral vision by wiggling fingers.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=V4Op2MDrJ0I",
-        imageUrl: "/images/stroke-vision-test.jpg"
+        duration: "30 seconds",
+        tips: ["Vision changes can be subtle", "Check both eyes", "May complain of 'dark areas'"]
       },
       {
         title: "Face - Check for Facial Drooping",
-        description: "Ask the person to smile broadly, showing their teeth. Look for an uneven or lopsided smile, with one side of the face drooping or not moving. Check if both sides of the face move equally. Ask them to puff out their cheeks or raise their eyebrows. Facial drooping is one of the most recognizable signs of stroke.",
+        description: "Ask person to smile broadly showing teeth. Look for uneven/lopsided smile, facial drooping, or asymmetric movement. Have them puff cheeks or raise eyebrows.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=RQAhL7-TuWg",
-        imageUrl: "/images/stroke-face-test.jpg"
+        duration: "30 seconds",
+        tips: ["Most recognizable stroke sign", "Check both sides of face", "May affect speech muscles too"]
       },
       {
         title: "Arms - Check for Weakness",
-        description: "Ask the person to raise both arms above their head for 10 seconds with palms up and eyes closed. Look for one arm drifting downward, inability to lift one arm, or one arm falling faster than the other. You can also test grip strength by having them squeeze your fingers with both hands simultaneously. Arm weakness indicates motor function impairment.",
+        description: "Ask to raise both arms overhead for 10 seconds with palms up, eyes closed. Look for arm drift, inability to lift one arm, or weakness. Test grip strength simultaneously.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=j3rNsJzB5BI",
-        imageUrl: "/images/stroke-arm-test.jpg"
+        duration: "30 seconds",
+        tips: ["One-sided weakness is classic", "Compare both sides", "May be subtle initially"]
       },
       {
         title: "Speech - Check for Speech Problems",
-        description: "Ask them to repeat a simple phrase like 'The early bird catches the worm' or 'The sky is blue in Cincinnati'. Listen for slurred speech, strange words, wrong words, or inability to understand or speak. Also test comprehension by asking them to follow simple commands like 'show me two fingers' or 'stick out your tongue'.",
+        description: "Ask to repeat simple phrase like 'The early bird catches the worm'. Listen for slurred speech, wrong words, or inability to understand. Test comprehension with simple commands.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=fFnOfk9wDtE",
-        imageUrl: "/images/stroke-speech-test.jpg"
+        duration: "30 seconds",
+        tips: ["Speech problems are very common", "Check understanding too", "May have trouble finding words"]
       },
       {
-        title: "Time - Call 911 Immediately and Note Time",
-        description: "If ANY of the above signs are present, note the exact time symptoms started (or when last seen normal) and call 911 immediately. Tell the dispatcher 'I think someone is having a stroke' and provide the time of symptom onset. Time is brain - every minute counts. The person may be eligible for clot-busting medication if treated within 3-4.5 hours.",
+        title: "Time - Call 911 Immediately",
+        description: "If ANY signs present, note exact time symptoms started (or last seen normal) and call 911. Tell dispatcher 'possible stroke' and time of onset. Time is brain - every minute counts.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=NDVsSwgyMHM",
-        imageUrl: "/images/stroke-call-911.jpg"
+        duration: "2-3 minutes",
+        tips: ["Don't wait for more symptoms", "Time determines treatment options", "Transport to stroke center if available"]
       }
     ],
     "bleeding-control-2025": [
       {
-        title: "Ensure Scene Safety and Personal Protection",
-        description: "Before approaching, assess the scene for ongoing dangers such as traffic, violence, fire, or hazardous materials. Wear disposable gloves, use eye protection if available, or create a barrier between you and the blood using plastic bags, cloth, or clothing. Your safety comes first - you cannot help if you become injured or infected.",
+        title: "Scene Safety and Protection",
+        description: "Assess scene for ongoing dangers (traffic, violence, hazards). Wear gloves or create barrier with plastic bags/cloth. Your safety first - you can't help if you become injured.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=ufUQ_kF_nUs",
-        imageUrl: "/images/bleeding-scene-safety.jpg"
+        duration: "15-30 seconds",
+        tips: ["Universal precautions with blood", "Use any barrier available", "Don't become second victim"]
       },
       {
-        title: "Call 911 Immediately",
-        description: "Call emergency services immediately for severe bleeding. Tell them 'severe bleeding/hemorrhage' and provide exact location. For life-threatening bleeding, also request blood products and trauma team activation. If others are present, designate someone specific to call while you provide care.",
+        title: "Call 911 for Severe Bleeding",
+        description: "Call immediately for life-threatening bleeding. Say 'severe bleeding/hemorrhage' and location. Request blood products and trauma team for massive bleeding.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=hGJgaJgTHi0",
-        imageUrl: "/images/bleeding-call-911.jpg"
+        duration: "30 seconds",
+        tips: ["Don't delay for severe bleeding", "Be specific about severity", "Designate someone else to call if possible"]
       },
       {
         title: "Apply Direct Pressure",
-        description: "Place clean cloth, gauze, or even clothing directly on the wound. Use both hands if needed and press firmly and continuously with the heel of your hands. Don't peek or lift to check - maintain constant pressure. Don't remove blood-soaked materials; instead, add more clean materials on top and continue pressing.",
+        description: "Place clean cloth/gauze directly on wound. Press firmly with both hands if needed. Don't peek or lift to check - maintain constant pressure. Add more material on top if blood soaks through.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=3BPZPBl4YUE",
-        imageUrl: "/images/bleeding-direct-pressure.jpg"
+        duration: "Continuous pressure",
+        tips: ["Most effective bleeding control", "Don't remove blood-soaked materials", "Use whatever clean material available"]
       },
       {
-        title: "Elevate the Injured Area",
-        description: "If possible and no fracture is suspected, raise the bleeding area above the level of the heart to reduce blood flow. This works best for arm and leg injuries. Support the injured area while maintaining direct pressure. Don't elevate if you suspect spinal, neck, or bone injuries.",
+        title: "Elevate if Possible",
+        description: "If no fracture suspected, raise bleeding area above heart level. Support while maintaining pressure. Don't elevate if spinal, neck, or bone injuries suspected.",
         important: false,
-        videoUrl: "https://www.youtube.com/watch?v=vLkj4D_sKyc",
-        imageUrl: "/images/bleeding-elevation.jpg"
+        duration: "Throughout care",
+        tips: ["Works best for arms and legs", "Gravity helps reduce blood flow", "Don't compromise direct pressure"]
       },
       {
-        title: "Apply Pressure to Arterial Pressure Points",
-        description: "If direct pressure and elevation don't control bleeding, apply pressure to arterial pressure points between the wound and the heart. For arm wounds: press the brachial artery against the arm bone. For leg wounds: press the femoral artery in the groin. Maintain direct pressure while applying pressure point control.",
+        title: "Pressure Points if Needed",
+        description: "If direct pressure fails, apply pressure to arterial points between wound and heart. Arm wounds: brachial artery. Leg wounds: femoral artery in groin.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=ljqRiWfCLEE",
-        imageUrl: "/images/bleeding-pressure-points.jpg"
+        duration: "Until bleeding controlled",
+        tips: ["Use only if direct pressure insufficient", "Learn pressure point locations", "Maintain direct pressure while applying"]
       },
       {
-        title: "Apply Tourniquet for Life-Threatening Limb Bleeding",
-        description: "For severe limb bleeding that won't stop with direct pressure, apply a tourniquet 2-3 inches above the wound (closer to the heart). Tighten until bleeding stops completely. Write the time of application on the tourniquet or victim's forehead. Don't loosen once applied - let medical professionals remove it. Commercial tourniquets are preferred over improvised ones.",
+        title: "Tourniquet for Life-Threatening Limb Bleeding",
+        description: "For severe limb bleeding not controlled by pressure, apply tourniquet 2-3 inches above wound. Tighten until bleeding stops. Write time on tourniquet. Don't loosen once applied.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=5LxMWRfEajc",
-        imageUrl: "/images/bleeding-tourniquet.jpg"
-      }
-    ],
-    "burns-2025": [
-      {
-        title: "Ensure Safety and Remove from Heat Source",
-        description: "Safely remove the person from the heat source - fire, hot surfaces, chemicals, or electricity. For electrical burns, ensure power is completely turned off before touching the victim. For chemical burns, remove contaminated clothing carefully using gloves. Stop the burning process immediately.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=t6kUOPXzl34",
-        imageUrl: "/images/burns-safety-removal.jpg"
-      },
-      {
-        title: "Cool the Burn Immediately",
-        description: "For thermal burns, immediately cool with clean, cool (not ice-cold) running water for 10-20 minutes. This stops the burning process and reduces pain. Remove jewelry, watches, and tight clothing before swelling occurs. For chemical burns, flush with water for at least 20 minutes.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=sCm1TadmKC4",
-        imageUrl: "/images/burns-cooling-water.jpg"
-      },
-      {
-        title: "Assess Burn Severity and Call 911",
-        description: "First-degree: red, painful, no blisters. Second-degree: blistered, very painful, may appear white/red. Third-degree: white/charred, may be painless due to nerve damage. Call 911 for: burns larger than 3 inches, any third-degree burns, burns on face/hands/feet/genitals, electrical or chemical burns.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=rG-qozYcOdY",
-        imageUrl: "/images/burns-severity-assessment.jpg"
-      },
-      {
-        title: "Cover and Protect the Burn",
-        description: "Use sterile gauze or clean, dry cloth to loosely cover the burn. Don't use cotton balls, adhesive bandages directly on burns, or any home remedies like butter, oils, or ice. Keep the covering loose to avoid pressure on damaged tissue.",
-        important: false,
-        videoUrl: "https://www.youtube.com/watch?v=5RktWaLKDqU",
-        imageUrl: "/images/burns-covering-bandage.jpg"
-      },
-      {
-        title: "Monitor for Shock and Complications",
-        description: "For severe burns, treat for shock by keeping the person warm (but not the burned area), elevate legs if no spinal injury suspected, and monitor breathing. Watch for signs of infection. Be prepared to perform CPR if breathing stops. Get medical attention even for seemingly minor burns.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=n7qs2dYWaUc",
-        imageUrl: "/images/burns-shock-monitoring.jpg"
+        duration: "Until medical professionals remove",
+        tips: ["Last resort for limb bleeding", "Commercial tourniquets preferred", "Document time of application"]
       }
     ],
     "heart-attack-2025": [
       {
-        title: "Recognize Heart Attack Warning Signs",
-        description: "Classic signs: chest pain/pressure/squeezing, shortness of breath, nausea, sweating, pain radiating to left arm, jaw, neck, or back. Women and diabetics may have atypical symptoms: fatigue, indigestion, back pain, jaw pain without chest pain. Don't wait for 'classic' symptoms - trust your instincts.",
+        title: "Recognize Heart Attack Signs",
+        description: "Classic: chest pain/pressure, shortness of breath, nausea, sweating, pain to arms/jaw/back. Women/diabetics may have atypical symptoms: fatigue, indigestion, back/jaw pain without chest pain.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=d61aorw05_g",
-        imageUrl: "/images/heart-attack-symptoms.jpg"
+        duration: "Ongoing assessment",
+        tips: ["Don't wait for 'classic' symptoms", "Women often have different symptoms", "Trust your instincts"]
       },
       {
-        title: "Call 911 Immediately - Don't Drive",
-        description: "Call emergency services immediately - don't drive to hospital. Tell them 'possible heart attack' and provide exact location. Request ALS (Advanced Life Support) and notify them to activate cardiac catheterization team. EMS can start treatment en route and bypass emergency room for direct cardiac care.",
+        title: "Call 911 - Don't Drive",
+        description: "Call immediately, don't drive to hospital. Say 'possible heart attack' with location. Request ALS and cardiac team activation. EMS can start treatment and bypass ER.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=gPCDcFGgI9s",
-        imageUrl: "/images/heart-attack-call-911.jpg"
+        duration: "2-3 minutes",
+        tips: ["EMS has better outcomes", "Treatment starts immediately", "Direct to cardiac center"]
       },
       {
         title: "Give Aspirin if Safe",
-        description: "Give 325mg aspirin (4 baby aspirin or 1 regular) to chew if person is conscious, not allergic to aspirin, and has no bleeding disorders or stomach ulcers. Chewing is faster than swallowing. Don't delay 911 call to find aspirin. Aspirin helps prevent further clot formation.",
+        description: "Give 325mg aspirin (4 baby aspirin) to chew if conscious, not allergic, no bleeding disorders. Chewing is faster than swallowing. Don't delay 911 call for aspirin.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=zT2zfL1xFzg",
-        imageUrl: "/images/heart-attack-aspirin.jpg"
+        duration: "1-2 minutes",
+        tips: ["Chewing speeds absorption", "Don't give if allergic", "Prevention of further clot formation"]
       },
       {
-        title: "Position for Comfort and Breathing",
-        description: "Help person sit upright in a chair or half-sitting against pillows - this reduces heart workload. Loosen tight clothing around neck and chest. Keep person calm and still. Don't let them walk around or exert themselves. Reassure them that help is coming.",
+        title: "Position for Comfort",
+        description: "Help sit upright in chair or half-sitting with pillows - reduces heart workload. Loosen tight clothing. Keep calm and still. Don't let them walk around.",
         important: false,
-        videoUrl: "https://www.youtube.com/watch?v=wHdhjVRzGFE",
-        imageUrl: "/images/heart-attack-positioning.jpg"
+        duration: "Throughout care",
+        tips: ["Sitting position reduces cardiac workload", "Keep them calm", "No exertion"]
       },
       {
-        title: "Monitor Closely and Prepare for Cardiac Arrest",
-        description: "Monitor breathing and consciousness continuously. Be prepared to start CPR immediately if person becomes unconscious or stops breathing normally. Heart attack can lead to cardiac arrest. Stay with the person and provide reassurance while waiting for EMS.",
+        title: "Monitor for Cardiac Arrest",
+        description: "Watch breathing and consciousness continuously. Be prepared for CPR if becomes unconscious or stops breathing. Heart attack can progress to cardiac arrest.",
         important: true,
-        videoUrl: "https://www.youtube.com/watch?v=JoCIAPT_2nU",
-        imageUrl: "/images/heart-attack-monitoring.jpg"
-      }
-    ],
-    "anaphylaxis-2025": [
-      {
-        title: "Recognize Severe Allergic Reaction Signs",
-        description: "Life-threatening signs: difficulty breathing, wheezing, swelling of face/lips/tongue/throat, rapid weak pulse, widespread skin rash/hives, severe nausea/vomiting, dizziness, loss of consciousness. This can progress rapidly from mild to severe within minutes. Any two body systems affected = anaphylaxis.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=dShvmQSrfrY",
-        imageUrl: "/images/anaphylaxis-symptoms.jpg"
-      },
-      {
-        title: "Call 911 Immediately",
-        description: "Call emergency services immediately - tell them 'anaphylaxis' or 'severe allergic reaction'. Request epinephrine, advanced life support, and fast transport. Even if symptoms improve, hospital evaluation is essential as biphasic reactions can occur hours later.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=tR_I6ZK1Brc",
-        imageUrl: "/images/anaphylaxis-call-911.jpg"
-      },
-      {
-        title: "Use Epinephrine Auto-Injector Immediately",
-        description: "If epinephrine auto-injector (EpiPen, Auvi-Q) is available, use immediately - don't hesitate. Remove safety cap, place against outer thigh (through clothing if needed), press firmly until you hear a click, hold for 10 seconds. Massage injection site for 10 seconds after injection.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=J9pNtEj5Odw",
-        imageUrl: "/images/anaphylaxis-epipen-use.jpg"
-      },
-      {
-        title: "Remove Trigger Source if Possible",
-        description: "If you can identify the allergen (food, medication, insect stinger, etc.), remove or help person avoid continued exposure. For bee stings, scrape out stinger with credit card - don't squeeze. Remove contaminated clothing if chemical exposure.",
-        important: false,
-        videoUrl: "https://www.youtube.com/watch?v=Km4uB5Egov8",
-        imageUrl: "/images/anaphylaxis-remove-trigger.jpg"
-      },
-      {
-        title: "Position Based on Symptoms",
-        description: "If breathing is difficult: help them sit upright or in position of comfort. If blood pressure is low/dizzy: have them lie down with legs elevated. If vomiting: turn on side to prevent choking. Never give anything by mouth during anaphylaxis.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=eFhN8_Tg8tU",
-        imageUrl: "/images/anaphylaxis-positioning.jpg"
-      },
-      {
-        title: "Prepare for Second Epinephrine Dose",
-        description: "Monitor closely - a second epinephrine injection may be needed in 5-15 minutes if symptoms don't improve or worsen. Most people with severe allergies carry two injectors. Be prepared to perform CPR if person becomes unconscious. Stay with them until EMS arrives.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=5KKLKXCzYns",
-        imageUrl: "/images/anaphylaxis-second-dose.jpg"
-      }
-    ],
-    "respiratory-distress-2025": [
-      {
-        title: "Assess Severity of Breathing Difficulty",
-        description: "Look for severe respiratory distress signs: inability to speak in full sentences, tripod positioning, use of accessory neck/chest muscles, blue lips/fingernails (cyanosis), extreme anxiety or agitation, or altered mental status. Mild distress allows normal conversation; severe distress is life-threatening.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=VmBR0VdvE8s",
-        imageUrl: "/images/respiratory-assessment.jpg"
-      },
-      {
-        title: "Call 911 for Severe Respiratory Distress",
-        description: "Call emergency services immediately if: severe distress, unconsciousness, blue discoloration, or inability to speak. Request advanced airway management and respiratory therapist. Tell dispatcher specific breathing problem (asthma, COPD, etc.) if known.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=r8QmJaWRdow",
-        imageUrl: "/images/respiratory-call-911.jpg"
-      },
-      {
-        title: "Position for Optimal Breathing",
-        description: "Help person sit upright in high Fowler's position or tripod position (sitting up, leaning forward on hands/table). This maximizes lung expansion and reduces work of breathing. Never force them to lie down if they're more comfortable sitting up.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=NKOYQdNv5U8",
-        imageUrl: "/images/respiratory-positioning.jpg"
-      },
-      {
-        title: "Assist with Rescue Medications",
-        description: "Help person use their rescue inhaler (albuterol/bronchodilator) if available - shake well, use spacer if available, coach proper technique. For severe asthma, may use every 20 minutes. Remove triggers like allergens, smoke, or irritants from environment.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=BG2YO5hi-Qs",
-        imageUrl: "/images/respiratory-inhaler-use.jpg"
-      },
-      {
-        title: "Monitor and Provide Emotional Support",
-        description: "Stay calm and reassure the person - anxiety worsens breathing difficulty. Coach slow, pursed-lip breathing if conscious and cooperative. Monitor for worsening symptoms. Be prepared to perform rescue breathing or CPR if respiratory arrest occurs.",
-        important: true,
-        videoUrl: "https://www.youtube.com/watch?v=1Dq88eOoW0s",
-        imageUrl: "/images/respiratory-monitoring.jpg"
-      }
-    ],
-    "trauma-response-2025": [
-      {
-        title: "Ensure Scene Safety",
-        description: "Before approaching, assess the scene for ongoing dangers such as traffic, fire, electrical hazards, or unstable structures. Ensure your safety first.",
-        important: true
-      },
-      {
-        title: "Check for Responsiveness",
-        description: "Approach the victim and check for consciousness. Tap shoulders and shout. If unconscious, assume spinal injury and avoid moving the head/neck.",
-        important: true
-      },
-      {
-        title: "Call for Emergency Services",
-        description: "Call 911 immediately. Request advanced life support and specify the nature of trauma. Request helicopter transport if available and appropriate.",
-        important: true
-      },
-      {
-        title: "Control Life-Threatening Bleeding",
-        description: "Apply direct pressure to bleeding wounds using clean cloth or bandages. For severe arterial bleeding, apply pressure to pressure points or use tourniquets if trained.",
-        important: true
-      },
-      {
-        title: "Maintain Airway with C-Spine Protection",
-        description: "If airway is compromised, use jaw-thrust maneuver instead of head-tilt chin-lift to avoid spinal injury. Clear visible obstructions carefully.",
-        important: true
-      },
-      {
-        title: "Monitor and Treat for Shock",
-        description: "Keep victim warm, elevate legs if no spinal injury suspected, monitor pulse and breathing. Be prepared to perform CPR if needed.",
-        important: true
-      }
-    ],
-    "seizure-management-2025": [
-      {
-        title: "Ensure Person's Safety",
-        description: "Move dangerous objects away from the person. Don't try to restrain them or put anything in their mouth. Cushion their head if possible.",
-        important: true
-      },
-      {
-        title: "Time the Seizure",
-        description: "Note the time the seizure starts. Call 911 if seizure lasts longer than 5 minutes, person is injured, or has no known seizure disorder.",
-        important: true
-      },
-      {
-        title: "Position After Seizure",
-        description: "After seizure stops, gently turn person on their side to help with breathing and prevent choking on saliva.",
-        important: true
-      },
-      {
-        title: "Monitor Recovery",
-        description: "Stay with person as they recover. They may be confused or sleepy. Provide reassurance and don't give food or water until fully alert.",
-        important: true
-      },
-      {
-        title: "Seek Medical Care",
-        description: "Call 911 if: first-time seizure, seizure lasts >5 minutes, person doesn't wake up, multiple seizures, or injury occurs.",
-        important: true
+        duration: "Until EMS arrives",
+        tips: ["Heart attack can worsen quickly", "Be ready to start CPR", "Stay with patient"]
       }
     ]
   };
@@ -433,37 +256,32 @@ const getProtocolById = (id: string): Protocol | null => {
     "cpr-2025": [
       "If untrained, provide hands-only CPR without rescue breaths",
       "Don't be afraid to push hard - broken ribs heal, brain damage doesn't",
-      "Never leave the person alone to look for an AED"
+      "Never leave the person alone to look for an AED",
+      "Don't stop compressions to check for pulse"
     ],
     "choking-2025": [
       "Never perform abdominal thrusts on pregnant women or infants under 1 year",
       "Don't use finger sweeps unless you can see the object",
-      "Seek medical attention even after successful removal"
+      "Seek medical attention even after successful removal",
+      "For infants: use back blows and chest thrusts only"
     ],
     "stroke-2025": [
       "Don't give aspirin unless directed by emergency services",
       "Don't give food or water - swallowing may be impaired",
-      "Time is critical - every minute counts"
+      "Time is critical - every minute counts for treatment options",
+      "Don't wait for symptoms to worsen"
     ],
     "bleeding-control-2025": [
       "Don't remove objects impaled in the body - stabilize them",
       "Use universal precautions - wear gloves or barrier protection",
-      "Tourniquets should only be used for life-threatening limb bleeding"
-    ],
-    "burns-2025": [
-      "Never use ice on burns - it causes further tissue damage",
-      "Don't break blisters or remove clothing stuck to burns",
-      "For chemical burns, flush with water for at least 20 minutes"
+      "Tourniquets should only be used for life-threatening limb bleeding",
+      "Don't remove blood-soaked bandages - add more on top"
     ],
     "heart-attack-2025": [
-      "Don't give aspirin if person is allergic or has bleeding disorders",
+      "Don't give aspirin if allergic or has bleeding disorders",
       "Don't delay calling 911 to give medications",
-      "Don't drive to hospital - wait for EMS"
-    ],
-    "anaphylaxis-2025": [
-      "Don't delay epinephrine injection if available",
-      "Don't give oral medications during anaphylaxis",
-      "Be prepared for biphasic reaction - symptoms can return"
+      "Don't drive to hospital - wait for EMS",
+      "Don't give nitroglycerin unless prescribed to patient"
     ]
   };
 
@@ -471,37 +289,60 @@ const getProtocolById = (id: string): Protocol | null => {
     "cpr-2025": [
       "Hands-only CPR is effective for untrained bystanders",
       "If trained, provide 30 compressions followed by 2 rescue breaths",
-      "Use an AED as soon as available"
+      "Use an AED as soon as available - it will guide you",
+      "Quality compressions are more important than speed"
     ],
     "choking-2025": [
       "For infants, use back blows and chest thrusts only",
       "For pregnant women, use chest thrusts instead of abdominal thrusts",
-      "If alone and choking, use chair back for self-administered thrusts"
+      "If alone and choking, use chair back for self-administered thrusts",
+      "Partial obstruction with coughing doesn't require intervention"
     ],
     "stroke-2025": [
       "BE-FAST is more comprehensive than older FAST assessment",
-      "Transport to stroke center if available",
-      "Golden hour is critical for treatment options"
+      "Transport to stroke center if available for best outcomes",
+      "Golden hour is critical for clot-busting treatments",
+      "Even minor symptoms can indicate serious stroke"
     ],
     "bleeding-control-2025": [
       "Stop the Bleed training is recommended for all citizens",
-      "Direct pressure is effective for most bleeding",
-      "Document time of tourniquet application"
-    ],
-    "burns-2025": [
-      "Rule of nines helps estimate burn surface area",
-      "Children have different body proportions",
-      "Inhalation injury suspected with enclosed space burns"
+      "Direct pressure is effective for most bleeding emergencies",
+      "Document time of tourniquet application clearly",
+      "Pressure points are backup when direct pressure fails"
     ],
     "heart-attack-2025": [
       "Women often have atypical heart attack symptoms",
       "Time to treatment is critical for heart muscle preservation",
-      "Aspirin helps prevent further clot formation"
+      "Aspirin helps prevent further clot formation",
+      "EMS has better outcomes than driving to hospital"
+    ]
+  };
+
+  const quickTips: Record<string, string[]> = {
+    "cpr-2025": [
+      "Push hard, push fast, minimize interruptions",
+      "Think 'Stayin' Alive' song tempo (100-120 BPM)",
+      "Switch rescuers every 2 minutes to maintain quality"
     ],
-    "anaphylaxis-2025": [
-      "Epinephrine is the first-line treatment",
-      "Antihistamines are not sufficient for severe reactions",
-      "Always transport to hospital even if symptoms improve"
+    "choking-2025": [
+      "Encourage coughing if they can make sounds",
+      "5 back blows, then 5 abdominal thrusts, repeat",
+      "If unconscious, start CPR immediately"
+    ],
+    "stroke-2025": [
+      "BE-FAST: Balance, Eyes, Face, Arms, Speech, Time",
+      "ANY positive sign = call 911 immediately",
+      "Note exact time symptoms started"
+    ],
+    "bleeding-control-2025": [
+      "Direct pressure first, elevation second",
+      "Don't remove blood-soaked materials",
+      "Tourniquet only for life-threatening limb bleeding"
+    ],
+    "heart-attack-2025": [
+      "Call 911 first, then give aspirin if safe",
+      "Sit upright, stay calm, don't exert",
+      "Be ready to start CPR if needed"
     ]
   };
 
@@ -512,32 +353,29 @@ const getProtocolById = (id: string): Protocol | null => {
     steps: protocolSteps[id] || [
       {
         title: "Scene Assessment",
-        description: "Assess the situation for safety hazards and determine the nature of the emergency. Ensure your safety before approaching the victim.",
-        important: true
+        description: "Assess situation for safety hazards and determine emergency nature. Ensure your safety before approaching.",
+        important: true,
+        duration: "15-30 seconds",
+        tips: ["Safety first", "Call for help", "Don't become another victim"]
       },
       {
-        title: "Call for Emergency Help",
-        description: "Call 911 immediately for any serious emergency. Provide location, nature of emergency, and number of victims.",
-        important: true
+        title: "Call Emergency Services",
+        description: "Call 911 immediately for serious emergencies. Provide location, emergency nature, and victim count.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Be clear and specific", "Stay on line", "Follow dispatcher instructions"]
       },
       {
         title: "Provide Appropriate Care",
-        description: "Follow standard first aid protocols appropriate for the specific emergency. Monitor the victim until professional help arrives.",
-        important: true
-      },
-      {
-        title: "Monitor Vital Signs",
-        description: "Continuously monitor breathing, pulse, and consciousness level. Be prepared to perform CPR if needed.",
-        important: true
-      },
-      {
-        title: "Prepare for EMS Arrival",
-        description: "Gather information about the incident and victim's condition to report to emergency medical services when they arrive.",
-        important: false
+        description: "Follow standard first aid protocols for the specific emergency. Monitor victim until professional help arrives.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Work within your training", "Monitor continuously", "Reassure victim"]
       }
     ],
     warnings: protocolWarnings[id] || ["Always ensure your safety first", "Call emergency services when in doubt", "Don't exceed your training level"],
-    notes: protocolNotes[id] || ["This protocol should be performed by trained individuals when possible", "Regular first aid training is recommended"]
+    notes: protocolNotes[id] || ["This protocol should be performed by trained individuals when possible", "Regular first aid training is recommended"],
+    quickTips: quickTips[id] || ["Stay calm", "Act quickly but safely", "Call for professional help"]
   };
 };
 
@@ -655,6 +493,28 @@ export default function ProtocolDetail() {
         </div>
       </div>
 
+      {/* Quick Reference */}
+      {protocol.quickTips && (
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+            <Shield className="w-6 h-6 mr-3 text-green-600" />
+            Quick Reference
+          </h2>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {protocol.quickTips.map((tip, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="flex-shrink-0 w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                    {index + 1}
+                  </div>
+                  <span className="text-green-800 font-medium">{tip}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Protocol Steps */}
       <div className="mb-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
@@ -662,7 +522,7 @@ export default function ProtocolDetail() {
           Step-by-Step Instructions
         </h2>
         
-        <div className="space-y-4">
+        <div className="space-y-6">
           {protocol.steps.map((step, index) => (
             <div
               key={index}
@@ -673,97 +533,38 @@ export default function ProtocolDetail() {
               }`}
             >
               <div className="flex items-start">
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-4 ${
+                <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mr-4 ${
                   step.important ? "bg-red-500" : "bg-gray-500"
                 }`}>
                   {index + 1}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-semibold text-gray-800">{step.title}</h3>
+                    {step.duration && (
+                      <div className="flex items-center text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                        <Clock className="w-4 h-4 mr-1" />
+                        {step.duration}
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-4">{step.description}</p>
+                  
+                  {step.tips && step.tips.length > 0 && (
+                    <div className="mt-3">
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Points:</h4>
+                      <ul className="list-disc list-inside space-y-1">
+                        {step.tips.map((tip, tipIndex) => (
+                          <li key={tipIndex} className="text-sm text-gray-600">{tip}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Professional Video Guides */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-          <svg className="w-6 h-6 mr-3 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-          Professional Video Demonstrations
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {protocol.steps.filter(step => step.videoUrl).map((step, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-              <div className="aspect-video bg-gray-900 relative">
-                <iframe
-                  src={step.videoUrl?.replace('watch?v=', 'embed/') || ''}
-                  className="w-full h-full"
-                  allowFullScreen
-                  title={step.title}
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-gray-800 mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-600">Professional demonstration of proper technique</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {protocol.steps.filter(step => step.videoUrl).length === 0 && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
-            <svg className="w-12 h-12 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <p className="text-gray-600">Professional video demonstrations will be added soon</p>
-          </div>
-        )}
-      </div>
-
-      {/* Photo Guides */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-          <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-          Step-by-Step Photo Guides
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {protocol.steps.filter(step => step.imageUrl).map((step, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-              <div className="aspect-square bg-gray-100 relative">
-                <img
-                  src={step.imageUrl}
-                  alt={step.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIEd1aWRlPC90ZXh0Pjwvc3ZnPg==';
-                  }}
-                />
-              </div>
-              <div className="p-3">
-                <h3 className="font-medium text-gray-800 text-sm mb-1">{step.title}</h3>
-                <p className="text-xs text-gray-600">Visual guide for proper technique</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {protocol.steps.filter(step => step.imageUrl).length === 0 && (
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
-            <svg className="w-12 h-12 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <p className="text-gray-600">Professional photo guides will be added soon</p>
-          </div>
-        )}
       </div>
 
       {/* Warnings */}
@@ -771,14 +572,14 @@ export default function ProtocolDetail() {
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
             <AlertTriangle className="w-6 h-6 mr-3 text-red-500" />
-            Important Warnings
+            Critical Warnings
           </h2>
           <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {protocol.warnings.map((warning, index) => (
                 <li key={index} className="flex items-start">
                   <AlertTriangle className="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
-                  <span className="text-red-700">{warning}</span>
+                  <span className="text-red-700 font-medium">{warning}</span>
                 </li>
               ))}
             </ul>
@@ -791,10 +592,10 @@ export default function ProtocolDetail() {
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
             <Info className="w-6 h-6 mr-3 text-blue-500" />
-            Additional Notes
+            Additional Information
           </h2>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {protocol.notes.map((note, index) => (
                 <li key={index} className="flex items-start">
                   <Info className="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" />
