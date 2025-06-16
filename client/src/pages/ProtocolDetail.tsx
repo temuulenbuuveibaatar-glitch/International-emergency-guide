@@ -158,8 +158,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["May be only sign of posterior stroke", "Ask about recent falls", "Sudden onset is key"],
-        videoUrl: "https://www.youtube.com/embed/KFj0dOGSRpI",
-        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/V2f_6khHdB4",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Eyes - Check for Vision Loss",
@@ -167,8 +167,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["Vision changes can be subtle", "Check both eyes", "May complain of 'dark areas'"],
-        videoUrl: "https://www.youtube.com/embed/V4Op2MDrJ0I",
-        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/V2f_6khHdB4",
+        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Face - Check for Facial Drooping",
@@ -176,8 +176,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["Most recognizable stroke sign", "Check both sides of face", "May affect speech muscles too"],
-        videoUrl: "https://www.youtube.com/embed/RQAhL7-TuWg",
-        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/V2f_6khHdB4",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Arms - Check for Weakness",
@@ -185,8 +185,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["One-sided weakness is classic", "Compare both sides", "May be subtle initially"],
-        videoUrl: "https://www.youtube.com/embed/j3rNsJzB5BI",
-        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/V2f_6khHdB4",
+        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Speech - Check for Speech Problems",
@@ -194,8 +194,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["Speech problems are very common", "Check understanding too", "May have trouble finding words"],
-        videoUrl: "https://www.youtube.com/embed/fFnOfk9wDtE",
-        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/V2f_6khHdB4",
+        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Time - Call 911 Immediately",
@@ -203,8 +203,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "2-3 minutes",
         tips: ["Don't wait for more symptoms", "Time determines treatment options", "Transport to stroke center if available"],
-        videoUrl: "https://www.youtube.com/embed/NDVsSwgyMHM",
-        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/V2f_6khHdB4",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       }
     ],
     "bleeding-control-2025": [
@@ -214,8 +214,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "15-30 seconds",
         tips: ["Universal precautions with blood", "Use any barrier available", "Don't become second victim"],
-        videoUrl: "https://www.youtube.com/embed/ufUQ_kF_nUs",
-        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ZBmZoQoCcTg",
+        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Call 911 for Severe Bleeding",
@@ -223,8 +223,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "30 seconds",
         tips: ["Don't delay for severe bleeding", "Be specific about severity", "Designate someone else to call if possible"],
-        videoUrl: "https://www.youtube.com/embed/hGJgaJgTHi0",
-        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ryAx1CoFJ58",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Apply Direct Pressure",
@@ -232,8 +232,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Continuous pressure",
         tips: ["Most effective bleeding control", "Don't remove blood-soaked materials", "Use whatever clean material available"],
-        videoUrl: "https://www.youtube.com/embed/3BPZPBl4YUE",
-        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ZBmZoQoCcTg",
+        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Elevate if Possible",
@@ -241,8 +241,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: false,
         duration: "Throughout care",
         tips: ["Works best for arms and legs", "Gravity helps reduce blood flow", "Don't compromise direct pressure"],
-        videoUrl: "https://www.youtube.com/embed/vLkj4D_sKyc",
-        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ZBmZoQoCcTg",
+        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Pressure Points if Needed",
@@ -250,8 +250,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Until bleeding controlled",
         tips: ["Use only if direct pressure insufficient", "Learn pressure point locations", "Maintain direct pressure while applying"],
-        videoUrl: "https://www.youtube.com/embed/ljqRiWfCLEE",
-        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ZBmZoQoCcTg",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Tourniquet for Life-Threatening Limb Bleeding",
@@ -259,8 +259,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Until medical professionals remove",
         tips: ["Last resort for limb bleeding", "Commercial tourniquets preferred", "Document time of application"],
-        videoUrl: "https://www.youtube.com/embed/5LxMWRfEajc",
-        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ZBmZoQoCcTg",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       }
     ],
     "heart-attack-2025": [
@@ -270,8 +270,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Ongoing assessment",
         tips: ["Don't wait for 'classic' symptoms", "Women often have different symptoms", "Trust your instincts"],
-        videoUrl: "https://www.youtube.com/embed/d61aorw05_g",
-        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/lS9Azm-qL-o",
+        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Call 911 - Don't Drive",
@@ -279,8 +279,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "2-3 minutes",
         tips: ["EMS has better outcomes", "Treatment starts immediately", "Direct to cardiac center"],
-        videoUrl: "https://www.youtube.com/embed/gPCDcFGgI9s",
-        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/ryAx1CoFJ58",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Give Aspirin if Safe",
@@ -288,8 +288,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "1-2 minutes",
         tips: ["Chewing speeds absorption", "Don't give if allergic", "Prevention of further clot formation"],
-        videoUrl: "https://www.youtube.com/embed/zT2zfL1xFzg",
-        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/lS9Azm-qL-o",
+        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Position for Comfort",
@@ -297,8 +297,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: false,
         duration: "Throughout care",
         tips: ["Sitting position reduces cardiac workload", "Keep them calm", "No exertion"],
-        videoUrl: "https://www.youtube.com/embed/wHdhjVRzGFE",
-        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/lS9Azm-qL-o",
+        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       },
       {
         title: "Monitor for Cardiac Arrest",
@@ -306,8 +306,8 @@ const getProtocolById = (id: string): Protocol | null => {
         important: true,
         duration: "Until EMS arrives",
         tips: ["Heart attack can worsen quickly", "Be ready to start CPR", "Stay with patient"],
-        videoUrl: "https://www.youtube.com/embed/JoCIAPT_2nU",
-        imageUrl: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
+        videoUrl: "https://www.youtube.com/embed/lS9Azm-qL-o",
+        imageUrl: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
       }
     ]
   };
