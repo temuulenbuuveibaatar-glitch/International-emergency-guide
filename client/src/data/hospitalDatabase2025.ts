@@ -893,6 +893,630 @@ export const enhancedHospitalDatabase: EnhancedHospital[] = [
     rating: 4.4,
     lastUpdated: "2025-01-01",
     verificationStatus: "verified"
+  },
+  {
+    id: "us-004",
+    name: "Cleveland Clinic Main Campus",
+    address: "9500 Euclid Ave, Cleveland, OH 44195",
+    city: "Cleveland",
+    country: "United States",
+    coordinates: {
+      lat: 41.5033,
+      lng: -81.6208
+    },
+    contact: {
+      phone: "+1 216-444-2200",
+      emergency: "+1 216-445-7050",
+      website: "https://clevelandclinic.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Heart and Vascular", "Neurological Institute", "Cancer Center", "Transplant"],
+    capacity: {
+      totalBeds: 1285,
+      icuBeds: 180,
+      emergencyBeds: 75
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "NCI Cancer Center"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "06:00-18:00",
+      visiting: "09:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Arabic", "Russian"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.6,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-005",
+    name: "Cedars-Sinai Medical Center",
+    address: "8700 Beverly Blvd, Los Angeles, CA 90048",
+    city: "Los Angeles",
+    country: "United States",
+    coordinates: {
+      lat: 34.0759,
+      lng: -118.3804
+    },
+    contact: {
+      phone: "+1 310-423-3277",
+      emergency: "+1 310-423-8780",
+      website: "https://cedars-sinai.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: false,
+      rehabilitation: true
+    },
+    specialties: ["Heart Institute", "Cancer Center", "Neurosciences", "Transplant"],
+    capacity: {
+      totalBeds: 886,
+      icuBeds: 120,
+      emergencyBeds: 55
+    },
+    certifications: ["Magnet Hospital", "Joint Commission", "DNV Healthcare"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-19:00",
+      visiting: "10:00-21:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Korean", "Persian", "Russian"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.5,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-006",
+    name: "Texas Medical Center - MD Anderson",
+    address: "1515 Holcombe Blvd, Houston, TX 77030",
+    city: "Houston",
+    country: "United States",
+    coordinates: {
+      lat: 29.7079,
+      lng: -95.3982
+    },
+    contact: {
+      phone: "+1 713-792-2121",
+      emergency: "+1 713-792-7112",
+      website: "https://mdanderson.org"
+    },
+    services: {
+      emergency: true,
+      trauma: false,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: false,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Cancer Treatment", "Oncology Research", "Bone Marrow Transplant"],
+    capacity: {
+      totalBeds: 640,
+      icuBeds: 85,
+      emergencyBeds: 30
+    },
+    certifications: ["NCI Comprehensive Cancer Center", "Magnet Hospital"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-18:00",
+      visiting: "09:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Mandarin", "Arabic"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.7,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-007",
+    name: "Mount Sinai Hospital",
+    address: "1 Gustave L. Levy Pl, New York, NY 10029",
+    city: "New York",
+    country: "United States",
+    coordinates: {
+      lat: 40.7903,
+      lng: -73.9531
+    },
+    contact: {
+      phone: "+1 212-241-6500",
+      emergency: "+1 212-241-7171",
+      website: "https://mountsinai.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Icahn School of Medicine", "Transplant", "Geriatrics", "Research"],
+    capacity: {
+      totalBeds: 1171,
+      icuBeds: 165,
+      emergencyBeds: 70
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "Teaching Hospital"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "06:30-20:00",
+      visiting: "08:00-21:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Russian", "Mandarin", "Arabic"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.4,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-008",
+    name: "UCLA Medical Center",
+    address: "757 Westwood Plaza, Los Angeles, CA 90095",
+    city: "Los Angeles",
+    country: "United States",
+    coordinates: {
+      lat: 34.0669,
+      lng: -118.4509
+    },
+    contact: {
+      phone: "+1 310-825-9111",
+      emergency: "+1 310-267-2992",
+      website: "https://uclahealth.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Level 1 Trauma", "Research", "Teaching Hospital", "Transplant"],
+    capacity: {
+      totalBeds: 520,
+      icuBeds: 75,
+      emergencyBeds: 45
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "Academic Medical Center"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-19:00",
+      visiting: "09:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Korean", "Persian", "Tagalog"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.5,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-009",
+    name: "NewYork-Presbyterian Hospital",
+    address: "525 E 68th St, New York, NY 10065",
+    city: "New York",
+    country: "United States",
+    coordinates: {
+      lat: 40.7677,
+      lng: -73.9541
+    },
+    contact: {
+      phone: "+1 212-746-5454",
+      emergency: "+1 212-746-0736",
+      website: "https://nyp.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Academic Medicine", "Research", "Comprehensive Care", "Transplant"],
+    capacity: {
+      totalBeds: 2236,
+      icuBeds: 320,
+      emergencyBeds: 95
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "Teaching Hospital"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "06:00-22:00",
+      visiting: "08:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Mandarin", "Russian", "Arabic"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.3,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-010",
+    name: "Seattle Children's Hospital",
+    address: "4800 Sand Point Way NE, Seattle, WA 98105",
+    city: "Seattle",
+    country: "United States",
+    coordinates: {
+      lat: 47.6654,
+      lng: -122.2967
+    },
+    contact: {
+      phone: "+1 206-987-2000",
+      emergency: "+1 206-987-2614",
+      website: "https://seattlechildrens.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: false,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Pediatric Specialty Care", "Research", "Level 1 Pediatric Trauma"],
+    capacity: {
+      totalBeds: 400,
+      icuBeds: 65,
+      emergencyBeds: 40
+    },
+    certifications: ["Magnet Hospital", "Level 1 Pediatric Trauma Center"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-18:00",
+      visiting: "24/7 for parents"
+    },
+    languagesSpoken: ["English", "Spanish", "Vietnamese", "Somali"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.8,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-011",
+    name: "Houston Methodist Hospital",
+    address: "6565 Fannin St, Houston, TX 77030",
+    city: "Houston",
+    country: "United States",
+    coordinates: {
+      lat: 29.7096,
+      lng: -95.3975
+    },
+    contact: {
+      phone: "+1 713-790-3311",
+      emergency: "+1 713-441-2700",
+      website: "https://houstonmethodist.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: false,
+      rehabilitation: true
+    },
+    specialties: ["Heart and Vascular", "Neurosciences", "Cancer Care", "Transplant"],
+    capacity: {
+      totalBeds: 907,
+      icuBeds: 135,
+      emergencyBeds: 60
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "Research Institute"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "06:30-19:00",
+      visiting: "09:00-21:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Vietnamese", "Arabic"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.4,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-012",
+    name: "Vanderbilt University Medical Center",
+    address: "1211 Medical Center Dr, Nashville, TN 37232",
+    city: "Nashville",
+    country: "United States",
+    coordinates: {
+      lat: 36.1459,
+      lng: -86.8027
+    },
+    contact: {
+      phone: "+1 615-322-5000",
+      emergency: "+1 615-936-1316",
+      website: "https://vumc.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Academic Medicine", "Research", "Level 1 Trauma", "Transplant"],
+    capacity: {
+      totalBeds: 1033,
+      icuBeds: 155,
+      emergencyBeds: 65
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "Teaching Hospital"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-18:00",
+      visiting: "10:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Kurdish", "Somali"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.5,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-013",
+    name: "University of Michigan Hospital",
+    address: "1500 E Medical Center Dr, Ann Arbor, MI 48109",
+    city: "Ann Arbor",
+    country: "United States",
+    coordinates: {
+      lat: 42.2928,
+      lng: -83.7230
+    },
+    contact: {
+      phone: "+1 734-764-1505",
+      emergency: "+1 734-936-6666",
+      website: "https://medicine.umich.edu"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Academic Medicine", "Research", "Transplant", "Comprehensive Cancer"],
+    capacity: {
+      totalBeds: 1038,
+      icuBeds: 150,
+      emergencyBeds: 70
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "NCI Cancer Center"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-19:00",
+      visiting: "09:00-21:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Arabic", "Chinese"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.4,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-014",
+    name: "Duke University Hospital",
+    address: "2301 Erwin Rd, Durham, NC 27710",
+    city: "Durham",
+    country: "United States",
+    coordinates: {
+      lat: 36.0103,
+      lng: -78.9428
+    },
+    contact: {
+      phone: "+1 919-684-8111",
+      emergency: "+1 919-681-2223",
+      website: "https://dukehealth.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Academic Medicine", "Research", "Transplant", "Cancer Center"],
+    capacity: {
+      totalBeds: 957,
+      icuBeds: 140,
+      emergencyBeds: 55
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "NCI Cancer Center"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-18:00",
+      visiting: "09:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Chinese", "Korean"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.6,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
+  },
+  {
+    id: "us-015",
+    name: "Stanford Health Care",
+    address: "300 Pasteur Dr, Stanford, CA 94305",
+    city: "Stanford",
+    country: "United States",
+    coordinates: {
+      lat: 37.4323,
+      lng: -122.1732
+    },
+    contact: {
+      phone: "+1 650-723-4000",
+      emergency: "+1 650-723-5111",
+      website: "https://stanfordhealthcare.org"
+    },
+    services: {
+      emergency: true,
+      trauma: true,
+      pediatrics: true,
+      cardiology: true,
+      neurology: true,
+      oncology: true,
+      maternity: true,
+      surgery: true,
+      icu: true,
+      dialysis: true,
+      mentalHealth: true,
+      rehabilitation: true
+    },
+    specialties: ["Academic Medicine", "Research", "Innovation", "Transplant"],
+    capacity: {
+      totalBeds: 613,
+      icuBeds: 95,
+      emergencyBeds: 50
+    },
+    certifications: ["Magnet Hospital", "Level 1 Trauma Center", "Teaching Hospital"],
+    operatingHours: {
+      emergency: "24/7",
+      outpatient: "07:00-19:00",
+      visiting: "10:00-20:00"
+    },
+    languagesSpoken: ["English", "Spanish", "Mandarin", "Cantonese", "Vietnamese"],
+    accessibility: {
+      wheelchairAccessible: true,
+      parkingAvailable: true,
+      publicTransport: true
+    },
+    insurance: ["Medicare", "Medicaid", "Private Insurance", "International"],
+    rating: 4.5,
+    lastUpdated: "2025-01-01",
+    verificationStatus: "verified"
   }
 ];
 
