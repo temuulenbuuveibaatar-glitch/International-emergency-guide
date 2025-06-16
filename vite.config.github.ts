@@ -19,10 +19,28 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
+    sourcemap: false,
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          vendor: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+        }
+      }
+    }
   },
   base: './',
   define: {
     'process.env.NODE_ENV': '"production"',
     'process.env.GITHUB_PAGES': 'true'
+  },
+  server: {
+    port: 3000,
+    host: true
+  },
+  preview: {
+    port: 3000,
+    host: true
   }
 });

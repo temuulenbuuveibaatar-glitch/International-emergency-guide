@@ -33,10 +33,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Create .env file
+        run: |
+          echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}" > client/.env
+          echo "NODE_ENV=production" >> client/.env
+        
       - name: Build for GitHub Pages
         run: npx vite build --config vite.config.github.ts
         env:
-          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          NODE_ENV: production
+          
+      - name: Create CNAME file (if needed)
+        run: |
+          if [ ! -z "${{ vars.CUSTOM_DOMAIN }}" ]; then
+            echo "${{ vars.CUSTOM_DOMAIN }}" > dist/CNAME
+          fi
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
