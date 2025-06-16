@@ -9,6 +9,10 @@ export const navigationItems = [
   { path: "/contacts", key: "contacts", icon: "Phone" },
   { path: "/fire-safety", key: "fireSafety", icon: "Flame" },
   { path: "/damage-assessment", key: "damageAssessment", icon: "Camera" },
-  { path: "/medical-imaging", key: "medicalImaging", icon: "FileImage" },
+  { path: "/medical-imaging", key: "medicalImaging", icon: "FileImage" }
+];
+
+// Internal/admin navigation items (not shown to public users)
+export const adminNavigationItems = [
   { path: "/maintenance", key: "maintenance", icon: "Wrench" }
 ];
