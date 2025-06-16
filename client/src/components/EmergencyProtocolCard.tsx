@@ -22,11 +22,11 @@ export default function EmergencyProtocolCard({ id, title, description }: Emerge
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="p-4 bg-gradient-to-r from-primary to-red-700 text-white flex items-center justify-between">
-        <h3 className="font-semibold">{t(title)}</h3>
+        <h3 className="font-semibold">{title}</h3>
         <AlertTriangle className={`w-5 h-5 transition-all duration-300 ${isHovered ? "rotate-12" : ""}`} />
       </div>
       <div className="p-4">
-        <p className="text-sm text-gray-600 mb-4">{t(description)}</p>
+        <p className="text-sm text-gray-600 mb-4">{description}</p>
         <Link href={`/emergency/${id}`}>
           <div className={`inline-flex items-center px-4 py-2 rounded-full transition-all duration-200 ${
             isHovered 

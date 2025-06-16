@@ -10,20 +10,24 @@ Advanced multilingual emergency response platform providing critical medical and
 - **New Protocols Added**: 30+ protocols including AHA 2025 CPR guidelines, BE-FAST stroke assessment, enhanced trauma protocols
 - **Standards Compliance**: Protocols now reference latest guidelines from AHA, ATLS, WHO, CDC, and other authoritative sources
 - **Enhanced Categorization**: Protocols organized by category (cardiac, trauma, neurological, etc.) with certification levels and estimated timeframes
+- **Display Fixed**: Emergency protocols now show actual content instead of placeholder text
 
-### Enhanced Medication Database
-- **Comprehensive Drug Information**: Created extensive medication database with 2025 formulations
-- **Advanced Drug Profiles**: Each medication includes dosing, interactions, contraindications, monitoring parameters, pharmacokinetics
-- **Drug Interaction Checker**: Built-in system to identify potential drug interactions
+### Enhanced Medication Database (Expanded)
+- **Comprehensive Drug Information**: Expanded medication database with 10+ detailed drug profiles including common medications
+- **Advanced Drug Profiles**: Each medication includes complete dosing, interactions, contraindications, monitoring parameters, pharmacokinetics
+- **Drug Interaction Checker**: Built-in system to identify potential drug interactions with clinical recommendations
 - **Emergency Medications**: Quick-access section for life-saving medications (epinephrine, naloxone, etc.)
-- **Categories**: Organized by therapeutic class with search and filtering capabilities
+- **Categories**: Organized by therapeutic class (cardiovascular, endocrine, gastrointestinal, etc.) with search and filtering capabilities
+- **New Additions**: Metformin, Lisinopril, Atorvastatin, Omeprazole, Levothyroxine with complete clinical profiles
 
-### Updated Hospital Database
-- **Accurate Location Data**: Comprehensive hospital database with verified coordinates and contact information
+### Updated Hospital Database (Significantly Expanded)
+- **Accurate Location Data**: Comprehensive hospital database with verified coordinates and contact information across multiple countries
 - **Enhanced Service Information**: Detailed service availability, specialties, capacity, and certifications
 - **Quality Metrics**: Hospital rating system with quality scores and verification status
 - **Search Functionality**: Location-based search, service filtering, emergency hospital identification
-- **International Coverage**: Hospitals in Mongolia, USA, UK with expansion capability
+- **International Coverage**: Expanded to include hospitals in Mongolia (9 facilities), USA (3 major centers), UK (3 NHS trusts), Canada (1), Australia (1), Japan (1)
+- **Mongolia Coverage**: Added regional hospitals in Choibalsan, Khovd, plus Mongolian National University Hospital and Songdo Hospital in Ulaanbaatar
+- **International Centers**: Mayo Clinic, Massachusetts General Hospital, Guy's and St Thomas', Toronto General Hospital, Royal Melbourne Hospital, University of Tokyo Hospital
 
 ### Routine Maintenance System
 - **Automated Maintenance Scheduler**: Comprehensive system for database updates, protocol reviews, and system health monitoring

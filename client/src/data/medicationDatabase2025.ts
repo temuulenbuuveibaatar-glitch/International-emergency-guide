@@ -416,6 +416,274 @@ export const enhancedMedicationDatabase: EnhancedMedication[] = [
     lastUpdated: "2025-01-01",
     fdaApproved: true,
     genericAvailable: true
+  },
+  {
+    id: "med-006",
+    name: "Metformin",
+    genericName: "Metformin Hydrochloride",
+    brandNames: ["Glucophage", "Fortamet", "Glumetza"],
+    category: "Endocrine",
+    therapeuticClass: "Biguanide",
+    description: "First-line oral antidiabetic medication for type 2 diabetes mellitus",
+    indications: ["Type 2 diabetes mellitus", "Prediabetes", "PCOS"],
+    dosageForm: ["Tablet", "Extended-release tablet", "Oral solution"],
+    dosage: {
+      adult: "500-850 mg twice daily, max 2550 mg/day",
+      pediatric: "10-17 years: 500 mg twice daily, max 2000 mg/day",
+      elderly: "Start with lower dose, monitor renal function",
+      renalImpairment: "Contraindicated if eGFR <30 mL/min/1.73m²"
+    },
+    administration: {
+      route: ["Oral"],
+      timing: "With meals to reduce GI upset",
+      withFood: true,
+      specialInstructions: "Swallow extended-release tablets whole"
+    },
+    contraindications: ["Severe renal impairment", "Metabolic acidosis", "Diabetic ketoacidosis"],
+    warnings: ["Lactic acidosis (rare but serious)", "Vitamin B12 deficiency with long-term use"],
+    sideEffects: {
+      common: ["Nausea", "Diarrhea", "Abdominal pain", "Metallic taste"],
+      serious: ["Lactic acidosis", "Severe hypoglycemia when combined with insulin"],
+      rare: ["Vitamin B12 deficiency", "Megaloblastic anemia"]
+    },
+    interactions: {
+      drugInteractions: ["Alcohol", "Contrast agents", "Carbonic anhydrase inhibitors"],
+      foodInteractions: ["Alcohol increases lactic acidosis risk"]
+    },
+    monitoring: ["Blood glucose", "HbA1c", "Renal function", "Vitamin B12 levels"],
+    pharmacokinetics: {
+      onset: "1-3 hours",
+      peakEffect: "2-4 hours",
+      duration: "12-24 hours",
+      halfLife: "4-9 hours",
+      metabolism: "Not metabolized",
+      excretion: "Renal (unchanged)"
+    },
+    pregnancy: {
+      category: "B",
+      notes: "Preferred oral agent in pregnancy"
+    },
+    lactation: "Compatible",
+    storage: "Room temperature, protect from moisture",
+    availability: ["Prescription"],
+    cost: "low",
+    lastUpdated: "2025-01-01",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  {
+    id: "med-007",
+    name: "Lisinopril",
+    genericName: "Lisinopril",
+    brandNames: ["Prinivil", "Zestril"],
+    category: "Cardiovascular",
+    therapeuticClass: "ACE Inhibitor",
+    description: "Angiotensin-converting enzyme inhibitor for hypertension and heart failure",
+    indications: ["Hypertension", "Heart failure", "Post-MI cardioprotection"],
+    dosageForm: ["Tablet"],
+    dosage: {
+      adult: "Hypertension: 10-40 mg daily; Heart failure: 5-40 mg daily",
+      pediatric: "≥6 years: 0.07 mg/kg daily, max 5 mg daily initially",
+      elderly: "Start with 2.5-5 mg daily",
+      renalImpairment: "Dose reduction required"
+    },
+    administration: {
+      route: ["Oral"],
+      timing: "Once daily, same time each day",
+      withFood: false
+    },
+    contraindications: ["Angioedema history", "Pregnancy", "Bilateral renal artery stenosis"],
+    warnings: ["Angioedema", "Hyperkalemia", "Renal impairment"],
+    sideEffects: {
+      common: ["Dry cough", "Dizziness", "Headache", "Fatigue"],
+      serious: ["Angioedema", "Severe hypotension", "Acute renal failure"],
+      rare: ["Hepatotoxicity", "Neutropenia"]
+    },
+    interactions: {
+      drugInteractions: ["Potassium supplements", "NSAIDs", "Lithium", "Aliskiren"],
+      foodInteractions: ["High potassium foods may cause hyperkalemia"]
+    },
+    monitoring: ["Blood pressure", "Serum creatinine", "Potassium levels"],
+    pharmacokinetics: {
+      onset: "1 hour",
+      peakEffect: "6-8 hours",
+      duration: "24 hours",
+      halfLife: "12 hours",
+      metabolism: "Not metabolized",
+      excretion: "Renal (unchanged)"
+    },
+    pregnancy: {
+      category: "D",
+      notes: "Contraindicated - can cause fetal harm"
+    },
+    lactation: "Use caution",
+    storage: "Room temperature, protect from moisture",
+    availability: ["Prescription"],
+    cost: "low",
+    lastUpdated: "2025-01-01",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  {
+    id: "med-008",
+    name: "Atorvastatin",
+    genericName: "Atorvastatin Calcium",
+    brandNames: ["Lipitor"],
+    category: "Cardiovascular",
+    therapeuticClass: "HMG-CoA Reductase Inhibitor (Statin)",
+    description: "Cholesterol-lowering medication for cardiovascular disease prevention",
+    indications: ["Hypercholesterolemia", "Mixed dyslipidemia", "Primary CVD prevention"],
+    dosageForm: ["Tablet"],
+    dosage: {
+      adult: "10-80 mg daily",
+      pediatric: "10-17 years: 10-20 mg daily",
+      elderly: "No dose adjustment needed",
+      hepaticImpairment: "Contraindicated in active liver disease"
+    },
+    administration: {
+      route: ["Oral"],
+      timing: "Once daily, any time of day",
+      withFood: false
+    },
+    contraindications: ["Active liver disease", "Pregnancy", "Breastfeeding"],
+    warnings: ["Myopathy/rhabdomyolysis", "Hepatotoxicity", "Diabetes mellitus"],
+    sideEffects: {
+      common: ["Headache", "Myalgia", "Diarrhea", "Nasopharyngitis"],
+      serious: ["Rhabdomyolysis", "Hepatotoxicity", "Memory loss"],
+      rare: ["Immune-mediated necrotizing myopathy"]
+    },
+    interactions: {
+      drugInteractions: ["Cyclosporine", "Clarithromycin", "Itraconazole", "Warfarin"],
+      foodInteractions: ["Grapefruit juice increases drug levels"]
+    },
+    monitoring: ["Lipid panel", "Liver function tests", "Creatine kinase"],
+    pharmacokinetics: {
+      onset: "2 weeks",
+      peakEffect: "4-6 weeks",
+      duration: "24 hours",
+      halfLife: "14 hours",
+      metabolism: "Hepatic (CYP3A4)",
+      excretion: "Biliary"
+    },
+    pregnancy: {
+      category: "X",
+      notes: "Contraindicated - can cause fetal harm"
+    },
+    lactation: "Contraindicated",
+    storage: "Room temperature",
+    availability: ["Prescription"],
+    cost: "low",
+    lastUpdated: "2025-01-01",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  {
+    id: "med-009",
+    name: "Omeprazole",
+    genericName: "Omeprazole",
+    brandNames: ["Prilosec", "Losec"],
+    category: "Gastrointestinal",
+    therapeuticClass: "Proton Pump Inhibitor",
+    description: "Acid suppression therapy for peptic ulcer disease and GERD",
+    indications: ["GERD", "Peptic ulcer disease", "H. pylori eradication", "Zollinger-Ellison syndrome"],
+    dosageForm: ["Delayed-release capsule", "Tablet", "Oral suspension"],
+    dosage: {
+      adult: "GERD: 20 mg daily; PUD: 20-40 mg daily",
+      pediatric: "1-16 years: 10-20 mg daily based on weight",
+      elderly: "No dose adjustment needed",
+      hepaticImpairment: "Consider dose reduction"
+    },
+    administration: {
+      route: ["Oral"],
+      timing: "30-60 minutes before meals",
+      withFood: false,
+      specialInstructions: "Swallow capsules whole, do not crush"
+    },
+    contraindications: ["Hypersensitivity to PPIs"],
+    warnings: ["C. diff infection", "Bone fractures", "Hypomagnesemia"],
+    sideEffects: {
+      common: ["Headache", "Diarrhea", "Abdominal pain", "Nausea"],
+      serious: ["C. diff colitis", "Pneumonia", "Bone fractures"],
+      rare: ["Acute interstitial nephritis", "Fundic gland polyps"]
+    },
+    interactions: {
+      drugInteractions: ["Clopidogrel", "Warfarin", "Atazanavir", "Ketoconazole"],
+      foodInteractions: ["None significant"]
+    },
+    monitoring: ["Magnesium levels (long-term use)", "Symptom improvement"],
+    pharmacokinetics: {
+      onset: "1-4 days",
+      peakEffect: "4 days",
+      duration: "72 hours",
+      halfLife: "0.5-1 hour",
+      metabolism: "Hepatic (CYP2C19)",
+      excretion: "Renal (80%)"
+    },
+    pregnancy: {
+      category: "C",
+      notes: "Use only if clearly needed"
+    },
+    lactation: "Excreted in breast milk",
+    storage: "Room temperature, protect from moisture",
+    availability: ["Prescription", "OTC"],
+    cost: "low",
+    lastUpdated: "2025-01-01",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  {
+    id: "med-010",
+    name: "Levothyroxine",
+    genericName: "Levothyroxine Sodium",
+    brandNames: ["Synthroid", "Levoxyl", "Tirosint"],
+    category: "Endocrine",
+    therapeuticClass: "Thyroid Hormone",
+    description: "Synthetic thyroid hormone replacement therapy",
+    indications: ["Hypothyroidism", "Thyroid cancer suppression", "Goiter"],
+    dosageForm: ["Tablet", "Capsule", "Injectable"],
+    dosage: {
+      adult: "1.6 mcg/kg/day, adjust based on TSH",
+      pediatric: "Age-dependent dosing, 10-15 mcg/kg/day",
+      elderly: "Start 25-50 mcg daily, titrate slowly",
+      renalImpairment: "No adjustment needed"
+    },
+    administration: {
+      route: ["Oral", "IV"],
+      timing: "30-60 minutes before breakfast",
+      withFood: false,
+      specialInstructions: "Take on empty stomach, consistent timing"
+    },
+    contraindications: ["Untreated adrenal insufficiency", "Recent MI with thyrotoxicosis"],
+    warnings: ["Cardiac effects", "Adrenal insufficiency", "Bone loss"],
+    sideEffects: {
+      common: ["Palpitations", "Nervousness", "Insomnia", "Weight loss"],
+      serious: ["Cardiac arrhythmias", "Angina", "Myocardial infarction"],
+      rare: ["Allergic reactions", "Hair loss (temporary)"]
+    },
+    interactions: {
+      drugInteractions: ["Warfarin", "Digoxin", "Iron", "Calcium", "Coffee"],
+      foodInteractions: ["Soy products", "High-fiber foods reduce absorption"]
+    },
+    monitoring: ["TSH", "Free T4", "Heart rate", "Symptoms"],
+    pharmacokinetics: {
+      onset: "3-5 days",
+      peakEffect: "1-3 weeks",
+      duration: "1-3 weeks",
+      halfLife: "7 days",
+      metabolism: "Hepatic",
+      excretion: "Renal and biliary"
+    },
+    pregnancy: {
+      category: "A",
+      notes: "Requirements increase during pregnancy"
+    },
+    lactation: "Compatible",
+    storage: "Room temperature, protect from light and moisture",
+    availability: ["Prescription"],
+    cost: "low",
+    lastUpdated: "2025-01-01",
+    fdaApproved: true,
+    genericAvailable: true
   }
 ];
 
