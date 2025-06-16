@@ -20,6 +20,8 @@ interface ProtocolStep {
   important?: boolean;
   duration?: string;
   tips?: string[];
+  videoUrl?: string;
+  imageUrl?: string;
 }
 
 interface Protocol {
@@ -43,42 +45,54 @@ const getProtocolById = (id: string): Protocol | null => {
         description: "Tap the person's shoulders firmly and shout 'Are you okay?' Check for normal breathing by looking for chest rise and fall for no more than 10 seconds. If there's no response and the person isn't breathing normally or only gasping, begin CPR immediately.",
         important: true,
         duration: "10 seconds maximum",
-        tips: ["Don't check for pulse as a layperson", "Gasping is not normal breathing", "Call for help immediately"]
+        tips: ["Don't check for pulse as a layperson", "Gasping is not normal breathing", "Call for help immediately"],
+        videoUrl: "https://www.youtube.com/embed/TfjjYz8y0yM",
+        imageUrl: "https://www.redcross.org/content/dam/redcross/uncategorized/Adult_CPR_Chest_Compressions.jpg"
       },
       {
         title: "Call 911 and Get AED",
         description: "Call 911 immediately or designate someone specific ('You in the red shirt, call 911'). Request an AED if available. Put phone on speaker if alone. Provide exact location and follow dispatcher instructions.",
         important: true,
         duration: "30 seconds",
-        tips: ["Be specific when asking for help", "Stay on the line with 911", "Don't leave the victim alone"]
+        tips: ["Be specific when asking for help", "Stay on the line with 911", "Don't leave the victim alone"],
+        videoUrl: "https://www.youtube.com/embed/Ko7e22yV8Vg",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
       },
       {
         title: "Position Your Hands Correctly",
         description: "Kneel beside the chest. Place heel of one hand on center of chest between nipples. Place other hand on top, interlocking fingers. Keep arms straight, shoulders over hands.",
         important: true,
         duration: "5-10 seconds",
-        tips: ["Only heel of hand touches chest", "Keep fingers off ribs", "Position yourself directly over victim"]
+        tips: ["Only heel of hand touches chest", "Keep fingers off ribs", "Position yourself directly over victim"],
+        videoUrl: "https://www.youtube.com/embed/TJGOKhQKZ9M",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
       },
       {
         title: "Begin High-Quality Chest Compressions",
         description: "Push hard and fast at least 2 inches deep (but no more than 2.4 inches). Allow complete chest recoil. Compress at 100-120 per minute. Count aloud: '1 and 2 and 3...' Minimize interruptions.",
         important: true,
         duration: "Continuous until help arrives",
-        tips: ["Think 'Stayin' Alive' song tempo", "Don't lean on chest between compressions", "Switch rescuers every 2 minutes if possible"]
+        tips: ["Think 'Stayin' Alive' song tempo", "Don't lean on chest between compressions", "Switch rescuers every 2 minutes if possible"],
+        videoUrl: "https://www.youtube.com/embed/sQzTtRAjGd8",
+        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop"
       },
       {
         title: "Add Rescue Breaths (If Trained)",
         description: "After 30 compressions: tilt head back, lift chin, pinch nose, give 2 breaths (1 second each). Watch for chest rise. If untrained, provide continuous chest compressions only.",
         important: false,
         duration: "30:2 ratio if trained",
-        tips: ["Hands-only CPR is effective for untrained rescuers", "Each breath should make chest rise", "Don't over-ventilate"]
+        tips: ["Hands-only CPR is effective for untrained rescuers", "Each breath should make chest rise", "Don't over-ventilate"],
+        videoUrl: "https://www.youtube.com/embed/B2qhvZJJVjU",
+        imageUrl: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop"
       },
       {
         title: "Continue Until Help Arrives",
         description: "Don't stop until EMS arrives, person starts breathing normally, or you become exhausted. Use AED immediately when available and follow voice prompts.",
         important: true,
         duration: "Until relieved by professionals",
-        tips: ["Quality compressions save lives", "AED will guide you through process", "Don't give up - brain can survive longer than you think"]
+        tips: ["Quality compressions save lives", "AED will guide you through process", "Don't give up - brain can survive longer than you think"],
+        videoUrl: "https://www.youtube.com/embed/3Pz0aLRaOlM",
+        imageUrl: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
       }
     ],
     "choking-2025": [
@@ -87,42 +101,54 @@ const getProtocolById = (id: string): Protocol | null => {
         description: "Look for universal choking sign (hands clutching throat). Ask 'Are you choking?' If person can cough, speak, or breathe, encourage coughing. If cannot breathe, cough, or speak, begin immediate intervention.",
         important: true,
         duration: "5-10 seconds",
-        tips: ["Coughing means some air is moving", "Silent choking is more dangerous", "Act quickly but stay calm"]
+        tips: ["Coughing means some air is moving", "Silent choking is more dangerous", "Act quickly but stay calm"],
+        videoUrl: "https://www.youtube.com/embed/7DhKqhOgkQ4",
+        imageUrl: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&h=400&fit=crop"
       },
       {
         title: "Position for Back Blows",
         description: "Stand to side and slightly behind. Support chest with one hand, lean them forward so object falls out rather than down throat. For children, support over your forearm.",
         important: true,
         duration: "5 seconds",
-        tips: ["Forward position is crucial", "Support them securely", "Different technique for infants"]
+        tips: ["Forward position is crucial", "Support them securely", "Different technique for infants"],
+        videoUrl: "https://www.youtube.com/embed/Os2vHJMXjWo",
+        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop"
       },
       {
         title: "Give 5 Sharp Back Blows",
         description: "Using heel of hand, give up to 5 sharp blows between shoulder blades. Each blow separate and distinct. Check mouth after each blow for expelled object using finger sweep if visible.",
         important: true,
         duration: "15-20 seconds",
-        tips: ["Each blow should be forceful", "Only remove visible objects", "Don't do blind finger sweeps"]
+        tips: ["Each blow should be forceful", "Only remove visible objects", "Don't do blind finger sweeps"],
+        videoUrl: "https://www.youtube.com/embed/qfbPEDILbYk",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
       },
       {
         title: "Perform 5 Abdominal Thrusts",
         description: "Stand behind person. Place fist above navel, below ribs. Grasp with other hand, give 5 quick upward/inward thrusts. For pregnant/obese persons, use chest thrusts.",
         important: true,
         duration: "15-20 seconds",
-        tips: ["Above navel, below ribs", "Quick, upward motion", "Modify for pregnancy/obesity"]
+        tips: ["Above navel, below ribs", "Quick, upward motion", "Modify for pregnancy/obesity"],
+        videoUrl: "https://www.youtube.com/embed/lvbJJqB3RHs",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
       },
       {
         title: "Continue Alternating Techniques",
         description: "Keep alternating 5 back blows and 5 abdominal thrusts until object expelled, person can breathe/speak, or becomes unconscious. Stay with person throughout.",
         important: true,
         duration: "Until successful or unconscious",
-        tips: ["Don't give up quickly", "Encourage coughing between cycles", "Be ready for sudden success"]
+        tips: ["Don't give up quickly", "Encourage coughing between cycles", "Be ready for sudden success"],
+        videoUrl: "https://www.youtube.com/embed/FEr9jjZ6fi8",
+        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop"
       },
       {
         title: "If Person Becomes Unconscious",
         description: "Lower to ground, call 911 if not done. Begin CPR with chest compressions. Before rescue breaths, check mouth and remove visible objects only. Continue CPR until help arrives.",
         important: true,
         duration: "Until EMS arrives",
-        tips: ["CPR may dislodge object", "Check mouth before each breath cycle", "Don't stop compressions to search for object"]
+        tips: ["CPR may dislodge object", "Check mouth before each breath cycle", "Don't stop compressions to search for object"],
+        videoUrl: "https://www.youtube.com/embed/mAzMJdoVnFQ",
+        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?w=600&h=400&fit=crop"
       }
     ],
     "stroke-2025": [
@@ -131,42 +157,54 @@ const getProtocolById = (id: string): Protocol | null => {
         description: "Ask about sudden balance loss, dizziness, or coordination problems. Look for trouble walking, loss of coordination, unexplained falls. If safe, ask person to walk and observe for unsteadiness.",
         important: true,
         duration: "30 seconds",
-        tips: ["May be only sign of posterior stroke", "Ask about recent falls", "Sudden onset is key"]
+        tips: ["May be only sign of posterior stroke", "Ask about recent falls", "Sudden onset is key"],
+        videoUrl: "https://www.youtube.com/embed/KFj0dOGSRpI",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
       },
       {
         title: "Eyes - Check for Vision Loss",
         description: "Ask about sudden vision loss, double vision, or visual field cuts. Have them track your finger. Ask if they can see your whole face. Test peripheral vision by wiggling fingers.",
         important: true,
         duration: "30 seconds",
-        tips: ["Vision changes can be subtle", "Check both eyes", "May complain of 'dark areas'"]
+        tips: ["Vision changes can be subtle", "Check both eyes", "May complain of 'dark areas'"],
+        videoUrl: "https://www.youtube.com/embed/V4Op2MDrJ0I",
+        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop"
       },
       {
         title: "Face - Check for Facial Drooping",
         description: "Ask person to smile broadly showing teeth. Look for uneven/lopsided smile, facial drooping, or asymmetric movement. Have them puff cheeks or raise eyebrows.",
         important: true,
         duration: "30 seconds",
-        tips: ["Most recognizable stroke sign", "Check both sides of face", "May affect speech muscles too"]
+        tips: ["Most recognizable stroke sign", "Check both sides of face", "May affect speech muscles too"],
+        videoUrl: "https://www.youtube.com/embed/RQAhL7-TuWg",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
       },
       {
         title: "Arms - Check for Weakness",
         description: "Ask to raise both arms overhead for 10 seconds with palms up, eyes closed. Look for arm drift, inability to lift one arm, or weakness. Test grip strength simultaneously.",
         important: true,
         duration: "30 seconds",
-        tips: ["One-sided weakness is classic", "Compare both sides", "May be subtle initially"]
+        tips: ["One-sided weakness is classic", "Compare both sides", "May be subtle initially"],
+        videoUrl: "https://www.youtube.com/embed/j3rNsJzB5BI",
+        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop"
       },
       {
         title: "Speech - Check for Speech Problems",
         description: "Ask to repeat simple phrase like 'The early bird catches the worm'. Listen for slurred speech, wrong words, or inability to understand. Test comprehension with simple commands.",
         important: true,
         duration: "30 seconds",
-        tips: ["Speech problems are very common", "Check understanding too", "May have trouble finding words"]
+        tips: ["Speech problems are very common", "Check understanding too", "May have trouble finding words"],
+        videoUrl: "https://www.youtube.com/embed/fFnOfk9wDtE",
+        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?w=600&h=400&fit=crop"
       },
       {
         title: "Time - Call 911 Immediately",
         description: "If ANY signs present, note exact time symptoms started (or last seen normal) and call 911. Tell dispatcher 'possible stroke' and time of onset. Time is brain - every minute counts.",
         important: true,
         duration: "2-3 minutes",
-        tips: ["Don't wait for more symptoms", "Time determines treatment options", "Transport to stroke center if available"]
+        tips: ["Don't wait for more symptoms", "Time determines treatment options", "Transport to stroke center if available"],
+        videoUrl: "https://www.youtube.com/embed/NDVsSwgyMHM",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
       }
     ],
     "bleeding-control-2025": [
@@ -175,42 +213,54 @@ const getProtocolById = (id: string): Protocol | null => {
         description: "Assess scene for ongoing dangers (traffic, violence, hazards). Wear gloves or create barrier with plastic bags/cloth. Your safety first - you can't help if you become injured.",
         important: true,
         duration: "15-30 seconds",
-        tips: ["Universal precautions with blood", "Use any barrier available", "Don't become second victim"]
+        tips: ["Universal precautions with blood", "Use any barrier available", "Don't become second victim"],
+        videoUrl: "https://www.youtube.com/embed/ufUQ_kF_nUs",
+        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop"
       },
       {
         title: "Call 911 for Severe Bleeding",
         description: "Call immediately for life-threatening bleeding. Say 'severe bleeding/hemorrhage' and location. Request blood products and trauma team for massive bleeding.",
         important: true,
         duration: "30 seconds",
-        tips: ["Don't delay for severe bleeding", "Be specific about severity", "Designate someone else to call if possible"]
+        tips: ["Don't delay for severe bleeding", "Be specific about severity", "Designate someone else to call if possible"],
+        videoUrl: "https://www.youtube.com/embed/hGJgaJgTHi0",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
       },
       {
         title: "Apply Direct Pressure",
         description: "Place clean cloth/gauze directly on wound. Press firmly with both hands if needed. Don't peek or lift to check - maintain constant pressure. Add more material on top if blood soaks through.",
         important: true,
         duration: "Continuous pressure",
-        tips: ["Most effective bleeding control", "Don't remove blood-soaked materials", "Use whatever clean material available"]
+        tips: ["Most effective bleeding control", "Don't remove blood-soaked materials", "Use whatever clean material available"],
+        videoUrl: "https://www.youtube.com/embed/3BPZPBl4YUE",
+        imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop"
       },
       {
         title: "Elevate if Possible",
         description: "If no fracture suspected, raise bleeding area above heart level. Support while maintaining pressure. Don't elevate if spinal, neck, or bone injuries suspected.",
         important: false,
         duration: "Throughout care",
-        tips: ["Works best for arms and legs", "Gravity helps reduce blood flow", "Don't compromise direct pressure"]
+        tips: ["Works best for arms and legs", "Gravity helps reduce blood flow", "Don't compromise direct pressure"],
+        videoUrl: "https://www.youtube.com/embed/vLkj4D_sKyc",
+        imageUrl: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&h=400&fit=crop"
       },
       {
         title: "Pressure Points if Needed",
         description: "If direct pressure fails, apply pressure to arterial points between wound and heart. Arm wounds: brachial artery. Leg wounds: femoral artery in groin.",
         important: true,
         duration: "Until bleeding controlled",
-        tips: ["Use only if direct pressure insufficient", "Learn pressure point locations", "Maintain direct pressure while applying"]
+        tips: ["Use only if direct pressure insufficient", "Learn pressure point locations", "Maintain direct pressure while applying"],
+        videoUrl: "https://www.youtube.com/embed/ljqRiWfCLEE",
+        imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
       },
       {
         title: "Tourniquet for Life-Threatening Limb Bleeding",
         description: "For severe limb bleeding not controlled by pressure, apply tourniquet 2-3 inches above wound. Tighten until bleeding stops. Write time on tourniquet. Don't loosen once applied.",
         important: true,
         duration: "Until medical professionals remove",
-        tips: ["Last resort for limb bleeding", "Commercial tourniquets preferred", "Document time of application"]
+        tips: ["Last resort for limb bleeding", "Commercial tourniquets preferred", "Document time of application"],
+        videoUrl: "https://www.youtube.com/embed/5LxMWRfEajc",
+        imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
       }
     ],
     "heart-attack-2025": [
@@ -219,35 +269,45 @@ const getProtocolById = (id: string): Protocol | null => {
         description: "Classic: chest pain/pressure, shortness of breath, nausea, sweating, pain to arms/jaw/back. Women/diabetics may have atypical symptoms: fatigue, indigestion, back/jaw pain without chest pain.",
         important: true,
         duration: "Ongoing assessment",
-        tips: ["Don't wait for 'classic' symptoms", "Women often have different symptoms", "Trust your instincts"]
+        tips: ["Don't wait for 'classic' symptoms", "Women often have different symptoms", "Trust your instincts"],
+        videoUrl: "https://www.youtube.com/embed/d61aorw05_g",
+        imageUrl: "https://images.unsplash.com/photo-1576673442511-7e39b6545c87?w=600&h=400&fit=crop"
       },
       {
         title: "Call 911 - Don't Drive",
         description: "Call immediately, don't drive to hospital. Say 'possible heart attack' with location. Request ALS and cardiac team activation. EMS can start treatment and bypass ER.",
         important: true,
         duration: "2-3 minutes",
-        tips: ["EMS has better outcomes", "Treatment starts immediately", "Direct to cardiac center"]
+        tips: ["EMS has better outcomes", "Treatment starts immediately", "Direct to cardiac center"],
+        videoUrl: "https://www.youtube.com/embed/gPCDcFGgI9s",
+        imageUrl: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&h=400&fit=crop"
       },
       {
         title: "Give Aspirin if Safe",
         description: "Give 325mg aspirin (4 baby aspirin) to chew if conscious, not allergic, no bleeding disorders. Chewing is faster than swallowing. Don't delay 911 call for aspirin.",
         important: true,
         duration: "1-2 minutes",
-        tips: ["Chewing speeds absorption", "Don't give if allergic", "Prevention of further clot formation"]
+        tips: ["Chewing speeds absorption", "Don't give if allergic", "Prevention of further clot formation"],
+        videoUrl: "https://www.youtube.com/embed/zT2zfL1xFzg",
+        imageUrl: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=600&h=400&fit=crop"
       },
       {
         title: "Position for Comfort",
         description: "Help sit upright in chair or half-sitting with pillows - reduces heart workload. Loosen tight clothing. Keep calm and still. Don't let them walk around.",
         important: false,
         duration: "Throughout care",
-        tips: ["Sitting position reduces cardiac workload", "Keep them calm", "No exertion"]
+        tips: ["Sitting position reduces cardiac workload", "Keep them calm", "No exertion"],
+        videoUrl: "https://www.youtube.com/embed/wHdhjVRzGFE",
+        imageUrl: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&h=400&fit=crop"
       },
       {
         title: "Monitor for Cardiac Arrest",
         description: "Watch breathing and consciousness continuously. Be prepared for CPR if becomes unconscious or stops breathing. Heart attack can progress to cardiac arrest.",
         important: true,
         duration: "Until EMS arrives",
-        tips: ["Heart attack can worsen quickly", "Be ready to start CPR", "Stay with patient"]
+        tips: ["Heart attack can worsen quickly", "Be ready to start CPR", "Stay with patient"],
+        videoUrl: "https://www.youtube.com/embed/JoCIAPT_2nU",
+        imageUrl: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
       }
     ]
   };
@@ -561,6 +621,64 @@ export default function ProtocolDetail() {
                     </div>
                   )}
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Professional Video Guides */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <svg className="w-6 h-6 mr-3 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Professional Video Demonstrations
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {protocol.steps.filter(step => step.videoUrl).map((step, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+              <div className="aspect-video bg-gray-900 relative">
+                <iframe
+                  src={step.videoUrl}
+                  className="w-full h-full"
+                  allowFullScreen
+                  title={step.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold text-gray-800 mb-2">{step.title}</h3>
+                <p className="text-sm text-gray-600">Professional medical training demonstration</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Photo Guides */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <svg className="w-6 h-6 mr-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Step-by-Step Photo Guides
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {protocol.steps.filter(step => step.imageUrl).map((step, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+              <div className="aspect-square bg-gray-100 relative">
+                <img
+                  src={step.imageUrl}
+                  alt={step.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-3">
+                <h3 className="font-medium text-gray-800 text-sm mb-1">{step.title}</h3>
+                <p className="text-xs text-gray-600">Visual technique guide</p>
               </div>
             </div>
           ))}
