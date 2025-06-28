@@ -15,10 +15,24 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
-    sourcemap: false
+    sourcemap: false,
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name].[hash].[ext]",
+        chunkFileNames: "assets/[name].[hash].js",
+        entryFileNames: "assets/[name].[hash].js"
+      }
+    }
   },
   base: "./",
   define: {
-    "process.env.NODE_ENV": '"production"'
+    "process.env.NODE_ENV": '"production"',
+    "import.meta.env.VITE_APP_MODE": '"github-pages"'
+  },
+  server: {
+    fs: {
+      allow: [".."]
+    }
   }
 });

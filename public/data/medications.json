@@ -1,0 +1,50 @@
+{
+  "medications": [
+    {
+      "id": "epinephrine",
+      "name": "Epinephrine",
+      "genericName": "epinephrine",
+      "brandNames": ["EpiPen", "Adrenaclick", "Auvi-Q"],
+      "category": "Emergency Medication",
+      "indications": ["Anaphylaxis", "Severe allergic reactions", "Cardiac arrest"],
+      "dosage": {
+        "adult": "0.3-0.5 mg IM (1:1000 solution)",
+        "pediatric": "0.01 mg/kg IM (max 0.3 mg)",
+        "route": "Intramuscular (thigh)"
+      },
+      "contraindications": ["None in life-threatening situations"],
+      "sideEffects": ["Rapid heart rate", "Tremor", "Anxiety", "Headache"],
+      "emergencyUse": true
+    },
+    {
+      "id": "aspirin",
+      "name": "Aspirin",
+      "genericName": "acetylsalicylic acid",
+      "brandNames": ["Bayer", "Bufferin", "Ecotrin"],
+      "category": "Antiplatelet",
+      "indications": ["Heart attack", "Stroke prevention", "Pain relief"],
+      "dosage": {
+        "adult": "325 mg chewed for MI, 81-100 mg daily for prevention",
+        "pediatric": "Not recommended under 16 due to Reye's syndrome risk"
+      },
+      "contraindications": ["Active bleeding", "Allergy to salicylates", "Severe asthma"],
+      "sideEffects": ["Stomach irritation", "Bleeding risk", "Tinnitus"],
+      "emergencyUse": true
+    },
+    {
+      "id": "naloxone",
+      "name": "Naloxone",
+      "genericName": "naloxone",
+      "brandNames": ["Narcan", "Evzio"],
+      "category": "Opioid Antagonist",
+      "indications": ["Opioid overdose", "Respiratory depression from opioids"],
+      "dosage": {
+        "adult": "0.4-2 mg IV/IM/IN, repeat every 2-3 minutes",
+        "pediatric": "0.1 mg/kg IV/IM, 2 mg IN"
+      },
+      "contraindications": ["Hypersensitivity to naloxone"],
+      "sideEffects": ["Withdrawal symptoms", "Nausea", "Vomiting", "Agitation"],
+      "emergencyUse": true
+    }
+  ]
+}

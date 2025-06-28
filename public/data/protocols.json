@@ -1,0 +1,54 @@
+{
+  "protocols": [
+    {
+      "id": "cpr-2025",
+      "title": "CPR (Cardiopulmonary Resuscitation) - 2025 AHA Guidelines",
+      "description": "Latest American Heart Association guidelines for adult CPR with emphasis on high-quality chest compressions and early AED use.",
+      "category": "cardiac",
+      "urgency": "critical",
+      "timeframe": "4-6 minutes",
+      "certification": "AHA BLS",
+      "lastUpdated": "2025-01-15"
+    },
+    {
+      "id": "choking-2025",
+      "title": "Choking Response - Adult & Child Protocol",
+      "description": "Comprehensive choking management using back blows and abdominal thrusts, with modifications for pregnancy and obesity.",
+      "category": "airway",
+      "urgency": "critical",
+      "timeframe": "1-2 minutes",
+      "certification": "AHA BLS",
+      "lastUpdated": "2025-01-15"
+    },
+    {
+      "id": "stroke-2025",
+      "title": "Stroke Recognition - BE-FAST Assessment",
+      "description": "Enhanced stroke recognition protocol including balance and eye assessments for comprehensive stroke detection.",
+      "category": "neurological",
+      "urgency": "critical",
+      "timeframe": "Golden hour",
+      "certification": "Emergency Medicine",
+      "lastUpdated": "2025-01-15"
+    },
+    {
+      "id": "bleeding-control-2025",
+      "title": "Hemorrhage Control - Stop the Bleed Protocol",
+      "description": "Evidence-based bleeding control techniques including tourniquet application for life-threatening hemorrhage.",
+      "category": "trauma",
+      "urgency": "critical",
+      "timeframe": "3-5 minutes",
+      "certification": "Stop the Bleed",
+      "lastUpdated": "2025-01-15"
+    },
+    {
+      "id": "heart-attack-2025",
+      "title": "Acute Myocardial Infarction Management",
+      "description": "Recognition and initial management of heart attack with focus on rapid EMS activation and aspirin administration.",
+      "category": "cardiac",
+      "urgency": "critical",
+      "timeframe": "Golden hour",
+      "certification": "Emergency Medicine",
+      "lastUpdated": "2025-01-15"
+    }
+  ]
+}

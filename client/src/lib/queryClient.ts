@@ -12,11 +12,18 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  // For GitHub Pages deployment, use absolute URLs when needed
+  const baseUrl = import.meta.env.VITE_APP_MODE === 'github-pages' 
+    ? window.location.origin 
+    : '';
+  
+  const fullUrl = url.startsWith('/') ? `${baseUrl}${url}` : url;
+  
+  const res = await fetch(fullUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
-    credentials: "include",
+    credentials: import.meta.env.VITE_APP_MODE === 'github-pages' ? "same-origin" : "include",
   });
 
   await throwIfResNotOk(res);

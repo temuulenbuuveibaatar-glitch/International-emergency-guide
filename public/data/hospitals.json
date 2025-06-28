@@ -1,0 +1,37 @@
+{
+  "hospitals": [
+    {
+      "id": "mayo-clinic-rochester",
+      "name": "Mayo Clinic",
+      "address": "200 1st St SW, Rochester, MN 55905",
+      "country": "USA",
+      "coordinates": { "lat": 44.0225, "lng": -92.4699 },
+      "phone": "+1-507-284-2511",
+      "emergency": "+1-507-255-5123",
+      "services": ["emergency", "trauma", "cardiology", "neurology", "oncology"],
+      "rating": 4.9
+    },
+    {
+      "id": "mass-general-boston",
+      "name": "Massachusetts General Hospital",
+      "address": "55 Fruit St, Boston, MA 02114",
+      "country": "USA",
+      "coordinates": { "lat": 42.3632, "lng": -71.0685 },
+      "phone": "+1-617-726-2000",
+      "emergency": "+1-617-726-2000",
+      "services": ["emergency", "trauma", "surgery", "pediatrics"],
+      "rating": 4.8
+    },
+    {
+      "id": "mongolia-national-hospital",
+      "name": "National Center for Maternal and Child Health",
+      "address": "Ulaanbaatar, Mongolia",
+      "country": "Mongolia",
+      "coordinates": { "lat": 47.9184, "lng": 106.9177 },
+      "phone": "+976-11-263-464",
+      "emergency": "+976-103",
+      "services": ["emergency", "maternity", "pediatrics"],
+      "rating": 4.2
+    }
+  ]
+}
