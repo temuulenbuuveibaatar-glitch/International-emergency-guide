@@ -63,6 +63,127 @@ export interface EnhancedMedication {
 }
 
 export const enhancedMedicationDatabase: EnhancedMedication[] = [
+  // Emergency Life-Saving Medications
+  {
+    id: "epinephrine-2025",
+    name: "Epinephrine",
+    genericName: "Adrenaline",
+    brandNames: ["EpiPen", "Auvi-Q", "Adrenaclick", "Twinject"],
+    category: "Emergency",
+    therapeuticClass: "Alpha/Beta Agonist",
+    description: "First-line treatment for anaphylaxis and severe allergic reactions. Critical emergency medication.",
+    indications: ["Anaphylaxis", "Severe allergic reactions", "Cardiac arrest", "Severe asthma", "Croup"],
+    dosageForm: ["Auto-injector", "Pre-filled syringe", "Ampule for injection", "Inhalation solution"],
+    dosage: {
+      adult: "0.3-0.5mg IM (1:1000) for anaphylaxis; may repeat q5-15min. IV: 1mg (1:10000) for cardiac arrest",
+      pediatric: "0.01mg/kg IM (max 0.3mg) for anaphylaxis; 0.01mg/kg IV for cardiac arrest",
+      elderly: "Use standard adult dose with cardiac monitoring",
+      renalImpairment: "No dose adjustment needed",
+      hepaticImpairment: "No dose adjustment needed"
+    },
+    administration: {
+      route: ["Intramuscular", "Intravenous", "Subcutaneous", "Inhalation"],
+      timing: "Immediate administration in emergencies",
+      withFood: false,
+      specialInstructions: "IM injection in outer thigh (vastus lateralis). Hold in place 3 seconds."
+    },
+    contraindications: ["No absolute contraindications in life-threatening situations"],
+    warnings: ["Cardiac arrhythmias", "Hypertension", "Cerebral hemorrhage risk", "Pulmonary edema"],
+    sideEffects: {
+      common: ["Tachycardia", "Palpitations", "Tremor", "Anxiety", "Headache"],
+      serious: ["Ventricular arrhythmias", "Myocardial ischemia", "Pulmonary edema"],
+      rare: ["Intracerebral hemorrhage", "Acute angle-closure glaucoma"]
+    },
+    interactions: {
+      drugInteractions: ["Beta-blockers", "MAO inhibitors", "Tricyclic antidepressants", "Digitalis"],
+      foodInteractions: [],
+      labInteractions: ["May cause hyperglycemia", "Elevated lactate"]
+    },
+    monitoring: ["Heart rate", "Blood pressure", "ECG", "Respiratory status", "Blood glucose"],
+    pharmacokinetics: {
+      onset: "1-2 minutes IM, immediate IV",
+      peakEffect: "5-10 minutes",
+      duration: "10-30 minutes",
+      halfLife: "2-3 minutes",
+      metabolism: "Rapid metabolism by COMT and MAO",
+      excretion: "Urine as metabolites"
+    },
+    pregnancy: {
+      category: "C",
+      notes: "Use when benefits outweigh risks. First-line for anaphylaxis in pregnancy."
+    },
+    lactation: "Compatible with breastfeeding",
+    pediatricConsiderations: "Dose by weight. Auto-injectors available in pediatric doses.",
+    geriatricConsiderations: "Increased sensitivity to cardiovascular effects",
+    storage: "Room temperature, protect from light. Check expiration dates regularly.",
+    availability: ["Prescription auto-injectors", "Hospital emergency medications"],
+    cost: "high",
+    emergencyAntidote: "Beta-blockers for severe hypertension",
+    blackBoxWarning: "None",
+    lastUpdated: "2025-01-17",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  {
+    id: "naloxone-2025",
+    name: "Naloxone",
+    genericName: "Naloxone Hydrochloride",
+    brandNames: ["Narcan", "Evzio", "Kloxxado", "Zimhi"],
+    category: "Emergency",
+    therapeuticClass: "Opioid Antagonist",
+    description: "Opioid overdose reversal agent. Life-saving medication for opioid poisoning.",
+    indications: ["Opioid overdose", "Opioid-induced respiratory depression", "Suspected opioid poisoning"],
+    dosageForm: ["Nasal spray", "Auto-injector", "Pre-filled syringe", "Vial for injection"],
+    dosage: {
+      adult: "0.4-2mg IV/IM/SC; 4mg intranasal. May repeat q2-3min until response",
+      pediatric: "0.01mg/kg IV/IM/SC; may use adult intranasal dose",
+      elderly: "Standard adult dosing",
+      renalImpairment: "No adjustment needed",
+      hepaticImpairment: "No adjustment needed"
+    },
+    administration: {
+      route: ["Intranasal", "Intramuscular", "Intravenous", "Subcutaneous"],
+      timing: "Immediate in suspected overdose",
+      withFood: false,
+      specialInstructions: "Nasal spray: one spray per nostril. Call emergency services immediately."
+    },
+    contraindications: ["Hypersensitivity to naloxone"],
+    warnings: ["Opioid withdrawal syndrome", "Limited duration of action", "May precipitate acute withdrawal"],
+    sideEffects: {
+      common: ["Nausea", "Vomiting", "Diarrhea", "Tachycardia", "Hypertension"],
+      serious: ["Acute opioid withdrawal", "Ventricular arrhythmias", "Pulmonary edema"],
+      rare: ["Seizures", "Cardiac arrest"]
+    },
+    interactions: {
+      drugInteractions: ["Reverses all opioid effects"],
+      foodInteractions: [],
+      labInteractions: []
+    },
+    monitoring: ["Respiratory rate", "Consciousness level", "Blood pressure", "Heart rate"],
+    pharmacokinetics: {
+      onset: "1-2 minutes IV, 2-5 minutes IM/SC, 8-13 minutes intranasal",
+      peakEffect: "5-15 minutes",
+      duration: "30-90 minutes",
+      halfLife: "30-90 minutes",
+      metabolism: "Hepatic glucuronidation",
+      excretion: "Urine"
+    },
+    pregnancy: {
+      category: "B",
+      notes: "Safe in pregnancy. Use for opioid overdose without hesitation."
+    },
+    lactation: "Compatible with breastfeeding",
+    pediatricConsiderations: "Safe and effective in children. Weight-based dosing for injection.",
+    geriatricConsiderations: "No special considerations",
+    storage: "Room temperature. Protect from light and freezing.",
+    availability: ["Over-the-counter", "Prescription", "Emergency services"],
+    cost: "moderate",
+    emergencyAntidote: "None needed",
+    blackBoxWarning: "None",
+    lastUpdated: "2025-01-17",
+    fdaApproved: true,
+    genericAvailable: true
+  },
   // Cardiovascular Medications
   {
     id: "aspirin-2025",
@@ -177,6 +298,250 @@ export const enhancedMedicationDatabase: EnhancedMedication[] = [
     availability: ["Prescription"],
     cost: "low",
     lastUpdated: "2025-01-01",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  // Neurological Medications
+  {
+    id: "phenytoin-2025",
+    name: "Phenytoin",
+    genericName: "Phenytoin Sodium",
+    brandNames: ["Dilantin", "Phenytek"],
+    category: "Neurological",
+    therapeuticClass: "Anticonvulsant",
+    description: "First-line antiepileptic drug for seizure control and status epilepticus",
+    indications: ["Epilepsy", "Status epilepticus", "Seizure prophylaxis", "Trigeminal neuralgia"],
+    dosageForm: ["Capsule", "Chewable tablet", "Oral suspension", "Injection"],
+    dosage: {
+      adult: "Loading: 15-20mg/kg IV; Maintenance: 300-400mg daily in divided doses",
+      pediatric: "Loading: 15-20mg/kg IV; Maintenance: 4-8mg/kg/day divided BID",
+      elderly: "Reduce dose by 25-50%",
+      renalImpairment: "No adjustment for mild-moderate; monitor free levels in severe",
+      hepaticImpairment: "Reduce dose significantly; monitor levels"
+    },
+    administration: {
+      route: ["Oral", "Intravenous"],
+      timing: "With food to reduce GI upset",
+      withFood: true,
+      specialInstructions: "IV: max 50mg/min to avoid cardiac toxicity. Monitor ECG during loading."
+    },
+    contraindications: ["Hypersensitivity", "Sinus bradycardia", "SA block", "2nd/3rd degree AV block"],
+    warnings: ["Cardiac arrhythmias", "Hypotension", "CNS depression", "Purple glove syndrome"],
+    sideEffects: {
+      common: ["Gingival hyperplasia", "Hirsutism", "Coarsening of facial features", "Ataxia"],
+      serious: ["Stevens-Johnson syndrome", "Hepatotoxicity", "Blood dyscrasias", "Cardiac arrest"],
+      rare: ["DRESS syndrome", "Lymphadenopathy", "Osteomalacia"]
+    },
+    interactions: {
+      drugInteractions: ["Warfarin", "Carbamazepine", "Valproic acid", "Isoniazid", "Fluconazole"],
+      foodInteractions: ["Enteral feeds may reduce absorption"],
+      labInteractions: ["Affects thyroid function tests", "Interferes with dexamethasone suppression test"]
+    },
+    monitoring: ["Serum levels (10-20 mcg/mL)", "CBC", "LFTs", "Cardiac function during IV loading"],
+    pharmacokinetics: {
+      onset: "30-60 minutes oral, 1-2 minutes IV",
+      peakEffect: "1.5-3 hours oral, immediate IV",
+      duration: "12-24 hours",
+      halfLife: "7-42 hours (dose-dependent)",
+      metabolism: "Hepatic saturable metabolism",
+      excretion: "Urine as metabolites"
+    },
+    pregnancy: {
+      category: "D",
+      notes: "Teratogenic but benefits may outweigh risks. Folic acid supplementation recommended."
+    },
+    lactation: "Compatible with monitoring",
+    pediatricConsiderations: "Higher clearance; more frequent dosing may be needed",
+    geriatricConsiderations: "Increased sensitivity; higher risk of adverse effects",
+    storage: "Room temperature, protect from light",
+    availability: ["Prescription"],
+    cost: "low",
+    emergencyAntidote: "Supportive care for overdose",
+    blackBoxWarning: "Cardiovascular collapse with rapid IV administration",
+    lastUpdated: "2025-01-17",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  // Respiratory Medications
+  {
+    id: "albuterol-2025",
+    name: "Albuterol",
+    genericName: "Albuterol Sulfate",
+    brandNames: ["ProAir", "Ventolin", "Proventil"],
+    category: "Respiratory",
+    therapeuticClass: "Beta-2 Agonist Bronchodilator",
+    description: "Short-acting bronchodilator for acute bronchospasm and asthma attacks",
+    indications: ["Acute bronchospasm", "Asthma", "COPD exacerbation", "Exercise-induced bronchospasm"],
+    dosageForm: ["MDI inhaler", "Nebulizer solution", "Tablet", "Syrup"],
+    dosage: {
+      adult: "MDI: 2 puffs q4-6h PRN; Nebulizer: 2.5mg q6-8h PRN",
+      pediatric: "MDI: 1-2 puffs q4-6h PRN; Nebulizer: 1.25-2.5mg q6-8h PRN",
+      elderly: "Standard adult dosing with cardiac monitoring",
+      renalImpairment: "No adjustment needed",
+      hepaticImpairment: "No adjustment needed"
+    },
+    administration: {
+      route: ["Inhalation", "Oral"],
+      timing: "As needed for bronchospasm; 15-30 min before exercise",
+      withFood: false,
+      specialInstructions: "Shake MDI before use. Rinse mouth after inhalation. Use spacer if available."
+    },
+    contraindications: ["Hypersensitivity to albuterol"],
+    warnings: ["Cardiovascular effects", "CNS stimulation", "Hypokalemia", "Hyperglycemia"],
+    sideEffects: {
+      common: ["Tremor", "Nervousness", "Headache", "Tachycardia", "Palpitations"],
+      serious: ["Chest pain", "Arrhythmias", "Hypertension", "Seizures"],
+      rare: ["Anaphylaxis", "Urticaria", "Angioedema"]
+    },
+    interactions: {
+      drugInteractions: ["Beta-blockers", "MAO inhibitors", "Tricyclic antidepressants", "Digitalis"],
+      foodInteractions: [],
+      labInteractions: ["May cause hypokalemia", "May increase glucose"]
+    },
+    monitoring: ["Heart rate", "Blood pressure", "Respiratory status", "Serum potassium"],
+    pharmacokinetics: {
+      onset: "5-15 minutes inhaled, 30 minutes oral",
+      peakEffect: "30-60 minutes inhaled, 2-3 hours oral",
+      duration: "3-6 hours",
+      halfLife: "3.8-6 hours",
+      metabolism: "Hepatic",
+      excretion: "Urine"
+    },
+    pregnancy: {
+      category: "C",
+      notes: "Use when benefits outweigh risks. Preferred bronchodilator in pregnancy."
+    },
+    lactation: "Compatible with breastfeeding",
+    pediatricConsiderations: "Safe and effective in children. Use age-appropriate delivery device.",
+    geriatricConsiderations: "Monitor for cardiovascular effects",
+    storage: "Room temperature. Do not puncture or expose to heat.",
+    availability: ["Prescription", "Some OTC formulations"],
+    cost: "moderate",
+    emergencyAntidote: "Beta-blockers for severe cardiovascular effects",
+    blackBoxWarning: "None",
+    lastUpdated: "2025-01-17",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  // Pain Management
+  {
+    id: "morphine-2025",
+    name: "Morphine",
+    genericName: "Morphine Sulfate",
+    brandNames: ["MS Contin", "Kadian", "Avinza", "Roxanol"],
+    category: "Pain Management",
+    therapeuticClass: "Opioid Analgesic",
+    description: "Potent opioid analgesic for severe pain management",
+    indications: ["Severe pain", "Cancer pain", "Post-operative pain", "Myocardial infarction pain"],
+    dosageForm: ["Tablet", "Extended-release tablet", "Oral solution", "Injection", "Suppository"],
+    dosage: {
+      adult: "IR: 15-30mg q4h PRN; ER: 15-30mg q12h; IV: 2-10mg q2-4h PRN",
+      pediatric: "0.1-0.2mg/kg IV q2-4h PRN; 0.3-0.6mg/kg PO q4h PRN",
+      elderly: "Reduce dose by 50% initially",
+      renalImpairment: "Reduce dose and extend intervals",
+      hepaticImpairment: "Reduce dose significantly"
+    },
+    administration: {
+      route: ["Oral", "Intravenous", "Intramuscular", "Subcutaneous", "Rectal"],
+      timing: "Around-the-clock for chronic pain, PRN for acute pain",
+      withFood: true,
+      specialInstructions: "Do not crush extended-release formulations. Monitor respiratory status."
+    },
+    contraindications: ["Respiratory depression", "Paralytic ileus", "Severe asthma", "MAO inhibitor use"],
+    warnings: ["Respiratory depression", "Addiction potential", "Physical dependence", "Withdrawal syndrome"],
+    sideEffects: {
+      common: ["Constipation", "Nausea", "Vomiting", "Drowsiness", "Dizziness"],
+      serious: ["Respiratory depression", "Hypotension", "Seizures", "Coma"],
+      rare: ["Anaphylaxis", "Serotonin syndrome", "Adrenal insufficiency"]
+    },
+    interactions: {
+      drugInteractions: ["CNS depressants", "MAO inhibitors", "Serotonergic drugs", "CYP3A4 inhibitors"],
+      foodInteractions: ["Alcohol increases CNS depression"],
+      labInteractions: ["May increase prolactin", "May affect cortisol levels"]
+    },
+    monitoring: ["Respiratory rate", "Consciousness level", "Pain scores", "Bowel function"],
+    pharmacokinetics: {
+      onset: "30-60 minutes oral, 5-10 minutes IV",
+      peakEffect: "1-2 hours oral, 20 minutes IV",
+      duration: "3-6 hours IR, 8-12 hours ER",
+      halfLife: "1.5-7 hours",
+      metabolism: "Hepatic glucuronidation",
+      excretion: "Urine"
+    },
+    pregnancy: {
+      category: "C",
+      notes: "Use only when benefits outweigh risks. May cause neonatal withdrawal."
+    },
+    lactation: "Use with caution; monitor infant",
+    pediatricConsiderations: "Increased sensitivity to respiratory depression",
+    geriatricConsiderations: "Increased risk of adverse effects; start low, go slow",
+    storage: "Room temperature, secure storage required",
+    availability: ["Prescription - controlled substance"],
+    cost: "moderate",
+    emergencyAntidote: "Naloxone for respiratory depression",
+    blackBoxWarning: "Addiction, abuse, and misuse; life-threatening respiratory depression",
+    lastUpdated: "2025-01-17",
+    fdaApproved: true,
+    genericAvailable: true
+  },
+  // Antibiotics
+  {
+    id: "amoxicillin-2025",
+    name: "Amoxicillin",
+    genericName: "Amoxicillin Trihydrate",
+    brandNames: ["Amoxil", "Trimox", "Moxatag"],
+    category: "Antibiotics",
+    therapeuticClass: "Penicillin Antibiotic",
+    description: "Broad-spectrum beta-lactam antibiotic for bacterial infections",
+    indications: ["Respiratory tract infections", "UTI", "Skin infections", "Otitis media", "Sinusitis"],
+    dosageForm: ["Capsule", "Tablet", "Chewable tablet", "Oral suspension"],
+    dosage: {
+      adult: "250-500mg q8h or 500-875mg q12h for 7-10 days",
+      pediatric: "20-40mg/kg/day divided q8h or 25-45mg/kg/day divided q12h",
+      elderly: "Standard adult dosing with renal function consideration",
+      renalImpairment: "Adjust dose and interval based on CrCl",
+      hepaticImpairment: "No adjustment needed"
+    },
+    administration: {
+      route: ["Oral"],
+      timing: "Every 8-12 hours",
+      withFood: false,
+      specialInstructions: "Can be taken with or without food. Complete full course even if feeling better."
+    },
+    contraindications: ["Penicillin allergy", "Severe renal impairment (CrCl <10 mL/min)"],
+    warnings: ["C. difficile colitis", "Superinfection", "Resistance development"],
+    sideEffects: {
+      common: ["Diarrhea", "Nausea", "Vomiting", "Abdominal pain", "Rash"],
+      serious: ["C. difficile colitis", "Severe allergic reactions", "Stevens-Johnson syndrome"],
+      rare: ["Anaphylaxis", "Interstitial nephritis", "Hemolytic anemia"]
+    },
+    interactions: {
+      drugInteractions: ["Warfarin", "Methotrexate", "Oral contraceptives", "Probenecid"],
+      foodInteractions: [],
+      labInteractions: ["May cause false-positive urine glucose"]
+    },
+    monitoring: ["Signs of allergic reaction", "GI symptoms", "Superinfection", "Renal function"],
+    pharmacokinetics: {
+      onset: "1-2 hours",
+      peakEffect: "1-2 hours",
+      duration: "6-8 hours",
+      halfLife: "1-1.3 hours",
+      metabolism: "Minimal hepatic metabolism",
+      excretion: "Renal"
+    },
+    pregnancy: {
+      category: "B",
+      notes: "Safe in pregnancy. First-line antibiotic for many infections."
+    },
+    lactation: "Compatible with breastfeeding",
+    pediatricConsiderations: "Safe and effective in children. Liquid formulations available.",
+    geriatricConsiderations: "Monitor renal function; adjust dose if needed",
+    storage: "Room temperature. Refrigerate suspension after reconstitution.",
+    availability: ["Prescription"],
+    cost: "low",
+    emergencyAntidote: "Epinephrine for anaphylaxis",
+    blackBoxWarning: "None",
+    lastUpdated: "2025-01-17",
     fdaApproved: true,
     genericAvailable: true
   },

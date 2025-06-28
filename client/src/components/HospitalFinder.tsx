@@ -1,7 +1,13 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useMemo } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import { useTranslation } from "react-i18next";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Search, Filter, Clock, Star, Navigation, Heart, Activity, Shield } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { enhancedHospitalDatabase, searchHospitalsByLocation, searchHospitalsByService, searchHospitalsByCountry, getEmergencyHospitals, getTraumaHospitals, type EnhancedHospital } from "../data/hospitalDatabase2025";
 
 // Fallback component for when Google Maps can't load
 function HospitalListFallback({ hospitals, selectedCountry, onCountryChange }: {

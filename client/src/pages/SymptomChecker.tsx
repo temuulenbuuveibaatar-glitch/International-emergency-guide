@@ -1,95 +1,605 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-import { Check, AlertCircle } from "lucide-react";
+import { useState, useCallback } from "react";
+import { Check, AlertCircle, Search, Brain, Heart, Thermometer, Activity, Clock, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-type BodyPart = "head" | "chest" | "abdomen" | "limbs" | "skin" | "general";
+type BodyPart = "head" | "chest" | "abdomen" | "limbs" | "skin" | "general" | "neurological" | "cardiovascular" | "respiratory" | "gastrointestinal";
+
+type SymptomSeverity = "mild" | "moderate" | "severe" | "critical";
+
 type Symptom = {
   id: string;
   name: string;
   bodyPart: BodyPart;
   isCritical?: boolean;
+  severity?: SymptomSeverity;
+  duration?: string;
+  description: string;
+  relatedSymptoms?: string[];
+  triageLevel: 1 | 2 | 3 | 4 | 5; // 1 = Emergency, 5 = Self-care
 };
 
 type Condition = {
   id: string;
   name: string;
   symptoms: string[];
-  urgency: "emergency" | "urgent" | "non-urgent";
+  urgency: "emergency" | "urgent" | "semi-urgent" | "non-urgent";
   description: string;
   recommendation: string;
+  probability: number;
+  specialistRequired?: string;
+  followUpActions: string[];
+  redFlags: string[];
+  selfCareOptions?: string[];
+  estimatedTimeToSeeCare: string;
 };
 
-// These would normally come from an API or more complete database
+type PatientInfo = {
+  age?: number;
+  gender?: "male" | "female" | "other";
+  medicalHistory: string[];
+  currentMedications: string[];
+  allergies: string[];
+  vitalSigns?: {
+    temperature?: number;
+    bloodPressure?: string;
+    heartRate?: number;
+    respiratoryRate?: number;
+  };
+};
+
+// Comprehensive symptom database with advanced triage capabilities
 const symptoms: Symptom[] = [
-  { id: "headache", name: "Headache", bodyPart: "head" },
-  { id: "dizziness", name: "Dizziness", bodyPart: "head" },
-  { id: "vision_changes", name: "Vision Changes", bodyPart: "head" },
-  { id: "severe_headache", name: "Severe Headache", bodyPart: "head", isCritical: true },
-  { id: "nausea_vomiting", name: "Nausea/Vomiting", bodyPart: "general" },
-  { id: "chest_pain", name: "Chest Pain", bodyPart: "chest", isCritical: true },
-  { id: "shortness_of_breath", name: "Shortness of Breath", bodyPart: "chest", isCritical: true },
-  { id: "palpitations", name: "Palpitations", bodyPart: "chest" },
-  { id: "abdominal_pain", name: "Abdominal Pain", bodyPart: "abdomen" },
-  { id: "severe_abdominal_pain", name: "Severe Abdominal Pain", bodyPart: "abdomen", isCritical: true },
-  { id: "diarrhea", name: "Diarrhea", bodyPart: "abdomen" },
-  { id: "arm_pain", name: "Arm Pain/Weakness", bodyPart: "limbs" },
-  { id: "leg_pain", name: "Leg Pain/Weakness", bodyPart: "limbs" },
-  { id: "rash", name: "Rash", bodyPart: "skin" },
-  { id: "fever", name: "Fever", bodyPart: "general" },
-  { id: "high_fever", name: "High Fever (>39°C/102°F)", bodyPart: "general", isCritical: true },
-  { id: "fatigue", name: "Fatigue", bodyPart: "general" },
-  { id: "difficulty_speaking", name: "Difficulty Speaking", bodyPart: "head", isCritical: true },
-  { id: "facial_drooping", name: "Facial Drooping", bodyPart: "head", isCritical: true }
+  // Neurological Symptoms
+  { 
+    id: "severe_headache", 
+    name: "Severe Sudden Headache", 
+    bodyPart: "neurological", 
+    isCritical: true,
+    description: "Sudden onset of the worst headache of your life",
+    triageLevel: 1,
+    relatedSymptoms: ["nausea_vomiting", "vision_changes", "neck_stiffness"]
+  },
+  { 
+    id: "headache", 
+    name: "Headache", 
+    bodyPart: "head",
+    description: "Pain in the head or upper neck",
+    triageLevel: 4,
+    relatedSymptoms: ["vision_changes", "nausea_vomiting"]
+  },
+  { 
+    id: "dizziness", 
+    name: "Dizziness/Vertigo", 
+    bodyPart: "neurological",
+    description: "Feeling of spinning or loss of balance",
+    triageLevel: 3,
+    relatedSymptoms: ["nausea_vomiting", "hearing_loss"]
+  },
+  { 
+    id: "vision_changes", 
+    name: "Vision Changes", 
+    bodyPart: "neurological",
+    description: "Sudden loss of vision, double vision, or visual disturbances",
+    triageLevel: 2,
+    relatedSymptoms: ["severe_headache", "difficulty_speaking"]
+  },
+  { 
+    id: "difficulty_speaking", 
+    name: "Speech Difficulties", 
+    bodyPart: "neurological", 
+    isCritical: true,
+    description: "Slurred speech, inability to speak, or trouble understanding speech",
+    triageLevel: 1,
+    relatedSymptoms: ["facial_drooping", "arm_weakness"]
+  },
+  { 
+    id: "facial_drooping", 
+    name: "Facial Drooping", 
+    bodyPart: "neurological", 
+    isCritical: true,
+    description: "One side of face droops or feels numb",
+    triageLevel: 1,
+    relatedSymptoms: ["difficulty_speaking", "arm_weakness"]
+  },
+  { 
+    id: "arm_weakness", 
+    name: "Arm Weakness", 
+    bodyPart: "neurological", 
+    isCritical: true,
+    description: "Sudden weakness or numbness in arm, especially one side",
+    triageLevel: 1,
+    relatedSymptoms: ["difficulty_speaking", "facial_drooping"]
+  },
+  { 
+    id: "confusion", 
+    name: "Confusion/Altered Mental State", 
+    bodyPart: "neurological", 
+    isCritical: true,
+    description: "Sudden confusion, disorientation, or altered consciousness",
+    triageLevel: 1,
+    relatedSymptoms: ["severe_headache", "fever"]
+  },
+  { 
+    id: "seizure", 
+    name: "Seizure", 
+    bodyPart: "neurological", 
+    isCritical: true,
+    description: "Uncontrolled electrical activity in the brain causing convulsions",
+    triageLevel: 1,
+    relatedSymptoms: ["confusion", "loss_of_consciousness"]
+  },
+  { 
+    id: "neck_stiffness", 
+    name: "Neck Stiffness", 
+    bodyPart: "neurological",
+    description: "Inability to flex neck forward due to stiffness",
+    triageLevel: 2,
+    relatedSymptoms: ["severe_headache", "fever", "light_sensitivity"]
+  },
+  
+  // Cardiovascular Symptoms
+  { 
+    id: "chest_pain", 
+    name: "Chest Pain", 
+    bodyPart: "cardiovascular", 
+    isCritical: true,
+    description: "Pain, pressure, or tightness in chest",
+    triageLevel: 1,
+    relatedSymptoms: ["shortness_of_breath", "arm_pain", "nausea_vomiting"]
+  },
+  { 
+    id: "shortness_of_breath", 
+    name: "Shortness of Breath", 
+    bodyPart: "respiratory", 
+    isCritical: true,
+    description: "Difficulty breathing or feeling out of breath",
+    triageLevel: 1,
+    relatedSymptoms: ["chest_pain", "palpitations", "leg_swelling"]
+  },
+  { 
+    id: "palpitations", 
+    name: "Palpitations", 
+    bodyPart: "cardiovascular",
+    description: "Feeling of rapid, strong, or irregular heartbeat",
+    triageLevel: 3,
+    relatedSymptoms: ["chest_pain", "shortness_of_breath", "dizziness"]
+  },
+  { 
+    id: "arm_pain", 
+    name: "Arm Pain", 
+    bodyPart: "cardiovascular",
+    description: "Pain in arm, especially left arm with chest symptoms",
+    triageLevel: 2,
+    relatedSymptoms: ["chest_pain", "jaw_pain", "shortness_of_breath"]
+  },
+  { 
+    id: "leg_swelling", 
+    name: "Leg Swelling", 
+    bodyPart: "cardiovascular",
+    description: "Swelling in legs, ankles, or feet",
+    triageLevel: 3,
+    relatedSymptoms: ["shortness_of_breath", "fatigue", "rapid_weight_gain"]
+  },
+  { 
+    id: "fainting", 
+    name: "Fainting/Syncope", 
+    bodyPart: "cardiovascular", 
+    isCritical: true,
+    description: "Temporary loss of consciousness",
+    triageLevel: 2,
+    relatedSymptoms: ["palpitations", "chest_pain", "dizziness"]
+  },
+  
+  // Respiratory Symptoms
+  { 
+    id: "severe_breathing_difficulty", 
+    name: "Severe Breathing Difficulty", 
+    bodyPart: "respiratory", 
+    isCritical: true,
+    description: "Unable to speak in full sentences due to breathlessness",
+    triageLevel: 1,
+    relatedSymptoms: ["chest_pain", "blue_lips", "wheezing"]
+  },
+  { 
+    id: "wheezing", 
+    name: "Wheezing", 
+    bodyPart: "respiratory",
+    description: "High-pitched whistling sound when breathing",
+    triageLevel: 3,
+    relatedSymptoms: ["shortness_of_breath", "cough", "chest_tightness"]
+  },
+  { 
+    id: "cough_blood", 
+    name: "Coughing Blood", 
+    bodyPart: "respiratory", 
+    isCritical: true,
+    description: "Blood in sputum or coughing up blood",
+    triageLevel: 1,
+    relatedSymptoms: ["shortness_of_breath", "chest_pain"]
+  },
+  { 
+    id: "blue_lips", 
+    name: "Blue Lips/Fingernails", 
+    bodyPart: "respiratory", 
+    isCritical: true,
+    description: "Bluish discoloration of lips or fingernails",
+    triageLevel: 1,
+    relatedSymptoms: ["severe_breathing_difficulty", "confusion"]
+  },
+  
+  // Gastrointestinal Symptoms
+  { 
+    id: "severe_abdominal_pain", 
+    name: "Severe Abdominal Pain", 
+    bodyPart: "gastrointestinal", 
+    isCritical: true,
+    description: "Intense, sudden onset abdominal pain",
+    triageLevel: 1,
+    relatedSymptoms: ["nausea_vomiting", "fever", "inability_to_pass_gas"]
+  },
+  { 
+    id: "abdominal_pain", 
+    name: "Abdominal Pain", 
+    bodyPart: "gastrointestinal",
+    description: "Pain or discomfort in the abdomen",
+    triageLevel: 3,
+    relatedSymptoms: ["nausea_vomiting", "diarrhea", "constipation"]
+  },
+  { 
+    id: "vomiting_blood", 
+    name: "Vomiting Blood", 
+    bodyPart: "gastrointestinal", 
+    isCritical: true,
+    description: "Blood in vomit or coffee-ground appearing vomit",
+    triageLevel: 1,
+    relatedSymptoms: ["abdominal_pain", "black_stools", "dizziness"]
+  },
+  { 
+    id: "black_stools", 
+    name: "Black/Tarry Stools", 
+    bodyPart: "gastrointestinal", 
+    isCritical: true,
+    description: "Dark, tarry stools indicating possible internal bleeding",
+    triageLevel: 1,
+    relatedSymptoms: ["vomiting_blood", "abdominal_pain", "weakness"]
+  },
+  { 
+    id: "diarrhea", 
+    name: "Diarrhea", 
+    bodyPart: "gastrointestinal",
+    description: "Loose, watery stools",
+    triageLevel: 4,
+    relatedSymptoms: ["dehydration", "fever", "abdominal_pain"]
+  },
+  { 
+    id: "constipation", 
+    name: "Constipation", 
+    bodyPart: "gastrointestinal",
+    description: "Difficulty passing stools",
+    triageLevel: 5,
+    relatedSymptoms: ["abdominal_pain", "bloating"]
+  },
+  
+  // General Symptoms
+  { 
+    id: "high_fever", 
+    name: "High Fever (>39°C/102°F)", 
+    bodyPart: "general", 
+    isCritical: true,
+    description: "Body temperature above 39°C (102°F)",
+    triageLevel: 2,
+    relatedSymptoms: ["chills", "sweating", "dehydration"]
+  },
+  { 
+    id: "fever", 
+    name: "Fever", 
+    bodyPart: "general",
+    description: "Elevated body temperature",
+    triageLevel: 4,
+    relatedSymptoms: ["chills", "fatigue", "headache"]
+  },
+  { 
+    id: "severe_dehydration", 
+    name: "Severe Dehydration", 
+    bodyPart: "general", 
+    isCritical: true,
+    description: "Signs of severe fluid loss",
+    triageLevel: 2,
+    relatedSymptoms: ["dizziness", "dry_mouth", "decreased_urination"]
+  },
+  { 
+    id: "fatigue", 
+    name: "Fatigue", 
+    bodyPart: "general",
+    description: "Extreme tiredness or lack of energy",
+    triageLevel: 5,
+    relatedSymptoms: ["weakness", "difficulty_concentrating"]
+  },
+  { 
+    id: "nausea_vomiting", 
+    name: "Nausea/Vomiting", 
+    bodyPart: "general",
+    description: "Feeling sick to stomach or throwing up",
+    triageLevel: 4,
+    relatedSymptoms: ["abdominal_pain", "diarrhea", "dehydration"]
+  },
+  
+  // Skin/External Symptoms
+  { 
+    id: "severe_allergic_reaction", 
+    name: "Severe Allergic Reaction", 
+    bodyPart: "skin", 
+    isCritical: true,
+    description: "Widespread rash, swelling, difficulty breathing",
+    triageLevel: 1,
+    relatedSymptoms: ["shortness_of_breath", "swelling", "rash"]
+  },
+  { 
+    id: "rash", 
+    name: "Rash", 
+    bodyPart: "skin",
+    description: "Skin irritation or eruption",
+    triageLevel: 4,
+    relatedSymptoms: ["itching", "fever"]
+  },
+  { 
+    id: "severe_burn", 
+    name: "Severe Burn", 
+    bodyPart: "skin", 
+    isCritical: true,
+    description: "Third-degree burn or large area burned",
+    triageLevel: 1,
+    relatedSymptoms: ["pain", "blisters", "shock"]
+  }
 ];
 
 const conditions: Condition[] = [
   {
     id: "stroke",
-    name: "Stroke (Possible)",
-    symptoms: ["severe_headache", "dizziness", "vision_changes", "difficulty_speaking", "facial_drooping", "arm_pain"],
+    name: "Stroke (Acute)",
+    symptoms: ["severe_headache", "dizziness", "vision_changes", "difficulty_speaking", "facial_drooping", "arm_weakness", "confusion"],
     urgency: "emergency",
-    description: "A stroke occurs when blood flow to the brain is interrupted, causing brain cells to die. It is a medical emergency.",
-    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY if you suspect a stroke. Remember the FAST method: Face drooping, Arm weakness, Speech difficulties, Time to call emergency services."
+    description: "Acute stroke occurs when blood flow to the brain is interrupted. Time-critical emergency requiring immediate intervention.",
+    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. Use FAST assessment: Face drooping, Arm weakness, Speech difficulties, Time to call emergency services.",
+    probability: 0.95,
+    specialistRequired: "Neurologist/Emergency Medicine",
+    followUpActions: [
+      "Immediate transport to stroke center",
+      "CT/MRI brain imaging",
+      "Neurological assessment",
+      "Potential thrombolytic therapy"
+    ],
+    redFlags: [
+      "Sudden onset worst headache of life",
+      "Rapid neurological deterioration",
+      "Loss of consciousness",
+      "Seizure activity"
+    ],
+    estimatedTimeToSeeCare: "Within 15 minutes"
   },
   {
     id: "heart_attack",
-    name: "Heart Attack (Possible)",
-    symptoms: ["chest_pain", "shortness_of_breath", "nausea_vomiting", "arm_pain", "palpitations"],
+    name: "Myocardial Infarction (STEMI/NSTEMI)",
+    symptoms: ["chest_pain", "shortness_of_breath", "nausea_vomiting", "arm_pain", "fainting", "severe_dehydration"],
     urgency: "emergency",
-    description: "A heart attack occurs when blood flow to part of the heart is blocked. Symptoms often include chest pain that may spread to the arm or jaw, along with shortness of breath and nausea.",
-    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. Chew aspirin if available and not allergic. Rest in a half-sitting position while waiting for help."
+    description: "Acute coronary syndrome with blocked coronary artery. Life-threatening emergency requiring immediate cardiac intervention.",
+    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. Chew 325mg aspirin if not allergic. Rest in semi-upright position.",
+    probability: 0.92,
+    specialistRequired: "Cardiologist/Emergency Medicine",
+    followUpActions: [
+      "12-lead ECG immediately",
+      "Cardiac enzymes (troponin)",
+      "Chest X-ray",
+      "Cardiac catheterization if indicated"
+    ],
+    redFlags: [
+      "Chest pain >30 minutes duration",
+      "Hemodynamic instability",
+      "Pulmonary edema",
+      "Cardiogenic shock"
+    ],
+    estimatedTimeToSeeCare: "Within 10 minutes"
+  },
+  {
+    id: "anaphylaxis",
+    name: "Anaphylactic Shock",
+    symptoms: ["severe_allergic_reaction", "shortness_of_breath", "severe_breathing_difficulty", "fainting", "rash"],
+    urgency: "emergency",
+    description: "Life-threatening systemic allergic reaction causing airway compromise and cardiovascular collapse.",
+    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. Use epinephrine auto-injector if available. Position patient supine with legs elevated.",
+    probability: 0.88,
+    specialistRequired: "Emergency Medicine/Allergy-Immunology",
+    followUpActions: [
+      "Epinephrine administration",
+      "IV fluids and vasopressors",
+      "Corticosteroids",
+      "H1/H2 antihistamines"
+    ],
+    redFlags: [
+      "Rapid progression of symptoms",
+      "Respiratory distress",
+      "Hypotension/shock",
+      "Loss of consciousness"
+    ],
+    estimatedTimeToSeeCare: "Within 5 minutes"
+  },
+  {
+    id: "meningitis",
+    name: "Bacterial Meningitis",
+    symptoms: ["severe_headache", "neck_stiffness", "high_fever", "confusion", "rash"],
+    urgency: "emergency",
+    description: "Infection of protective membranes covering brain and spinal cord. Medical emergency with high mortality if untreated.",
+    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. Time-critical condition requiring immediate antibiotic therapy.",
+    probability: 0.85,
+    specialistRequired: "Infectious Disease/Neurology",
+    followUpActions: [
+      "Lumbar puncture for CSF analysis",
+      "Blood cultures",
+      "Immediate empiric antibiotics",
+      "Corticosteroids"
+    ],
+    redFlags: [
+      "Petechial rash",
+      "Altered mental status",
+      "Seizures",
+      "Focal neurological deficits"
+    ],
+    estimatedTimeToSeeCare: "Within 30 minutes"
+  },
+  {
+    id: "pulmonary_embolism",
+    name: "Pulmonary Embolism",
+    symptoms: ["chest_pain", "severe_breathing_difficulty", "cough_blood", "fainting", "leg_swelling"],
+    urgency: "emergency",
+    description: "Blood clot blocking pulmonary arteries. Life-threatening condition requiring immediate anticoagulation.",
+    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. High suspicion requires urgent imaging and anticoagulation.",
+    probability: 0.78,
+    specialistRequired: "Emergency Medicine/Pulmonology",
+    followUpActions: [
+      "CT pulmonary angiogram (CTPA)",
+      "D-dimer and arterial blood gas",
+      "Echocardiogram",
+      "Anticoagulation therapy"
+    ],
+    redFlags: [
+      "Massive PE with hemodynamic instability",
+      "Right heart strain",
+      "Hypoxemia",
+      "Syncope"
+    ],
+    estimatedTimeToSeeCare: "Within 1 hour"
   },
   {
     id: "appendicitis",
-    name: "Appendicitis (Possible)",
-    symptoms: ["severe_abdominal_pain", "nausea_vomiting", "fever"],
+    name: "Acute Appendicitis",
+    symptoms: ["severe_abdominal_pain", "nausea_vomiting", "fever", "constipation"],
     urgency: "urgent",
-    description: "Appendicitis is inflammation of the appendix, causing pain that typically begins around the navel and shifts to the lower right abdomen.",
-    recommendation: "Seek medical attention promptly. Do not eat or drink anything, as surgery may be necessary. Do not take pain medications, which might mask symptoms."
+    description: "Inflammation of appendix requiring surgical intervention. Risk of perforation if delayed.",
+    recommendation: "Seek immediate medical attention. NPO (nothing by mouth). Avoid pain medications until evaluated.",
+    probability: 0.82,
+    specialistRequired: "General Surgery",
+    followUpActions: [
+      "CT abdomen/pelvis with contrast",
+      "Complete blood count",
+      "Surgical consultation",
+      "Laparoscopic appendectomy"
+    ],
+    redFlags: [
+      "Signs of perforation",
+      "Peritonitis",
+      "Sepsis",
+      "Abscess formation"
+    ],
+    estimatedTimeToSeeCare: "Within 4 hours"
   },
   {
-    id: "migraine",
-    name: "Migraine",
-    symptoms: ["headache", "vision_changes", "nausea_vomiting"],
-    urgency: "non-urgent",
-    description: "Migraines are recurring attacks of moderate to severe pain, typically on one side of the head, often accompanied by nausea and sensitivity to light and sound.",
-    recommendation: "Rest in a quiet, dark room. Apply cold compresses to the forehead. Take over-the-counter pain medication. If this is a new or particularly severe migraine, consult a doctor."
+    id: "diabetic_ketoacidosis",
+    name: "Diabetic Ketoacidosis (DKA)",
+    symptoms: ["high_fever", "severe_dehydration", "nausea_vomiting", "confusion", "fatigue"],
+    urgency: "emergency",
+    description: "Life-threatening complication of diabetes with severe hyperglycemia and ketosis.",
+    recommendation: "CALL EMERGENCY SERVICES (103) IMMEDIATELY. Requires immediate fluid resuscitation and insulin therapy.",
+    probability: 0.75,
+    specialistRequired: "Endocrinology/Emergency Medicine",
+    followUpActions: [
+      "Arterial blood gas analysis",
+      "Serum glucose and ketones",
+      "Electrolyte monitoring",
+      "IV insulin and fluids"
+    ],
+    redFlags: [
+      "Kussmaul breathing",
+      "Severe dehydration",
+      "Altered mental status",
+      "Hyperkalemia"
+    ],
+    estimatedTimeToSeeCare: "Within 30 minutes"
   },
   {
-    id: "flu",
-    name: "Influenza",
-    symptoms: ["fever", "fatigue", "headache", "shortness_of_breath"],
-    urgency: "non-urgent",
-    description: "Influenza is a viral infection that attacks your respiratory system. Common symptoms include fever, fatigue, and body aches.",
-    recommendation: "Rest and drink plenty of fluids. Take over-the-counter fever reducers if needed. Seek medical attention if symptoms are severe or you're in a high-risk group."
+    id: "severe_asthma",
+    name: "Severe Asthma Exacerbation",
+    symptoms: ["severe_breathing_difficulty", "wheezing", "blue_lips", "fatigue", "palpitations"],
+    urgency: "emergency",
+    description: "Life-threatening asthma attack with severe airway obstruction and hypoxemia.",
+    recommendation: "CALL EMERGENCY SERVICES (103). Use rescue inhaler. Sit upright, remain calm.",
+    probability: 0.87,
+    specialistRequired: "Emergency Medicine/Pulmonology",
+    followUpActions: [
+      "Peak flow measurement",
+      "Arterial blood gas",
+      "Chest X-ray",
+      "High-dose bronchodilators"
+    ],
+    redFlags: [
+      "Silent chest",
+      "Cyanosis",
+      "Exhaustion",
+      "Inability to speak"
+    ],
+    estimatedTimeToSeeCare: "Within 20 minutes"
   },
   {
-    id: "gastroenteritis",
-    name: "Gastroenteritis",
-    symptoms: ["abdominal_pain", "diarrhea", "nausea_vomiting", "fever"],
+    id: "migraine_severe",
+    name: "Severe Migraine with Aura",
+    symptoms: ["severe_headache", "vision_changes", "nausea_vomiting", "dizziness"],
+    urgency: "urgent",
+    description: "Severe migraine headache with neurological symptoms requiring medical evaluation.",
+    recommendation: "Seek medical attention if first severe headache or change in pattern. Rest in dark, quiet room.",
+    probability: 0.65,
+    specialistRequired: "Neurology",
+    followUpActions: [
+      "Neurological examination",
+      "Consider brain imaging if atypical",
+      "Migraine-specific therapy",
+      "Preventive medication review"
+    ],
+    redFlags: [
+      "First severe headache",
+      "Change in headache pattern",
+      "Neurological deficits",
+      "Fever with headache"
+    ],
+    selfCareOptions: [
+      "Rest in dark, quiet environment",
+      "Apply cold compress",
+      "Stay hydrated",
+      "Avoid triggers"
+    ],
+    estimatedTimeToSeeCare: "Within 2-4 hours"
+  },
+  {
+    id: "gastroenteritis_viral",
+    name: "Viral Gastroenteritis",
+    symptoms: ["diarrhea", "nausea_vomiting", "abdominal_pain", "fever", "fatigue"],
     urgency: "non-urgent",
-    description: "Gastroenteritis is inflammation of the stomach and intestines, typically resulting from a viral or bacterial infection.",
-    recommendation: "Stay hydrated with clear liquids. Rest. Avoid dairy, caffeine, and fatty foods. Seek medical attention if symptoms are severe or persist for more than a few days."
+    description: "Self-limiting viral infection of gastrointestinal tract. Usually resolves with supportive care.",
+    recommendation: "Stay hydrated with clear fluids. Rest. Gradual diet advancement. Monitor for dehydration.",
+    probability: 0.72,
+    followUpActions: [
+      "Oral rehydration therapy",
+      "BRAT diet when tolerated",
+      "Monitor fluid balance",
+      "Return if worsening"
+    ],
+    redFlags: [
+      "Signs of severe dehydration",
+      "Blood in stool",
+      "High fever >39°C",
+      "Severe abdominal pain"
+    ],
+    selfCareOptions: [
+      "Clear fluids (water, broth, electrolyte solutions)",
+      "Rest and avoid solid foods initially",
+      "Gradual reintroduction of bland foods",
+      "Avoid dairy and caffeine"
+    ],
+    estimatedTimeToSeeCare: "Self-care, seek help if worsening"
   }
 ];
 
