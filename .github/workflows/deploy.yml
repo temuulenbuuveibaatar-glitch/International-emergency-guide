@@ -15,7 +15,12 @@ jobs:
     
     - name: Deploy to Vercel
       run: |
-        npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes
+        if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+          echo "Error: VERCEL_TOKEN secret is not set in repository settings"
+          echo "Please add VERCEL_TOKEN, VERCEL_ORG_ID, and VERCEL_PROJECT_ID to your GitHub repository secrets"
+          exit 1
+        fi
+        npx vercel --token "${{ secrets.VERCEL_TOKEN }}" --prod --yes
       env:
         VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
         VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
