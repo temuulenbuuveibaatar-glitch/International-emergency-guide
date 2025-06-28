@@ -493,6 +493,309 @@ export default function ProtocolDetail() {
         duration: "Until recovered",
         tips: ["Document timeline", "Note recent meals/meds", "Watch for changes"]
       }
+    ],
+    "trauma-assessment-2025": [
+      {
+        title: "Ensure Scene Safety",
+        description: "Check for ongoing dangers: traffic, fire, structural damage, violence. Wear protective equipment if available. Call for additional resources if needed. Don't become another victim.",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Scene safety first", "Look for multiple hazards", "Call for backup early"]
+      },
+      {
+        title: "Primary Survey - Airway with C-spine",
+        description: "Check airway while maintaining cervical spine immobilization. Look, listen, feel for breathing. Clear visible obstructions. Use jaw-thrust maneuver, not head-tilt chin-lift.",
+        important: true,
+        duration: "30-60 seconds",
+        tips: ["Assume spinal injury", "Jaw-thrust only", "Clear visible objects only"]
+      },
+      {
+        title: "Primary Survey - Breathing",
+        description: "Look for chest rise, listen for breath sounds, feel for air movement. Check for tension pneumothorax, flail chest, open chest wounds. Provide ventilation if needed.",
+        important: true,
+        duration: "30-60 seconds",
+        tips: ["Look, listen, feel", "Watch for chest injuries", "Seal open wounds"]
+      },
+      {
+        title: "Primary Survey - Circulation",
+        description: "Check pulse, control major bleeding, assess perfusion. Apply direct pressure to bleeding wounds. Check capillary refill and skin color. Look for signs of shock.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Stop the bleeding first", "Check pulse quality", "Watch for shock signs"]
+      },
+      {
+        title: "Primary Survey - Disability/Neurological",
+        description: "Check Glasgow Coma Scale (GCS): eye opening, verbal response, motor response. Check pupil size and reaction. Assess for spinal cord injury signs.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Document GCS score", "Check both pupils", "Test sensation/movement"]
+      },
+      {
+        title: "Primary Survey - Exposure/Environment",
+        description: "Remove clothing to examine for injuries while preventing hypothermia. Check entire body front and back. Log roll with spinal precautions. Cover to maintain warmth.",
+        important: true,
+        duration: "2-3 minutes",
+        tips: ["Expose to examine", "Prevent heat loss", "Check entire body"]
+      }
+    ],
+    "spinal-injury-2025": [
+      {
+        title: "Suspect Spinal Injury",
+        description: "High-risk mechanisms: falls >3 feet, motor vehicle crashes, diving injuries, sports injuries. Signs: neck/back pain, numbness, weakness, altered sensation below injury level.",
+        important: true,
+        duration: "Immediate assessment",
+        tips: ["Mechanism matters", "Any neurological symptoms", "Age >65 increases risk"]
+      },
+      {
+        title: "Immobilize Cervical Spine",
+        description: "Hold head in neutral position with hands. Don't allow movement. Use cervical collar if trained and available. Maintain inline stabilization throughout care.",
+        important: true,
+        duration: "Throughout care",
+        tips: ["Manual stabilization first", "Neutral position", "Don't release until secured"]
+      },
+      {
+        title: "Log Roll Technique",
+        description: "Need 3-4 people: one controls head/neck, others control body. Move as single unit. Keep spine aligned. Roll onto backboard if available. One person gives commands.",
+        important: true,
+        duration: "2-3 minutes",
+        tips: ["Team approach", "One person commands", "Move as unit"]
+      },
+      {
+        title: "Neurological Assessment",
+        description: "Check sensation: light touch, pinprick. Test motor function: squeeze hands, wiggle toes. Document any deficits. Recheck frequently for changes.",
+        important: true,
+        duration: "2-3 minutes",
+        tips: ["Compare both sides", "Document findings", "Recheck for changes"]
+      },
+      {
+        title: "Secure and Monitor",
+        description: "Secure to backboard with straps if available. Pad void spaces. Monitor airway continuously. Watch for breathing difficulties. Keep warm and prepare for transport.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Secure entire body", "Monitor airway closely", "Document any changes"]
+      }
+    ],
+    "head-injury-2025": [
+      {
+        title: "Assess Level of Consciousness",
+        description: "Use Glasgow Coma Scale: Eyes (4), Verbal (5), Motor (6). Best possible score is 15, worst is 3. Document exact responses. Check pupils for size and reaction to light.",
+        important: true,
+        duration: "2-3 minutes",
+        tips: ["Use GCS scale", "Document exact responses", "Check pupils"]
+      },
+      {
+        title: "Look for Danger Signs",
+        description: "Severe: vomiting, seizures, severe confusion, unequal pupils, weakness on one side. Moderate: brief loss of consciousness, confusion, amnesia. Call 911 for any head injury with LOC.",
+        important: true,
+        duration: "Ongoing assessment",
+        tips: ["Any LOC = 911", "Watch for vomiting", "Unequal pupils = emergency"]
+      },
+      {
+        title: "Control Cervical Spine",
+        description: "Head injury often involves neck injury. Maintain cervical spine immobilization. Don't allow head movement. Use manual stabilization until EMS arrives.",
+        important: true,
+        duration: "Throughout care",
+        tips: ["Assume spinal injury", "Manual stabilization", "No head movement"]
+      },
+      {
+        title: "Control Bleeding",
+        description: "Apply direct pressure around wound edges, not directly on skull if fracture suspected. Don't remove objects from head. Cover open wounds with sterile dressing.",
+        important: true,
+        duration: "Until bleeding controlled",
+        tips: ["Pressure around edges", "Don't remove objects", "Cover open wounds"]
+      },
+      {
+        title: "Monitor and Position",
+        description: "Keep head elevated 30 degrees if no spinal injury suspected. Monitor consciousness level closely. Watch for vomiting - turn on side if occurs. Document changes.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Elevate head if safe", "Monitor consciousness", "Watch for vomiting"]
+      }
+    ],
+    "heat-illness-2025": [
+      {
+        title: "Recognize Heat Emergency",
+        description: "Heat exhaustion: heavy sweating, weakness, nausea, cool/moist skin. Heat stroke: high body temperature, altered mental state, hot/dry skin, no sweating. Heat stroke = life-threatening.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Sweating vs no sweating", "Mental state changes", "Heat stroke = emergency"]
+      },
+      {
+        title: "Move to Cool Environment",
+        description: "Get out of heat immediately. Move to air-conditioned space or shade. Remove excess clothing. Loosen tight clothing. Fan the person if possible.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Cool environment first", "Remove excess clothing", "Fan for evaporation"]
+      },
+      {
+        title: "Begin Aggressive Cooling",
+        description: "Apply cool, wet cloths to neck, armpits, groin. Use ice packs wrapped in towel. Give cool water to drink if conscious and not vomiting. Monitor body temperature.",
+        important: true,
+        duration: "Ongoing",
+        tips: ["Cool major pulse points", "Ice packs in towel", "Cool water if conscious"]
+      },
+      {
+        title: "Call 911 for Heat Stroke",
+        description: "Call immediately for high body temperature (>103°F), altered mental state, hot dry skin. Continue cooling while waiting. Monitor breathing and consciousness.",
+        important: true,
+        duration: "If heat stroke signs",
+        tips: ["High temp = 911", "Continue cooling", "Monitor closely"]
+      },
+      {
+        title: "Monitor for Complications",
+        description: "Watch for seizures, vomiting, loss of consciousness. Continue cooling until body temperature normalizes. Don't overcool - stop when person feels better.",
+        important: true,
+        duration: "Until recovery",
+        tips: ["Watch for seizures", "Don't overcool", "Monitor vital signs"]
+      }
+    ],
+    "drowning-2025": [
+      {
+        title: "Water Rescue Safety",
+        description: "Reach, throw, row, go (in that order). Don't enter water unless trained. Use reaching aids: stick, rope, flotation device. Call for help immediately.",
+        important: true,
+        duration: "Seconds count",
+        tips: ["Don't become victim", "Reach or throw first", "Call for help early"]
+      },
+      {
+        title: "Check Responsiveness",
+        description: "Once person is out of water, check consciousness and breathing. Look for chest rise, listen for breath sounds. Check pulse. Assume hypothermia.",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Check breathing first", "Look, listen, feel", "Assume hypothermia"]
+      },
+      {
+        title: "Begin Rescue Breathing",
+        description: "If not breathing but has pulse, give rescue breaths immediately. Don't delay for water drainage. Give 1 breath every 5-6 seconds. Check pulse every 2 minutes.",
+        important: true,
+        duration: "Until breathing returns",
+        tips: ["Don't drain water first", "Rescue breaths immediately", "Check pulse frequently"]
+      },
+      {
+        title: "Start CPR if No Pulse",
+        description: "If no pulse, begin CPR immediately. Don't try to clear water from lungs. Standard CPR ratios. Continue until EMS arrives or person revives.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Don't clear water", "Standard CPR", "Continue until help arrives"]
+      },
+      {
+        title: "Treat for Hypothermia",
+        description: "Remove from cold, remove wet clothing, wrap in blankets. Handle gently - hypothermia increases cardiac arrest risk. Keep horizontal and warm.",
+        important: true,
+        duration: "Throughout care",
+        tips: ["Remove wet clothes", "Handle gently", "Keep warm"]
+      }
+    ],
+    "overdose-naloxone-2025": [
+      {
+        title: "Recognize Opioid Overdose",
+        description: "Signs: unconscious/unresponsive, slow/absent breathing, blue lips/fingernails, gurgling sounds, limp body, pale/clammy skin. May have pinpoint pupils.",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Breathing is key sign", "Blue color = emergency", "Check responsiveness"]
+      },
+      {
+        title: "Call 911 Immediately",
+        description: "Call emergency services first. Say 'drug overdose' and request naloxone-equipped responders. Most states have Good Samaritan laws protecting you.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Call 911 first", "Good Samaritan protection", "Request naloxone team"]
+      },
+      {
+        title: "Administer Naloxone",
+        description: "Nasal spray: remove cap, insert in nostril, press firmly. Auto-injector: remove caps, place against thigh, press and hold. Give second dose in 2-3 minutes if no response.",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Follow package directions", "Can repeat dose", "Works temporarily"]
+      },
+      {
+        title: "Provide Rescue Breathing",
+        description: "If not breathing, tilt head back, lift chin, give rescue breaths. 1 breath every 5-6 seconds. Continue until breathing returns or EMS arrives.",
+        important: true,
+        duration: "Until breathing returns",
+        tips: ["Rescue breathing priority", "1 breath every 5-6 seconds", "Don't stop"]
+      },
+      {
+        title: "Monitor and Prevent Re-overdose",
+        description: "Naloxone wears off in 30-90 minutes. Overdose can return. Stay with person until EMS arrives. Turn on side if vomiting. Be prepared to give more naloxone.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Naloxone temporary", "Overdose can return", "Stay with person"]
+      }
+    ],
+    "poisoning-2025": [
+      {
+        title: "Identify the Poison",
+        description: "Try to identify substance: medication bottles, chemical containers, plants. Note amount taken and time. Look for burns around mouth, unusual odors, or altered mental state.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Keep poison container", "Note time and amount", "Look for burns"]
+      },
+      {
+        title: "Call Poison Control",
+        description: "Call Poison Control: 1-800-222-1222 (US). Have poison container ready. Follow their specific instructions. They may direct you to hospital or home care.",
+        important: true,
+        duration: "5-10 minutes",
+        tips: ["Have container ready", "Follow exact instructions", "Stay on line"]
+      },
+      {
+        title: "Don't Induce Vomiting",
+        description: "Never make person vomit unless specifically told by Poison Control. Some substances cause more damage coming up. Don't give activated charcoal unless directed.",
+        important: true,
+        duration: "Throughout care",
+        tips: ["No vomiting unless told", "Some poisons worse coming up", "Wait for instructions"]
+      },
+      {
+        title: "Skin/Eye Contact",
+        description: "For skin contact: remove contaminated clothing, flush with water for 20 minutes. For eye contact: flush with clean water for 20 minutes, holding eyelids open.",
+        important: true,
+        duration: "20 minutes flushing",
+        tips: ["20 minutes minimum", "Remove contaminated clothes", "Hold eyelids open"]
+      },
+      {
+        title: "Monitor and Transport",
+        description: "Watch for breathing problems, seizures, loss of consciousness. Bring poison container to hospital. Document time of exposure and symptoms. Follow Poison Control directions.",
+        important: true,
+        duration: "Until medical care",
+        tips: ["Bring container", "Document timeline", "Follow poison control"]
+      }
+    ],
+    "shock-2025": [
+      {
+        title: "Recognize Shock",
+        description: "Signs: rapid weak pulse, low blood pressure, pale/cool/clammy skin, confusion, anxiety, thirst. Causes: bleeding, heart problems, severe infections, allergic reactions.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Rapid weak pulse key", "Pale, cool, clammy", "Multiple causes"]
+      },
+      {
+        title: "Call 911 Immediately",
+        description: "Shock is life-threatening. Call for advanced life support immediately. Say 'patient in shock' and describe cause if known. Request blood products if massive bleeding.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Life-threatening emergency", "Describe cause", "Request blood products"]
+      },
+      {
+        title: "Control Bleeding",
+        description: "If bleeding present, control immediately with direct pressure, pressure points, or tourniquet for limbs. This is priority in hemorrhagic shock.",
+        important: true,
+        duration: "Until controlled",
+        tips: ["Stop bleeding first", "Use all methods needed", "Tourniquet for limbs"]
+      },
+      {
+        title: "Position Appropriately",
+        description: "If no spinal injury: elevate legs 8-12 inches if conscious. If unconscious: recovery position. If chest injury or breathing problems: semi-sitting position.",
+        important: true,
+        duration: "Throughout care",
+        tips: ["Elevate legs if conscious", "Position depends on injury", "Semi-sitting for breathing"]
+      },
+      {
+        title: "Maintain Body Temperature",
+        description: "Cover to prevent heat loss but don't overheat. Give nothing by mouth. Monitor breathing and pulse closely. Reassure and keep calm.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Prevent heat loss", "Nothing by mouth", "Monitor closely"]
+      }
     ]
   };
 
@@ -568,6 +871,54 @@ export default function ProtocolDetail() {
       "Don't give anything by mouth if person is unconscious",
       "For unknown blood sugar level, treat as low blood sugar if conscious",
       "Call 911 for unconscious diabetic emergency"
+    ],
+    "trauma-assessment-2025": [
+      "Don't move person unless in immediate danger",
+      "Assume spinal injury until proven otherwise",
+      "Don't skip steps in primary survey - systematic approach saves lives",
+      "Control bleeding before proceeding to next assessment step"
+    ],
+    "spinal-injury-2025": [
+      "Never move person with suspected spinal injury unless in immediate danger",
+      "Maintain cervical spine immobilization throughout entire care",
+      "Log rolling requires trained team - don't attempt alone",
+      "Any neurological deficit requires immediate emergency transport"
+    ],
+    "head-injury-2025": [
+      "Any loss of consciousness requires emergency evaluation",
+      "Don't give pain medication that might mask symptoms",
+      "Unequal pupils indicate dangerous brain pressure",
+      "Don't allow person to sleep until cleared by medical professional"
+    ],
+    "heat-illness-2025": [
+      "Heat stroke is life-threatening - cool aggressively and call 911",
+      "Don't give salt tablets or concentrated electrolyte solutions",
+      "Don't use alcohol-based cooling methods",
+      "Stop cooling when person feels better to prevent hypothermia"
+    ],
+    "drowning-2025": [
+      "Don't enter water unless you're a trained water rescue professional",
+      "Don't attempt to drain water from lungs - start rescue breathing immediately",
+      "Assume all drowning victims have hypothermia and spinal injury",
+      "Even successful water rescue requires medical evaluation"
+    ],
+    "overdose-naloxone-2025": [
+      "Naloxone is temporary - overdose effects can return in 30-90 minutes",
+      "Don't leave person alone after giving naloxone",
+      "Multiple doses may be needed - don't hesitate to repeat",
+      "Good Samaritan laws protect you when helping overdose victims"
+    ],
+    "poisoning-2025": [
+      "Never induce vomiting unless specifically directed by Poison Control",
+      "Don't give activated charcoal unless directed by professionals",
+      "Don't try to neutralize poisons with household substances",
+      "Always bring poison container to hospital for identification"
+    ],
+    "shock-2025": [
+      "Shock is always life-threatening - call 911 immediately",
+      "Don't give anything by mouth to person in shock",
+      "Control bleeding first before treating for shock",
+      "Don't elevate legs if spinal injury suspected"
     ]
   };
 
@@ -643,6 +994,54 @@ export default function ProtocolDetail() {
       "High blood sugar develops slowly but can be serious",
       "Diabetic ketoacidosis has fruity breath odor",
       "Always follow the 15-15 rule for hypoglycemia"
+    ],
+    "trauma-assessment-2025": [
+      "ABCDE assessment is standard for all trauma patients",
+      "Primary survey identifies life-threatening conditions first",
+      "Systematic approach prevents missing critical injuries",
+      "Each step must be completed before moving to next"
+    ],
+    "spinal-injury-2025": [
+      "Spinal cord injury can occur without fracture",
+      "Neurological deficits may be subtle initially",
+      "Log rolling prevents further spinal cord damage",
+      "Early immobilization improves outcomes significantly"
+    ],
+    "head-injury-2025": [
+      "Glasgow Coma Scale is standard neurological assessment",
+      "Pupil changes indicate increased brain pressure",
+      "Secondary brain injury develops hours after initial trauma",
+      "Loss of consciousness indicates significant brain trauma"
+    ],
+    "heat-illness-2025": [
+      "Heat stroke mortality is high without rapid cooling",
+      "Elderly and children are at highest risk",
+      "Medications can impair heat regulation",
+      "Acclimatization takes 10-14 days"
+    ],
+    "drowning-2025": [
+      "Drowning is silent - victims can't call for help",
+      "Secondary drowning can occur hours later",
+      "Cold water drowning has better survival rates",
+      "CPR success rates are higher in drowning than cardiac arrest"
+    ],
+    "overdose-naloxone-2025": [
+      "Fentanyl overdoses may require multiple naloxone doses",
+      "Naloxone only works on opioid overdoses",
+      "Person may become agitated when naloxone takes effect",
+      "Withdrawal symptoms are uncomfortable but not life-threatening"
+    ],
+    "poisoning-2025": [
+      "Poison Control Center has 24/7 expert toxicologists",
+      "Most poisoning deaths are preventable with proper care",
+      "Children under 5 have highest poisoning rates",
+      "Time since ingestion affects treatment options"
+    ],
+    "shock-2025": [
+      "Early shock recognition dramatically improves survival",
+      "Blood loss of 20% causes significant shock",
+      "Compensated shock can deteriorate rapidly",
+      "Golden hour concept applies to trauma shock"
     ]
   };
 
@@ -706,6 +1105,46 @@ export default function ProtocolDetail() {
       "Give sugar if conscious and low blood sugar",
       "Call 911 if unconscious",
       "Check for medical alert bracelet"
+    ],
+    "trauma-assessment-2025": [
+      "Systematic ABCDE approach",
+      "Scene safety always first",
+      "Control bleeding before moving on"
+    ],
+    "spinal-injury-2025": [
+      "Manual stabilization immediately",
+      "Log roll with team coordination",
+      "Document neurological deficits"
+    ],
+    "head-injury-2025": [
+      "GCS assessment is critical",
+      "Any LOC requires 911",
+      "Monitor for deterioration"
+    ],
+    "heat-illness-2025": [
+      "Cool immediately and aggressively",
+      "Heat stroke = call 911",
+      "Monitor core temperature"
+    ],
+    "drowning-2025": [
+      "Reach or throw before going",
+      "Start rescue breathing immediately",
+      "Assume hypothermia"
+    ],
+    "overdose-naloxone-2025": [
+      "Give naloxone immediately",
+      "Call 911 first",
+      "Monitor for re-overdose"
+    ],
+    "poisoning-2025": [
+      "Call Poison Control: 1-800-222-1222",
+      "Don't induce vomiting",
+      "Bring poison container"
+    ],
+    "shock-2025": [
+      "Control bleeding first",
+      "Elevate legs if no spinal injury",
+      "Call 911 immediately"
     ]
   };
 
