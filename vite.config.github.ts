@@ -17,6 +17,7 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     assetsDir: "assets",
+    copyPublicDir: true,
     rollupOptions: {
       output: {
         assetFileNames: "assets/[name].[hash].[ext]",

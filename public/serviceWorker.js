@@ -11,7 +11,11 @@ const STATIC_URLS_TO_CACHE = [
   '/index.html',
   '/manifest.json',
   '/icon-192x192.png',
-  '/icon-512x512.png'
+  '/icon-512x512.png',
+  '/data/protocols.json',
+  '/data/hospitals.json',
+  '/data/medications.json',
+  '/data/emergency-contacts.json'
 ];
 
 // Assets to cache with longer TTL

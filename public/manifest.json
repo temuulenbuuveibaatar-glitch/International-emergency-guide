@@ -1,71 +1,51 @@
 {
   "name": "International Emergency Guide",
   "short_name": "Emergency Guide",
-  "description": "A comprehensive emergency response application with offline capabilities",
-  "theme_color": "#dc3545",
-  "background_color": "#ffffff",
+  "description": "Comprehensive emergency response information with offline access",
+  "start_url": "./",
   "display": "standalone",
-  "orientation": "any",
-  "scope": "/",
-  "start_url": "/?source=pwa",
-  "categories": ["medical", "health", "utilities", "emergency"],
-  "id": "international-emergency-guide",
+  "background_color": "#ffffff",
+  "theme_color": "#dc3545",
+  "orientation": "portrait-primary",
+  "categories": ["health", "medical", "emergency", "safety"],
   "lang": "en",
   "dir": "ltr",
-  "prefer_related_applications": false,
+  "scope": "./",
   "icons": [
     {
-      "src": "icon-192x192.png",
+      "src": "./icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable any"
     },
     {
-      "src": "icon-512x512.png",
+      "src": "./icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable any"
     }
   ],
   "screenshots": [
     {
-      "src": "screenshot1.png",
+      "src": "./screenshot-wide.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "platform": "wide",
-      "label": "International Emergency Guide home screen"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Emergency Protocols",
-      "short_name": "Protocols",
-      "description": "View emergency protocols",
-      "url": "/emergency",
-      "icons": [{ "src": "icon-192x192.png", "sizes": "192x192" }]
+      "form_factor": "wide"
     },
     {
-      "name": "Find Nearby Hospitals",
-      "short_name": "Hospitals",
-      "description": "Find hospitals near you",
-      "url": "/hospitals",
-      "icons": [{ "src": "icon-192x192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Medications",
-      "short_name": "Meds",
-      "description": "Browse medication information",
-      "url": "/medications",
-      "icons": [{ "src": "icon-192x192.png", "sizes": "192x192" }]
+      "src": "./screenshot-narrow.png",
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ],
   "related_applications": [],
-  "iarc_rating_id": "",
-  "features": [
-    "Cross Platform",
-    "Offline Usage",
-    "Medical Information",
-    "Emergency Contacts",
-    "Hospital Locator"
-  ]
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "handle_links": "auto",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
 }

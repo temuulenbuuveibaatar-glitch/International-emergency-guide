@@ -1,0 +1,78 @@
+{
+  "countries": {
+    "Mongolia": {
+      "general": "103",
+      "police": "102",
+      "fire": "101",
+      "ambulance": "103",
+      "emergencyServices": [
+        { "type": "General Emergency", "number": "103", "description": "All emergency services" },
+        { "type": "Police", "number": "102", "description": "Law enforcement" },
+        { "type": "Fire Department", "number": "101", "description": "Fire and rescue services" },
+        { "type": "Medical Emergency", "number": "103", "description": "Ambulance and medical response" }
+      ]
+    },
+    "USA": {
+      "general": "911",
+      "police": "911",
+      "fire": "911",
+      "ambulance": "911",
+      "emergencyServices": [
+        { "type": "All Emergencies", "number": "911", "description": "Police, Fire, Medical" },
+        { "type": "Poison Control", "number": "1-800-222-1222", "description": "24/7 poison emergency hotline" },
+        { "type": "Crisis Text Line", "number": "Text HOME to 741741", "description": "Mental health crisis support" }
+      ]
+    },
+    "Canada": {
+      "general": "911",
+      "police": "911",
+      "fire": "911",
+      "ambulance": "911",
+      "emergencyServices": [
+        { "type": "All Emergencies", "number": "911", "description": "Police, Fire, Medical" },
+        { "type": "Poison Control", "number": "1-844-764-7669", "description": "24/7 poison information" }
+      ]
+    },
+    "UK": {
+      "general": "999",
+      "police": "999",
+      "fire": "999",
+      "ambulance": "999",
+      "emergencyServices": [
+        { "type": "Emergency Services", "number": "999", "description": "Police, Fire, Ambulance" },
+        { "type": "Non-Emergency Police", "number": "101", "description": "Non-urgent police matters" },
+        { "type": "NHS Non-Emergency", "number": "111", "description": "Medical advice when not emergency" }
+      ]
+    },
+    "Australia": {
+      "general": "000",
+      "police": "000",
+      "fire": "000",
+      "ambulance": "000",
+      "emergencyServices": [
+        { "type": "Emergency Services", "number": "000", "description": "Police, Fire, Ambulance" },
+        { "type": "Poison Information", "number": "13 11 26", "description": "24/7 poison information" }
+      ]
+    },
+    "Japan": {
+      "general": "110/119",
+      "police": "110",
+      "fire": "119",
+      "ambulance": "119",
+      "emergencyServices": [
+        { "type": "Police", "number": "110", "description": "Law enforcement" },
+        { "type": "Fire & Ambulance", "number": "119", "description": "Fire and medical emergencies" }
+      ]
+    },
+    "Germany": {
+      "general": "112",
+      "police": "110",
+      "fire": "112",
+      "ambulance": "112",
+      "emergencyServices": [
+        { "type": "Fire & Medical", "number": "112", "description": "Fire department and ambulance" },
+        { "type": "Police", "number": "110", "description": "Law enforcement" }
+      ]
+    }
+  }
+}
