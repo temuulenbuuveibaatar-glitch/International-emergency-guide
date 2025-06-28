@@ -1781,7 +1781,7 @@ export default function ProtocolDetail() {
               </CardContent>
             </Card>
             );
-          }}
+          })}
         </div>
 
         {/* Warnings */}
