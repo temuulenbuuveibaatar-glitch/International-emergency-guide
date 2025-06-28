@@ -1298,7 +1298,11 @@ export default function ProtocolDetail() {
       "PASS technique for extinguishers",
       "Match extinguisher type to fire",
       "ABC handles most fires"
-    ],
+    ]
+  };
+
+  // Comprehensive protocol data for detailed protocols
+  const comprehensiveProtocols: Record<string, Array<{ title: string; description: string; important: boolean; duration: string; tips: string[]; }>> = {
     "pediatric-emergencies-2025": [
       {
         title: "Pediatric Assessment Triangle",
@@ -1634,7 +1638,11 @@ export default function ProtocolDetail() {
     ]
   };
 
-  const steps = protocolSteps[id] || [];
+  // Check if this protocol has comprehensive steps
+  const comprehensiveSteps = comprehensiveProtocols[id];
+  const simpleSteps = protocolSteps[id] || [];
+  
+  const steps = comprehensiveSteps || simpleSteps;
   const warnings = protocolWarnings[id] || [];
   const notes = protocolNotes[id] || [];
   const tips = quickTips[id] || [];
@@ -1693,53 +1701,71 @@ export default function ProtocolDetail() {
             Step-by-Step Protocol
           </h2>
           
-          {steps.map((step, index) => (
-            <Card
-              key={index}
-              className={`border-l-4 ${
-                step.important ? 'border-l-red-500 bg-red-50' : 'border-l-blue-500 bg-blue-50'
-              } shadow-md hover:shadow-lg transition-shadow`}
-            >
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <CardTitle className="flex items-center gap-3">
-                    <Badge
-                      variant={step.important ? "destructive" : "secondary"}
-                      className="text-sm px-3 py-1"
-                    >
-                      Step {index + 1}
-                    </Badge>
-                    <span className={step.important ? 'text-red-800' : 'text-blue-800'}>
-                      {step.title}
-                    </span>
-                  </CardTitle>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <Clock size={16} />
-                    {step.duration}
+          {steps.map((step, index) => {
+            // Handle both string steps and detailed step objects
+            if (typeof step === 'string') {
+              return (
+                <Card key={index} className="border-l-4 border-l-gray-500 bg-gray-50 shadow-md">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-3">
+                      <Badge variant="outline" className="text-sm px-3 py-1">
+                        Step {index + 1}
+                      </Badge>
+                      <p className="text-lg leading-relaxed text-gray-800">{step}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            }
+            
+            // Handle detailed step objects
+            return (
+              <Card
+                key={index}
+                className={`border-l-4 ${
+                  step.important ? 'border-l-red-500 bg-red-50' : 'border-l-blue-500 bg-blue-50'
+                } shadow-md hover:shadow-lg transition-shadow`}
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <CardTitle className="flex items-center gap-3">
+                      <Badge
+                        variant={step.important ? "destructive" : "secondary"}
+                        className="text-sm px-3 py-1"
+                      >
+                        Step {index + 1}
+                      </Badge>
+                      <span className={step.important ? 'text-red-800' : 'text-blue-800'}>
+                        {step.title}
+                      </span>
+                    </CardTitle>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <Clock size={16} />
+                      {step.duration}
+                    </div>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className={`text-lg leading-relaxed mb-4 ${
-                  step.important ? 'text-red-700' : 'text-blue-700'
-                }`}>
-                  {step.description}
-                </p>
-                
-                {step.tips && step.tips.length > 0 && (
-                  <div className="mt-4">
-                    <h4 className={`font-semibold mb-2 ${
-                      step.important ? 'text-red-800' : 'text-blue-800'
-                    }`}>
-                      Key Points:
-                    </h4>
-                    <ul className="space-y-1">
-                      {step.tips.map((tip: string, tipIndex: number) => (
-                        <li key={tipIndex} className="flex items-start gap-2">
-                          <CheckCircle 
-                            size={16} 
-                            className={`${
-                              step.important ? 'text-red-600' : 'text-blue-600'
+                </CardHeader>
+                <CardContent>
+                  <p className={`text-lg leading-relaxed mb-4 ${
+                    step.important ? 'text-red-700' : 'text-blue-700'
+                  }`}>
+                    {step.description}
+                  </p>
+                  
+                  {step.tips && step.tips.length > 0 && (
+                    <div className="mt-4">
+                      <h4 className={`font-semibold mb-2 ${
+                        step.important ? 'text-red-800' : 'text-blue-800'
+                      }`}>
+                        Key Points:
+                      </h4>
+                      <ul className="space-y-1">
+                        {step.tips.map((tip: string, tipIndex: number) => (
+                          <li key={tipIndex} className="flex items-start gap-2">
+                            <CheckCircle 
+                              size={16} 
+                              className={`${
+                                step.important ? 'text-red-600' : 'text-blue-600'
                             } mt-1 flex-shrink-0`} 
                           />
                           <span className={`text-sm ${
@@ -1754,7 +1780,8 @@ export default function ProtocolDetail() {
                 )}
               </CardContent>
             </Card>
-          ))}
+            );
+          }}
         </div>
 
         {/* Warnings */}
