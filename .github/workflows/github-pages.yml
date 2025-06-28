@@ -39,7 +39,7 @@ jobs:
       - name: Build for GitHub Pages
         run: |
           export NODE_ENV=production
-          export VITE_GOOGLE_MAPS_API_KEY="${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}"
+          export VITE_GOOGLE_MAPS_API_KEY="${{ secrets.GOOGLE_API_KEY }}"
           npx vite build --config vite.config.github.ts
           
       - name: Copy static data files

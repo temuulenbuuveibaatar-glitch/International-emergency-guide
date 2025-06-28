@@ -4,7 +4,8 @@
   "framework": "vite",
   "env": {
     "NODE_ENV": "production",
-    "VITE_APP_MODE": "production"
+    "VITE_APP_MODE": "production",
+    "VITE_GOOGLE_MAPS_API_KEY": "@google_api_key"
   },
   "rewrites": [
     {

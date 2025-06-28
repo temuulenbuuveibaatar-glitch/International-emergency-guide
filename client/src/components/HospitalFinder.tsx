@@ -169,12 +169,13 @@ export default function HospitalFinder() {
   const mapRef = useRef<google.maps.Map | null>(null);
   
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "",
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || import.meta.env.GOOGLE_API_KEY || "",
     libraries: ["places"],
   });
 
   // Handle API key missing or invalid
-  const hasValidApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY && import.meta.env.VITE_GOOGLE_MAPS_API_KEY.length > 0;
+  const hasValidApiKey = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY && import.meta.env.VITE_GOOGLE_MAPS_API_KEY.length > 0) || 
+                        (import.meta.env.GOOGLE_API_KEY && import.meta.env.GOOGLE_API_KEY.length > 0);
 
   const onMapLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
