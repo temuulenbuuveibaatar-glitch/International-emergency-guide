@@ -2,7 +2,7 @@
   "name": "International Emergency Guide",
   "short_name": "Emergency Guide",
   "description": "Comprehensive emergency response information with offline access",
-  "start_url": "./",
+  "start_url": "/international-emergency-guide/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#dc3545",
@@ -10,7 +10,7 @@
   "categories": ["health", "medical", "emergency", "safety"],
   "lang": "en",
   "dir": "ltr",
-  "scope": "./",
+  "scope": "/international-emergency-guide/",
   "icons": [
     {
       "src": "./icon-192x192.png",

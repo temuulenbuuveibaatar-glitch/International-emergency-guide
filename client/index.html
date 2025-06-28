@@ -117,7 +117,7 @@
             return s.replace(/~and~/g, '&')
           }).join('?');
           window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
+              '/international-emergency-guide' + decoded + l.hash
           );
         }
       }(window.location))
