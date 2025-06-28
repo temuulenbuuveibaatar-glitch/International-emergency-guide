@@ -234,6 +234,265 @@ export default function ProtocolDetail() {
         duration: "Until EMS arrives",
         tips: ["Heart attack can worsen quickly", "Be ready to start CPR", "Stay with patient"]
       }
+    ],
+    "respiratory-distress-2025": [
+      {
+        title: "Assess Breathing Emergency",
+        description: "Check for severe shortness of breath, inability to speak in full sentences, blue lips/fingernails, gasping, or wheezing. Look for use of accessory muscles (neck, shoulder).",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Can't speak = severe emergency", "Blue color = oxygen emergency", "Sitting upright = breathing easier"]
+      },
+      {
+        title: "Call 911 for Severe Distress",
+        description: "Call immediately if severe symptoms present. Say 'breathing emergency' and describe symptoms. Request advanced life support and respiratory therapist.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Don't delay for severe symptoms", "Describe exact breathing pattern", "Request oxygen equipment"]
+      },
+      {
+        title: "Position for Optimal Breathing", 
+        description: "Help sit upright in tripod position (leaning forward, hands on knees). Open windows for fresh air. Loosen tight clothing around neck and chest.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Upright position helps breathing", "Fresh air can help", "Remove restrictive clothing"]
+      },
+      {
+        title: "Assist with Rescue Inhaler",
+        description: "If person has prescribed inhaler (albuterol), help them use it. Shake well, have them exhale fully, seal lips around mouthpiece, press and inhale slowly and deeply.",
+        important: false,
+        duration: "2-3 minutes",
+        tips: ["Only use their prescribed inhaler", "Slow, deep inhalation", "Can repeat every 20 minutes"]
+      },
+      {
+        title: "Monitor and Reassure",
+        description: "Stay calm and keep person calm. Monitor breathing continuously. Be prepared for CPR if they become unconscious. Count respirations per minute.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Anxiety worsens breathing", "Normal rate: 12-20 breaths/min", "Be ready for CPR"]
+      }
+    ],
+    "burns-2025": [
+      {
+        title: "Ensure Scene Safety",
+        description: "Remove from heat source if safe. Turn off electricity for electrical burns. Check for ongoing fire, chemical, or electrical hazards. Don't become another victim.",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Your safety first", "Remove heat source, not person", "Check for electrical hazards"]
+      },
+      {
+        title: "Assess Burn Severity",
+        description: "1st degree: red, painful. 2nd degree: blisters, very painful. 3rd degree: white/charred, little pain. Call 911 for large burns, face/hands/genitals, or 3rd degree burns.",
+        important: true,
+        duration: "1-2 minutes", 
+        tips: ["Size matters - palm = 1% body", "Location important", "3rd degree = immediate 911"]
+      },
+      {
+        title: "Cool the Burn",
+        description: "Cool running water for 10-20 minutes (not ice). Remove jewelry/clothing before swelling starts. For chemical burns, flush for 20+ minutes. Pat dry gently.",
+        important: true,
+        duration: "10-20 minutes",
+        tips: ["Cool water, not ice", "Remove jewelry early", "Chemical burns need longer flushing"]
+      },
+      {
+        title: "Cover and Protect",
+        description: "Cover with sterile gauze or clean cloth. Don't use cotton balls or adhesive bandages on burn. For large burns, use clean sheet. Don't break blisters.",
+        important: true,
+        duration: "5 minutes",
+        tips: ["Sterile covering preferred", "Don't break blisters", "Protect from infection"]
+      },
+      {
+        title: "Manage Pain and Shock",
+        description: "Give over-the-counter pain medication if conscious. Elevate burned area if possible. Watch for shock (rapid pulse, pale, cool skin). Keep warm if in shock.",
+        important: false,
+        duration: "Ongoing",
+        tips: ["Pain medication helps healing", "Elevation reduces swelling", "Burns can cause shock"]
+      }
+    ],
+    "fractures-2025": [
+      {
+        title: "Assess for Fracture",
+        description: "Look for deformity, swelling, inability to bear weight, severe pain, numbness/tingling. Compare to uninjured side. Check circulation, sensation, movement below injury.",
+        important: true,
+        duration: "2-3 minutes",
+        tips: ["Compare both sides", "Check pulse below injury", "Document what you find"]
+      },
+      {
+        title: "Control Any Bleeding",
+        description: "If open fracture (bone showing), control bleeding with direct pressure around the bone. Don't push bone back in. Cover with sterile dressing.",
+        important: true,
+        duration: "Variable",
+        tips: ["Don't push bone in", "Pressure around, not on bone", "Open fracture = surgery needed"]
+      },
+      {
+        title: "Immobilize the Fracture",
+        description: "Splint above and below the fracture. Use rigid material (boards, magazines). Pad splint with soft material. Don't over-tighten - should fit snugly but not cut circulation.",
+        important: true,
+        duration: "10-15 minutes",
+        tips: ["Include joints above/below", "Pad the splint", "Check circulation after splinting"]
+      },
+      {
+        title: "Check Circulation Frequently",
+        description: "Check pulse, skin color, temperature, sensation below injury every 15 minutes. If circulation compromised, loosen splint slightly. Watch for increasing pain or numbness.",
+        important: true,
+        duration: "Every 15 minutes",
+        tips: ["Pulse should be present", "Skin should be warm/pink", "Loosen if circulation poor"]
+      },
+      {
+        title: "Prepare for Transport",
+        description: "Keep person still and comfortable. Elevate if possible to reduce swelling. Apply ice wrapped in cloth for 20 minutes every hour. Give pain medication if conscious.",
+        important: false,
+        duration: "Until medical care",
+        tips: ["Ice reduces swelling", "Elevation helps", "Document time of injury"]
+      }
+    ],
+    "seizure-2025": [
+      {
+        title: "Protect from Injury",
+        description: "Clear area of hard objects. Place something soft under head. Don't restrain or hold down. Turn on side if possible to keep airway clear. Time the seizure.",
+        important: true,
+        duration: "Duration of seizure",
+        tips: ["Don't restrain the person", "Clear dangerous objects", "Time is important information"]
+      },
+      {
+        title: "Do NOT Put Anything in Mouth",
+        description: "Never put fingers, spoons, or objects in mouth. Person cannot swallow tongue. May bite down hard and cause injury. Keep airway clear by positioning only.",
+        important: true,
+        duration: "Throughout seizure",
+        tips: ["Cannot swallow tongue", "May bite objects/fingers", "Positioning keeps airway open"]
+      },
+      {
+        title: "Call 911 If Needed",
+        description: "Call for seizure lasting >5 minutes, multiple seizures, injury during seizure, pregnancy, diabetes, first-time seizure, or slow recovery. Document seizure details.",
+        important: true,
+        duration: "During or after seizure",
+        tips: [">5 minutes = status epilepticus", "First seizure needs evaluation", "Document what you observed"]
+      },
+      {
+        title: "Post-Seizure Care",
+        description: "Keep on side in recovery position. Check for injuries. Stay with person as they recover. They may be confused, tired, or embarrassed. Provide reassurance and privacy.",
+        important: true,
+        duration: "15-30 minutes",
+        tips: ["Recovery position prevents aspiration", "Confusion is normal", "Provide privacy and reassurance"]
+      },
+      {
+        title: "Monitor for Additional Seizures",
+        description: "Watch for signs of another seizure. If multiple seizures occur without full recovery between, call 911 immediately. This is status epilepticus - a medical emergency.",
+        important: true,
+        duration: "Until fully recovered",
+        tips: ["Multiple seizures = emergency", "Status epilepticus is life-threatening", "Full recovery between seizures is normal"]
+      }
+    ],
+    "anaphylaxis-2025": [
+      {
+        title: "Recognize Severe Allergic Reaction",
+        description: "Look for widespread rash/hives, swelling of face/lips/tongue, difficulty breathing, rapid weak pulse, dizziness, nausea/vomiting. Symptoms develop rapidly after exposure.",
+        important: true,
+        duration: "Seconds to minutes",
+        tips: ["Symptoms develop rapidly", "Multiple body systems affected", "Can be fatal within minutes"]
+      },
+      {
+        title: "Call 911 Immediately",
+        description: "Call emergency services immediately. Say 'anaphylactic reaction' and request epinephrine and advanced life support. Don't wait to see if symptoms worsen.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Don't wait for worsening", "Emphasize anaphylaxis", "Time is critical"]
+      },
+      {
+        title: "Use Epinephrine Auto-Injector",
+        description: "If person has epinephrine (EpiPen), use immediately. Remove safety cap, place against outer thigh, push firmly until it clicks, hold for 3 seconds. Massage injection site.",
+        important: true,
+        duration: "30 seconds",
+        tips: ["Use immediately", "Outer thigh muscle", "Can inject through clothing"]
+      },
+      {
+        title: "Position and Monitor",
+        description: "If conscious, keep sitting up. If unconscious or weak pulse, lay flat with legs elevated. If vomiting, turn on side. Monitor breathing and pulse continuously.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Position depends on consciousness", "Legs up for shock", "Side for vomiting"]
+      },
+      {
+        title: "Prepare for Second Dose",
+        description: "If no improvement in 5-15 minutes and second EpiPen available, give second dose. May need multiple doses. Be prepared for CPR if condition worsens.",
+        important: true,
+        duration: "5-15 minutes after first dose",
+        tips: ["May need multiple doses", "Document times", "Be ready for CPR"]
+      }
+    ],
+    "hypothermia-2025": [
+      {
+        title: "Assess Core Temperature",
+        description: "Look for shivering, confusion, slurred speech, drowsiness, loss of coordination. Severe: no shivering, muscle rigidity, barely detectable pulse. Check responsiveness gently.",
+        important: true,
+        duration: "2-3 minutes",
+        tips: ["Shivering may stop in severe cases", "Handle gently", "Confusion is early sign"]
+      },
+      {
+        title: "Move to Warm Environment",
+        description: "Get out of cold, wind, wet conditions. Move gently - rough handling can trigger dangerous heart rhythms. Remove wet clothing carefully. Handle like fragile glass.",
+        important: true,
+        duration: "5-10 minutes",
+        tips: ["Gentle movements only", "Remove wet clothing", "Protect from wind"]
+      },
+      {
+        title: "Begin Gradual Rewarming",
+        description: "Wrap in dry blankets, warm clothes. Apply warm (not hot) packs to trunk, not extremities. Share body heat if available. Insulate from ground.",
+        important: true,
+        duration: "Ongoing",
+        tips: ["Gradual warming only", "Warm the core first", "Avoid hot packs on arms/legs"]
+      },
+      {
+        title: "Give Warm Beverages if Conscious",
+        description: "If fully conscious and able to swallow, give warm, sweet drinks. No alcohol or caffeine. Small sips only. Stop if any swallowing problems.",
+        important: false,
+        duration: "Ongoing if conscious",
+        tips: ["Only if fully conscious", "No alcohol/caffeine", "Small sips prevent choking"]
+      },
+      {
+        title: "Monitor and Evacuate",
+        description: "Watch for cardiac arrest - be ready for CPR. Evacuate to medical facility. Continue warming during transport. Handle very gently throughout.",
+        important: true,
+        duration: "Until hospital care",
+        tips: ["Cardiac arrest risk high", "Continue warming during transport", "Gentle handling critical"]
+      }
+    ],
+    "diabetic-emergency-2025": [
+      {
+        title: "Assess Blood Sugar Emergency",
+        description: "Low sugar: confusion, sweating, shakiness, rapid pulse, hunger. High sugar: frequent urination, excessive thirst, fruity breath, nausea, confusion. Check for medical alert bracelet.",
+        important: true,
+        duration: "1-2 minutes",
+        tips: ["Low = rapid onset", "High = gradual onset", "Check medical alert jewelry"]
+      },
+      {
+        title: "For Low Blood Sugar (Conscious)",
+        description: "Give 15g fast-acting sugar: 3-4 glucose tablets, 4oz fruit juice, 1 tablespoon honey. Wait 15 minutes, recheck. Repeat if still low. Then give protein snack.",
+        important: true,
+        duration: "15-30 minutes",
+        tips: ["15g rule", "Fast-acting sugar", "Follow with protein"]
+      },
+      {
+        title: "For High Blood Sugar",
+        description: "Call 911 if vomiting, severe dehydration, fruity breath, or unconscious. Give small sips of water if conscious. Don't give insulin unless trained and prescribed.",
+        important: true,
+        duration: "Variable",
+        tips: ["Fruity breath = ketoacidosis", "Small amounts of water only", "Don't give insulin"]
+      },
+      {
+        title: "If Unconscious",
+        description: "Call 911 immediately. Don't give anything by mouth. Place in recovery position. Be prepared for CPR. If trained and available, give glucagon injection.",
+        important: true,
+        duration: "Until EMS arrives",
+        tips: ["Nothing by mouth", "Recovery position", "Glucagon if trained"]
+      },
+      {
+        title: "Monitor and Document",
+        description: "Watch for changes in consciousness. Note time of onset, what they ate, medication times. Stay with person until medical help arrives or fully recovered.",
+        important: true,
+        duration: "Until recovered",
+        tips: ["Document timeline", "Note recent meals/meds", "Watch for changes"]
+      }
     ]
   };
 
@@ -267,6 +526,48 @@ export default function ProtocolDetail() {
       "Don't delay calling 911 to give medications",
       "Don't drive to hospital - wait for EMS",
       "Don't give nitroglycerin unless prescribed to patient"
+    ],
+    "respiratory-distress-2025": [
+      "Don't give inhaler medications unless prescribed to the patient",
+      "Call 911 immediately for blue lips, severe distress, or inability to speak",
+      "Don't leave person alone during breathing emergency",
+      "Avoid anything that might further restrict breathing"
+    ],
+    "burns-2025": [
+      "Never use ice directly on burns - only cool water",
+      "Don't break blisters or remove clothing stuck to burns",
+      "Don't apply butter, oil, or home remedies to burns",
+      "For chemical burns, flush for at least 20 minutes before transport"
+    ],
+    "fractures-2025": [
+      "Don't try to push protruding bones back into place",
+      "Don't move person unless in immediate danger",
+      "Check circulation frequently - loosen splint if compromised",
+      "Don't give food or water in case surgery is needed"
+    ],
+    "seizure-2025": [
+      "Never put anything in the person's mouth during seizure",
+      "Don't restrain or hold down the person",
+      "Call 911 for seizures lasting more than 5 minutes",
+      "Don't give water or medication until fully conscious"
+    ],
+    "anaphylaxis-2025": [
+      "Use epinephrine immediately - don't wait for symptoms to worsen",
+      "Call 911 even if epinephrine seems to help",
+      "Don't give oral medications to someone having trouble swallowing",
+      "Be prepared for second reaction wave (biphasic anaphylaxis)"
+    ],
+    "hypothermia-2025": [
+      "Handle person very gently - rough movements can cause cardiac arrest",
+      "Don't rewarm extremities first - warm the core",
+      "Don't give alcohol or caffeine",
+      "Don't use direct heat sources (heating pads, fires)"
+    ],
+    "diabetic-emergency-2025": [
+      "Don't give insulin unless trained and it's prescribed to patient",
+      "Don't give anything by mouth if person is unconscious",
+      "For unknown blood sugar level, treat as low blood sugar if conscious",
+      "Call 911 for unconscious diabetic emergency"
     ]
   };
 
@@ -300,6 +601,48 @@ export default function ProtocolDetail() {
       "Time to treatment is critical for heart muscle preservation",
       "Aspirin helps prevent further clot formation",
       "EMS has better outcomes than driving to hospital"
+    ],
+    "respiratory-distress-2025": [
+      "Upright positioning significantly improves breathing efficiency",
+      "Anxiety and panic can worsen breathing difficulties",
+      "Rescue inhalers can be repeated every 20 minutes if needed",
+      "Blue coloration indicates severe oxygen deprivation"
+    ],
+    "burns-2025": [
+      "Cool water is the most effective immediate treatment",
+      "Pain level doesn't always correlate with burn severity",
+      "Third-degree burns may require skin grafting",
+      "Early cooling prevents progression to deeper burns"
+    ],
+    "fractures-2025": [
+      "Immobilization prevents further damage to surrounding tissues",
+      "Open fractures have high infection risk and need immediate surgery",
+      "Circulation checks prevent compartment syndrome",
+      "Pain management improves patient cooperation"
+    ],
+    "seizure-2025": [
+      "Most seizures stop on their own within 1-2 minutes",
+      "Status epilepticus (>5 minutes) can cause permanent brain damage",
+      "Recovery time varies but confusion is normal",
+      "Document seizure details for medical evaluation"
+    ],
+    "anaphylaxis-2025": [
+      "Epinephrine is the only effective treatment for anaphylaxis",
+      "Symptoms can return in biphasic reactions",
+      "Antihistamines alone are not sufficient for severe reactions",
+      "Even mild initial symptoms can rapidly progress"
+    ],
+    "hypothermia-2025": [
+      "Gentle handling prevents dangerous heart rhythm disturbances",
+      "Core rewarming prevents afterdrop complications",
+      "Severe hypothermia requires hospital rewarming protocols",
+      "Alcohol causes heat loss and impairs judgment"
+    ],
+    "diabetic-emergency-2025": [
+      "Low blood sugar is immediately life-threatening",
+      "High blood sugar develops slowly but can be serious",
+      "Diabetic ketoacidosis has fruity breath odor",
+      "Always follow the 15-15 rule for hypoglycemia"
     ]
   };
 
@@ -328,6 +671,41 @@ export default function ProtocolDetail() {
       "Don't wait for 'classic' symptoms",
       "Chew aspirin for faster absorption",
       "EMS provides better outcomes than driving"
+    ],
+    "respiratory-distress-2025": [
+      "Position upright for easier breathing",
+      "Stay calm to reduce anxiety",
+      "Use prescribed inhaler if available"
+    ],
+    "burns-2025": [
+      "Cool water immediately for 10-20 minutes",
+      "Remove jewelry before swelling starts",
+      "Cover with clean, dry cloth"
+    ],
+    "fractures-2025": [
+      "Don't move unless absolutely necessary",
+      "Splint above and below fracture",
+      "Check circulation every 15 minutes"
+    ],
+    "seizure-2025": [
+      "Clear area of dangerous objects",
+      "Time the seizure duration",
+      "Turn on side after seizure ends"
+    ],
+    "anaphylaxis-2025": [
+      "Use epinephrine immediately",
+      "Call 911 even if symptoms improve",
+      "Be prepared for second reaction"
+    ],
+    "hypothermia-2025": [
+      "Handle very gently",
+      "Warm the core, not extremities",
+      "Get to medical care quickly"
+    ],
+    "diabetic-emergency-2025": [
+      "Give sugar if conscious and low blood sugar",
+      "Call 911 if unconscious",
+      "Check for medical alert bracelet"
     ]
   };
 
