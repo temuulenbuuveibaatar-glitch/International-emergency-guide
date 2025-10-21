@@ -4,7 +4,7 @@
 echo "Building for GitHub Pages..."
 
 # Build the application using GitHub Pages configuration
-vite build --config vite.config.github.ts
+npx vite build --config vite.config.github.ts
 
 # Copy 404.html to dist folder for GitHub Pages SPA routing
 cp public/404.html dist/404.html

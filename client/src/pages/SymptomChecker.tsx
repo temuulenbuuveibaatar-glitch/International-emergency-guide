@@ -611,9 +611,13 @@ export default function SymptomChecker() {
   const [hasCriticalSymptoms, setHasCriticalSymptoms] = useState(false);
 
   const bodyPartSections: Record<BodyPart, string> = {
-    head: "Head & Neurological",
-    chest: "Chest & Respiratory",
-    abdomen: "Abdomen & Digestive",
+    head: "Head",
+    neurological: "Neurological",
+    chest: "Chest",
+    cardiovascular: "Cardiovascular",
+    respiratory: "Respiratory",
+    abdomen: "Abdomen",
+    gastrointestinal: "Gastrointestinal",
     limbs: "Arms & Legs",
     skin: "Skin",
     general: "General Symptoms"
@@ -654,7 +658,7 @@ export default function SymptomChecker() {
 
     // Sort by urgency and number of matching symptoms
     const sortedConditions = [...matchedConditions].sort((a, b) => {
-      const urgencyOrder = { "emergency": 0, "urgent": 1, "non-urgent": 2 };
+      const urgencyOrder = { "emergency": 0, "urgent": 1, "semi-urgent": 2, "non-urgent": 3 };
       
       // First by urgency
       if (urgencyOrder[a.urgency] !== urgencyOrder[b.urgency]) {
@@ -683,6 +687,7 @@ export default function SymptomChecker() {
     switch (urgency) {
       case 'emergency': return 'bg-red-600';
       case 'urgent': return 'bg-amber-500';
+      case 'semi-urgent': return 'bg-yellow-500';
       case 'non-urgent': return 'bg-green-600';
       default: return 'bg-gray-600';
     }
@@ -785,6 +790,7 @@ export default function SymptomChecker() {
                               <span className="text-xs uppercase tracking-wide">
                                 {condition.urgency === 'emergency' ? 'Seek Care Immediately' : 
                                  condition.urgency === 'urgent' ? 'Seek Care Soon' : 
+                                 condition.urgency === 'semi-urgent' ? 'Seek Care Within 24hrs' :
                                  'Self-care May Be Appropriate'}
                               </span>
                             </div>
