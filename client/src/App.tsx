@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,25 +22,29 @@ import DamageAssessment from "./pages/DamageAssessment";
 import MedicalImaging from "./pages/MedicalImaging";
 import MaintenanceSchedule from "./pages/MaintenanceSchedule";
 
-function Router() {
+const basePath = import.meta.env.VITE_APP_MODE === 'github-pages' ? '/international-emergency-guide' : '';
+
+function AppRouter() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/emergency" component={EmergencyProtocols} />
-        <Route path="/emergency/:id" component={ProtocolDetail} />
-        <Route path="/treatment" component={TreatmentGuidelines} />
-        <Route path="/medications" component={Medications} />
-        <Route path="/symptoms" component={SymptomChecker} />
-        <Route path="/hospitals" component={Hospitals} />
-        <Route path="/contacts" component={EmergencyContacts} />
-        <Route path="/fire-safety" component={FireSafetyEquipment} />
-        <Route path="/damage-assessment" component={DamageAssessment} />
-        <Route path="/medical-imaging" component={MedicalImaging} />
-        <Route path="/maintenance" component={MaintenanceSchedule} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+    <Router base={basePath}>
+      <Layout>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/emergency" component={EmergencyProtocols} />
+          <Route path="/emergency/:id" component={ProtocolDetail} />
+          <Route path="/treatment" component={TreatmentGuidelines} />
+          <Route path="/medications" component={Medications} />
+          <Route path="/symptoms" component={SymptomChecker} />
+          <Route path="/hospitals" component={Hospitals} />
+          <Route path="/contacts" component={EmergencyContacts} />
+          <Route path="/fire-safety" component={FireSafetyEquipment} />
+          <Route path="/damage-assessment" component={DamageAssessment} />
+          <Route path="/medical-imaging" component={MedicalImaging} />
+          <Route path="/maintenance" component={MaintenanceSchedule} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
+    </Router>
   );
 }
 
@@ -51,7 +55,7 @@ function App() {
         <AccessibilityProvider>
           <TooltipProvider>
             <Toaster />
-            <Router />
+            <AppRouter />
             <InstallAppPrompt />
             <AccessibilityPanel />
           </TooltipProvider>
