@@ -140,6 +140,7 @@ jobs:
 The `vite.config.github.ts` is configured with:
 ```typescript
 base: "/international-emergency-guide/"
+# Note: Case-sensitive! Use lowercase to match GitHub repo URL
 ```
 
 **Make sure this matches your repository name!** If your repo is named differently, update this in `vite.config.github.ts`.

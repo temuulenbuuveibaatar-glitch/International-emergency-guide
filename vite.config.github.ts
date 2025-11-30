@@ -26,7 +26,7 @@ export default defineConfig({
       }
     }
   },
-  base: "/International-emergency-guide/",
+  base: "/international-emergency-guide/",
   define: {
     "process.env.NODE_ENV": '"production"',
     "import.meta.env.VITE_APP_MODE": '"github-pages"'
