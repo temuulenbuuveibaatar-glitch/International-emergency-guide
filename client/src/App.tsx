@@ -21,6 +21,11 @@ import FireSafetyEquipment from "./pages/FireSafetyEquipment";
 import DamageAssessment from "./pages/DamageAssessment";
 import MedicalImaging from "./pages/MedicalImaging";
 import MaintenanceSchedule from "./pages/MaintenanceSchedule";
+import Dashboard from "./pages/Dashboard";
+import PatientList from "./pages/PatientList";
+import MedicationList from "./pages/MedicationList";
+import MAR from "./pages/MAR";
+import VitalSigns from "./pages/VitalSigns";
 
 const basePath = import.meta.env.VITE_APP_MODE === 'github-pages' ? '/international-emergency-guide' : '';
 
@@ -41,6 +46,11 @@ function AppRouter() {
           <Route path="/damage-assessment" component={DamageAssessment} />
           <Route path="/medical-imaging" component={MedicalImaging} />
           <Route path="/maintenance" component={MaintenanceSchedule} />
+          <Route path="/hospital" component={Dashboard} />
+          <Route path="/hospital/patients" component={PatientList} />
+          <Route path="/hospital/medications" component={MedicationList} />
+          <Route path="/hospital/mar" component={MAR} />
+          <Route path="/hospital/vitals" component={VitalSigns} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
