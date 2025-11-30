@@ -6,7 +6,7 @@ import EmergencyNumbers from "../components/EmergencyNumbers";
 import CountryEmergencyTabs from "../components/CountryEmergencyTabs";
 import HospitalFinder from "../components/HospitalFinder";
 import OfflineDataManager from "../components/OfflineDataManager";
-import { Flame, MapPin, ArrowRight, Download, Heart, AlertCircle, ArrowDown, Info, Shield, Zap, Globe, Users } from "lucide-react";
+import { Flame, MapPin, ArrowRight, Download, Heart, AlertCircle, ArrowDown, Info, Shield, Zap, Globe, Users, Building2 } from "lucide-react";
 import { useState, useEffect } from "react";
 // Using Unsplash for emergency team image
 const emergencyTeamImage = "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600";
@@ -273,6 +273,20 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+          </div>
+
+          {/* Hospital Staff Access */}
+          <div className="mt-12 text-center">
+            <Link href="/hospital/login">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer" data-testid="link-hospital-staff">
+                <Building2 className="w-6 h-6" />
+                <span>Hospital Staff Portal</span>
+                <ArrowRight className="w-5 h-5" />
+              </div>
+            </Link>
+            <p className="text-gray-500 dark:text-gray-400 text-sm mt-3">
+              Access the Hospital Management System (Staff login required)
+            </p>
           </div>
         </div>
       </section>
