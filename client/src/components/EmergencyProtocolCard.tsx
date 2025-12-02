@@ -13,9 +13,8 @@ export default function EmergencyProtocolCard({ id, title, description }: Emerge
   const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
   
-  const normalizedId = id.replace(/-2025$/, '').replace(/-/g, '');
-  const translatedTitle = t(`protocolTitles.${normalizedId}`, { defaultValue: title });
-  const translatedDescription = t(`protocolDescriptions.${normalizedId}`, { defaultValue: description });
+  const translatedTitle = t(`protocolTitles.${id.replace(/-/g, '')}`, { defaultValue: title });
+  const translatedDescription = t(`protocolDescriptions.${id.replace(/-/g, '')}`, { defaultValue: description });
   
   return (
     <div 

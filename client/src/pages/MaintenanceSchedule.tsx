@@ -171,31 +171,31 @@ export default function MaintenanceSchedule() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-blue-100 dark:bg-blue-900/30 border border-blue-200/50 px-6 py-2 rounded-full mb-6">
               <Wrench className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" />
-              <span className="text-blue-700 dark:text-blue-300 font-medium">System Maintenance</span>
+              <span className="text-blue-700 dark:text-blue-300 font-medium">{t('maintenance.systemMaintenance')}</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent mb-4">
-              Routine Maintenance Schedule
+              {t('maintenance.routineSchedule')}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Automated maintenance tasks to keep emergency systems updated and reliable
+              {t('maintenance.scheduleDescription')}
             </p>
           </div>
 
           {/* Filter Tabs */}
           <div className="flex justify-center mb-8">
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl p-2 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
-              {['all', 'pending', 'overdue'].map((filterOption) => (
+              {(['all', 'pending', 'overdue'] as const).map((filterOption) => (
                 <button
                   key={filterOption}
-                  onClick={() => setFilter(filterOption as any)}
+                  onClick={() => setFilter(filterOption)}
                   className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                     filter === filterOption
                       ? 'bg-blue-500 text-white shadow-lg'
                       : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
-                  {filterOption.charAt(0).toUpperCase() + filterOption.slice(1)} 
-                  ({tasks.filter(t => filterOption === 'all' || t.status === filterOption).length})
+                  {t(`maintenance.filter.${filterOption}`)} 
+                  ({tasks.filter(task => filterOption === 'all' || task.status === filterOption).length})
                 </button>
               ))}
             </div>
@@ -225,13 +225,13 @@ export default function MaintenanceSchedule() {
                             {task.title}
                           </h3>
                           <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getPriorityColor(task.priority)}`}>
-                            {task.priority.toUpperCase()}
+                            {t(`maintenance.priority.${task.priority}`)}
                           </div>
                         </div>
                       </div>
                       
                       <div className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(task.status)}`}>
-                        {task.status.toUpperCase()}
+                        {t(`maintenance.status.${task.status}`)}
                       </div>
                     </div>
 
@@ -244,16 +244,16 @@ export default function MaintenanceSchedule() {
                     <div className="space-y-2 mb-4">
                       <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                         <Clock className="w-4 h-4" />
-                        <span>Frequency: {task.frequency}</span>
+                        <span>{t('maintenance.frequency')}: {task.frequency}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                         <Calendar className="w-4 h-4" />
-                        <span>Next Due: {task.nextDue.toLocaleDateString()}</span>
+                        <span>{t('maintenance.nextDue')}: {task.nextDue.toLocaleDateString()}</span>
                       </div>
                       {task.lastCompleted && (
                         <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                           <CheckCircle className="w-4 h-4" />
-                          <span>Last: {task.lastCompleted.toLocaleDateString()}</span>
+                          <span>{t('maintenance.lastCompleted')}: {task.lastCompleted.toLocaleDateString()}</span>
                         </div>
                       )}
                     </div>
@@ -264,7 +264,7 @@ export default function MaintenanceSchedule() {
                         onClick={() => runMaintenance(task.id)}
                         className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                       >
-                        Run Maintenance
+                        {t('maintenance.runMaintenance')}
                       </button>
                     )}
                   </div>
@@ -281,12 +281,10 @@ export default function MaintenanceSchedule() {
               </div>
               <div>
                 <h3 className="font-bold text-green-800 dark:text-green-200 mb-2">
-                  Automated Maintenance System
+                  {t('maintenance.automatedSystem')}
                 </h3>
                 <p className="text-green-700 dark:text-green-300 leading-relaxed">
-                  The system automatically performs critical maintenance tasks including database updates, 
-                  map synchronization, and AI model improvements. Manual intervention is only required for 
-                  high-priority items or when automatic processes detect issues.
+                  {t('maintenance.automatedDescription')}
                 </p>
               </div>
             </div>

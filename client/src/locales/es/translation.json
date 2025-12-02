@@ -1,4 +1,52 @@
 {
+  "protocolTitles": {
+    "cpr2025": "Reanimación Cardiopulmonar (RCP)",
+    "strokebefast2025": "Evaluación de Accidente Cerebrovascular (BE-FAST)",
+    "choking2025": "Protocolo de Respuesta a Asfixia",
+    "bleedingcontrol2025": "Control de Hemorragia",
+    "heartattack2025": "Respuesta a Ataque Cardíaco",
+    "anaphylaxis2025": "Emergencia por Anafilaxia",
+    "burns2025": "Protocolo de Tratamiento de Quemaduras",
+    "drowning2025": "Respuesta a Ahogamiento",
+    "fractures2025": "Cuidado de Fracturas",
+    "heatemergency2025": "Protocolo de Emergencia por Calor",
+    "coldemergency2025": "Protocolo de Emergencia por Frío",
+    "seizures2025": "Respuesta a Convulsiones",
+    "diabeticemergency2025": "Emergencia Diabética",
+    "asthmaattack2025": "Respuesta a Ataque de Asma",
+    "poisoning2025": "Emergencia por Envenenamiento",
+    "electricshock2025": "Respuesta a Descarga Eléctrica",
+    "headinjury2025": "Protocolo de Lesión Craneal",
+    "spinalinjury2025": "Protocolo de Lesión Medular",
+    "pregnancyemergency2025": "Emergencia de Embarazo",
+    "mentalhealthcrisis2025": "Crisis de Salud Mental",
+    "chemicalexposure2025": "Exposición a Químicos",
+    "radiationemergency2025": "Emergencia por Radiación"
+  },
+  "protocolDescriptions": {
+    "cpr2025": "Estándar AHA 2025 para paro cardíaco - RCP solo con compresiones para testigos no entrenados, RCP completa para rescatadores entrenados",
+    "strokebefast2025": "Balance, Ojos, Cara, Brazos, Habla, Tiempo - protocolo mejorado de reconocimiento de ACV",
+    "choking2025": "Técnicas de alivio de obstrucción de vía aérea para víctimas conscientes e inconscientes de todas las edades",
+    "bleedingcontrol2025": "Control de hemorragia usando presión directa, elevación, puntos de presión y aplicación de torniquete",
+    "heartattack2025": "Reconocimiento temprano y respuesta a síntomas de ataque cardíaco - protocolo de aspirina y posicionamiento de emergencia",
+    "anaphylaxis2025": "Manejo de reacción alérgica severa incluyendo administración de epinefrina y monitoreo de vía aérea",
+    "burns2025": "Clasificación y tratamiento de quemaduras térmicas, químicas y eléctricas",
+    "drowning2025": "Protocolo de rescate acuático y resucitación",
+    "fractures2025": "Inmovilización y cuidado de huesos rotos",
+    "heatemergency2025": "Manejo de golpe de calor y agotamiento por calor",
+    "coldemergency2025": "Tratamiento de hipotermia y congelación",
+    "seizures2025": "Respuesta a convulsiones y cuidado post-convulsivo",
+    "diabeticemergency2025": "Manejo de hipoglucemia e hiperglucemia",
+    "asthmaattack2025": "Respuesta a ataque de asma y asistencia con inhalador",
+    "poisoning2025": "Respuesta a envenenamiento y procedimientos de control de tóxicos",
+    "electricshock2025": "Evaluación y tratamiento de descarga eléctrica",
+    "headinjury2025": "Evaluación y manejo de trauma craneal",
+    "spinalinjury2025": "Protocolos de protección de lesión medular",
+    "pregnancyemergency2025": "Manejo de emergencias relacionadas con el embarazo",
+    "mentalhealthcrisis2025": "Desescalada y apoyo en crisis de salud mental",
+    "chemicalexposure2025": "Protocolos de descontaminación por exposición química",
+    "radiationemergency2025": "Respuesta y protección ante exposición a radiación"
+  },
   "common": {
     "back": "Volver",
     "next": "Siguiente",
@@ -44,8 +92,29 @@
     "title": "Guía Internacional de Emergencias",
     "subtitle": "Su fuente confiable de información médica de emergencia",
     "description": "Acceda a procedimientos de emergencia paso a paso, guías de tratamiento, información sobre medicamentos y localice hospitales cercanos - todo en un solo lugar.",
+    "heroDescription": "Plataforma integral de respuesta de emergencia multilingüe que proporciona información médica y de seguridad crítica para usuarios de todo el mundo.",
+    "heroSubDescription": "Acceda a protocolos de emergencia detallados, localice hospitales cercanos, encuentre números de emergencia específicos de cada país y obtenga asistencia médica impulsada por IA - todo disponible sin conexión.",
     "emergencyButton": "Protocolos de Emergencia",
-    "findHospital": "Encontrar Hospitales"
+    "findHospital": "Encontrar Hospitales",
+    "languages": "Idiomas",
+    "offlineReady": "Disponible sin conexión",
+    "aiPowered": "Impulsado por IA",
+    "available": "Disponible",
+    "protocols": "Protocolos",
+    "scrollForMore": "Desplácese para más",
+    "emergencyServices": "Servicios de Emergencia",
+    "emergencyServicesDesc": "Acceso rápido a información vital y recursos de emergencia",
+    "emergencyProtocolsTitle": "Protocolos de Emergencia",
+    "emergencyProtocolsDesc": "Procedimientos de salvamento paso a paso para emergencias médicas críticas",
+    "accessNow": "Acceder ahora",
+    "hospitalFinder": "Buscador de Hospitales",
+    "hospitalFinderDesc": "Localice hospitales y centros médicos cercanos con mapas interactivos",
+    "findHospitals": "Encontrar Hospitales",
+    "emergencyContacts": "Contactos de Emergencia",
+    "emergencyContactsDesc": "Números de emergencia específicos de cada país e información de contacto",
+    "viewContacts": "Ver Contactos",
+    "hospitalStaffPortal": "Portal de Personal Hospitalario",
+    "hospitalStaffAccess": "Acceso al Sistema de Gestión Hospitalaria (Se requiere inicio de sesión de personal)"
   },
   "emergencyNumbers": {
     "title": "Números de Emergencia Internacionales",
@@ -85,12 +154,21 @@
   "protocols": {
     "title": "Protocolos de Emergencia",
     "description": "Protocolos de emergencia paso a paso para situaciones críticas que requieren atención médica inmediata.",
+    "notFound": "Protocolo no encontrado",
     "viewDetails": "Ver Detalles",
     "viewAll": "Ver Todos los Protocolos de Emergencia",
     "stepTitle": "Paso",
+    "stepNumber": "Paso {{number}}",
     "warningTitle": "Advertencias",
     "notesTitle": "Notas",
-    "important": "Importante"
+    "important": "Importante",
+    "print": "Imprimir",
+    "share": "Compartir",
+    "save": "Guardar",
+    "stepByStep": "Protocolo Paso a Paso",
+    "warnings": "Advertencias Importantes",
+    "additionalNotes": "Notas Adicionales",
+    "returnToProtocols": "Volver a Protocolos"
   },
   "protocolTitles": {
     "fireemergency": "Respuesta a Emergencia de Incendio",
@@ -658,5 +736,437 @@
     "graduationYear": "Año de graduación",
     "hospitalAffiliation": "Afiliación hospitalaria",
     "yearsOfExperience": "Años de experiencia"
+  },
+  "buttons": {
+    "returnToProtocols": "Volver a Protocolos",
+    "viewDetails": "Ver Detalles",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "print": "Imprimir",
+    "share": "Compartir"
+  },
+  "protocolSteps": {
+    "cpr2025": {
+      "step1": {
+        "title": "Verificar Respuesta",
+        "description": "Golpee firmemente los hombros y grite '¿Está bien?' Busque respiración normal por no más de 10 segundos. Si no responde y no respira normalmente, comience RCP.",
+        "duration": "10 segundos",
+        "tip1": "No pierda tiempo verificando el pulso",
+        "tip2": "Las boqueadas no son respiración normal",
+        "tip3": "Actúe rápido - el daño cerebral comienza en 4-6 minutos"
+      },
+      "step2": {
+        "title": "Llamar por Ayuda",
+        "description": "Llame a servicios de emergencia inmediatamente o pida a alguien que lo haga. Solicite un DEA si está disponible. Si está solo con teléfono, póngalo en altavoz. No se vaya a buscar ayuda.",
+        "duration": "30 segundos",
+        "tip1": "El altavoz permite continuar RCP",
+        "tip2": "El DEA es crucial para la supervivencia",
+        "tip3": "Cada segundo cuenta"
+      },
+      "step3": {
+        "title": "Posicionar a la Persona",
+        "description": "Coloque sobre superficie firme y plana. Incline la cabeza ligeramente hacia atrás levantando el mentón. Coloque el talón de una mano en el centro del pecho entre los pezones. Coloque la otra mano encima, entrelazando los dedos.",
+        "duration": "15 segundos",
+        "tip1": "La superficie firme es esencial",
+        "tip2": "Centro del pecho, no muy alto",
+        "tip3": "Mantenga los brazos rectos"
+      },
+      "step4": {
+        "title": "Comenzar Compresiones Torácicas",
+        "description": "Presione fuerte y rápido al menos 5 cm de profundidad. Permita que el pecho vuelva completamente entre compresiones. Comprima a 100-120 por minuto. Cuente en voz alta.",
+        "duration": "Ciclos continuos",
+        "tip1": "Piense en el tempo de 'Stayin' Alive'",
+        "tip2": "Deje que el pecho vuelva completamente",
+        "tip3": "No se recueste sobre el pecho"
+      },
+      "step5": {
+        "title": "Proporcionar Respiraciones de Rescate (si está entrenado)",
+        "description": "Después de 30 compresiones, incline la cabeza hacia atrás, levante el mentón, tape la nariz. Cubra la boca completamente y dé 2 respiraciones (1 segundo cada una). Observe si el pecho se eleva.",
+        "duration": "5 segundos",
+        "tip1": "No entrenados: solo compresiones está bien",
+        "tip2": "No hiperventilar",
+        "tip3": "El pecho debe elevarse con cada respiración"
+      },
+      "step6": {
+        "title": "Continuar Hasta que Llegue Ayuda",
+        "description": "No se detenga hasta que llegue el servicio de emergencias, la persona comience a respirar normalmente, o esté exhausto. Use el DEA inmediatamente cuando esté disponible y siga las indicaciones de voz.",
+        "duration": "Hasta que lleguen profesionales",
+        "tip1": "Las compresiones de calidad salvan vidas",
+        "tip2": "El DEA lo guiará en el proceso",
+        "tip3": "No se rinda"
+      }
+    },
+    "strokebefast2025": {
+      "step1": {
+        "title": "Equilibrio - Verificar Pérdida de Coordinación",
+        "description": "Pregunte sobre pérdida repentina de equilibrio, mareo o problemas de coordinación. Busque dificultad para caminar, pérdida de coordinación, caídas inexplicables.",
+        "duration": "30 segundos",
+        "tip1": "Puede ser el único signo de ACV posterior",
+        "tip2": "Pregunte sobre caídas recientes",
+        "tip3": "El inicio súbito es clave"
+      },
+      "step2": {
+        "title": "Ojos - Verificar Pérdida de Visión",
+        "description": "Pregunte sobre pérdida repentina de visión, visión doble o pérdida de campo visual. Pida que siga su dedo. Pruebe la visión periférica.",
+        "duration": "30 segundos",
+        "tip1": "Los cambios de visión pueden ser sutiles",
+        "tip2": "Revise ambos ojos",
+        "tip3": "Puede quejarse de áreas oscuras"
+      },
+      "step3": {
+        "title": "Cara - Verificar Caída Facial",
+        "description": "Pida a la persona que sonría ampliamente mostrando los dientes. Busque sonrisa desigual/torcida, caída facial o movimiento asimétrico.",
+        "duration": "30 segundos",
+        "tip1": "Signo de ACV más reconocible",
+        "tip2": "Verifique ambos lados de la cara",
+        "tip3": "También puede afectar músculos del habla"
+      },
+      "step4": {
+        "title": "Brazos - Verificar Debilidad",
+        "description": "Pida que levante ambos brazos sobre la cabeza por 10 segundos con palmas hacia arriba, ojos cerrados. Busque deriva del brazo, incapacidad de levantar un brazo o debilidad.",
+        "duration": "30 segundos",
+        "tip1": "La debilidad unilateral es clásica",
+        "tip2": "Compare ambos lados",
+        "tip3": "Puede ser sutil al principio"
+      },
+      "step5": {
+        "title": "Habla - Verificar Problemas del Habla",
+        "description": "Pida que repita una frase simple. Escuche si arrastra las palabras, usa palabras incorrectas o no puede entender.",
+        "duration": "30 segundos",
+        "tip1": "Los problemas del habla son muy comunes",
+        "tip2": "Verifique también la comprensión",
+        "tip3": "Puede tener dificultad para encontrar palabras"
+      },
+      "step6": {
+        "title": "Tiempo - Llame a Emergencias Inmediatamente",
+        "description": "Si hay CUALQUIER signo presente, anote la hora exacta de inicio de síntomas y llame a emergencias. Diga al despachador 'posible ACV' y hora de inicio. El tiempo es cerebro.",
+        "duration": "2-3 minutos",
+        "tip1": "No espere más síntomas",
+        "tip2": "El tiempo determina las opciones de tratamiento",
+        "tip3": "Transporte a centro de ACV si está disponible"
+      }
+    },
+    "choking2025": {
+      "step1": {
+        "title": "Evaluar la Situación",
+        "description": "Busque la señal universal de asfixia (manos en el cuello). Pregunte '¿Se está asfixiando?' Si la persona puede toser, hablar o respirar, anime a toser.",
+        "duration": "5-10 segundos",
+        "tip1": "La tos significa que algo de aire está pasando",
+        "tip2": "La asfixia silenciosa es más peligrosa",
+        "tip3": "Actúe rápido pero mantenga la calma"
+      },
+      "step2": {
+        "title": "Posición para Golpes en la Espalda",
+        "description": "Párese al lado y ligeramente detrás. Soporte el pecho con una mano, inclínelo hacia adelante para que el objeto salga en lugar de ir más adentro.",
+        "duration": "5 segundos",
+        "tip1": "La posición hacia adelante es crucial",
+        "tip2": "Soporte de forma segura",
+        "tip3": "Técnica diferente para bebés"
+      },
+      "step3": {
+        "title": "Dar 5 Golpes Fuertes en la Espalda",
+        "description": "Usando el talón de la mano, dé hasta 5 golpes fuertes entre los omóplatos. Cada golpe separado y distinto. Revise la boca después de cada golpe.",
+        "duration": "15-20 segundos",
+        "tip1": "Cada golpe debe ser contundente",
+        "tip2": "Solo quite objetos visibles",
+        "tip3": "No haga barridos ciegos con los dedos"
+      },
+      "step4": {
+        "title": "Realizar 5 Compresiones Abdominales",
+        "description": "Párese detrás de la persona. Coloque el puño arriba del ombligo, debajo de las costillas. Agarre con la otra mano, dé 5 empujones rápidos hacia arriba/adentro.",
+        "duration": "15-20 segundos",
+        "tip1": "Arriba del ombligo, debajo de las costillas",
+        "tip2": "Movimiento rápido hacia arriba",
+        "tip3": "Modifique para embarazo/obesidad"
+      },
+      "step5": {
+        "title": "Continuar Alternando Técnicas",
+        "description": "Siga alternando 5 golpes en espalda y 5 compresiones abdominales hasta que el objeto sea expulsado, la persona pueda respirar/hablar, o pierda el conocimiento.",
+        "duration": "Hasta éxito o inconsciencia",
+        "tip1": "No se rinda rápidamente",
+        "tip2": "Anime a toser entre ciclos",
+        "tip3": "Esté listo para el éxito repentino"
+      },
+      "step6": {
+        "title": "Si la Persona Pierde el Conocimiento",
+        "description": "Bájela al suelo, llame a emergencias si no lo ha hecho. Comience RCP con compresiones torácicas. Antes de respiraciones de rescate, revise la boca y quite solo objetos visibles.",
+        "duration": "Hasta que llegue ayuda",
+        "tip1": "La RCP puede desalojar el objeto",
+        "tip2": "Revise la boca antes de cada ciclo de respiración",
+        "tip3": "No deje de comprimir para buscar el objeto"
+      }
+    },
+    "bleedingcontrol2025": {
+      "step1": {
+        "title": "Seguridad de la Escena y Protección",
+        "description": "Evalúe la escena por peligros continuos. Use guantes o cree barrera con bolsas plásticas/tela. Su seguridad primero - no puede ayudar si usted se lesiona.",
+        "duration": "15-30 segundos",
+        "tip1": "Precauciones universales con sangre",
+        "tip2": "Use cualquier barrera disponible",
+        "tip3": "No se convierta en segunda víctima"
+      },
+      "step2": {
+        "title": "Llame a Emergencias por Sangrado Severo",
+        "description": "Llame inmediatamente por sangrado que amenaza la vida. Diga 'sangrado severo/hemorragia' y ubicación. Solicite productos sanguíneos y equipo de trauma para sangrado masivo.",
+        "duration": "30 segundos",
+        "tip1": "No se demore por sangrado severo",
+        "tip2": "Sea específico sobre la gravedad",
+        "tip3": "Designe a alguien más para llamar si es posible"
+      },
+      "step3": {
+        "title": "Aplicar Presión Directa",
+        "description": "Coloque tela/gasa limpia directamente sobre la herida. Presione firmemente con ambas manos si es necesario. No mire ni levante para revisar - mantenga presión constante.",
+        "duration": "Presión continua",
+        "tip1": "Control de sangrado más efectivo",
+        "tip2": "No quite materiales empapados de sangre",
+        "tip3": "Use cualquier material limpio disponible"
+      },
+      "step4": {
+        "title": "Elevar si es Posible",
+        "description": "Si no se sospecha fractura, eleve el área sangrante por encima del nivel del corazón. Soporte mientras mantiene presión. No eleve si se sospecha lesión espinal.",
+        "duration": "Durante todo el cuidado",
+        "tip1": "Funciona mejor para brazos y piernas",
+        "tip2": "La gravedad ayuda a reducir el flujo sanguíneo",
+        "tip3": "No comprometa la presión directa"
+      },
+      "step5": {
+        "title": "Puntos de Presión si es Necesario",
+        "description": "Si la presión directa falla, aplique presión en puntos arteriales entre la herida y el corazón. Heridas de brazo: arteria braquial. Heridas de pierna: arteria femoral en la ingle.",
+        "duration": "Hasta controlar el sangrado",
+        "tip1": "Use solo si presión directa es insuficiente",
+        "tip2": "Aprenda ubicaciones de puntos de presión",
+        "tip3": "Mantenga presión directa mientras aplica"
+      },
+      "step6": {
+        "title": "Torniquete para Sangrado de Extremidad que Amenaza la Vida",
+        "description": "Para sangrado severo de extremidad no controlado por presión, aplique torniquete 5-8 cm arriba de la herida. Apriete hasta que el sangrado pare. Escriba la hora en el torniquete.",
+        "duration": "Hasta que profesionales lo retiren",
+        "tip1": "Último recurso para sangrado de extremidad",
+        "tip2": "Torniquetes comerciales preferidos",
+        "tip3": "Documente hora de aplicación"
+      }
+    },
+    "heartattack2025": {
+      "step1": {
+        "title": "Reconocer Síntomas de Ataque Cardíaco",
+        "description": "Clásico: dolor/presión en el pecho, dificultad para respirar, náuseas, sudoración, dolor hacia brazos/mandíbula/espalda. Las mujeres pueden tener síntomas atípicos: fatiga, indigestión, dolor de espalda.",
+        "duration": "Evaluación continua",
+        "tip1": "No espere síntomas clásicos",
+        "tip2": "Las mujeres a menudo tienen síntomas diferentes",
+        "tip3": "Confíe en sus instintos"
+      },
+      "step2": {
+        "title": "Llame a Emergencias - No Conduzca",
+        "description": "Llame inmediatamente, no conduzca al hospital. Diga 'posible ataque cardíaco' con ubicación. Los paramédicos pueden iniciar tratamiento y saltarse la sala de emergencias.",
+        "duration": "2-3 minutos",
+        "tip1": "Los paramédicos tienen mejores resultados",
+        "tip2": "El tratamiento comienza inmediatamente",
+        "tip3": "Directo a centro cardíaco"
+      },
+      "step3": {
+        "title": "Dar Aspirina si es Seguro",
+        "description": "Dé aspirina 325mg para masticar si está consciente, no es alérgico, no tiene trastornos de sangrado. Masticar es más rápido que tragar. No retrase la llamada por aspirina.",
+        "duration": "1-2 minutos",
+        "tip1": "Masticar acelera la absorción",
+        "tip2": "No dar si es alérgico",
+        "tip3": "Prevención de más formación de coágulos"
+      },
+      "step4": {
+        "title": "Posición de Comodidad",
+        "description": "Ayude a sentarse erguido en silla o semi-sentado con almohadas - reduce la carga del corazón. Afloje ropa apretada. Mantenga calmado y quieto.",
+        "duration": "Durante todo el cuidado",
+        "tip1": "No lo deje acostarse plano",
+        "tip2": "Reduzca la ansiedad",
+        "tip3": "Mantenga cálido"
+      },
+      "step5": {
+        "title": "Monitorear y Tranquilizar",
+        "description": "Quédese con la persona hasta que llegue ayuda. Monitoree respiración y conciencia. Esté preparado para realizar RCP si deja de responder.",
+        "duration": "Hasta que llegue ayuda",
+        "tip1": "Manténgalo calmado",
+        "tip2": "Anote hora de inicio de síntomas",
+        "tip3": "Esté listo para RCP"
+      }
+    },
+    "anaphylaxis2025": {
+      "step1": {
+        "title": "Reconocer Signos de Anafilaxia",
+        "description": "Busque: urticaria/hinchazón, dificultad para respirar, opresión en garganta, pulso rápido, mareo, náuseas. Los síntomas se desarrollan en minutos después de la exposición.",
+        "duration": "Reconocimiento inmediato",
+        "tip1": "Puede progresar rápidamente",
+        "tip2": "Puede comenzar con síntomas leves",
+        "tip3": "Alergias conocidas aumentan el riesgo"
+      },
+      "step2": {
+        "title": "Llame a Emergencias Inmediatamente",
+        "description": "Llame a emergencias diciendo 'reacción alérgica severa/anafilaxia'. Esta es una emergencia que amenaza la vida y requiere tratamiento inmediato.",
+        "duration": "30 segundos",
+        "tip1": "El tiempo es crítico",
+        "tip2": "No espere a ver si los síntomas mejoran",
+        "tip3": "Mencione alergias conocidas"
+      },
+      "step3": {
+        "title": "Usar Autoinyector de Epinefrina",
+        "description": "Si está disponible, use el autoinyector de epinefrina inmediatamente. Inyecte en el muslo externo a través de la ropa si es necesario. Sostenga por 10 segundos.",
+        "duration": "30 segundos",
+        "tip1": "No retrase la epinefrina",
+        "tip2": "Puede inyectar a través de la ropa",
+        "tip3": "Puede necesitarse una segunda dosis"
+      },
+      "step4": {
+        "title": "Posición Apropiada",
+        "description": "Si tiene dificultad para respirar: sentado erguido. Si se siente débil: acostado con piernas elevadas. Si vomita o está embarazada: de lado.",
+        "duration": "Durante todo el cuidado",
+        "tip1": "Posición basada en síntomas",
+        "tip2": "No lo deje pararse o caminar",
+        "tip3": "Mantenga cálido"
+      },
+      "step5": {
+        "title": "Monitorear Reacción Bifásica",
+        "description": "Los síntomas pueden regresar horas después de la reacción inicial. Quédese con la persona y monitoree. Puede necesitarse segunda dosis de epinefrina.",
+        "duration": "Monitoreo continuo",
+        "tip1": "Las reacciones pueden regresar",
+        "tip2": "Observación hospitalaria recomendada",
+        "tip3": "Mantenga epinefrina cerca"
+      }
+    }
+  },
+  "medications": {
+    "categories": {
+      "analgesic": "Analgésicos",
+      "antibiotic": "Antibióticos",
+      "antiviral": "Antivirales",
+      "antihistamine": "Antihistamínicos",
+      "antihypertensive": "Medicamentos para presión arterial y corazón",
+      "antidepressant": "Antidepresivos",
+      "nsaid": "Antiinflamatorios",
+      "bronchodilator": "Medicamentos respiratorios",
+      "gastrointestinal": "Medicamentos digestivos",
+      "cardiovascular": "Medicamentos cardiovasculares",
+      "neurological": "Medicamentos neurológicos",
+      "dermatological": "Medicamentos para la piel",
+      "endocrine": "Medicamentos hormonales",
+      "respiratory": "Medicamentos respiratorios",
+      "psychiatric": "Medicamentos psiquiátricos",
+      "immunosuppressant": "Inmunosupresores",
+      "anticoagulant": "Anticoagulantes",
+      "diuretic": "Diuréticos",
+      "steroid": "Corticosteroides",
+      "antifungal": "Antifúngicos"
+    }
+  },
+  "treatment": {
+    "categories": {
+      "cardiovascular": "Condiciones Cardiovasculares",
+      "respiratory": "Condiciones Respiratorias",
+      "gastrointestinal": "Condiciones Gastrointestinales",
+      "neurological": "Condiciones Neurológicas",
+      "psychiatric": "Condiciones de Salud Mental",
+      "emergency": "Condiciones de Emergencia",
+      "rheumatological": "Condiciones Reumatológicas",
+      "dermatological": "Condiciones de la Piel",
+      "infectious": "Enfermedades Infecciosas",
+      "endocrine": "Trastornos Endocrinos",
+      "hematological": "Trastornos de la Sangre",
+      "urological": "Condiciones Urológicas",
+      "renal": "Condiciones Renales",
+      "musculoskeletal": "Condiciones Musculoesqueléticas",
+      "obstetric": "Embarazo y Obstetricia",
+      "pediatric": "Condiciones Pediátricas"
+    },
+    "severity": {
+      "mild": "Leve",
+      "moderate": "Moderada",
+      "severe": "Grave"
+    },
+    "detailedView": "Vista Detallada",
+    "compactView": "Vista Compacta",
+    "print": "Imprimir",
+    "exportPdf": "Exportar PDF",
+    "searchPlaceholder": "Buscar condiciones o síntomas...",
+    "allCategories": "Todas las Categorías",
+    "infoNote": "Estas guías están simplificadas para referencia rápida. Las decisiones de tratamiento deben considerar factores individuales del paciente, protocolos locales y mejores prácticas actuales.",
+    "overview": "Descripción General",
+    "commonSymptoms": "Síntomas Comunes",
+    "treatmentApproach": "Enfoque de Tratamiento",
+    "firstLine": "Primera Línea",
+    "alternatives": "Alternativas",
+    "nonPharmacological": "No Farmacológico",
+    "followUp": "Seguimiento",
+    "keyMedications": "Medicamentos Clave",
+    "class": "Clase",
+    "dosing": "Dosificación",
+    "interactions": "Interacciones",
+    "importantConsiderations": "Consideraciones Importantes",
+    "referralCriteria": "Criterios de Derivación",
+    "additionalResources": "Recursos Adicionales",
+    "noResults": "No se encontraron guías de tratamiento que coincidan con sus criterios de búsqueda.",
+    "medicalDisclaimer": "Aviso Médico",
+    "disclaimerText": "Esta información se proporciona solo con fines informativos y no sustituye el consejo médico profesional, el diagnóstico o el tratamiento. Siempre busque el consejo de un proveedor de atención médica calificado con cualquier pregunta sobre una condición médica."
+  },
+  "symptoms": {
+    "bodyParts": {
+      "head": "Cabeza",
+      "neurological": "Neurológico",
+      "chest": "Pecho",
+      "cardiovascular": "Cardiovascular",
+      "respiratory": "Respiratorio",
+      "abdomen": "Abdomen",
+      "gastrointestinal": "Gastrointestinal",
+      "limbs": "Brazos y Piernas",
+      "skin": "Piel",
+      "general": "Síntomas Generales"
+    },
+    "urgency": {
+      "emergency": "Busque atención inmediatamente",
+      "urgent": "Busque atención pronto",
+      "semiUrgent": "Busque atención en 24 horas",
+      "nonUrgent": "El autocuidado puede ser apropiado"
+    },
+    "criticalDetected": "Síntomas Críticos Detectados",
+    "criticalWarning": "Ha seleccionado uno o más síntomas que pueden indicar una emergencia médica. Considere llamar a los servicios de emergencia (103) inmediatamente.",
+    "selectSymptoms": "Seleccione Sus Síntomas",
+    "critical": "Crítico",
+    "clearAll": "Limpiar Todo",
+    "analyzeSymptoms": "Analizar Síntomas",
+    "possibleConditions": "Condiciones Posibles",
+    "disclaimer": "Aviso: Esto no es un diagnóstico médico. Siempre consulte con un profesional de la salud para obtener asesoramiento médico adecuado.",
+    "recommendation": "Recomendación",
+    "relatedSymptoms": "Síntomas Relacionados",
+    "noResults": "No se encontraron condiciones que coincidan con sus síntomas.",
+    "noResultsAdvice": "Esto no significa que no tenga un problema de salud. Si está preocupado, consulte a un profesional de la salud.",
+    "checkDifferent": "Verificar Síntomas Diferentes",
+    "emergencyWarning": "Advertencia de Emergencia",
+    "emergencyCall": "Si está experimentando una emergencia médica, llame al 103 (Mongolia) inmediatamente."
+  },
+  "maintenance": {
+    "filter": {
+      "all": "Todos",
+      "pending": "Pendiente",
+      "overdue": "Vencido"
+    },
+    "priority": {
+      "low": "BAJO",
+      "medium": "MEDIO",
+      "high": "ALTO",
+      "critical": "CRÍTICO"
+    },
+    "status": {
+      "completed": "COMPLETADO",
+      "pending": "PENDIENTE",
+      "overdue": "VENCIDO"
+    },
+    "systemMaintenance": "Mantenimiento del Sistema",
+    "routineSchedule": "Programa de Mantenimiento Rutinario",
+    "scheduleDescription": "Tareas de mantenimiento automatizadas para mantener los sistemas de emergencia actualizados y confiables",
+    "frequency": "Frecuencia",
+    "nextDue": "Próxima Fecha",
+    "lastCompleted": "Último",
+    "runMaintenance": "Ejecutar Mantenimiento",
+    "automatedSystem": "Sistema de Mantenimiento Automatizado",
+    "automatedDescription": "El sistema realiza automáticamente tareas críticas de mantenimiento, incluyendo actualizaciones de base de datos, sincronización de mapas y mejoras de modelos de IA. La intervención manual solo es necesaria para elementos de alta prioridad o cuando los procesos automáticos detectan problemas."
   }
 }

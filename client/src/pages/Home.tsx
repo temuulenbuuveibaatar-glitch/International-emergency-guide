@@ -62,15 +62,15 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight">
-                International Emergency Guide
+                {t('home.title')}
               </h1>
               
               <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-200 font-light leading-relaxed">
-                Comprehensive multilingual emergency response platform providing critical medical and safety information for global users.
+                {t('home.heroDescription')}
               </p>
               
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-                Access detailed emergency protocols, locate nearby hospitals, find country-specific emergency numbers, and get AI-powered medical assistance - all available offline.
+                {t('home.heroSubDescription')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-12">
                 <Link href="/emergency" className="w-full sm:w-auto">
@@ -82,7 +82,7 @@ export default function Home() {
                       <div className="p-1.5 sm:p-2 bg-white/20 rounded-lg sm:rounded-xl group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
                         <Flame className="w-5 sm:w-6 h-5 sm:h-6 group-hover:animate-pulse group-active:animate-pulse" />
                       </div>
-                      <span className="text-base sm:text-lg text-center sm:text-left">Emergency Protocols</span>
+                      <span className="text-base sm:text-lg text-center sm:text-left">{t('home.emergencyButton')}</span>
                       <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-2 group-active:translate-x-1 transition-transform duration-300 sm:duration-500 hidden sm:block" />
                     </div>
                   </div>
@@ -96,7 +96,7 @@ export default function Home() {
                       <div className="p-1.5 sm:p-2 bg-white/20 rounded-lg sm:rounded-xl group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
                         <MapPin className="w-5 sm:w-6 h-5 sm:h-6 group-hover:animate-pulse group-active:animate-pulse" />
                       </div>
-                      <span className="text-base sm:text-lg text-center sm:text-left">Find Hospitals</span>
+                      <span className="text-base sm:text-lg text-center sm:text-left">{t('home.findHospital')}</span>
                       <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-2 group-active:translate-x-1 transition-transform duration-300 sm:duration-500 hidden sm:block" />
                     </div>
                   </div>
@@ -112,21 +112,21 @@ export default function Home() {
                   <div className="p-1 sm:p-1.5 bg-blue-500/25 rounded-full group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
                     <Globe className="w-3 sm:w-4 h-3 sm:h-4 text-blue-600 group-hover:text-blue-500 group-active:text-blue-500" />
                   </div>
-                  <span className="text-gray-700 dark:text-gray-200 font-medium">7 Languages</span>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">8 {t('home.languages')}</span>
                   <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
                 <div className="group flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-white/35 via-white/30 to-white/25 backdrop-blur-xl border border-white/50 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-105 active:translate-y-0.5 sm:hover:-translate-y-1 touch-manipulation">
                   <div className="p-1 sm:p-1.5 bg-green-500/25 rounded-full group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
                     <Shield className="w-3 sm:w-4 h-3 sm:h-4 text-green-600 group-hover:text-green-500 group-active:text-green-500" />
                   </div>
-                  <span className="text-gray-700 dark:text-gray-200 font-medium">Offline Ready</span>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">{t('home.offlineReady')}</span>
                   <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                 </div>
                 <div className="group flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-white/35 via-white/30 to-white/25 backdrop-blur-xl border border-white/50 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-500 transform active:scale-95 sm:hover:scale-105 active:translate-y-0.5 sm:hover:-translate-y-1 touch-manipulation">
                   <div className="p-1 sm:p-1.5 bg-yellow-500/25 rounded-full group-hover:rotate-12 group-active:rotate-6 transition-transform duration-300 sm:duration-500">
                     <Zap className="w-3 sm:w-4 h-3 sm:h-4 text-yellow-600 group-hover:text-yellow-500 group-active:text-yellow-500" />
                   </div>
-                  <span className="text-gray-700 dark:text-gray-200 font-medium">AI Powered</span>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium">{t('home.aiPowered')}</span>
                   <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-purple-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function Home() {
                       <div className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white/60 rounded-full animate-ping"></div>
                       <div className="relative">
                         <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">24/7</div>
-                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">Available</div>
+                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">{t('home.available')}</div>
                       </div>
                     </div>
                     <div className="group relative bg-gradient-to-br from-white/35 via-white/30 to-white/20 backdrop-blur-xl border border-white/60 p-3 sm:p-5 rounded-2xl sm:rounded-3xl text-center shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-700 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-3 overflow-hidden touch-manipulation">
@@ -164,8 +164,8 @@ export default function Home() {
                       <div className="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 w-6 sm:w-10 h-6 sm:h-10 bg-cyan-400/40 rounded-full blur-sm sm:blur-md animate-pulse" style={{animationDelay: '0.5s'}}></div>
                       <div className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
                       <div className="relative">
-                        <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">7</div>
-                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">Languages</div>
+                        <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">8</div>
+                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">{t('home.languages')}</div>
                       </div>
                     </div>
                     <div className="group relative bg-gradient-to-br from-white/35 via-white/30 to-white/20 backdrop-blur-xl border border-white/60 p-3 sm:p-5 rounded-2xl sm:rounded-3xl text-center shadow-xl sm:shadow-2xl active:shadow-lg sm:hover:shadow-3xl transition-all duration-300 sm:duration-700 transform active:scale-95 sm:hover:scale-110 active:translate-y-1 sm:hover:-translate-y-3 overflow-hidden touch-manipulation">
@@ -174,7 +174,7 @@ export default function Home() {
                       <div className="absolute top-0.5 sm:top-1 right-0.5 sm:right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
                       <div className="relative">
                         <div className="text-xl sm:text-3xl font-black text-white mb-1 sm:mb-2 drop-shadow-xl sm:drop-shadow-2xl">50+</div>
-                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">Protocols</div>
+                        <div className="text-xs sm:text-sm text-white/95 font-semibold tracking-wide">{t('home.protocols')}</div>
                       </div>
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function Home() {
         {showScrollIndicator && (
           <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 animate-bounce transition-opacity duration-500">
             <div className="flex flex-col items-center text-gray-500 dark:text-gray-400">
-              <span className="text-xs mb-2">Scroll for more</span>
+              <span className="text-xs mb-2">{t('home.scrollForMore')}</span>
               <ArrowDown className="w-5 h-5" />
             </div>
           </div>
@@ -215,10 +215,10 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent dark:from-white dark:via-blue-300 dark:to-white mb-4">
-              Emergency Services
+              {t('home.emergencyServices')}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Quick access to life-saving information and emergency resources
+              {t('home.emergencyServicesDesc')}
             </p>
           </div>
 
@@ -230,10 +230,10 @@ export default function Home() {
                   <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                     <AlertCircle className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Emergency Protocols</h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Step-by-step life-saving procedures for critical medical emergencies</p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{t('home.emergencyProtocolsTitle')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('home.emergencyProtocolsDesc')}</p>
                   <div className="flex items-center mt-6 text-red-600 dark:text-red-400 font-semibold">
-                    <span>Access Now</span>
+                    <span>{t('home.accessNow')}</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
@@ -247,10 +247,10 @@ export default function Home() {
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                     <MapPin className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Hospital Finder</h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Locate nearby hospitals and medical facilities with interactive maps</p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{t('home.hospitalFinder')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('home.hospitalFinderDesc')}</p>
                   <div className="flex items-center mt-6 text-blue-600 dark:text-blue-400 font-semibold">
-                    <span>Find Hospitals</span>
+                    <span>{t('home.findHospitals')}</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
@@ -264,10 +264,10 @@ export default function Home() {
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                     <Users className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Emergency Contacts</h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">Country-specific emergency numbers and contact information</p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{t('home.emergencyContacts')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{t('home.emergencyContactsDesc')}</p>
                   <div className="flex items-center mt-6 text-green-600 dark:text-green-400 font-semibold">
-                    <span>View Contacts</span>
+                    <span>{t('home.viewContacts')}</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
@@ -280,12 +280,12 @@ export default function Home() {
             <Link href="/hospital/login">
               <div className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl cursor-pointer" data-testid="link-hospital-staff">
                 <Building2 className="w-6 h-6" />
-                <span>Hospital Staff Portal</span>
+                <span>{t('home.hospitalStaffPortal')}</span>
                 <ArrowRight className="w-5 h-5" />
               </div>
             </Link>
             <p className="text-gray-500 dark:text-gray-400 text-sm mt-3">
-              Access the Hospital Management System (Staff login required)
+              {t('home.hospitalStaffAccess')}
             </p>
           </div>
         </div>

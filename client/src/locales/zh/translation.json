@@ -44,8 +44,29 @@
     "title": "国际急救指南",
     "subtitle": "您可信赖的紧急医疗信息来源",
     "description": "获取逐步的紧急处理程序、治疗指南、药物信息以及查找附近医院 - 一站式服务。",
+    "heroDescription": "为全球用户提供关键医疗和安全信息的综合多语言紧急响应平台。",
+    "heroSubDescription": "访问详细的紧急协议，定位附近医院，查找特定国家的紧急电话号码，获取AI驱动的医疗援助 - 所有功能均可离线使用。",
     "emergencyButton": "紧急救护协议",
-    "findHospital": "查找医院"
+    "findHospital": "查找医院",
+    "languages": "语言",
+    "offlineReady": "离线可用",
+    "aiPowered": "AI驱动",
+    "available": "可用",
+    "protocols": "协议",
+    "scrollForMore": "滚动查看更多",
+    "emergencyServices": "紧急服务",
+    "emergencyServicesDesc": "快速获取救命信息和紧急资源",
+    "emergencyProtocolsTitle": "紧急救护协议",
+    "emergencyProtocolsDesc": "针对危急医疗紧急情况的分步救命程序",
+    "accessNow": "立即访问",
+    "hospitalFinder": "医院查找器",
+    "hospitalFinderDesc": "通过互动地图定位附近的医院和医疗机构",
+    "findHospitals": "查找医院",
+    "emergencyContacts": "紧急联系方式",
+    "emergencyContactsDesc": "特定国家的紧急电话号码和联系信息",
+    "viewContacts": "查看联系方式",
+    "hospitalStaffPortal": "医院员工入口",
+    "hospitalStaffAccess": "访问医院管理系统（需要员工登录）"
   },
   "emergencyNumbers": {
     "title": "国际紧急电话号码",
@@ -85,14 +106,45 @@
   "protocols": {
     "title": "紧急救护协议",
     "description": "针对需要立即医疗关注的危急情况的逐步紧急协议。",
+    "notFound": "未找到协议",
     "viewDetails": "查看详情",
     "viewAll": "查看所有紧急救护协议",
     "stepTitle": "步骤",
+    "stepNumber": "步骤 {{number}}",
     "warningTitle": "警告",
     "notesTitle": "注释",
     "important": "重要"
   },
   "protocolTitles": {
+    "cpr2025": "心肺复苏术 (CPR)",
+    "heartattack2025": "急性冠脉综合征协议",
+    "choking2025": "窒息急救方案",
+    "respiratorydistress2025": "呼吸急症协议",
+    "bleedingcontrol2025": "止血控制（止血急救）",
+    "traumaassessment2025": "初级创伤评估（ABCDE）",
+    "burns2025": "烧伤处理方案",
+    "fractures2025": "骨折固定协议",
+    "spinalinjury2025": "脊髓损伤处理",
+    "headinjury2025": "创伤性脑损伤协议",
+    "strokebefast2025": "中风评估（BE-FAST）",
+    "seizure2025": "癫痫发作与癫痫持续状态",
+    "anaphylaxis2025": "过敏性休克急救",
+    "hypothermia2025": "低体温症处理",
+    "heatillness2025": "热相关疾病协议",
+    "drowning2025": "溺水与水上救援",
+    "diabeticemergency2025": "糖尿病急症协议",
+    "overdosenaloxone2025": "阿片类药物过量与纳洛酮",
+    "poisoning2025": "中毒与去污处理",
+    "shock2025": "休克识别与处理",
+    "pediatricemergencies2025": "儿科急症协议",
+    "childbirth2025": "紧急分娩",
+    "mentalhealth2025": "心理健康危机干预",
+    "electricalinjury2025": "电击伤害协议",
+    "eyeinjury2025": "眼外伤处理",
+    "dentalemergency2025": "牙科急症协议",
+    "animalbites2025": "动物咬伤处理",
+    "fireemergency2025": "火灾应急响应",
+    "firesafetyequipment2025": "消防安全设备使用",
     "fireemergency": "火灾应急响应",
     "firehose": "紧急消防水带使用",
     "cpr": "心肺复苏术（2025年AHA指南）",
@@ -136,6 +188,35 @@
     "pediatricemergencies": "儿科急症协议"
   },
   "protocolDescriptions": {
+    "cpr2025": "AHA 2025标准心脏骤停急救方案 - 未经培训的旁观者使用单纯胸外按压，经培训的急救人员使用完整心肺复苏术",
+    "heartattack2025": "ST段抬高型/非ST段抬高型心肌梗死识别、阿司匹林给药和快速转运指南。",
+    "choking2025": "适用于各年龄段有意识和无意识患者的气道梗阻解除技术",
+    "respiratorydistress2025": "哮喘、慢性阻塞性肺病和严重呼吸困难处理及体位优化。",
+    "bleedingcontrol2025": "止血带应用、伤口填塞和压迫点技术用于出血控制。",
+    "traumaassessment2025": "系统评估：气道伴颈椎保护、呼吸、循环、神经功能、暴露检查。",
+    "burns2025": "九分法评估、冷却技术和液体复苏计算。",
+    "fractures2025": "夹板固定技术、神经血管评估和疼痛管理。",
+    "spinalinjury2025": "颈椎固定、翻身技术和神经功能评估。",
+    "headinjury2025": "格拉斯哥昏迷评分、颅内压管理和颈椎保护。",
+    "strokebefast2025": "平衡、眼睛、面部、手臂、言语、时间 - 增强型中风识别协议。",
+    "seizure2025": "癫痫发作安全、苯二氮卓类药物给药和发作后护理。",
+    "anaphylaxis2025": "严重过敏反应处理，包括肾上腺素给药和气道监测",
+    "hypothermia2025": "分阶段复温、核心体温监测和复温后低血压预防。",
+    "heatillness2025": "热衰竭与热射病的鉴别诊断和积极降温策略。",
+    "drowning2025": "水上救援安全、人工呼吸和低体温预防。",
+    "diabeticemergency2025": "低血糖与糖尿病酮症酸中毒识别、葡萄糖给药和胰岛素协议。",
+    "overdosenaloxone2025": "纳洛酮给药、气道管理和逆转后监测。",
+    "poisoning2025": "中毒控制中心咨询、去污程序和解毒剂给药。",
+    "shock2025": "心源性、低血容量性、分布性和梗阻性休克协议。",
+    "pediatricemergencies2025": "年龄特异性程序、儿科评估三角和以家庭为中心的护理。",
+    "childbirth2025": "产程评估、分娩协助和新生儿复苏基础。",
+    "mentalhealth2025": "危机降级、自杀风险评估和精神科急症安全转运。",
+    "electricalinjury2025": "现场安全、心电监护和电击伤烧伤评估。",
+    "eyeinjury2025": "化学灼伤、异物和穿透性眼外伤协议。",
+    "dentalemergency2025": "牙齿脱落、骨折和口腔出血处理。",
+    "animalbites2025": "伤口护理、狂犬病风险评估和感染预防。",
+    "fireemergency2025": "RACE协议（救援、警报、隔离、灭火）和疏散程序。",
+    "firesafetyequipment2025": "灭火器类型、喷淋系统和紧急疏散设备。",
     "fireemergency": "关于如何应对火灾的综合指南，包括预防、检测、疏散和基本灭火技术。",
     "firehose": "关于如何正确使用紧急消防水带安全有效地扑灭火灾的分步指南。",
     "cpr": "遵循2025年AHA指南的高质量心肺复苏术，强调未经培训旁观者的单纯胸外按压。",
@@ -684,5 +765,437 @@
     "graduationYear": "毕业年份",
     "hospitalAffiliation": "所属医院",
     "yearsOfExperience": "从业年限"
+  },
+  "buttons": {
+    "returnToProtocols": "返回协议列表",
+    "viewDetails": "查看详情",
+    "back": "返回",
+    "next": "下一步",
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "print": "打印",
+    "share": "分享"
+  },
+  "protocolSteps": {
+    "cpr2025": {
+      "step1": {
+        "title": "检查反应性",
+        "description": "用力拍击患者双肩，大声询问'您还好吗？'观察是否有正常呼吸，时间不超过10秒。如无反应且呼吸异常，立即开始心肺复苏。",
+        "duration": "10秒",
+        "tip1": "不要浪费时间检查脉搏",
+        "tip2": "濒死喘息不是正常呼吸",
+        "tip3": "迅速行动 - 脑损伤在4-6分钟内开始"
+      },
+      "step2": {
+        "title": "呼叫帮助",
+        "description": "立即拨打急救电话(120)或让他人拨打。如有条件获取AED设备。如独自一人使用电话，请开启免提。不要离开去寻求帮助。",
+        "duration": "30秒",
+        "tip1": "免提模式可持续进行心肺复苏",
+        "tip2": "AED对生存至关重要",
+        "tip3": "分秒必争"
+      },
+      "step3": {
+        "title": "摆放体位",
+        "description": "将患者放在坚硬平坦的表面上。轻微后仰头部，抬起下巴。将一只手的掌根放在胸骨中央两乳头连线中点。另一只手叠放其上，手指交叉。",
+        "duration": "15秒",
+        "tip1": "坚硬的表面至关重要",
+        "tip2": "胸骨中央位置，不要太高",
+        "tip3": "保持手臂伸直"
+      },
+      "step4": {
+        "title": "开始胸外按压",
+        "description": "用力快速按压，深度至少5厘米。每次按压后让胸廓完全回弹。按压频率100-120次/分钟。大声计数。",
+        "duration": "持续循环",
+        "tip1": "按照《Stayin' Alive》歌曲节奏",
+        "tip2": "让胸廓完全弹回",
+        "tip3": "不要倚靠在胸部上"
+      },
+      "step5": {
+        "title": "进行人工呼吸（如经过培训）",
+        "description": "完成30次按压后，后仰头部，抬起下巴，捏住鼻孔。完全封住口部，吹气2次（每次1秒）。观察胸廓起伏。",
+        "duration": "5秒",
+        "tip1": "未经培训者：仅做胸外按压即可",
+        "tip2": "不要过度通气",
+        "tip3": "每次吹气时胸廓应有起伏"
+      },
+      "step6": {
+        "title": "持续至救援到达",
+        "description": "在急救人员到达、患者恢复正常呼吸或您筋疲力尽前不要停止。AED到达后立即使用，按语音提示操作。",
+        "duration": "直到专业人员接手",
+        "tip1": "高质量按压能挽救生命",
+        "tip2": "AED会全程语音指导",
+        "tip3": "不要放弃"
+      }
+    },
+    "strokebefast2025": {
+      "step1": {
+        "title": "平衡 - 检查协调能力丧失",
+        "description": "询问是否突然出现平衡丧失、头晕或协调问题。观察行走困难、协调障碍、不明原因跌倒。",
+        "duration": "30秒",
+        "tip1": "可能是后循环中风的唯一征兆",
+        "tip2": "询问近期跌倒情况",
+        "tip3": "突发性是关键"
+      },
+      "step2": {
+        "title": "眼睛 - 检查视力丧失",
+        "description": "询问是否突然出现视力丧失、复视或视野缺损。让患者追踪您的手指。测试周边视野。",
+        "duration": "30秒",
+        "tip1": "视力变化可能很细微",
+        "tip2": "双眼都要检查",
+        "tip3": "可能抱怨有暗区"
+      },
+      "step3": {
+        "title": "面部 - 检查面部下垂",
+        "description": "让患者露齿微笑。观察是否有不对称/歪斜的笑容、面部下垂或不对称运动。",
+        "duration": "30秒",
+        "tip1": "最易识别的中风征兆",
+        "tip2": "检查面部两侧",
+        "tip3": "可能也影响言语肌肉"
+      },
+      "step4": {
+        "title": "手臂 - 检查肢体无力",
+        "description": "让患者闭眼，双臂上举保持10秒，掌心向上。观察手臂下垂、单侧无法抬起或无力。",
+        "duration": "30秒",
+        "tip1": "单侧无力是典型表现",
+        "tip2": "双侧对比",
+        "tip3": "初期可能很细微"
+      },
+      "step5": {
+        "title": "言语 - 检查语言问题",
+        "description": "让患者重复一个简单的短语。注意是否有言语含糊、用词错误或无法理解。",
+        "duration": "30秒",
+        "tip1": "语言问题非常常见",
+        "tip2": "也要检查理解能力",
+        "tip3": "可能难以找词"
+      },
+      "step6": {
+        "title": "时间 - 立即呼叫急救服务",
+        "description": "如有任何征兆，记录症状开始的确切时间并呼叫急救服务。告知调度员'疑似中风'和发病时间。时间就是大脑。",
+        "duration": "2-3分钟",
+        "tip1": "不要等待更多症状出现",
+        "tip2": "时间决定治疗方案",
+        "tip3": "如有条件转送至卒中中心"
+      }
+    },
+    "choking2025": {
+      "step1": {
+        "title": "评估情况",
+        "description": "观察通用窒息手势（双手抓住喉咙）。询问'您是否噎住了？'如患者仍能咳嗽、说话或呼吸，鼓励其继续咳嗽。",
+        "duration": "5-10秒",
+        "tip1": "能咳嗽说明气道未完全阻塞",
+        "tip2": "无声窒息更危险",
+        "tip3": "迅速行动但保持冷静"
+      },
+      "step2": {
+        "title": "背部拍击体位",
+        "description": "站在患者侧后方。一只手支撑其胸部，让其身体前倾，使异物向外而非向下落入气道。",
+        "duration": "5秒",
+        "tip1": "前倾体位至关重要",
+        "tip2": "稳固地支撑患者",
+        "tip3": "婴儿采用不同技术"
+      },
+      "step3": {
+        "title": "进行5次有力背部拍击",
+        "description": "用手掌根部在两肩胛骨之间用力拍击5次。每次拍击应独立且有力。每次拍击后检查口腔。",
+        "duration": "15-20秒",
+        "tip1": "每次拍击都要用力",
+        "tip2": "只移除可见异物",
+        "tip3": "不要盲目用手指掏"
+      },
+      "step4": {
+        "title": "进行5次腹部冲击",
+        "description": "站在患者身后。将拳头放在肚脐上方、肋骨下方。另一只手握住拳头，快速向上向内冲击5次。",
+        "duration": "15-20秒",
+        "tip1": "肚脐上方、肋骨下方",
+        "tip2": "快速向上的动作",
+        "tip3": "孕妇或肥胖者需调整手法"
+      },
+      "step5": {
+        "title": "交替进行两种技术",
+        "description": "持续交替进行5次背部拍击和5次腹部冲击，直到异物排出、患者能呼吸/说话，或失去意识。",
+        "duration": "直到成功或失去意识",
+        "tip1": "不要轻易放弃",
+        "tip2": "间歇时鼓励咳嗽",
+        "tip3": "做好异物突然排出的准备"
+      },
+      "step6": {
+        "title": "如患者失去意识",
+        "description": "将患者放平，如未拨打则呼叫急救服务。开始心肺复苏胸外按压。人工呼吸前检查口腔，只移除可见异物。",
+        "duration": "直到急救人员到达",
+        "tip1": "心肺复苏可能使异物松动",
+        "tip2": "每次吹气前检查口腔",
+        "tip3": "不要为寻找异物而停止按压"
+      }
+    },
+    "bleedingcontrol2025": {
+      "step1": {
+        "title": "现场安全与自我保护",
+        "description": "评估现场是否有持续危险。戴手套或用塑料袋/布料作为屏障。您的安全第一 - 如果您受伤就无法施救。",
+        "duration": "15-30秒",
+        "tip1": "接触血液时采取通用预防措施",
+        "tip2": "使用任何可用的屏障",
+        "tip3": "不要成为第二个受害者"
+      },
+      "step2": {
+        "title": "严重出血时呼叫急救服务",
+        "description": "危及生命的出血应立即拨打急救电话。说明'严重出血/大出血'和位置。大量出血时请求血液制品和创伤团队。",
+        "duration": "30秒",
+        "tip1": "严重出血不要延误",
+        "tip2": "具体说明严重程度",
+        "tip3": "如可能指定他人拨打电话"
+      },
+      "step3": {
+        "title": "直接压迫止血",
+        "description": "将干净的布/纱布直接放在伤口上。如需要可用双手用力按压。不要掀开查看 - 保持持续压迫。",
+        "duration": "持续压迫",
+        "tip1": "最有效的止血方法",
+        "tip2": "不要移除血液浸透的敷料",
+        "tip3": "使用任何可用的干净材料"
+      },
+      "step4": {
+        "title": "如可能抬高伤肢",
+        "description": "如无骨折疑虑，将出血部位抬高至心脏水平以上。保持支撑同时维持压迫。怀疑脊柱损伤时不要抬高。",
+        "duration": "贯穿整个救治过程",
+        "tip1": "对四肢最有效",
+        "tip2": "重力有助于减少血流",
+        "tip3": "不要因此影响直接压迫"
+      },
+      "step5": {
+        "title": "必要时使用压迫点",
+        "description": "如直接压迫无效，在伤口与心脏之间的动脉点施压。上肢伤口：肱动脉。下肢伤口：腹股沟股动脉。",
+        "duration": "直到出血控制",
+        "tip1": "仅在直接压迫不足时使用",
+        "tip2": "学习压迫点位置",
+        "tip3": "按压压迫点时维持直接压迫"
+      },
+      "step6": {
+        "title": "危及生命的肢体出血使用止血带",
+        "description": "严重肢体出血且压迫无法控制时，在伤口上方5-8厘米处使用止血带。收紧直到出血停止。在止血带上写明时间。",
+        "duration": "直到医疗专业人员移除",
+        "tip1": "肢体出血的最后手段",
+        "tip2": "优先使用商业止血带",
+        "tip3": "记录使用时间"
+      }
+    },
+    "heartattack2025": {
+      "step1": {
+        "title": "识别心脏病发作症状",
+        "description": "典型症状：胸痛/压迫感、呼吸困难、恶心、出汗、疼痛放射至手臂/下颌/背部。女性可能有非典型症状：疲劳、消化不良、背痛。",
+        "duration": "持续评估",
+        "tip1": "不要等待典型症状",
+        "tip2": "女性症状常常不同",
+        "tip3": "相信您的直觉"
+      },
+      "step2": {
+        "title": "呼叫急救服务 - 不要自驾",
+        "description": "立即拨打急救电话，不要自驾去医院。说明'疑似心脏病发作'和位置。急救人员可立即开始治疗并绕过急诊室。",
+        "duration": "2-3分钟",
+        "tip1": "急救服务预后更好",
+        "tip2": "治疗立即开始",
+        "tip3": "直接送往心脏中心"
+      },
+      "step3": {
+        "title": "如安全给予阿司匹林",
+        "description": "如患者清醒、无过敏史、无出血障碍，给予325毫克阿司匹林咀嚼。咀嚼比吞咽吸收更快。不要为找阿司匹林而延误呼叫急救。",
+        "duration": "1-2分钟",
+        "tip1": "咀嚼加速吸收",
+        "tip2": "过敏者禁用",
+        "tip3": "预防进一步血栓形成"
+      },
+      "step4": {
+        "title": "舒适体位",
+        "description": "帮助患者坐直或半卧位用枕头支撑 - 减轻心脏负担。松开紧身衣物。保持平静和静止。",
+        "duration": "贯穿整个救治过程",
+        "tip1": "不要让患者平躺",
+        "tip2": "减轻焦虑",
+        "tip3": "保持温暖"
+      },
+      "step5": {
+        "title": "监测并安慰",
+        "description": "在帮助到达前陪伴患者。监测呼吸和意识。如患者失去反应，准备进行心肺复苏。",
+        "duration": "直到急救人员到达",
+        "tip1": "让患者保持平静",
+        "tip2": "记录症状开始时间",
+        "tip3": "准备进行心肺复苏"
+      }
+    },
+    "anaphylaxis2025": {
+      "step1": {
+        "title": "识别过敏性休克征兆",
+        "description": "观察：荨麻疹/肿胀、呼吸困难、喉咙紧缩、脉搏加快、头晕、恶心。症状通常在接触过敏原后数分钟内出现。",
+        "duration": "立即识别",
+        "tip1": "可能迅速恶化",
+        "tip2": "可能从轻微症状开始",
+        "tip3": "已知过敏史会增加风险"
+      },
+      "step2": {
+        "title": "立即呼叫急救服务",
+        "description": "拨打急救电话说明'严重过敏反应/过敏性休克'。这是需要立即治疗的危及生命的紧急情况。",
+        "duration": "30秒",
+        "tip1": "时间至关重要",
+        "tip2": "不要等待症状好转",
+        "tip3": "说明任何已知过敏史"
+      },
+      "step3": {
+        "title": "使用肾上腺素自动注射器",
+        "description": "如有肾上腺素自动注射器，立即使用。必要时可隔着衣物注射入大腿外侧。按住10秒。",
+        "duration": "30秒",
+        "tip1": "不要延误使用肾上腺素",
+        "tip2": "可隔着衣物注射",
+        "tip3": "可能需要第二剂"
+      },
+      "step4": {
+        "title": "适当体位",
+        "description": "如有呼吸困难：坐直。如感到晕厥：平躺抬高双腿。如呕吐或怀孕：侧卧位。",
+        "duration": "贯穿整个救治过程",
+        "tip1": "根据症状调整体位",
+        "tip2": "不要让患者站立或行走",
+        "tip3": "保持温暖"
+      },
+      "step5": {
+        "title": "监测双相反应",
+        "description": "症状可能在初次反应后数小时内复发。陪伴患者并监测。可能需要第二剂肾上腺素。",
+        "duration": "持续监测",
+        "tip1": "反应可能复发",
+        "tip2": "建议医院观察",
+        "tip3": "肾上腺素保持在身边"
+      }
+    }
+  },
+  "medications": {
+    "categories": {
+      "analgesic": "止痛药",
+      "antibiotic": "抗生素",
+      "antiviral": "抗病毒药",
+      "antihistamine": "抗组胺药",
+      "antihypertensive": "降压药和心脏药物",
+      "antidepressant": "抗抑郁药",
+      "nsaid": "消炎药",
+      "bronchodilator": "呼吸系统药物",
+      "gastrointestinal": "消化系统药物",
+      "cardiovascular": "心血管药物",
+      "neurological": "神经系统药物",
+      "dermatological": "皮肤药物",
+      "endocrine": "激素药物",
+      "respiratory": "呼吸药物",
+      "psychiatric": "精神健康药物",
+      "immunosuppressant": "免疫抑制剂",
+      "anticoagulant": "抗凝血药",
+      "diuretic": "利尿剂",
+      "steroid": "皮质类固醇",
+      "antifungal": "抗真菌药"
+    }
+  },
+  "treatment": {
+    "categories": {
+      "cardiovascular": "心血管疾病",
+      "respiratory": "呼吸系统疾病",
+      "gastrointestinal": "胃肠道疾病",
+      "neurological": "神经系统疾病",
+      "psychiatric": "精神健康疾病",
+      "emergency": "紧急情况",
+      "rheumatological": "风湿病",
+      "dermatological": "皮肤病",
+      "infectious": "传染病",
+      "endocrine": "内分泌疾病",
+      "hematological": "血液疾病",
+      "urological": "泌尿系统疾病",
+      "renal": "肾脏疾病",
+      "musculoskeletal": "肌肉骨骼疾病",
+      "obstetric": "妊娠和产科疾病",
+      "pediatric": "儿科疾病"
+    },
+    "severity": {
+      "mild": "轻度",
+      "moderate": "中度",
+      "severe": "重度"
+    },
+    "detailedView": "详细视图",
+    "compactView": "简洁视图",
+    "print": "打印",
+    "exportPdf": "导出PDF",
+    "searchPlaceholder": "搜索疾病或症状...",
+    "allCategories": "所有类别",
+    "infoNote": "这些指南已简化以便快速参考。治疗决策应考虑个体患者因素、当地规程和当前最佳实践。",
+    "overview": "概述",
+    "commonSymptoms": "常见症状",
+    "treatmentApproach": "治疗方法",
+    "firstLine": "一线治疗",
+    "alternatives": "替代方案",
+    "nonPharmacological": "非药物治疗",
+    "followUp": "随访",
+    "keyMedications": "关键药物",
+    "class": "类别",
+    "dosing": "剂量",
+    "interactions": "相互作用",
+    "importantConsiderations": "重要注意事项",
+    "referralCriteria": "转诊标准",
+    "additionalResources": "其他资源",
+    "noResults": "未找到符合您搜索条件的治疗指南。",
+    "medicalDisclaimer": "医学免责声明",
+    "disclaimerText": "此信息仅供参考，不能替代专业医疗建议、诊断或治疗。如有任何健康问题，请始终咨询合格的医疗保健提供者。"
+  },
+  "symptoms": {
+    "bodyParts": {
+      "head": "头部",
+      "neurological": "神经系统",
+      "chest": "胸部",
+      "cardiovascular": "心血管",
+      "respiratory": "呼吸系统",
+      "abdomen": "腹部",
+      "gastrointestinal": "胃肠道",
+      "limbs": "四肢",
+      "skin": "皮肤",
+      "general": "全身症状"
+    },
+    "urgency": {
+      "emergency": "立即就医",
+      "urgent": "尽快就医",
+      "semiUrgent": "24小时内就医",
+      "nonUrgent": "可自我护理"
+    },
+    "criticalDetected": "检测到严重症状",
+    "criticalWarning": "您选择了一个或多个可能表明医疗紧急情况的症状。请考虑立即拨打急救电话（103）。",
+    "selectSymptoms": "选择您的症状",
+    "critical": "严重",
+    "clearAll": "清除全部",
+    "analyzeSymptoms": "分析症状",
+    "possibleConditions": "可能的疾病",
+    "disclaimer": "免责声明：这不是医学诊断。请始终咨询医疗保健专业人员以获取适当的医学建议。",
+    "recommendation": "建议",
+    "relatedSymptoms": "相关症状",
+    "noResults": "未找到与您症状匹配的疾病。",
+    "noResultsAdvice": "这并不意味着您没有健康问题。如果您担心，请咨询医疗保健专业人员。",
+    "checkDifferent": "检查其他症状",
+    "emergencyWarning": "紧急警告",
+    "emergencyCall": "如果您正在经历医疗紧急情况，请立即拨打103（蒙古）。"
+  },
+  "maintenance": {
+    "filter": {
+      "all": "全部",
+      "pending": "待处理",
+      "overdue": "已逾期"
+    },
+    "priority": {
+      "low": "低",
+      "medium": "中",
+      "high": "高",
+      "critical": "紧急"
+    },
+    "status": {
+      "completed": "已完成",
+      "pending": "待处理",
+      "overdue": "已逾期"
+    },
+    "systemMaintenance": "系统维护",
+    "routineSchedule": "例行维护计划",
+    "scheduleDescription": "自动维护任务，确保应急系统保持更新和可靠",
+    "frequency": "频率",
+    "nextDue": "下次到期",
+    "lastCompleted": "上次完成",
+    "runMaintenance": "执行维护",
+    "automatedSystem": "自动维护系统",
+    "automatedDescription": "系统自动执行关键维护任务，包括数据库更新、地图同步和AI模型改进。仅在高优先级项目或自动流程检测到问题时才需要手动干预。"
   }
 }

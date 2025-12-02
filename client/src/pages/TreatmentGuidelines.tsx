@@ -706,24 +706,24 @@ const treatmentGuidelines: TreatmentGuideline[] = [
   // Added 25+ comprehensive conditions covering various medical specialties
 ];
 
-// Medical category names
-const categories = {
-  cardiovascular: "Cardiovascular Conditions",
-  respiratory: "Respiratory Conditions",
-  gastrointestinal: "Gastrointestinal Conditions",
-  neurological: "Neurological Conditions",
-  psychiatric: "Mental Health Conditions",
-  emergency: "Emergency Conditions",
-  rheumatological: "Rheumatological Conditions",
-  dermatological: "Skin Conditions",
-  infectious: "Infectious Diseases",
-  endocrine: "Endocrine Disorders",
-  hematological: "Blood Disorders",
-  urological: "Urological Conditions",
-  renal: "Kidney Conditions",
-  musculoskeletal: "Musculoskeletal Conditions",
-  obstetric: "Pregnancy & Obstetric Conditions",
-  pediatric: "Pediatric Conditions"
+// Medical category translation keys
+const categoryKeys: Record<string, string> = {
+  cardiovascular: "treatment.categories.cardiovascular",
+  respiratory: "treatment.categories.respiratory",
+  gastrointestinal: "treatment.categories.gastrointestinal",
+  neurological: "treatment.categories.neurological",
+  psychiatric: "treatment.categories.psychiatric",
+  emergency: "treatment.categories.emergency",
+  rheumatological: "treatment.categories.rheumatological",
+  dermatological: "treatment.categories.dermatological",
+  infectious: "treatment.categories.infectious",
+  endocrine: "treatment.categories.endocrine",
+  hematological: "treatment.categories.hematological",
+  urological: "treatment.categories.urological",
+  renal: "treatment.categories.renal",
+  musculoskeletal: "treatment.categories.musculoskeletal",
+  obstetric: "treatment.categories.obstetric",
+  pediatric: "treatment.categories.pediatric"
 };
 
 export default function TreatmentGuidelines() {
@@ -815,7 +815,7 @@ export default function TreatmentGuidelines() {
     return (
       <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${color} ml-2`}>
         {icon}
-        {severity.charAt(0).toUpperCase() + severity.slice(1)}
+        {t(`treatment.severity.${severity}`)}
       </span>
     );
   };
@@ -836,14 +836,14 @@ export default function TreatmentGuidelines() {
                 className={`px-3 py-1.5 text-sm rounded-md flex items-center ${viewMode === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
               >
                 <BookOpen className="h-4 w-4 mr-1" />
-                Detailed View
+                {t('treatment.detailedView')}
               </button>
               <button 
                 onClick={() => setViewMode('compact')}
                 className={`px-3 py-1.5 text-sm rounded-md flex items-center ${viewMode === 'compact' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
               >
                 <ClipboardList className="h-4 w-4 mr-1" />
-                Compact View
+                {t('treatment.compactView')}
               </button>
             </div>
             <div className="flex space-x-2">
@@ -852,14 +852,14 @@ export default function TreatmentGuidelines() {
                 className="px-3 py-1.5 text-sm bg-blue-100 text-blue-700 rounded-md flex items-center hover:bg-blue-200"
               >
                 <Printer className="h-4 w-4 mr-1" />
-                Print
+                {t('treatment.print')}
               </button>
               <button 
                 onClick={handleDownload}
                 className="px-3 py-1.5 text-sm bg-blue-600 text-white rounded-md flex items-center hover:bg-blue-700"
               >
                 <DownloadCloud className="h-4 w-4 mr-1" />
-                Export PDF
+                {t('treatment.exportPdf')}
               </button>
             </div>
           </div>
@@ -879,7 +879,7 @@ export default function TreatmentGuidelines() {
                   <input
                     type="text"
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                    placeholder="Search conditions or symptoms..."
+                    placeholder={t('treatment.searchPlaceholder')}
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
                   />
@@ -889,9 +889,9 @@ export default function TreatmentGuidelines() {
                   value={filterCategory || ''}
                   onChange={e => setFilterCategory(e.target.value === '' ? null : e.target.value)}
                 >
-                  <option value="">All Categories</option>
-                  {Object.entries(categories).map(([key, name]) => (
-                    <option key={key} value={key}>{name}</option>
+                  <option value="">{t('treatment.allCategories')}</option>
+                  {Object.entries(categoryKeys).map(([key, translationKey]) => (
+                    <option key={key} value={key}>{t(translationKey)}</option>
                   ))}
                 </select>
               </div>
@@ -904,7 +904,7 @@ export default function TreatmentGuidelines() {
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-blue-700">
-                      These guidelines are simplified for quick reference. Treatment decisions should consider individual patient factors, local protocols, and current best practices.
+                      {t('treatment.infoNote')}
                     </p>
                   </div>
                 </div>
@@ -927,7 +927,7 @@ export default function TreatmentGuidelines() {
                               <Folder className="h-5 w-5 text-blue-500 mr-2" />
                             }
                             <h3 className="font-medium text-lg text-gray-900">
-                              {categories[categoryKey as keyof typeof categories]}
+                              {t(categoryKeys[categoryKey as keyof typeof categoryKeys])}
                               <span className="ml-2 text-sm text-gray-500">({guidelines.length})</span>
                             </h3>
                           </div>
@@ -964,11 +964,11 @@ export default function TreatmentGuidelines() {
                                   <div className="p-4 border-t border-gray-200">
                                     <div className="space-y-4">
                                       <div>
-                                        <h4 className="font-medium text-gray-700 mb-1">Overview</h4>
+                                        <h4 className="font-medium text-gray-700 mb-1">{t('treatment.overview')}</h4>
                                         <p className="text-gray-600">{guideline.overview}</p>
                                       </div>
                                       <div>
-                                        <h4 className="font-medium text-gray-700 mb-1">Common Symptoms</h4>
+                                        <h4 className="font-medium text-gray-700 mb-1">{t('treatment.commonSymptoms')}</h4>
                                         <ul className="list-disc pl-5 text-gray-600">
                                           {guideline.symptoms.map((symptom, idx) => (
                                             <li key={idx}>{symptom}</li>
@@ -976,17 +976,17 @@ export default function TreatmentGuidelines() {
                                         </ul>
                                       </div>
                                       <div>
-                                        <h4 className="font-medium text-gray-700 mb-1">Treatment Approach</h4>
+                                        <h4 className="font-medium text-gray-700 mb-1">{t('treatment.treatmentApproach')}</h4>
                                         <div className="space-y-2 text-gray-600">
-                                          <p><span className="font-medium">First Line: </span>{guideline.treatment.firstLine}</p>
+                                          <p><span className="font-medium">{t('treatment.firstLine')}: </span>{guideline.treatment.firstLine}</p>
                                           {guideline.treatment.alternatives && (
-                                            <p><span className="font-medium">Alternatives: </span>{guideline.treatment.alternatives}</p>
+                                            <p><span className="font-medium">{t('treatment.alternatives')}: </span>{guideline.treatment.alternatives}</p>
                                           )}
                                           {guideline.treatment.nonPharmacological && (
-                                            <p><span className="font-medium">Non-Pharmacological: </span>{guideline.treatment.nonPharmacological}</p>
+                                            <p><span className="font-medium">{t('treatment.nonPharmacological')}: </span>{guideline.treatment.nonPharmacological}</p>
                                           )}
                                           {guideline.treatment.followUp && (
-                                            <p><span className="font-medium">Follow-up: </span>{guideline.treatment.followUp}</p>
+                                            <p><span className="font-medium">{t('treatment.followUp')}: </span>{guideline.treatment.followUp}</p>
                                           )}
                                         </div>
                                       </div>
@@ -994,16 +994,16 @@ export default function TreatmentGuidelines() {
                                       {/* Medications section */}
                                       {guideline.medications && guideline.medications.length > 0 && (
                                         <div>
-                                          <h4 className="font-medium text-gray-700 mb-2">Key Medications</h4>
+                                          <h4 className="font-medium text-gray-700 mb-2">{t('treatment.keyMedications')}</h4>
                                           <div className="grid gap-3 md:grid-cols-2">
                                             {guideline.medications.map((med, idx) => (
                                               <div key={idx} className="bg-gray-50 p-3 rounded-md border border-gray-200">
                                                 <h5 className="font-medium text-gray-800">{med.name}</h5>
-                                                <p className="text-sm text-gray-500 mb-1">Class: {med.class}</p>
-                                                <p className="text-sm text-gray-600 mb-1">Dosing: {med.dosing}</p>
+                                                <p className="text-sm text-gray-500 mb-1">{t('treatment.class')}: {med.class}</p>
+                                                <p className="text-sm text-gray-600 mb-1">{t('treatment.dosing')}: {med.dosing}</p>
                                                 {med.interactions && med.interactions.length > 0 && (
                                                   <div className="mt-1">
-                                                    <p className="text-xs font-medium text-amber-700">Interactions:</p>
+                                                    <p className="text-xs font-medium text-amber-700">{t('treatment.interactions')}:</p>
                                                     <ul className="list-disc pl-4 text-xs text-amber-600">
                                                       {med.interactions.map((interaction, i) => (
                                                         <li key={i}>{interaction}</li>
@@ -1021,7 +1021,7 @@ export default function TreatmentGuidelines() {
                                         <div className="bg-red-50 p-3 rounded-md">
                                           <h4 className="font-medium text-red-700 flex items-center mb-1">
                                             <AlertCircle className="h-4 w-4 mr-1" />
-                                            Important Considerations
+                                            {t('treatment.importantConsiderations')}
                                           </h4>
                                           <ul className="list-disc pl-5 text-red-600">
                                             {guideline.warnings.map((warning, idx) => (
@@ -1033,7 +1033,7 @@ export default function TreatmentGuidelines() {
                                       
                                       {guideline.referral && (
                                         <div className="border-t border-gray-200 pt-3">
-                                          <h4 className="font-medium text-gray-700 mb-1">Referral Criteria</h4>
+                                          <h4 className="font-medium text-gray-700 mb-1">{t('treatment.referralCriteria')}</h4>
                                           <p className="text-gray-600">{guideline.referral}</p>
                                         </div>
                                       )}
@@ -1041,7 +1041,7 @@ export default function TreatmentGuidelines() {
                                       {/* External Resources section */}
                                       {guideline.resources && guideline.resources.length > 0 && (
                                         <div className="border-t border-gray-200 pt-3">
-                                          <h4 className="font-medium text-gray-700 mb-1">Additional Resources</h4>
+                                          <h4 className="font-medium text-gray-700 mb-1">{t('treatment.additionalResources')}</h4>
                                           <ul className="space-y-1">
                                             {guideline.resources.map((resource, idx) => (
                                               <li key={idx} className="text-blue-600 hover:underline">
@@ -1063,7 +1063,7 @@ export default function TreatmentGuidelines() {
                   </div>
                 ) : (
                   <div className="text-center py-10 text-gray-500">
-                    <p>No treatment guidelines found matching your search criteria.</p>
+                    <p>{t('treatment.noResults')}</p>
                   </div>
                 )}
               </div>
@@ -1071,10 +1071,9 @@ export default function TreatmentGuidelines() {
           </div>
 
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-yellow-700">
-            <h4 className="font-semibold">Medical Disclaimer</h4>
+            <h4 className="font-semibold">{t('treatment.medicalDisclaimer')}</h4>
             <p className="text-sm mt-1">
-              This information is provided for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. 
-              Always seek the advice of a qualified healthcare provider with any questions regarding a medical condition.
+              {t('treatment.disclaimerText')}
             </p>
           </div>
         </div>

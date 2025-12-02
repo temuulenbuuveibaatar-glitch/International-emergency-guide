@@ -163,28 +163,28 @@ function generateMedicationDatabase(): Medication[] {
   return [...commonMedicationsData, ...additionalMedications];
 }
 
-// Category translation mapping
-const categoryTranslations: Record<string, string> = {
-  "analgesic": "Pain Relievers",
-  "antibiotic": "Antibiotics",
-  "antiviral": "Antivirals",
-  "antihistamine": "Antihistamines",
-  "antihypertensive": "Blood Pressure & Heart Medications",
-  "antidepressant": "Antidepressants",
-  "nsaid": "Anti-inflammatory Drugs",
-  "bronchodilator": "Respiratory Medications",
-  "gastrointestinal": "Digestive System Medications",
-  "cardiovascular": "Heart & Circulation Medications",
-  "neurological": "Nervous System Medications",
-  "dermatological": "Skin Medications",
-  "endocrine": "Hormone Medications",
-  "respiratory": "Breathing Medications",
-  "psychiatric": "Mental Health Medications",
-  "immunosuppressant": "Immune System Medications",
-  "anticoagulant": "Blood Thinners",
-  "diuretic": "Water Pills",
-  "steroid": "Corticosteroids",
-  "antifungal": "Antifungal Medications"
+// Category translation keys
+const categoryKeys: Record<string, string> = {
+  "analgesic": "medications.categories.analgesic",
+  "antibiotic": "medications.categories.antibiotic",
+  "antiviral": "medications.categories.antiviral",
+  "antihistamine": "medications.categories.antihistamine",
+  "antihypertensive": "medications.categories.antihypertensive",
+  "antidepressant": "medications.categories.antidepressant",
+  "nsaid": "medications.categories.nsaid",
+  "bronchodilator": "medications.categories.bronchodilator",
+  "gastrointestinal": "medications.categories.gastrointestinal",
+  "cardiovascular": "medications.categories.cardiovascular",
+  "neurological": "medications.categories.neurological",
+  "dermatological": "medications.categories.dermatological",
+  "endocrine": "medications.categories.endocrine",
+  "respiratory": "medications.categories.respiratory",
+  "psychiatric": "medications.categories.psychiatric",
+  "immunosuppressant": "medications.categories.immunosuppressant",
+  "anticoagulant": "medications.categories.anticoagulant",
+  "diuretic": "medications.categories.diuretic",
+  "steroid": "medications.categories.steroid",
+  "antifungal": "medications.categories.antifungal"
 };
 
 export default function Medications() {
@@ -263,7 +263,7 @@ export default function Medications() {
             <SelectItem value="all">{t("medications.allCategories", "All Categories")}</SelectItem>
             {categories.map(category => (
               <SelectItem key={category} value={category}>
-                {categoryTranslations[category] || category}
+                {t(categoryKeys[category] || category)}
               </SelectItem>
             ))}
           </SelectContent>
@@ -297,7 +297,7 @@ export default function Medications() {
                     </CardTitle>
                     <div className="flex items-center gap-2">
                       <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                        {categoryTranslations[medication.category] || medication.category}
+                        {t(categoryKeys[medication.category] || medication.category)}
                       </Badge>
                       <div className="flex gap-1">
                         {medication.dosageForm.map((form, index) => (

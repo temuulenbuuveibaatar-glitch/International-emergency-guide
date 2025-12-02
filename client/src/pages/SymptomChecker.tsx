@@ -610,17 +610,20 @@ export default function SymptomChecker() {
   const [showResults, setShowResults] = useState(false);
   const [hasCriticalSymptoms, setHasCriticalSymptoms] = useState(false);
 
-  const bodyPartSections: Record<BodyPart, string> = {
-    head: "Head",
-    neurological: "Neurological",
-    chest: "Chest",
-    cardiovascular: "Cardiovascular",
-    respiratory: "Respiratory",
-    abdomen: "Abdomen",
-    gastrointestinal: "Gastrointestinal",
-    limbs: "Arms & Legs",
-    skin: "Skin",
-    general: "General Symptoms"
+  const getBodyPartLabel = (part: BodyPart): string => {
+    const keys: Record<BodyPart, string> = {
+      head: "symptoms.bodyParts.head",
+      neurological: "symptoms.bodyParts.neurological",
+      chest: "symptoms.bodyParts.chest",
+      cardiovascular: "symptoms.bodyParts.cardiovascular",
+      respiratory: "symptoms.bodyParts.respiratory",
+      abdomen: "symptoms.bodyParts.abdomen",
+      gastrointestinal: "symptoms.bodyParts.gastrointestinal",
+      limbs: "symptoms.bodyParts.limbs",
+      skin: "symptoms.bodyParts.skin",
+      general: "symptoms.bodyParts.general"
+    };
+    return t(keys[part]);
   };
 
   const toggleSymptom = (symptomId: string) => {
@@ -712,8 +715,8 @@ export default function SymptomChecker() {
                   <div className="flex items-start">
                     <AlertCircle className="w-5 h-5 text-red-600 mr-2 mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-red-600">Critical Symptoms Detected</h3>
-                      <p className="text-gray-700">You've selected one or more symptoms that may indicate a medical emergency. Please consider calling emergency services (103) immediately.</p>
+                      <h3 className="font-semibold text-red-600">{t('symptoms.criticalDetected')}</h3>
+                      <p className="text-gray-700">{t('symptoms.criticalWarning')}</p>
                     </div>
                   </div>
                 </div>
@@ -721,11 +724,11 @@ export default function SymptomChecker() {
 
               {!showResults ? (
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Select Your Symptoms</h2>
+                  <h2 className="text-xl font-semibold mb-4">{t('symptoms.selectSymptoms')}</h2>
                   
-                  {Object.entries(bodyPartSections).map(([part, label]) => (
+                  {(['head', 'neurological', 'chest', 'cardiovascular', 'respiratory', 'abdomen', 'gastrointestinal', 'limbs', 'skin', 'general'] as BodyPart[]).map((part) => (
                     <div key={part} className="mb-6">
-                      <h3 className="font-medium text-lg mb-3 text-gray-700">{label}</h3>
+                      <h3 className="font-medium text-lg mb-3 text-gray-700">{getBodyPartLabel(part)}</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                         {symptoms
                           .filter(symptom => symptom.bodyPart === part)
@@ -750,7 +753,7 @@ export default function SymptomChecker() {
                               </div>
                               <span>{symptom.name}</span>
                               {symptom.isCritical && (
-                                <span className="ml-auto text-xs text-red-600">Critical</span>
+                                <span className="ml-auto text-xs text-red-600">{t('symptoms.critical')}</span>
                               )}
                             </button>
                           ))}
@@ -764,21 +767,21 @@ export default function SymptomChecker() {
                       className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
                       disabled={selectedSymptoms.length === 0}
                     >
-                      Clear All
+                      {t('symptoms.clearAll')}
                     </button>
                     <button
                       onClick={analyzeSymptoms}
                       className="px-6 py-2 bg-[#004A9F] text-white rounded-md hover:bg-[#003b7e] disabled:opacity-50 disabled:cursor-not-allowed"
                       disabled={selectedSymptoms.length === 0}
                     >
-                      Analyze Symptoms
+                      {t('symptoms.analyzeSymptoms')}
                     </button>
                   </div>
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Possible Conditions</h2>
-                  <p className="text-gray-600 italic mb-4 text-sm">Disclaimer: This is not a medical diagnosis. Always consult with a healthcare professional for proper medical advice.</p>
+                  <h2 className="text-xl font-semibold mb-4">{t('symptoms.possibleConditions')}</h2>
+                  <p className="text-gray-600 italic mb-4 text-sm">{t('symptoms.disclaimer')}</p>
 
                   {results.length > 0 ? (
                     <div className="space-y-4">
@@ -788,21 +791,21 @@ export default function SymptomChecker() {
                             <div className="flex justify-between items-center">
                               <h3 className="font-semibold">{condition.name}</h3>
                               <span className="text-xs uppercase tracking-wide">
-                                {condition.urgency === 'emergency' ? 'Seek Care Immediately' : 
-                                 condition.urgency === 'urgent' ? 'Seek Care Soon' : 
-                                 condition.urgency === 'semi-urgent' ? 'Seek Care Within 24hrs' :
-                                 'Self-care May Be Appropriate'}
+                                {condition.urgency === 'emergency' ? t('symptoms.urgency.emergency') : 
+                                 condition.urgency === 'urgent' ? t('symptoms.urgency.urgent') : 
+                                 condition.urgency === 'semi-urgent' ? t('symptoms.urgency.semiUrgent') :
+                                 t('symptoms.urgency.nonUrgent')}
                               </span>
                             </div>
                           </div>
                           <div className="p-4">
                             <p className="text-gray-700 mb-3">{condition.description}</p>
                             <div className="bg-gray-50 p-3 rounded-md mb-3">
-                              <p className="font-medium text-gray-800">Recommendation:</p>
+                              <p className="font-medium text-gray-800">{t('symptoms.recommendation')}:</p>
                               <p className="text-gray-700">{condition.recommendation}</p>
                             </div>
                             <div>
-                              <p className="font-medium text-gray-800 mb-2">Related Symptoms:</p>
+                              <p className="font-medium text-gray-800 mb-2">{t('symptoms.relatedSymptoms')}:</p>
                               <div className="flex flex-wrap gap-2">
                                 {condition.symptoms.map(symptomId => {
                                   const symptom = symptoms.find(s => s.id === symptomId);
@@ -827,8 +830,8 @@ export default function SymptomChecker() {
                     </div>
                   ) : (
                     <div className="text-center py-10">
-                      <p className="text-gray-600 mb-4">No matching conditions found based on your symptoms.</p>
-                      <p className="text-gray-600">This doesn't mean you're not experiencing a medical issue. If you're concerned, please consult a healthcare professional.</p>
+                      <p className="text-gray-600 mb-4">{t('symptoms.noResults')}</p>
+                      <p className="text-gray-600">{t('symptoms.noResultsAdvice')}</p>
                     </div>
                   )}
 
@@ -836,7 +839,7 @@ export default function SymptomChecker() {
                     onClick={resetChecker}
                     className="mt-6 px-6 py-2 bg-[#004A9F] text-white rounded-md hover:bg-[#003b7e] w-full"
                   >
-                    Check Different Symptoms
+                    {t('symptoms.checkDifferent')}
                   </button>
                 </div>
               )}
@@ -844,8 +847,8 @@ export default function SymptomChecker() {
           </div>
 
           <div className="bg-gray-50 rounded-lg p-4 text-center">
-            <p className="text-red-600 font-medium">Emergency Warning</p>
-            <p className="text-gray-700">If you are experiencing a medical emergency, please call 103 (Mongolia) immediately.</p>
+            <p className="text-red-600 font-medium">{t('symptoms.emergencyWarning')}</p>
+            <p className="text-gray-700">{t('symptoms.emergencyCall')}</p>
           </div>
         </div>
       </div>
