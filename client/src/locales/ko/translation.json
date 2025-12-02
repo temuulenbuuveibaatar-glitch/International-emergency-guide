@@ -1,4 +1,27 @@
 {
+  "common": {
+    "back": "뒤로",
+    "next": "다음",
+    "previous": "이전",
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "편집",
+    "close": "닫기",
+    "loading": "로딩 중...",
+    "error": "오류",
+    "success": "성공",
+    "confirm": "확인",
+    "search": "검색",
+    "filter": "필터",
+    "sort": "정렬",
+    "login": "로그인",
+    "signUp": "회원가입",
+    "logout": "로그아웃",
+    "profile": "프로필",
+    "settings": "설정",
+    "hospitalPortal": "병원 직원 포털"
+  },
   "header": {
     "title": "국제 응급 가이드",
     "subtitle": "의료 응급 상황을 위한 종합 자료"

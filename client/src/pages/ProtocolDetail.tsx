@@ -1675,11 +1675,11 @@ export default function ProtocolDetail() {
 
         {/* Quick Tips */}
         {tips.length > 0 && (
-          <Card className="mb-6 border-blue-200 bg-blue-50">
+          <Card className="mb-6 border-blue-200 bg-blue-50 dark:bg-blue-900/30 dark:border-blue-800">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-blue-800">
+              <CardTitle className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
                 <Lightbulb size={24} />
-                Quick Reference Tips
+                {t('protocols.quickReferenceTips')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -1697,8 +1697,8 @@ export default function ProtocolDetail() {
 
         {/* Protocol Steps */}
         <div className="space-y-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-red-500 pb-2">
-            Step-by-Step Protocol
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 border-b-2 border-red-500 pb-2">
+            {t('protocols.stepByStep')}
           </h2>
           
           {steps.map((step, index) => {
@@ -1755,9 +1755,9 @@ export default function ProtocolDetail() {
                   {step.tips && step.tips.length > 0 && (
                     <div className="mt-4">
                       <h4 className={`font-semibold mb-2 ${
-                        step.important ? 'text-red-800' : 'text-blue-800'
+                        step.important ? 'text-red-800 dark:text-red-300' : 'text-blue-800 dark:text-blue-300'
                       }`}>
-                        Key Points:
+                        {t('protocols.keyPoints')}:
                       </h4>
                       <ul className="space-y-1">
                         {step.tips.map((tip: string, tipIndex: number) => (

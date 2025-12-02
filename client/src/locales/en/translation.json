@@ -1,4 +1,27 @@
 {
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings",
+    "hospitalPortal": "Hospital Staff Portal"
+  },
   "header": {
     "title": "International Emergency Guide",
     "subtitle": "Your Complete Resource for Medical Emergencies"
@@ -69,7 +92,10 @@
     "print": "Print",
     "share": "Share",
     "save": "Save",
-    "stepByStep": "Step-by-Step Instructions",
+    "stepByStep": "Step-by-Step Protocol",
+    "quickReferenceTips": "Quick Reference Tips",
+    "keyPoints": "Key Points",
+    "step": "Step",
     "warnings": "Important Warnings",
     "additionalNotes": "Additional Notes"
   },

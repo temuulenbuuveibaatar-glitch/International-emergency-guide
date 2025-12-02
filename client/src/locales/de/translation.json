@@ -1,4 +1,27 @@
 {
+  "common": {
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "confirm": "Bestätigen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "login": "Anmelden",
+    "signUp": "Registrieren",
+    "logout": "Abmelden",
+    "profile": "Profil",
+    "settings": "Einstellungen",
+    "hospitalPortal": "Krankenhaus-Mitarbeiterportal"
+  },
   "header": {
     "title": "Internationaler Notfallführer",
     "subtitle": "Ihre umfassende Ressource für medizinische Notfälle"

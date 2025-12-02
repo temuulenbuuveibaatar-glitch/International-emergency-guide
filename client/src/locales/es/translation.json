@@ -1,4 +1,27 @@
 {
+  "common": {
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "confirm": "Confirmar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "login": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "logout": "Cerrar Sesión",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "hospitalPortal": "Portal de Personal Hospitalario"
+  },
   "header": {
     "title": "Guía Internacional de Emergencias",
     "subtitle": "Su recurso completo para emergencias médicas"

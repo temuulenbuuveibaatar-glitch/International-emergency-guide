@@ -1,4 +1,27 @@
 {
+  "common": {
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "close": "閉じる",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "confirm": "確認",
+    "search": "検索",
+    "filter": "フィルター",
+    "sort": "並べ替え",
+    "login": "ログイン",
+    "signUp": "新規登録",
+    "logout": "ログアウト",
+    "profile": "プロフィール",
+    "settings": "設定",
+    "hospitalPortal": "病院スタッフポータル"
+  },
   "header": {
     "title": "国際緊急ガイド",
     "subtitle": "医療緊急事態のための総合リソース"
