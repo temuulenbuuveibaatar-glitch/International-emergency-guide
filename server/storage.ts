@@ -9,6 +9,9 @@ import {
   auditLogs,
   emergencyProtocols,
   medicationReminders,
+  clinicalNotes,
+  problemList,
+  patientPortalAccounts,
   type User,
   type UpsertUser,
   type Patient,
@@ -27,6 +30,12 @@ import {
   type InsertAuditLog,
   type EmergencyProtocol,
   type MedicationReminder,
+  type ClinicalNote,
+  type InsertClinicalNote,
+  type Problem,
+  type InsertProblem,
+  type PatientPortalAccount,
+  type InsertPatientPortalAccount,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, and, gte, lte, desc, asc, like, or } from "drizzle-orm";
@@ -90,6 +99,24 @@ export interface IStorage {
   // Medication Reminders
   getPendingReminders(startTime: Date, endTime: Date): Promise<MedicationReminder[]>;
   acknowledgeReminder(id: number, userId: string): Promise<void>;
+  
+  // Clinical Notes
+  getClinicalNotes(patientId: number): Promise<ClinicalNote[]>;
+  createClinicalNote(note: InsertClinicalNote): Promise<ClinicalNote>;
+  
+  // Problem List
+  getProblemList(patientId: number): Promise<Problem[]>;
+  createProblem(problem: InsertProblem): Promise<Problem>;
+  updateProblem(id: number, problem: Partial<InsertProblem>): Promise<Problem | undefined>;
+  
+  // Additional User operations
+  getUserByEmail(email: string): Promise<User | undefined>;
+  
+  // Patient Portal Accounts
+  createPatientPortalAccount(account: InsertPatientPortalAccount): Promise<PatientPortalAccount>;
+  getPatientPortalAccount(id: number): Promise<PatientPortalAccount | undefined>;
+  getPatientPortalAccountByEmail(email: string): Promise<PatientPortalAccount | undefined>;
+  updatePatientPortalAccount(id: number, data: { lastLoginAt?: Date; isVerified?: boolean }): Promise<PatientPortalAccount | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -427,6 +454,75 @@ export class DatabaseStorage implements IStorage {
         status: 'acknowledged'
       })
       .where(eq(medicationReminders.id, id));
+  }
+
+  // Clinical Notes
+  async getClinicalNotes(patientId: number): Promise<ClinicalNote[]> {
+    return await db.select().from(clinicalNotes)
+      .where(eq(clinicalNotes.patientId, patientId))
+      .orderBy(desc(clinicalNotes.createdAt));
+  }
+
+  async createClinicalNote(note: InsertClinicalNote): Promise<ClinicalNote> {
+    const [newNote] = await db.insert(clinicalNotes).values(note).returning();
+    return newNote;
+  }
+
+  // Problem List
+  async getProblemList(patientId: number): Promise<Problem[]> {
+    return await db.select().from(problemList)
+      .where(eq(problemList.patientId, patientId))
+      .orderBy(desc(problemList.addedAt));
+  }
+
+  async createProblem(problem: InsertProblem): Promise<Problem> {
+    const [newProblem] = await db.insert(problemList).values(problem).returning();
+    return newProblem;
+  }
+
+  async updateProblem(id: number, problem: Partial<InsertProblem>): Promise<Problem | undefined> {
+    const [updated] = await db.update(problemList)
+      .set(problem)
+      .where(eq(problemList.id, id))
+      .returning();
+    return updated;
+  }
+
+  // Additional User operations
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db.select().from(authUsers).where(eq(authUsers.email, email));
+    return user;
+  }
+
+  // Patient Portal Accounts
+  async createPatientPortalAccount(account: InsertPatientPortalAccount): Promise<PatientPortalAccount> {
+    const [newAccount] = await db.insert(patientPortalAccounts).values(account).returning();
+    return newAccount;
+  }
+
+  async getPatientPortalAccount(id: number): Promise<PatientPortalAccount | undefined> {
+    const [account] = await db.select().from(patientPortalAccounts).where(eq(patientPortalAccounts.id, id));
+    return account;
+  }
+
+  async getPatientPortalAccountByEmail(email: string): Promise<PatientPortalAccount | undefined> {
+    const [account] = await db.select().from(patientPortalAccounts).where(eq(patientPortalAccounts.email, email));
+    return account;
+  }
+
+  async updatePatientPortalAccount(id: number, data: { lastLoginAt?: Date; isVerified?: boolean }): Promise<PatientPortalAccount | undefined> {
+    // Only allow updating safe fields - never allow passwordHash to be set to null
+    const safeData: Record<string, unknown> = {};
+    if (data.lastLoginAt !== undefined) safeData.lastLoginAt = data.lastLoginAt;
+    if (data.isVerified !== undefined) safeData.isVerified = data.isVerified;
+    
+    if (Object.keys(safeData).length === 0) return undefined;
+    
+    const [updated] = await db.update(patientPortalAccounts)
+      .set(safeData)
+      .where(eq(patientPortalAccounts.id, id))
+      .returning();
+    return updated;
   }
 }
 

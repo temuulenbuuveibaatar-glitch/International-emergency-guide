@@ -17,6 +17,22 @@ import {
   insertLabResultSchema,
 } from "@shared/schema";
 import { calculateDose, checkDrugInteractions, getDrugSafetyInfo } from "./medicationLogic";
+import { 
+  medicationsDatabase, 
+  getMedicationsByCategory, 
+  searchMedications, 
+  getMedicationByName,
+  getControlledSubstances,
+  getMedicationsWithBlackBoxWarning 
+} from "./data/medications";
+import { 
+  treatmentProtocols, 
+  getProtocolById, 
+  getProtocolsByCategory, 
+  searchProtocols,
+  getProtocolsByICD 
+} from "./data/treatmentProtocols";
+import bcrypt from "bcrypt";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication
@@ -36,6 +52,343 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching user:", error);
       res.status(500).json({ message: "Failed to fetch user" });
+    }
+  });
+
+  // ============ REGISTRATION ROUTES ============
+  
+  // Doctor registration with license verification
+  app.post("/api/auth/register/doctor", async (req, res) => {
+    try {
+      const {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password,
+        licenseNumber,
+        licenseIssuingAuthority,
+        licenseExpiryDate,
+        specialty,
+        hospitalAffiliation,
+        medicalSchool,
+        graduationYear,
+        yearsOfExperience,
+      } = req.body;
+
+      // Validate required fields
+      if (!email || !password || !firstName || !lastName || !licenseNumber) {
+        return res.status(400).json({ 
+          message: "Missing required fields: email, password, firstName, lastName, and licenseNumber are required" 
+        });
+      }
+
+      // Check if email already exists
+      const existingUser = await storage.getUserByEmail(email);
+      if (existingUser) {
+        return res.status(400).json({ message: "An account with this email already exists" });
+      }
+
+      // Validate license number format (basic validation)
+      if (!/^[A-Z]{2,3}-?\d{4,12}$/i.test(licenseNumber.replace(/\s/g, ''))) {
+        return res.status(400).json({ 
+          message: "Invalid license number format. Expected format: XX-12345678 or similar" 
+        });
+      }
+
+      // Hash password securely with bcrypt before storing
+      const saltRounds = 12;
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+      // Create the doctor account with pending status
+      const doctorId = `doctor_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      const newDoctor = await storage.upsertUser({
+        id: doctorId,
+        email,
+        firstName,
+        lastName,
+        role: 'doctor',
+        licenseNumber,
+        department: specialty,
+        isActive: false, // Pending verification
+        mfaEnabled: false,
+        passwordHash: hashedPassword, // Securely hashed password
+      });
+
+      // Log the registration for admin review (password hash NOT logged for security)
+      await storage.createAuditLog({
+        userId: doctorId,
+        action: 'doctor_registration',
+        entityType: 'auth_user',
+        entityId: doctorId,
+        details: {
+          email,
+          licenseNumber,
+          licenseIssuingAuthority,
+          licenseExpiryDate,
+          specialty,
+          hospitalAffiliation,
+          medicalSchool,
+          graduationYear,
+          yearsOfExperience,
+          status: 'pending_verification',
+          registeredAt: new Date().toISOString()
+        }
+      });
+
+      res.status(201).json({
+        message: "Registration submitted successfully. Your license will be verified within 24-48 hours.",
+        userId: doctorId,
+        status: 'pending_verification'
+      });
+    } catch (error) {
+      console.error("Error registering doctor:", error);
+      res.status(500).json({ message: "Failed to register. Please try again later." });
+    }
+  });
+
+  // Patient portal registration
+  app.post("/api/auth/register/patient", async (req, res) => {
+    try {
+      const {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password,
+        dateOfBirth,
+        gender,
+        bloodType,
+        emergencyContactName,
+        emergencyContactPhone,
+      } = req.body;
+
+      // Validate required fields
+      if (!email || !password || !firstName || !lastName || !dateOfBirth) {
+        return res.status(400).json({ 
+          message: "Missing required fields: email, password, firstName, lastName, and dateOfBirth are required" 
+        });
+      }
+
+      // Generate MRN for patient
+      const mrn = `P${Date.now().toString().slice(-8)}${Math.random().toString(36).substr(2, 4).toUpperCase()}`;
+      
+      // Create patient record
+      const patient = await storage.createPatient({
+        mrn,
+        firstName,
+        lastName,
+        dateOfBirth,
+        gender: gender || 'unknown',
+        bloodType,
+        phone,
+        emergencyContactName,
+        emergencyContactPhone,
+        status: 'outpatient'
+      });
+
+      // Hash password securely with bcrypt
+      const saltRounds = 12;
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+      
+      // Create patient portal account with hashed password
+      const portalAccount = await storage.createPatientPortalAccount({
+        patientId: patient.id,
+        email,
+        passwordHash: hashedPassword,
+        isVerified: false,
+        verificationToken: `verify_${Date.now()}_${Math.random().toString(36).substr(2, 16)}`,
+      });
+
+      // Log the registration
+      await storage.createAuditLog({
+        action: 'patient_registration',
+        entityType: 'patient_portal_account',
+        entityId: portalAccount.id.toString(),
+        details: {
+          patientId: patient.id,
+          mrn,
+          email,
+          registeredAt: new Date().toISOString()
+        }
+      });
+
+      res.status(201).json({
+        message: "Account created successfully. Please check your email to verify your account.",
+        patientId: patient.id,
+        mrn
+      });
+    } catch (error) {
+      console.error("Error registering patient:", error);
+      res.status(500).json({ message: "Failed to register. Please try again later." });
+    }
+  });
+
+  // ============ LOGIN ROUTES ============
+  
+  // Doctor login with bcrypt verification
+  app.post("/api/auth/login/doctor", async (req, res) => {
+    try {
+      const { email, password } = req.body;
+
+      if (!email || !password) {
+        return res.status(400).json({ message: "Email and password are required" });
+      }
+
+      // Find the doctor by email
+      const user = await storage.getUserByEmail(email);
+      
+      if (!user) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+
+      // Check if user is a doctor
+      if (user.role !== 'doctor' && user.role !== 'admin' && user.role !== 'director') {
+        return res.status(401).json({ message: "Invalid account type for doctor login" });
+      }
+
+      // Check if account is active (verified)
+      if (!user.isActive) {
+        return res.status(403).json({ 
+          message: "Your account is pending verification. Please wait for license approval." 
+        });
+      }
+
+      // Verify password with bcrypt
+      if (!user.passwordHash) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+
+      const isValidPassword = await bcrypt.compare(password, user.passwordHash);
+      
+      if (!isValidPassword) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+
+      // Update last login
+      await storage.upsertUser({
+        ...user,
+        lastLoginAt: new Date(),
+      });
+
+      // Log the login
+      await storage.createAuditLog({
+        userId: user.id,
+        action: 'doctor_login',
+        entityType: 'auth_user',
+        entityId: user.id,
+        details: {
+          email,
+          loginAt: new Date().toISOString(),
+          mfaRequired: user.mfaEnabled,
+        }
+      });
+
+      // If MFA is enabled, require MFA verification
+      if (user.mfaEnabled) {
+        return res.json({
+          requireMfa: true,
+          userId: user.id,
+          message: "MFA verification required"
+        });
+      }
+
+      // Return user data (excluding sensitive fields)
+      res.json({
+        success: true,
+        user: {
+          id: user.id,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          role: user.role,
+          department: user.department,
+          licenseNumber: user.licenseNumber,
+          mfaEnabled: user.mfaEnabled,
+        }
+      });
+    } catch (error) {
+      console.error("Error during doctor login:", error);
+      res.status(500).json({ message: "Login failed. Please try again later." });
+    }
+  });
+
+  // Patient portal login with bcrypt verification
+  app.post("/api/auth/login/patient", async (req, res) => {
+    try {
+      const { email, password } = req.body;
+
+      if (!email || !password) {
+        return res.status(400).json({ message: "Email and password are required" });
+      }
+
+      // Find the patient portal account by email
+      const portalAccount = await storage.getPatientPortalAccountByEmail(email);
+      
+      if (!portalAccount) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+
+      // Check if account is verified
+      if (!portalAccount.isVerified) {
+        return res.status(403).json({ 
+          message: "Please verify your email before logging in." 
+        });
+      }
+
+      // Verify password with bcrypt
+      if (!portalAccount.passwordHash) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+
+      const isValidPassword = await bcrypt.compare(password, portalAccount.passwordHash);
+      
+      if (!isValidPassword) {
+        return res.status(401).json({ message: "Invalid email or password" });
+      }
+
+      // Get the patient record
+      const patient = await storage.getPatient(portalAccount.patientId);
+
+      if (!patient) {
+        return res.status(500).json({ message: "Patient record not found" });
+      }
+
+      // Update last login
+      await storage.updatePatientPortalAccount(portalAccount.id, {
+        lastLoginAt: new Date(),
+      });
+
+      // Log the login
+      await storage.createAuditLog({
+        userId: portalAccount.id.toString(),
+        action: 'patient_login',
+        entityType: 'patient_portal_account',
+        entityId: portalAccount.id.toString(),
+        details: {
+          email,
+          patientId: patient.id,
+          mrn: patient.mrn,
+          loginAt: new Date().toISOString(),
+        }
+      });
+
+      // Return patient data
+      res.json({
+        success: true,
+        patient: {
+          id: patient.id,
+          mrn: patient.mrn,
+          firstName: patient.firstName,
+          lastName: patient.lastName,
+          email: portalAccount.email,
+          dateOfBirth: patient.dateOfBirth,
+          status: patient.status,
+        }
+      });
+    } catch (error) {
+      console.error("Error during patient login:", error);
+      res.status(500).json({ message: "Login failed. Please try again later." });
     }
   });
 
@@ -671,6 +1024,545 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error('Hospital data error:', error);
       res.status(500).json({ error: "Unable to retrieve hospital data" });
     });
+  });
+
+  // ============ MEDICATION ADVISOR ROUTES (Rule-Based) ============
+  app.get("/api/advisor/symptoms", async (req, res) => {
+    try {
+      const { getAvailableSymptoms } = await import("./medicationAdvisor");
+      const symptoms = getAvailableSymptoms();
+      res.json(symptoms);
+    } catch (error) {
+      console.error("Error fetching symptoms:", error);
+      res.status(500).json({ message: "Failed to fetch symptoms" });
+    }
+  });
+
+  app.get("/api/advisor/conditions", async (req, res) => {
+    try {
+      const { getConditionCategories } = await import("./medicationAdvisor");
+      const conditions = getConditionCategories();
+      res.json(conditions);
+    } catch (error) {
+      console.error("Error fetching conditions:", error);
+      res.status(500).json({ message: "Failed to fetch conditions" });
+    }
+  });
+
+  app.post("/api/advisor/recommend", async (req: any, res) => {
+    try {
+      const { getMedicationRecommendations } = await import("./medicationAdvisor");
+      const { symptoms, patientContext } = req.body;
+      
+      if (!symptoms || !Array.isArray(symptoms) || symptoms.length === 0) {
+        return res.status(400).json({ message: "Symptoms array is required" });
+      }
+      
+      if (!patientContext) {
+        return res.status(400).json({ message: "Patient context is required" });
+      }
+      
+      const recommendations = getMedicationRecommendations(symptoms, {
+        ageGroup: patientContext.ageGroup || 'adult',
+        weight: patientContext.weight,
+        isPregnant: patientContext.isPregnant || false,
+        allergies: patientContext.allergies || [],
+        currentMedications: patientContext.currentMedications || [],
+        chronicConditions: patientContext.chronicConditions || [],
+        renalFunction: patientContext.renalFunction || 'normal',
+        hepaticFunction: patientContext.hepaticFunction || 'normal'
+      });
+      
+      if (req.user) {
+        await storage.createAuditLog({
+          userId: req.user.claims.sub,
+          action: 'medication_advisory',
+          entityType: 'symptom_assessment',
+          details: { 
+            symptoms, 
+            matchedConditions: recommendations.matchedConditions.map(c => c.condition),
+            recommendationCount: recommendations.recommendations.length
+          }
+        });
+      }
+      
+      res.json(recommendations);
+    } catch (error) {
+      console.error("Error getting medication recommendations:", error);
+      res.status(500).json({ message: "Failed to get medication recommendations" });
+    }
+  });
+
+  // ============ CLINICAL NOTES ROUTES (Doctor Charts) ============
+  app.get("/api/patients/:patientId/notes", isAuthenticated, async (req: any, res) => {
+    try {
+      const patientId = parseInt(req.params.patientId);
+      const notes = await storage.getClinicalNotes(patientId);
+      res.json(notes);
+    } catch (error) {
+      console.error("Error fetching clinical notes:", error);
+      res.status(500).json({ message: "Failed to fetch clinical notes" });
+    }
+  });
+
+  app.post("/api/patients/:patientId/notes", isAuthenticated, requireRole('doctor', 'nurse'), async (req: any, res) => {
+    try {
+      const patientId = parseInt(req.params.patientId);
+      const note = await storage.createClinicalNote({
+        patientId,
+        authorId: req.user.claims.sub,
+        noteType: req.body.noteType,
+        title: req.body.title,
+        content: req.body.content,
+        isSigned: false
+      });
+      
+      await storage.createAuditLog({
+        userId: req.user.claims.sub,
+        action: 'create',
+        entityType: 'clinical_note',
+        entityId: note.id.toString(),
+        details: { patientId, noteType: req.body.noteType }
+      });
+      
+      res.status(201).json(note);
+    } catch (error) {
+      console.error("Error creating clinical note:", error);
+      res.status(400).json({ message: "Failed to create clinical note" });
+    }
+  });
+
+  // ============ PROBLEM LIST ROUTES ============
+  app.get("/api/patients/:patientId/problems", isAuthenticated, async (req: any, res) => {
+    try {
+      const patientId = parseInt(req.params.patientId);
+      const problems = await storage.getProblemList(patientId);
+      res.json(problems);
+    } catch (error) {
+      console.error("Error fetching problem list:", error);
+      res.status(500).json({ message: "Failed to fetch problem list" });
+    }
+  });
+
+  app.post("/api/patients/:patientId/problems", isAuthenticated, requireRole('doctor'), async (req: any, res) => {
+    try {
+      const patientId = parseInt(req.params.patientId);
+      const problem = await storage.createProblem({
+        patientId,
+        icdCode: req.body.icdCode,
+        description: req.body.description,
+        status: req.body.status || 'active',
+        onsetDate: req.body.onsetDate,
+        severity: req.body.severity,
+        addedBy: req.user.claims.sub,
+        notes: req.body.notes
+      });
+      
+      await storage.createAuditLog({
+        userId: req.user.claims.sub,
+        action: 'create',
+        entityType: 'problem',
+        entityId: problem.id.toString(),
+        details: { patientId, icdCode: req.body.icdCode }
+      });
+      
+      res.status(201).json(problem);
+    } catch (error) {
+      console.error("Error creating problem:", error);
+      res.status(400).json({ message: "Failed to create problem" });
+    }
+  });
+
+  app.patch("/api/problems/:id", isAuthenticated, requireRole('doctor'), async (req: any, res) => {
+    try {
+      const problem = await storage.updateProblem(parseInt(req.params.id), req.body);
+      
+      await storage.createAuditLog({
+        userId: req.user.claims.sub,
+        action: 'update',
+        entityType: 'problem',
+        entityId: req.params.id,
+        details: req.body
+      });
+      
+      res.json(problem);
+    } catch (error) {
+      console.error("Error updating problem:", error);
+      res.status(400).json({ message: "Failed to update problem" });
+    }
+  });
+
+  // ============ MEDICATION DATABASE ROUTES ============
+  
+  // Get all medications (paginated)
+  app.get("/api/medications-database", async (req, res) => {
+    try {
+      const { page = 1, limit = 50, category, search, controlled, blackbox } = req.query;
+      const pageNum = parseInt(page as string);
+      const limitNum = Math.min(parseInt(limit as string), 100);
+      
+      let medications = [...medicationsDatabase];
+      
+      // Apply filters
+      if (category) {
+        medications = getMedicationsByCategory(category as string);
+      }
+      if (search) {
+        medications = searchMedications(search as string);
+      }
+      if (controlled === 'true') {
+        medications = getControlledSubstances();
+      }
+      if (blackbox === 'true') {
+        medications = getMedicationsWithBlackBoxWarning();
+      }
+      
+      // Paginate
+      const startIndex = (pageNum - 1) * limitNum;
+      const paginatedMeds = medications.slice(startIndex, startIndex + limitNum);
+      
+      res.json({
+        medications: paginatedMeds,
+        totalCount: medications.length,
+        page: pageNum,
+        totalPages: Math.ceil(medications.length / limitNum),
+        categories: [...new Set(medicationsDatabase.map(m => m.category))]
+      });
+    } catch (error) {
+      console.error("Error fetching medications database:", error);
+      res.status(500).json({ message: "Failed to fetch medications" });
+    }
+  });
+
+  // Get single medication by name
+  app.get("/api/medications-database/:name", async (req, res) => {
+    try {
+      const medication = getMedicationByName(req.params.name);
+      if (!medication) {
+        return res.status(404).json({ message: "Medication not found" });
+      }
+      res.json(medication);
+    } catch (error) {
+      console.error("Error fetching medication:", error);
+      res.status(500).json({ message: "Failed to fetch medication" });
+    }
+  });
+
+  // Get medication categories
+  app.get("/api/medications-database-categories", async (req, res) => {
+    try {
+      const categories = [...new Set(medicationsDatabase.map(m => m.category))];
+      const categoryCounts = categories.map(cat => ({
+        name: cat,
+        count: medicationsDatabase.filter(m => m.category === cat).length
+      }));
+      res.json(categoryCounts);
+    } catch (error) {
+      console.error("Error fetching medication categories:", error);
+      res.status(500).json({ message: "Failed to fetch categories" });
+    }
+  });
+
+  // ============ TREATMENT PROTOCOL ROUTES ============
+  
+  // Get all treatment protocols (paginated)
+  app.get("/api/treatment-protocols", async (req, res) => {
+    try {
+      const { page = 1, limit = 20, category, search, severity, icd } = req.query;
+      const pageNum = parseInt(page as string);
+      const limitNum = Math.min(parseInt(limit as string), 50);
+      
+      let protocols = [...treatmentProtocols];
+      
+      // Apply filters
+      if (category) {
+        protocols = getProtocolsByCategory(category as string);
+      }
+      if (search) {
+        protocols = searchProtocols(search as string);
+      }
+      if (severity) {
+        protocols = protocols.filter(p => p.severity === severity);
+      }
+      if (icd) {
+        protocols = getProtocolsByICD(icd as string);
+      }
+      
+      // Paginate
+      const startIndex = (pageNum - 1) * limitNum;
+      const paginatedProtocols = protocols.slice(startIndex, startIndex + limitNum);
+      
+      res.json({
+        protocols: paginatedProtocols,
+        totalCount: protocols.length,
+        page: pageNum,
+        totalPages: Math.ceil(protocols.length / limitNum),
+        categories: [...new Set(treatmentProtocols.map(p => p.category))]
+      });
+    } catch (error) {
+      console.error("Error fetching treatment protocols:", error);
+      res.status(500).json({ message: "Failed to fetch protocols" });
+    }
+  });
+
+  // Get single treatment protocol by ID
+  app.get("/api/treatment-protocols/:id", async (req, res) => {
+    try {
+      const protocol = getProtocolById(req.params.id);
+      if (!protocol) {
+        return res.status(404).json({ message: "Protocol not found" });
+      }
+      res.json(protocol);
+    } catch (error) {
+      console.error("Error fetching protocol:", error);
+      res.status(500).json({ message: "Failed to fetch protocol" });
+    }
+  });
+
+  // Get protocol categories
+  app.get("/api/treatment-protocols-categories", async (req, res) => {
+    try {
+      const categories = [...new Set(treatmentProtocols.map(p => p.category))];
+      const categoryCounts = categories.map(cat => ({
+        name: cat,
+        count: treatmentProtocols.filter(p => p.category === cat).length
+      }));
+      res.json(categoryCounts);
+    } catch (error) {
+      console.error("Error fetching protocol categories:", error);
+      res.status(500).json({ message: "Failed to fetch categories" });
+    }
+  });
+
+  // ============ RULE-BASED MEDICATION ADVISOR ============
+  
+  // Get medication recommendations based on condition (NO AI - rule-based only)
+  app.post("/api/medication-advisor", async (req, res) => {
+    try {
+      const { 
+        condition, 
+        symptoms, 
+        patientAge, 
+        patientWeight, 
+        allergies = [], 
+        currentMedications = [],
+        renalFunction,
+        hepaticFunction,
+        isPregnant = false 
+      } = req.body;
+
+      if (!condition) {
+        return res.status(400).json({ message: "Condition is required" });
+      }
+
+      // Find matching treatment protocol
+      const matchingProtocol = searchProtocols(condition)[0];
+      
+      if (!matchingProtocol) {
+        return res.json({
+          found: false,
+          message: "No matching protocol found for this condition",
+          recommendation: {
+            generalAdvice: "Please consult with a healthcare provider for personalized treatment recommendations.",
+            disclaimer: "This is not medical advice. Always consult a qualified healthcare professional."
+          }
+        });
+      }
+
+      // Get first-line medications with details
+      const recommendedMedications = matchingProtocol.firstLineMedications.map(med => {
+        const fullMedInfo = getMedicationByName(med.name);
+        
+        // Check for contraindications
+        const contraindicated = allergies.some((allergy: string) => 
+          med.name.toLowerCase().includes(allergy.toLowerCase())
+        );
+        
+        // Check for pregnancy contraindications
+        const pregnancyContraindicated = isPregnant && fullMedInfo?.pregnancyCategory && 
+          ['D', 'X'].includes(fullMedInfo.pregnancyCategory);
+        
+        // Check drug interactions
+        const interactions = currentMedications.filter((current: string) =>
+          fullMedInfo?.drugInteractions?.some(interaction => 
+            interaction.toLowerCase().includes(current.toLowerCase())
+          )
+        );
+
+        return {
+          name: med.name,
+          dose: med.dose,
+          route: med.route,
+          frequency: med.frequency,
+          duration: med.duration,
+          notes: med.notes,
+          contraindicated,
+          pregnancyContraindicated,
+          interactions,
+          fullDetails: fullMedInfo ? {
+            category: fullMedInfo.category,
+            sideEffects: fullMedInfo.sideEffects.slice(0, 5),
+            blackBoxWarning: fullMedInfo.blackBoxWarning,
+            pregnancyCategory: fullMedInfo.pregnancyCategory,
+            monitoringParameters: fullMedInfo.monitoringParameters
+          } : null
+        };
+      });
+
+      // Filter safe medications
+      const safeMedications = recommendedMedications.filter(med => 
+        !med.contraindicated && !med.pregnancyContraindicated
+      );
+
+      res.json({
+        found: true,
+        protocol: {
+          name: matchingProtocol.name,
+          category: matchingProtocol.category,
+          severity: matchingProtocol.severity,
+          description: matchingProtocol.description
+        },
+        steps: matchingProtocol.steps,
+        recommendedMedications,
+        safeMedications,
+        warningSymptoms: matchingProtocol.warningSymptoms,
+        referralCriteria: matchingProtocol.referralCriteria,
+        followUp: matchingProtocol.followUp,
+        references: matchingProtocol.references,
+        disclaimer: "This is clinical decision support only. All medication decisions must be made by a licensed healthcare provider. This system does not replace professional medical judgment."
+      });
+    } catch (error) {
+      console.error("Error in medication advisor:", error);
+      res.status(500).json({ message: "Failed to get recommendations" });
+    }
+  });
+
+  // Calculate dose based on patient parameters (rule-based)
+  app.post("/api/calculate-dose", async (req, res) => {
+    try {
+      const { 
+        medicationName, 
+        patientWeight, 
+        patientAge, 
+        renalFunction,
+        hepaticFunction,
+        indication 
+      } = req.body;
+
+      if (!medicationName || !patientWeight) {
+        return res.status(400).json({ message: "Medication name and patient weight are required" });
+      }
+
+      const medication = getMedicationByName(medicationName);
+      
+      if (!medication) {
+        return res.status(404).json({ message: "Medication not found in database" });
+      }
+
+      let calculatedDose = medication.standardDoseAdult;
+      let adjustmentNotes: string[] = [];
+
+      // Weight-based dosing calculation
+      if (medication.weightBasedDosing && medication.weightBasedFormula) {
+        const match = medication.weightBasedFormula.match(/(\d+(?:\.\d+)?)/);
+        if (match) {
+          const dosePerKg = parseFloat(match[1]);
+          const calculatedAmount = dosePerKg * patientWeight;
+          calculatedDose = `${calculatedAmount.toFixed(1)}mg based on ${patientWeight}kg`;
+          adjustmentNotes.push(`Calculated using ${dosePerKg}mg/kg formula`);
+        }
+      }
+
+      // Renal adjustment
+      if (renalFunction && medication.renalAdjustment) {
+        adjustmentNotes.push(`Renal adjustment: ${medication.renalAdjustment}`);
+      }
+
+      // Hepatic adjustment
+      if (hepaticFunction && medication.hepaticAdjustment) {
+        adjustmentNotes.push(`Hepatic adjustment: ${medication.hepaticAdjustment}`);
+      }
+
+      // Pediatric dosing
+      if (patientAge && patientAge < 18 && medication.standardDosePediatric) {
+        calculatedDose = medication.standardDosePediatric;
+        adjustmentNotes.push("Pediatric dosing applied");
+      }
+
+      res.json({
+        medication: medication.name,
+        standardDose: medication.standardDoseAdult,
+        calculatedDose,
+        maxDailyDose: medication.maxDailyDose,
+        frequency: medication.dosingFrequency,
+        route: medication.route,
+        adjustmentNotes,
+        monitoringRequired: medication.monitoringParameters,
+        labsRequired: medication.labsRequired,
+        administrationNotes: medication.administrationNotes,
+        warnings: medication.blackBoxWarning ? [medication.blackBoxWarning] : [],
+        disclaimer: "Dose calculations are for reference only. All doses must be verified by a licensed healthcare provider."
+      });
+    } catch (error) {
+      console.error("Error calculating dose:", error);
+      res.status(500).json({ message: "Failed to calculate dose" });
+    }
+  });
+
+  // Check drug interactions (rule-based)
+  app.post("/api/check-interactions", async (req, res) => {
+    try {
+      const { medications } = req.body;
+
+      if (!medications || !Array.isArray(medications) || medications.length < 2) {
+        return res.status(400).json({ message: "At least two medications are required to check interactions" });
+      }
+
+      const interactions: Array<{
+        drug1: string;
+        drug2: string;
+        severity: 'major' | 'moderate' | 'minor';
+        description: string;
+      }> = [];
+
+      // Check each pair of medications for interactions
+      for (let i = 0; i < medications.length; i++) {
+        const med1 = getMedicationByName(medications[i]);
+        if (!med1) continue;
+
+        for (let j = i + 1; j < medications.length; j++) {
+          const med2Name = medications[j].toLowerCase();
+          
+          // Check if med1's interactions include med2
+          const hasInteraction = med1.drugInteractions.some(interaction => 
+            interaction.toLowerCase().includes(med2Name) ||
+            med2Name.includes(interaction.toLowerCase())
+          );
+
+          if (hasInteraction) {
+            interactions.push({
+              drug1: med1.name,
+              drug2: medications[j],
+              severity: 'moderate', // Could be enhanced with severity data
+              description: `${med1.name} may interact with ${medications[j]}. Review medication profiles for details.`
+            });
+          }
+        }
+      }
+
+      res.json({
+        medicationsChecked: medications,
+        interactionsFound: interactions.length,
+        interactions,
+        recommendation: interactions.length > 0 
+          ? "Potential interactions found. Please review with a pharmacist or physician."
+          : "No known interactions found between these medications.",
+        disclaimer: "This interaction checker is for reference only. Not all interactions may be detected. Always consult with a pharmacist for comprehensive interaction screening."
+      });
+    } catch (error) {
+      console.error("Error checking interactions:", error);
+      res.status(500).json({ message: "Failed to check interactions" });
+    }
   });
 
   // Legacy endpoints for backward compatibility  

@@ -29,6 +29,10 @@ import VitalSigns from "./pages/VitalSigns";
 import HospitalLogin from "./pages/HospitalLogin";
 import AdminPanel from "./pages/AdminPanel";
 import Prescribe from "./pages/Prescribe";
+import SignUp from "./pages/SignUp";
+import MedicationAdvisor from "./pages/MedicationAdvisor";
+import DoctorCharts from "./pages/DoctorCharts";
+import PatientPortal from "./pages/PatientPortal";
 
 const basePath = import.meta.env.VITE_APP_MODE === 'github-pages' ? '/international-emergency-guide' : '';
 
@@ -57,6 +61,11 @@ function AppRouter() {
           <Route path="/hospital/vitals" component={VitalSigns} />
           <Route path="/hospital/admin" component={AdminPanel} />
           <Route path="/hospital/prescribe" component={Prescribe} />
+          <Route path="/hospital/advisor" component={MedicationAdvisor} />
+          <Route path="/hospital/charts/:patientId?" component={DoctorCharts} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/patient" component={PatientPortal} />
+          <Route path="/patient/login" component={PatientPortal} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

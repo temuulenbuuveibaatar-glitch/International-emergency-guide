@@ -36,8 +36,10 @@ export const authUsers = pgTable("auth_users", {
   role: varchar("role", { length: 50 }).default("nurse").notNull(),
   department: varchar("department", { length: 100 }),
   licenseNumber: varchar("license_number", { length: 100 }),
+  passwordHash: varchar("password_hash", { length: 255 }), // Bcrypt hashed password for standalone auth
   isActive: boolean("is_active").default(true).notNull(),
   mfaEnabled: boolean("mfa_enabled").default(false),
+  mfaSecret: varchar("mfa_secret", { length: 255 }), // TOTP secret for MFA
   lastLoginAt: timestamp("last_login_at"),
   legacyUserId: integer("legacy_user_id"),
   createdAt: timestamp("created_at").defaultNow(),
@@ -249,7 +251,7 @@ export const emergencyProtocols = pgTable("emergency_protocols", {
 // Offline Sync Queue
 export const offlineSyncQueue = pgTable("offline_sync_queue", {
   id: serial("id").primaryKey(),
-  odentifieriserId: varchar("user_id").notNull(),
+  userId: varchar("user_id").notNull(),
   operation: varchar("operation", { length: 50 }).notNull(),
   entityType: varchar("entity_type", { length: 100 }).notNull(),
   entityId: varchar("entity_id", { length: 100 }),
@@ -258,6 +260,108 @@ export const offlineSyncQueue = pgTable("offline_sync_queue", {
   conflictResolution: text("conflict_resolution"),
   createdOfflineAt: timestamp("created_offline_at").notNull(),
   syncedAt: timestamp("synced_at"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// Symptom Assessments for medication advisor
+export const symptomAssessments = pgTable("symptom_assessments", {
+  id: serial("id").primaryKey(),
+  patientId: integer("patient_id").references(() => patients.id),
+  assessedBy: varchar("assessed_by"),
+  symptoms: text("symptoms").array().notNull(),
+  severity: varchar("severity", { length: 20 }).notNull(),
+  duration: varchar("duration", { length: 100 }),
+  vitalSigns: jsonb("vital_signs"),
+  allergies: text("allergies").array(),
+  currentMedications: text("current_medications").array(),
+  chronicConditions: text("chronic_conditions").array(),
+  ageGroup: varchar("age_group", { length: 20 }),
+  weight: decimal("weight", { precision: 5, scale: 2 }),
+  isPregnant: boolean("is_pregnant").default(false),
+  recommendations: jsonb("recommendations"),
+  warnings: text("warnings").array(),
+  referralRequired: boolean("referral_required").default(false),
+  referralReason: text("referral_reason"),
+  status: varchar("status", { length: 50 }).default("pending").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Clinical Notes for doctor charts
+export const clinicalNotes = pgTable("clinical_notes", {
+  id: serial("id").primaryKey(),
+  patientId: integer("patient_id").references(() => patients.id).notNull(),
+  authorId: varchar("author_id").notNull(),
+  noteType: varchar("note_type", { length: 50 }).notNull(),
+  title: varchar("title", { length: 200 }),
+  content: text("content").notNull(),
+  isSigned: boolean("is_signed").default(false),
+  signedAt: timestamp("signed_at"),
+  signedBy: varchar("signed_by"),
+  isAddendum: boolean("is_addendum").default(false),
+  parentNoteId: integer("parent_note_id"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Problem List for patient charts
+export const problemList = pgTable("problem_list", {
+  id: serial("id").primaryKey(),
+  patientId: integer("patient_id").references(() => patients.id).notNull(),
+  icdCode: varchar("icd_code", { length: 20 }),
+  description: varchar("description", { length: 500 }).notNull(),
+  status: varchar("status", { length: 50 }).default("active").notNull(),
+  onsetDate: date("onset_date"),
+  resolvedDate: date("resolved_date"),
+  severity: varchar("severity", { length: 20 }),
+  addedBy: varchar("added_by").notNull(),
+  addedAt: timestamp("added_at").defaultNow(),
+  notes: text("notes"),
+});
+
+// Patient Portal Accounts
+export const patientPortalAccounts = pgTable("patient_portal_accounts", {
+  id: serial("id").primaryKey(),
+  patientId: integer("patient_id").references(() => patients.id).notNull().unique(),
+  email: varchar("email", { length: 200 }).notNull().unique(),
+  passwordHash: varchar("password_hash", { length: 255 }).notNull(),
+  isVerified: boolean("is_verified").default(false),
+  verificationToken: varchar("verification_token", { length: 255 }),
+  lastLoginAt: timestamp("last_login_at"),
+  mfaEnabled: boolean("mfa_enabled").default(false),
+  mfaSecret: varchar("mfa_secret", { length: 100 }),
+  preferences: jsonb("preferences"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Patient Medication Tracking (for outpatient portal)
+export const patientMedicationTracking = pgTable("patient_medication_tracking", {
+  id: serial("id").primaryKey(),
+  portalAccountId: integer("portal_account_id").references(() => patientPortalAccounts.id).notNull(),
+  prescriptionId: integer("prescription_id").references(() => prescriptions.id),
+  medicationName: varchar("medication_name", { length: 200 }).notNull(),
+  dose: varchar("dose", { length: 100 }).notNull(),
+  frequency: varchar("frequency", { length: 100 }).notNull(),
+  scheduledTime: timestamp("scheduled_time").notNull(),
+  takenAt: timestamp("taken_at"),
+  skipped: boolean("skipped").default(false),
+  skipReason: text("skip_reason"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// Secure Messages (patient-provider communication)
+export const secureMessages = pgTable("secure_messages", {
+  id: serial("id").primaryKey(),
+  patientPortalId: integer("patient_portal_id").references(() => patientPortalAccounts.id).notNull(),
+  providerId: varchar("provider_id"),
+  subject: varchar("subject", { length: 200 }).notNull(),
+  content: text("content").notNull(),
+  senderType: varchar("sender_type", { length: 20 }).notNull(),
+  isRead: boolean("is_read").default(false),
+  readAt: timestamp("read_at"),
+  parentMessageId: integer("parent_message_id"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -307,6 +411,12 @@ export const insertMedicationAdministrationSchema = createInsertSchema(medicatio
 export const insertVitalSignsSchema = createInsertSchema(vitalSigns).omit({ id: true, createdAt: true });
 export const insertLabResultSchema = createInsertSchema(labResults).omit({ id: true, createdAt: true });
 export const insertAuditLogSchema = createInsertSchema(auditLogs).omit({ id: true, createdAt: true });
+export const insertSymptomAssessmentSchema = createInsertSchema(symptomAssessments).omit({ id: true, createdAt: true, updatedAt: true });
+export const insertClinicalNoteSchema = createInsertSchema(clinicalNotes).omit({ id: true, createdAt: true, updatedAt: true });
+export const insertProblemListSchema = createInsertSchema(problemList).omit({ id: true, addedAt: true });
+export const insertPatientPortalAccountSchema = createInsertSchema(patientPortalAccounts).omit({ id: true, createdAt: true, updatedAt: true });
+export const insertPatientMedicationTrackingSchema = createInsertSchema(patientMedicationTracking).omit({ id: true, createdAt: true });
+export const insertSecureMessageSchema = createInsertSchema(secureMessages).omit({ id: true, createdAt: true });
 
 // Types
 export type UpsertUser = typeof authUsers.$inferInsert;
@@ -327,3 +437,15 @@ export type InsertAuditLog = z.infer<typeof insertAuditLogSchema>;
 export type AuditLog = typeof auditLogs.$inferSelect;
 export type EmergencyProtocol = typeof emergencyProtocols.$inferSelect;
 export type MedicationReminder = typeof medicationReminders.$inferSelect;
+export type InsertSymptomAssessment = z.infer<typeof insertSymptomAssessmentSchema>;
+export type SymptomAssessment = typeof symptomAssessments.$inferSelect;
+export type InsertClinicalNote = z.infer<typeof insertClinicalNoteSchema>;
+export type ClinicalNote = typeof clinicalNotes.$inferSelect;
+export type InsertProblem = z.infer<typeof insertProblemListSchema>;
+export type Problem = typeof problemList.$inferSelect;
+export type InsertPatientPortalAccount = z.infer<typeof insertPatientPortalAccountSchema>;
+export type PatientPortalAccount = typeof patientPortalAccounts.$inferSelect;
+export type InsertPatientMedicationTracking = z.infer<typeof insertPatientMedicationTrackingSchema>;
+export type PatientMedicationTracking = typeof patientMedicationTracking.$inferSelect;
+export type InsertSecureMessage = z.infer<typeof insertSecureMessageSchema>;
+export type SecureMessage = typeof secureMessages.$inferSelect;

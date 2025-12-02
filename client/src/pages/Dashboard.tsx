@@ -88,10 +88,10 @@ export default function Dashboard() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Hospital Dashboard</h1>
-              <p className="text-sm text-gray-500">
-                Welcome, {(user as any)?.firstName || 'Staff Member'} 
-                <Badge variant="outline" className="ml-2">{userRole}</Badge>
-              </p>
+              <div className="text-sm text-gray-500 flex items-center gap-2">
+                <span>Welcome, {(user as any)?.firstName || 'Staff Member'}</span>
+                <Badge variant="outline">{userRole}</Badge>
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <Button variant="outline" size="sm" asChild>
