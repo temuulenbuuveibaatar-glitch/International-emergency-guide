@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import LanguageSelector from "./LanguageSelector";
 import RedCrossLogo from "./RedCrossLogo";
 import { useTranslation } from "react-i18next";
-import { Menu, X, PhoneCall, Heart, LogIn, User, Moon, Sun } from "lucide-react";
+import { Menu, X, PhoneCall, Heart, LogIn, User, Moon, Sun, UserPlus } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 
@@ -81,16 +81,24 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
             </a>
             
             {!isLoading && !user && (
-              <Link href="/hospital/login">
-                <Button variant="outline" size="sm" className="flex items-center gap-2" data-testid="btn-header-login">
-                  <LogIn className="w-4 h-4" />
-                  {t('common.login') as string}
-                </Button>
-              </Link>
+              <>
+                <Link href="/login">
+                  <Button variant="outline" size="sm" className="flex items-center gap-2" data-testid="btn-header-login">
+                    <LogIn className="w-4 h-4" />
+                    {t('common.login') as string}
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button variant="default" size="sm" className="flex items-center gap-2" data-testid="btn-header-signup">
+                    <UserPlus className="w-4 h-4" />
+                    {t('common.signUp') as string}
+                  </Button>
+                </Link>
+              </>
             )}
             
             {!isLoading && user && (
-              <Link href="/hospital/login">
+              <Link href="/hospital">
                 <Button variant="ghost" size="sm" className="flex items-center gap-2" data-testid="btn-header-profile">
                   <User className="w-4 h-4" />
                   {t('common.hospitalPortal') as string}

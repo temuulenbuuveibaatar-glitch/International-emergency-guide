@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated, requireRole } from "./replitAuth";
+import { setupStandaloneAuth, isAuthenticated, requireRole } from "./standaloneAuth";
 import { 
   analyzeMockDamage, 
   analyzeMockXray, 
@@ -35,24 +35,12 @@ import {
 import bcrypt from "bcrypt";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Setup authentication
-  await setupAuth(app);
+  // Setup standalone authentication (username/password based)
+  await setupStandaloneAuth(app);
 
   // Health check endpoint
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
-  });
-
-  // ============ AUTH ROUTES ============
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
-    try {
-      const userId = req.user.claims.sub;
-      const user = await storage.getUser(userId);
-      res.json(user);
-    } catch (error) {
-      console.error("Error fetching user:", error);
-      res.status(500).json({ message: "Failed to fetch user" });
-    }
   });
 
   // ============ REGISTRATION ROUTES ============
@@ -453,7 +441,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/patients", isAuthenticated, requireRole('doctor', 'director', 'nurse'), async (req: any, res) => {
     try {
-      const validatedData = insertPatientSchema.parse(req.body);
+      // Convert numeric fields to strings for decimal columns
+      const normalizedData = {
+        ...req.body,
+        weight: req.body.weight !== undefined && req.body.weight !== '' ? String(req.body.weight) : undefined,
+        height: req.body.height !== undefined && req.body.height !== '' ? String(req.body.height) : undefined,
+        // Convert allergies and chronicConditions to arrays if they're comma-separated strings
+        allergies: req.body.allergies 
+          ? (typeof req.body.allergies === 'string' 
+              ? req.body.allergies.split(',').map((a: string) => a.trim()).filter((a: string) => a) 
+              : req.body.allergies)
+          : undefined,
+        chronicConditions: req.body.chronicConditions 
+          ? (typeof req.body.chronicConditions === 'string' 
+              ? req.body.chronicConditions.split(',').map((c: string) => c.trim()).filter((c: string) => c) 
+              : req.body.chronicConditions)
+          : undefined,
+      };
+      
+      const validatedData = insertPatientSchema.parse(normalizedData);
       const patient = await storage.createPatient(validatedData);
       
       await storage.createAuditLog({

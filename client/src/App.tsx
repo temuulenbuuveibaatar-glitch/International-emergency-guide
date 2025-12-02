@@ -30,6 +30,7 @@ import HospitalLogin from "./pages/HospitalLogin";
 import AdminPanel from "./pages/AdminPanel";
 import Prescribe from "./pages/Prescribe";
 import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
 import MedicationAdvisor from "./pages/MedicationAdvisor";
 import DoctorCharts from "./pages/DoctorCharts";
 import PatientPortal from "./pages/PatientPortal";
@@ -56,6 +57,7 @@ function AppRouter() {
           <Route path="/hospital" component={Dashboard} />
           <Route path="/hospital/login" component={HospitalLogin} />
           <Route path="/hospital/patients" component={PatientList} />
+          <Route path="/hospital/patients/:id" component={DoctorCharts} />
           <Route path="/hospital/medications" component={MedicationList} />
           <Route path="/hospital/mar" component={MAR} />
           <Route path="/hospital/vitals" component={VitalSigns} />
@@ -64,6 +66,7 @@ function AppRouter() {
           <Route path="/hospital/advisor" component={MedicationAdvisor} />
           <Route path="/hospital/charts/:patientId?" component={DoctorCharts} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={Login} />
           <Route path="/patient" component={PatientPortal} />
           <Route path="/patient/login" component={PatientPortal} />
           <Route component={NotFound} />
