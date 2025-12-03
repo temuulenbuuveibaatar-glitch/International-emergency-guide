@@ -205,8 +205,16 @@ export function RegulatoryBadgeGroup({
     );
   }
 
+  // Sanitize approvals: filter out any without valid agency or status
+  const validApprovals = approvals.filter(a => 
+    a && a.agency && agencyConfig[a.agency] && (a.status || a.status === 'approved')
+  ).map(a => ({
+    ...a,
+    status: a.status || 'approved' as ApprovalStatus
+  }));
+
   const filteredApprovals = selectedRegion && selectedRegion !== 'all'
-    ? approvals.filter(a => {
+    ? validApprovals.filter(a => {
         if (selectedRegion === 'FDA') return a.agency === 'FDA';
         if (selectedRegion === 'EMA') return a.agency === 'EMA';
         if (selectedRegion === 'Asia') return ['PMDA', 'NMPA', 'MFDS'].includes(a.agency);
@@ -215,7 +223,7 @@ export function RegulatoryBadgeGroup({
         }
         return true;
       })
-    : approvals;
+    : validApprovals;
 
   const displayApprovals = showAll 
     ? filteredApprovals 
