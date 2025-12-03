@@ -1232,7 +1232,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         totalCount: medications.length,
         page: pageNum,
         totalPages: Math.ceil(medications.length / limitNum),
-        categories: [...new Set(medicationsDatabase.map(m => m.category))]
+        categories: Array.from(new Set(medicationsDatabase.map(m => m.category)))
       });
     } catch (error) {
       console.error("Error fetching medications database:", error);
@@ -1257,7 +1257,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get medication categories
   app.get("/api/medications-database-categories", async (req, res) => {
     try {
-      const categories = [...new Set(medicationsDatabase.map(m => m.category))];
+      const categories = Array.from(new Set(medicationsDatabase.map(m => m.category)));
       const categoryCounts = categories.map(cat => ({
         name: cat,
         count: medicationsDatabase.filter(m => m.category === cat).length
@@ -1303,7 +1303,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         totalCount: protocols.length,
         page: pageNum,
         totalPages: Math.ceil(protocols.length / limitNum),
-        categories: [...new Set(treatmentProtocols.map(p => p.category))]
+        categories: Array.from(new Set(treatmentProtocols.map(p => p.category)))
       });
     } catch (error) {
       console.error("Error fetching treatment protocols:", error);
@@ -1328,7 +1328,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get protocol categories
   app.get("/api/treatment-protocols-categories", async (req, res) => {
     try {
-      const categories = [...new Set(treatmentProtocols.map(p => p.category))];
+      const categories = Array.from(new Set(treatmentProtocols.map(p => p.category)));
       const categoryCounts = categories.map(cat => ({
         name: cat,
         count: treatmentProtocols.filter(p => p.category === cat).length
