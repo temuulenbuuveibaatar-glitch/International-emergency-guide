@@ -1,3 +1,25 @@
+// Regulatory agency types
+export type RegulatoryAgency = 'FDA' | 'EMA' | 'PMDA' | 'NMPA' | 'MFDS' | 'HSA' | 'TGA';
+
+export interface RegulatoryApproval {
+  agency: RegulatoryAgency;
+  status: 'approved' | 'pending' | 'not_approved' | 'withdrawn';
+  approvalDate?: string;
+  brandName?: string;
+  indications?: string[];
+  restrictions?: string[];
+  riskCategory?: string;
+  additionalWarnings?: string[];
+}
+
+export interface RegionalDosing {
+  region: 'USA' | 'EU' | 'Japan' | 'China' | 'Korea' | 'Singapore' | 'Australia';
+  adultDose: string;
+  pediatricDose?: string;
+  maxDose: string;
+  notes?: string;
+}
+
 export interface MedicationData {
   name: string;
   genericName: string;
@@ -26,6 +48,13 @@ export interface MedicationData {
   labsRequired: string[];
   isControlled: boolean;
   controlledSchedule?: string;
+  // International regulatory approvals
+  regulatoryApprovals?: RegulatoryApproval[];
+  regionalDosing?: RegionalDosing[];
+  regionalContraindications?: { region: string; contraindications: string[] }[];
+  internationalBrandNames?: { region: string; names: string[] }[];
+  riskEvaluationProgram?: string; // REMS (FDA), Risk Management Plan (EMA), etc.
+  marketStatus?: 'active' | 'discontinued' | 'shortage' | 'limited';
 }
 
 export const medicationsDatabase: MedicationData[] = [
@@ -55,7 +84,27 @@ export const medicationsDatabase: MedicationData[] = [
     storageRequirements: "Store at room temperature 20-25°C",
     monitoringParameters: ["Blood pressure", "Renal function", "Serum potassium"],
     labsRequired: ["BMP", "Potassium", "Creatinine"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1987-12-29", brandName: "Prinivil/Zestril", indications: ["Hypertension", "Heart Failure", "Post-MI"], riskCategory: "Pregnancy Category D" },
+      { agency: "EMA", status: "approved", approvalDate: "1988-06-15", brandName: "Zestril", indications: ["Hypertension", "Heart Failure", "Diabetic Nephropathy"], restrictions: ["Contraindicated in pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1990-09-01", brandName: "Longes", indications: ["Hypertension", "Chronic Heart Failure"], riskCategory: "Contraindicated in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1995-03-20", brandName: "力平之", indications: ["Hypertension", "Heart Failure"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1992-07-15", brandName: "제스트릴", indications: ["Hypertension", "Heart Failure", "Post-MI"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "10-40mg once daily", maxDose: "80mg/day", notes: "Start 5mg if on diuretics" },
+      { region: "EU", adultDose: "10-20mg once daily", maxDose: "40mg/day", notes: "Lower starting dose in elderly" },
+      { region: "Japan", adultDose: "5-20mg once daily", maxDose: "40mg/day", notes: "Generally lower doses due to body weight" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Longes", "ロンゲス"] },
+      { region: "China", names: ["力平之", "利普妥"] },
+      { region: "Korea", names: ["제스트릴", "Zestril"] },
+      { region: "Germany", names: ["Acerbon", "Coric"] },
+      { region: "Spain", names: ["Zestril", "Doneka"] }
+    ]
   },
   {
     name: "Metoprolol Succinate",
@@ -79,7 +128,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Tablets may be divided but not crushed. Take with or immediately after meals.",
     monitoringParameters: ["Heart rate", "Blood pressure", "ECG"],
     labsRequired: ["None routinely"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1992-11-06", brandName: "Toprol-XL", indications: ["Hypertension", "Angina Pectoris", "Heart Failure"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "1990-03-15", brandName: "Beloc-Zok", indications: ["Hypertension", "Angina", "Arrhythmia", "Heart Failure"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1983-09-20", brandName: "Seloken", indications: ["Hypertension", "Angina", "Tachyarrhythmia"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1995-06-10", brandName: "倍他乐克", indications: ["Hypertension", "Angina", "Heart Failure"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1991-04-25", brandName: "셀로켄", indications: ["Hypertension", "Angina", "Arrhythmia"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "25-200mg once daily", maxDose: "400mg/day", notes: "Start 25mg for heart failure" },
+      { region: "EU", adultDose: "50-200mg once daily", maxDose: "400mg/day", notes: "Titrate based on heart rate response" },
+      { region: "Japan", adultDose: "20-120mg once daily", maxDose: "240mg/day", notes: "Lower doses typical due to body weight differences" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Seloken", "セロケン"] },
+      { region: "China", names: ["倍他乐克", "美托洛尔"] },
+      { region: "Korea", names: ["셀로켄", "Seloken"] },
+      { region: "Germany", names: ["Beloc-Zok", "Metoprolol-Succinat"] },
+      { region: "Spain", names: ["Beloken", "Lopresor"] }
+    ]
   },
   {
     name: "Amlodipine",
@@ -103,7 +172,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "May be taken with or without food",
     monitoringParameters: ["Blood pressure", "Heart rate", "Peripheral edema"],
     labsRequired: ["None routinely"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1992-07-31", brandName: "Norvasc", indications: ["Hypertension", "Chronic Stable Angina", "Vasospastic Angina"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "1990-09-10", brandName: "Norvasc", indications: ["Hypertension", "Angina Pectoris"], restrictions: ["Use with caution in pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1993-03-25", brandName: "Norvasc/Amlodin", indications: ["Hypertension", "Angina Pectoris"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1996-05-15", brandName: "络活喜", indications: ["Hypertension", "Angina"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1994-02-20", brandName: "노바스크", indications: ["Hypertension", "Angina Pectoris"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "5-10mg once daily", maxDose: "10mg/day", notes: "Start 5mg; 2.5mg for small/frail patients" },
+      { region: "EU", adultDose: "5-10mg once daily", maxDose: "10mg/day", notes: "Titrate over 1-2 weeks" },
+      { region: "Japan", adultDose: "2.5-5mg once daily", maxDose: "10mg/day", notes: "Often start at 2.5mg due to body weight" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Norvasc", "ノルバスク", "Amlodin", "アムロジン"] },
+      { region: "China", names: ["络活喜", "氨氯地平"] },
+      { region: "Korea", names: ["노바스크", "Norvasc"] },
+      { region: "Germany", names: ["Norvasc", "Amlodipin"] },
+      { region: "Spain", names: ["Norvasc", "Astudal"] }
+    ]
   },
   {
     name: "Atorvastatin",
@@ -128,7 +217,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "May be taken at any time of day with or without food",
     monitoringParameters: ["LFTs", "Lipid panel", "CK if symptomatic"],
     labsRequired: ["Lipid panel", "LFTs", "A1c"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1996-12-17", brandName: "Lipitor", indications: ["Hyperlipidemia", "Primary Prevention of CVD", "Secondary Prevention of CVD"], riskCategory: "Pregnancy Category X" },
+      { agency: "EMA", status: "approved", approvalDate: "1997-03-10", brandName: "Lipitor", indications: ["Hypercholesterolemia", "Prevention of Cardiovascular Events"], restrictions: ["Contraindicated in pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "2000-06-16", brandName: "Lipitor", indications: ["Hypercholesterolemia", "Familial Hypercholesterolemia"], riskCategory: "Contraindicated in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1999-09-20", brandName: "立普妥", indications: ["Hyperlipidemia", "Coronary Heart Disease Prevention"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1998-05-15", brandName: "리피토", indications: ["Hypercholesterolemia", "Mixed Dyslipidemia"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "10-80mg once daily", maxDose: "80mg/day", notes: "Start 10-20mg; 40-80mg for aggressive LDL reduction" },
+      { region: "EU", adultDose: "10-80mg once daily", maxDose: "80mg/day", notes: "Individualize based on LDL goal" },
+      { region: "Japan", adultDose: "5-20mg once daily", maxDose: "40mg/day", notes: "Lower doses effective in Asian populations" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Lipitor", "リピトール"] },
+      { region: "China", names: ["立普妥", "阿托伐他汀"] },
+      { region: "Korea", names: ["리피토", "Lipitor"] },
+      { region: "Germany", names: ["Sortis", "Atorvastatin"] },
+      { region: "Spain", names: ["Cardyl", "Lipitor"] }
+    ]
   },
   {
     name: "Losartan",
@@ -154,7 +263,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "May be taken with or without food",
     monitoringParameters: ["Blood pressure", "Renal function", "Serum potassium"],
     labsRequired: ["BMP", "Potassium", "Creatinine"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1995-04-14", brandName: "Cozaar", indications: ["Hypertension", "Diabetic Nephropathy", "Stroke Risk Reduction"], riskCategory: "Pregnancy Category D" },
+      { agency: "EMA", status: "approved", approvalDate: "1994-06-09", brandName: "Cozaar", indications: ["Essential Hypertension", "Type 2 Diabetic Nephropathy", "Chronic Heart Failure"], restrictions: ["Contraindicated in pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1998-06-30", brandName: "Nu-Lotan", indications: ["Hypertension", "Type 2 Diabetic Nephropathy"], riskCategory: "Contraindicated in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1998-11-15", brandName: "科素亚", indications: ["Hypertension", "Diabetic Nephropathy"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1997-03-20", brandName: "코자", indications: ["Hypertension", "Diabetic Nephropathy", "Heart Failure"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "25-100mg once or twice daily", maxDose: "100mg/day", notes: "Start 50mg; 25mg if volume depleted" },
+      { region: "EU", adultDose: "50-100mg once daily", maxDose: "100mg/day", notes: "May divide into twice daily for better effect" },
+      { region: "Japan", adultDose: "25-50mg once daily", maxDose: "100mg/day", notes: "Lower starting doses recommended" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Nu-Lotan", "ニューロタン"] },
+      { region: "China", names: ["科素亚", "氯沙坦"] },
+      { region: "Korea", names: ["코자", "Cozaar"] },
+      { region: "Germany", names: ["Lorzaar", "Losartan"] },
+      { region: "Spain", names: ["Cozaar", "Losartan"] }
+    ]
   },
   {
     name: "Furosemide",
@@ -179,7 +308,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Take in morning to avoid nighttime diuresis. IV: Give slowly over 1-2 min",
     monitoringParameters: ["Electrolytes", "Renal function", "Blood pressure", "Weight"],
     labsRequired: ["BMP", "Magnesium", "Uric acid"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1966-07-22", brandName: "Lasix", indications: ["Edema", "Heart Failure", "Hypertension", "Acute Pulmonary Edema"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "1964-03-15", brandName: "Lasix", indications: ["Edema", "Cardiac Failure", "Renal Failure", "Hepatic Cirrhosis"], restrictions: ["Use only if clearly needed in pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1965-09-01", brandName: "Lasix", indications: ["Edema", "Heart Failure", "Renal Disease", "Hypertension"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1985-04-10", brandName: "速尿", indications: ["Edema", "Heart Failure", "Ascites"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1975-08-20", brandName: "라식스", indications: ["Edema", "Heart Failure", "Hypertension"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "20-80mg once or twice daily", maxDose: "600mg/day", notes: "May need higher doses in renal impairment" },
+      { region: "EU", adultDose: "20-80mg/day", maxDose: "500mg/day", notes: "Start low and titrate; IV for acute situations" },
+      { region: "Japan", adultDose: "20-40mg once or twice daily", maxDose: "250mg/day", notes: "Lower doses typically sufficient" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Lasix", "ラシックス"] },
+      { region: "China", names: ["速尿", "呋塞米"] },
+      { region: "Korea", names: ["라식스", "Lasix"] },
+      { region: "Germany", names: ["Lasix", "Furosemid"] },
+      { region: "Spain", names: ["Seguril", "Furosemida"] }
+    ]
   },
   {
     name: "Hydrochlorothiazide",
@@ -228,7 +377,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Take at same time each day. Maintain consistent vitamin K intake.",
     monitoringParameters: ["INR", "Signs of bleeding", "Hemoglobin"],
     labsRequired: ["INR", "PT", "CBC"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1954-06-08", brandName: "Coumadin", indications: ["Venous Thromboembolism", "Atrial Fibrillation", "Mechanical Heart Valves", "Post-MI"], riskCategory: "Pregnancy Category X" },
+      { agency: "EMA", status: "approved", approvalDate: "1955-01-20", brandName: "Coumadin", indications: ["DVT/PE Prophylaxis", "Atrial Fibrillation", "Prosthetic Heart Valves"], restrictions: ["Contraindicated in pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1962-04-15", brandName: "Warfarin", indications: ["Thromboembolism", "Atrial Fibrillation"], riskCategory: "Contraindicated in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1980-09-25", brandName: "华法林", indications: ["Thromboembolism", "Atrial Fibrillation", "Valve Replacement"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1970-12-10", brandName: "쿠마딘", indications: ["Venous Thromboembolism", "Atrial Fibrillation"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "2-10mg once daily", maxDose: "Individualized by INR", notes: "Target INR 2.0-3.0 for most indications" },
+      { region: "EU", adultDose: "2-10mg once daily", maxDose: "Individualized by INR", notes: "Start 5mg; adjust based on INR" },
+      { region: "Japan", adultDose: "1-5mg once daily", maxDose: "Individualized by INR", notes: "Lower doses needed; Asian patients more sensitive" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Warfarin", "ワーファリン"] },
+      { region: "China", names: ["华法林", "华令"] },
+      { region: "Korea", names: ["쿠마딘", "Coumadin"] },
+      { region: "Germany", names: ["Marcumar", "Coumadin"] },
+      { region: "Spain", names: ["Aldocumar", "Sintrom"] }
+    ]
   },
   {
     name: "Clopidogrel",
@@ -304,7 +473,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Take with meals. Hold before contrast procedures.",
     monitoringParameters: ["A1c", "Renal function", "Vitamin B12"],
     labsRequired: ["A1c", "BMP", "B12"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1994-12-29", brandName: "Glucophage", indications: ["Type 2 Diabetes Mellitus"], riskCategory: "Pregnancy Category B" },
+      { agency: "EMA", status: "approved", approvalDate: "1957-01-15", brandName: "Glucophage", indications: ["Type 2 Diabetes", "Pre-diabetes", "PCOS"], restrictions: ["Hold before contrast procedures"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1961-03-10", brandName: "Melbin", indications: ["Type 2 Diabetes Mellitus"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1999-05-20", brandName: "格华止", indications: ["Type 2 Diabetes", "Metabolic Syndrome"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1998-09-15", brandName: "글루코파지", indications: ["Type 2 Diabetes Mellitus"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "500-1000mg twice daily", maxDose: "2550mg/day", notes: "Start 500mg BID; titrate weekly" },
+      { region: "EU", adultDose: "500-1000mg two to three times daily", maxDose: "3000mg/day", notes: "Higher max dose in EU" },
+      { region: "Japan", adultDose: "250-500mg two to three times daily", maxDose: "2250mg/day", notes: "Lower starting doses recommended" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Melbin", "メルビン", "Glycoran", "グリコラン"] },
+      { region: "China", names: ["格华止", "二甲双胍"] },
+      { region: "Korea", names: ["글루코파지", "Glucophage"] },
+      { region: "Germany", names: ["Siofor", "Glucophage"] },
+      { region: "Spain", names: ["Dianben", "Metformina"] }
+    ]
   },
   {
     name: "Glipizide",
@@ -353,7 +542,27 @@ export const medicationsDatabase: MedicationData[] = [
     storageRequirements: "Refrigerate unopened. Room temp up to 28 days after opening.",
     monitoringParameters: ["Blood glucose", "A1c", "Signs of hypoglycemia"],
     labsRequired: ["A1c", "Fasting glucose", "BMP"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "2000-04-20", brandName: "Lantus", indications: ["Type 1 Diabetes", "Type 2 Diabetes"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "2000-06-09", brandName: "Lantus", indications: ["Type 1 Diabetes", "Type 2 Diabetes"], restrictions: ["Monitor closely during pregnancy"] },
+      { agency: "PMDA", status: "approved", approvalDate: "2003-10-16", brandName: "Lantus", indications: ["Diabetes Mellitus requiring insulin"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "2004-08-25", brandName: "来得时", indications: ["Type 1 Diabetes", "Type 2 Diabetes"] },
+      { agency: "MFDS", status: "approved", approvalDate: "2003-06-20", brandName: "란투스", indications: ["Type 1 Diabetes", "Type 2 Diabetes"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "10 units once daily, titrate to target", maxDose: "Individualized", notes: "Titrate by 2 units every 3 days to FBG target" },
+      { region: "EU", adultDose: "10 units once daily", maxDose: "Individualized", notes: "Adjust based on fasting glucose" },
+      { region: "Japan", adultDose: "4-10 units once daily", maxDose: "Individualized", notes: "Often start lower due to insulin sensitivity" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Lantus", "ランタス"] },
+      { region: "China", names: ["来得时", "甘精胰岛素"] },
+      { region: "Korea", names: ["란투스", "Lantus"] },
+      { region: "Germany", names: ["Lantus", "Toujeo"] },
+      { region: "Spain", names: ["Lantus", "Toujeo"] }
+    ]
   },
   {
     name: "Insulin Lispro",
@@ -810,6 +1019,53 @@ export const medicationsDatabase: MedicationData[] = [
     controlledSchedule: "Schedule II"
   },
   {
+    name: "Hydrocodone/Acetaminophen",
+    genericName: "Hydrocodone Bitartrate/Acetaminophen",
+    brandNames: ["Vicodin", "Norco", "Lortab"],
+    category: "Analgesic - Opioid Combination",
+    form: "Tablet, Solution",
+    strength: "5mg/325mg, 7.5mg/325mg, 10mg/325mg",
+    route: "Oral",
+    standardDoseAdult: "5-10mg hydrocodone every 4-6 hours as needed",
+    standardDosePediatric: "Not recommended for pediatric use",
+    maxDailyDose: "Maximum 4g acetaminophen/day",
+    dosingFrequency: "Every 4-6 hours as needed",
+    weightBasedDosing: false,
+    renalAdjustment: "Use with caution; reduce dose in severe impairment",
+    hepaticAdjustment: "Avoid or reduce dose; acetaminophen hepatotoxicity risk",
+    contraindications: ["Opioid allergy", "Acetaminophen allergy", "Respiratory depression", "Severe hepatic impairment", "MAOIs within 14 days"],
+    drugInteractions: ["CNS depressants", "Benzodiazepines", "Alcohol", "CYP3A4 inhibitors", "MAOIs", "Other acetaminophen products"],
+    sideEffects: ["Constipation", "Nausea", "Sedation", "Dizziness", "Respiratory depression", "Hepatotoxicity"],
+    blackBoxWarning: "Risk of addiction, abuse, and misuse. Risk of life-threatening respiratory depression. Acetaminophen has been associated with acute liver failure, at times resulting in liver transplant and death.",
+    pregnancyCategory: "C (D with prolonged use)",
+    administrationNotes: "Take with or without food. Monitor total acetaminophen intake from all sources. Use stool softeners.",
+    monitoringParameters: ["Pain level", "Respiratory status", "Liver function", "Total acetaminophen intake"],
+    labsRequired: ["LFTs periodically"],
+    isControlled: true,
+    controlledSchedule: "Schedule II",
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1983-02-14", brandName: "Vicodin", indications: ["Moderate to Moderately Severe Pain"], riskCategory: "Pregnancy Category C/D", additionalWarnings: ["Maximum 4g acetaminophen/day", "High abuse potential"] },
+      { agency: "EMA", status: "restricted", approvalDate: "1990-06-20", brandName: "Not widely marketed", indications: ["Pain Management"], restrictions: ["Limited availability in EU due to opioid combination concerns"] },
+      { agency: "PMDA", status: "approved", approvalDate: "2011-01-21", brandName: "Norspan", indications: ["Moderate to Severe Pain"], riskCategory: "Narcotics control", additionalWarnings: ["Strict dispensing regulations"] },
+      { agency: "NMPA", status: "restricted", approvalDate: "2005-08-15", brandName: "氢可酮/对乙酰氨基酚", indications: ["Severe Pain"], restrictions: ["Limited to hospital use"] },
+      { agency: "MFDS", status: "restricted", approvalDate: "2008-03-10", brandName: "하이드로코돈/아세트아미노펜", indications: ["Moderate to Severe Pain"], restrictions: ["Controlled distribution"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "5-10mg hydrocodone q4-6h", maxDose: "Max 4g acetaminophen/day", notes: "Most commonly prescribed opioid in US; watch acetaminophen limits" },
+      { region: "EU", adultDose: "Not widely used", maxDose: "Alternative opioids preferred", notes: "Combination not commonly marketed in EU" },
+      { region: "Japan", adultDose: "2.5-5mg hydrocodone equivalent q6h", maxDose: "Strict limits", notes: "Lower doses; strict narcotic controls" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["ノルスパン", "Norspan"] },
+      { region: "China", names: ["氢可酮/对乙酰氨基酚", "复方氢可酮"] },
+      { region: "Korea", names: ["하이드로코돈정", "Hydrocodone"] },
+      { region: "Germany", names: ["Hydrocodon", "Dihydrocodein"] },
+      { region: "USA", names: ["Vicodin", "Norco", "Lortab"] }
+    ],
+    riskEvaluationProgram: "FDA opioid REMS required"
+  },
+  {
     name: "Morphine",
     genericName: "Morphine Sulfate",
     brandNames: ["MS Contin", "Kadian", "Roxanol"],
@@ -834,7 +1090,28 @@ export const medicationsDatabase: MedicationData[] = [
     monitoringParameters: ["Pain level", "Respiratory status", "Blood pressure", "Bowel function"],
     labsRequired: ["None routinely"],
     isControlled: true,
-    controlledSchedule: "Schedule II"
+    controlledSchedule: "Schedule II",
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1941-05-01", brandName: "Morphine Sulfate", indications: ["Severe Pain", "Post-surgical Pain", "Cancer Pain"], riskCategory: "Pregnancy Category C/D", additionalWarnings: ["REMS required", "High abuse potential"] },
+      { agency: "EMA", status: "approved", approvalDate: "1950-01-15", brandName: "MST Continus", indications: ["Severe Pain", "Cancer Pain", "Palliative Care"], restrictions: ["Controlled substance", "Prescription monitoring required"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1952-08-20", brandName: "MS Contin", indications: ["Severe Pain", "Cancer Pain"], riskCategory: "Narcotics control", additionalWarnings: ["Strict dispensing regulations"] },
+      { agency: "NMPA", status: "approved", approvalDate: "1985-06-10", brandName: "吗啡", indications: ["Severe Pain", "Cancer Pain"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1975-03-25", brandName: "모르핀", indications: ["Severe Pain", "Cancer Pain", "Post-surgical Pain"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "IR: 10-30mg q4h; IV: 2-10mg q2-4h", maxDose: "No ceiling, titrate carefully", notes: "Opioid-naive: start low" },
+      { region: "EU", adultDose: "IR: 5-20mg q4h", maxDose: "Individualized", notes: "Lower starting doses recommended" },
+      { region: "Japan", adultDose: "IR: 5-10mg q4-6h", maxDose: "Individualized", notes: "Lower doses due to body weight; strict regulations" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["MS Contin", "MSコンチン", "Optiso", "オプソ"] },
+      { region: "China", names: ["吗啡", "美施康定"] },
+      { region: "Korea", names: ["모르핀", "MS Contin"] },
+      { region: "Germany", names: ["MST", "Capros"] },
+      { region: "Spain", names: ["Sevredol", "MST Continus"] }
+    ],
+    riskEvaluationProgram: "FDA REMS required for extended-release formulations"
   },
   {
     name: "Gabapentin",
@@ -860,7 +1137,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "May be taken with or without food. Taper to discontinue.",
     monitoringParameters: ["Pain level", "Mood/suicidal ideation", "Renal function"],
     labsRequired: ["BMP"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1993-12-30", brandName: "Neurontin", indications: ["Epilepsy", "Postherpetic Neuralgia"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "1995-05-26", brandName: "Neurontin", indications: ["Epilepsy", "Peripheral Neuropathic Pain"], restrictions: ["Monitor for suicidal ideation"] },
+      { agency: "PMDA", status: "approved", approvalDate: "2006-07-21", brandName: "Gabapen", indications: ["Epilepsy", "Neuropathic Pain"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1999-10-15", brandName: "加巴喷丁", indications: ["Epilepsy", "Neuropathic Pain"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1998-04-20", brandName: "뉴론틴", indications: ["Epilepsy", "Neuropathic Pain", "Postherpetic Neuralgia"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "300mg TID, titrate to 1800-3600mg/day", maxDose: "3600mg/day", notes: "Start 300mg on day 1, titrate up" },
+      { region: "EU", adultDose: "300-600mg TID", maxDose: "3600mg/day", notes: "Titrate over 3 days minimum" },
+      { region: "Japan", adultDose: "200-400mg TID", maxDose: "2400mg/day", notes: "Lower max doses typically used" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Gabapen", "ガバペン"] },
+      { region: "China", names: ["加巴喷丁", "诺必达"] },
+      { region: "Korea", names: ["뉴론틴", "Neurontin"] },
+      { region: "Germany", names: ["Neurontin", "Gabapentin"] },
+      { region: "Spain", names: ["Neurontin", "Gabapentina"] }
+    ]
   },
   {
     name: "Pregabalin",
@@ -986,7 +1283,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Take with food. Taper if used >2 weeks. Give in morning if once daily.",
     monitoringParameters: ["Blood glucose", "Blood pressure", "Weight", "Bone density (long-term)"],
     labsRequired: ["Blood glucose", "Electrolytes"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1955-02-21", brandName: "Deltasone", indications: ["Inflammatory Conditions", "Allergic Reactions", "Autoimmune Disorders", "Asthma"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "1955-06-10", brandName: "Decortin", indications: ["Inflammatory Diseases", "Allergic Conditions", "Rheumatic Disorders"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1956-03-15", brandName: "Predonine", indications: ["Inflammatory Diseases", "Allergic Disorders", "Autoimmune Conditions"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1980-08-20", brandName: "强的松", indications: ["Inflammatory Conditions", "Allergic Reactions", "Autoimmune Disorders"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1970-11-15", brandName: "프레드니손", indications: ["Inflammatory Diseases", "Allergic Conditions"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "40-60mg/day for acute; 5-10mg/day maintenance", maxDose: "80mg/day acute", notes: "Morning dosing preferred; taper after prolonged use" },
+      { region: "EU", adultDose: "30-60mg/day for acute conditions", maxDose: "100mg/day", notes: "Gradual tapering essential" },
+      { region: "Japan", adultDose: "20-60mg/day for acute; 5-10mg/day maintenance", maxDose: "60mg/day", notes: "Lower doses often effective in Asian patients" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Predonine", "プレドニン"] },
+      { region: "China", names: ["强的松", "泼尼松"] },
+      { region: "Korea", names: ["프레드니손", "Prednisone"] },
+      { region: "Germany", names: ["Decortin", "Prednisolon"] },
+      { region: "Spain", names: ["Dacortin", "Prednisona"] }
+    ]
   },
 
   // GI MEDICATIONS
@@ -1013,7 +1330,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Take 30-60 minutes before eating. Swallow capsules whole.",
     monitoringParameters: ["Symptom relief", "Magnesium (long-term)", "B12 (long-term)"],
     labsRequired: ["Magnesium with long-term use"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1989-09-14", brandName: "Prilosec", indications: ["GERD", "Erosive Esophagitis", "H. pylori Eradication", "Zollinger-Ellison Syndrome"], riskCategory: "Pregnancy Category C" },
+      { agency: "EMA", status: "approved", approvalDate: "1988-04-05", brandName: "Losec", indications: ["GERD", "Peptic Ulcer", "H. pylori Eradication"], restrictions: ["Long-term use requires monitoring"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1991-09-27", brandName: "Omepral", indications: ["Gastric Ulcer", "Duodenal Ulcer", "Reflux Esophagitis"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "1995-11-15", brandName: "洛赛克", indications: ["Peptic Ulcer", "GERD", "H. pylori Eradication"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1993-08-20", brandName: "로섹", indications: ["Gastric Ulcer", "GERD", "Erosive Esophagitis"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "20-40mg once daily", maxDose: "40mg/day", notes: "OTC dose: 20mg once daily for 14 days" },
+      { region: "EU", adultDose: "20-40mg once daily", maxDose: "40mg/day", notes: "May use 10mg for maintenance" },
+      { region: "Japan", adultDose: "10-20mg once daily", maxDose: "40mg/day", notes: "Lower doses often effective" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Omepral", "オメプラール"] },
+      { region: "China", names: ["洛赛克", "奥美拉唑"] },
+      { region: "Korea", names: ["로섹", "Losec"] },
+      { region: "Germany", names: ["Antra", "Omeprazol"] },
+      { region: "Spain", names: ["Losec", "Omeprazol"] }
+    ]
   },
   {
     name: "Pantoprazole",
@@ -1036,7 +1373,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "May be taken with or without food. Swallow tablets whole.",
     monitoringParameters: ["Symptom relief", "Magnesium (long-term)"],
     labsRequired: ["Magnesium with long-term use"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "2000-02-02", brandName: "Protonix", indications: ["GERD", "Erosive Esophagitis", "Zollinger-Ellison Syndrome"], riskCategory: "Pregnancy Category B" },
+      { agency: "EMA", status: "approved", approvalDate: "1994-08-24", brandName: "Pantozol", indications: ["GERD", "Peptic Ulcer Disease", "H. pylori Eradication"] },
+      { agency: "PMDA", status: "approved", approvalDate: "2006-08-24", brandName: "Takepron", indications: ["Gastric Ulcer", "Reflux Esophagitis"], riskCategory: "Use with caution in pregnancy" },
+      { agency: "NMPA", status: "approved", approvalDate: "2001-06-30", brandName: "泮托拉唑", indications: ["Peptic Ulcer", "GERD", "Stress Ulcer Prophylaxis"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1999-12-10", brandName: "판토프라졸", indications: ["Gastric Ulcer", "GERD", "Erosive Esophagitis"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "40mg once daily", maxDose: "40mg oral; 80mg IV", notes: "IV for patients unable to take oral" },
+      { region: "EU", adultDose: "40mg once daily", maxDose: "80mg/day", notes: "May use 20mg for maintenance" },
+      { region: "Japan", adultDose: "20-40mg once daily", maxDose: "40mg/day", notes: "Often start at 20mg" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Takepron", "タケプロン"] },
+      { region: "China", names: ["泮托拉唑", "潘妥洛克"] },
+      { region: "Korea", names: ["판토프라졸", "Pantoloc"] },
+      { region: "Germany", names: ["Pantozol", "Pantoprazol"] },
+      { region: "Spain", names: ["Pantecta", "Pantoprazol"] }
+    ]
   },
   {
     name: "Famotidine",
@@ -1391,7 +1748,27 @@ export const medicationsDatabase: MedicationData[] = [
     administrationNotes: "Take on empty stomach 30-60 minutes before breakfast. Separate from other meds by 4 hours.",
     monitoringParameters: ["TSH", "Free T4", "Heart rate", "Weight"],
     labsRequired: ["TSH", "Free T4"],
-    isControlled: false
+    isControlled: false,
+    marketStatus: "active",
+    regulatoryApprovals: [
+      { agency: "FDA", status: "approved", approvalDate: "1962-08-30", brandName: "Synthroid", indications: ["Hypothyroidism", "TSH Suppression", "Myxedema Coma"], riskCategory: "Pregnancy Category A" },
+      { agency: "EMA", status: "approved", approvalDate: "1965-03-15", brandName: "Euthyrox", indications: ["Hypothyroidism", "Thyroid Cancer Suppression", "Goiter"] },
+      { agency: "PMDA", status: "approved", approvalDate: "1963-11-20", brandName: "Thyradin-S", indications: ["Hypothyroidism", "Myxedema", "Cretinism"], riskCategory: "Safe in pregnancy when indicated" },
+      { agency: "NMPA", status: "approved", approvalDate: "1990-07-10", brandName: "优甲乐", indications: ["Hypothyroidism", "Goiter", "Thyroid Cancer"] },
+      { agency: "MFDS", status: "approved", approvalDate: "1985-05-25", brandName: "신지로이드", indications: ["Hypothyroidism", "Myxedema"] }
+    ],
+    regionalDosing: [
+      { region: "USA", adultDose: "1.6mcg/kg/day; typically 50-200mcg", maxDose: "Individualized by TSH", notes: "Start 25-50mcg in elderly/cardiac patients" },
+      { region: "EU", adultDose: "1.6-1.8mcg/kg/day", maxDose: "Individualized by TSH", notes: "Similar dosing to USA" },
+      { region: "Japan", adultDose: "25-150mcg/day", maxDose: "Individualized", notes: "Often lower doses sufficient; start 25mcg" }
+    ],
+    internationalBrandNames: [
+      { region: "Japan", names: ["Thyradin-S", "チラーヂン"] },
+      { region: "China", names: ["优甲乐", "左甲状腺素"] },
+      { region: "Korea", names: ["신지로이드", "Synthroid"] },
+      { region: "Germany", names: ["Euthyrox", "L-Thyroxin"] },
+      { region: "Spain", names: ["Eutirox", "Levotiroxina"] }
+    ]
   },
   {
     name: "Methimazole",
