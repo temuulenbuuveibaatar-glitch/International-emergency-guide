@@ -98,7 +98,7 @@
     <!-- iOS PWA Install Banner -->
     <div id="ios-pwa-banner">
       <div class="content">
-        <img src="/icon-192x192.png" alt="App Icon">
+        <img src="./icon-192x192.png" alt="App Icon">
         <div>
           <div><strong>International Emergency Guide</strong></div>
           <div>Install this web app on your iPhone: tap <span style="font-size:20px;">︙</span> and then "Add to Home Screen"</div>
@@ -123,16 +123,13 @@
       }(window.location))
     </script>
     
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  <script type="module" src="./src/main.tsx"></script>
     
     <!-- Service Worker Registration -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/serviceWorker.js')
+          navigator.serviceWorker.register('./serviceWorker.js')
             .then(registration => {
               console.log('ServiceWorker registration successful with scope: ', registration.scope);
             })

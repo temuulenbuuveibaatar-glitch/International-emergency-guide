@@ -42,13 +42,6 @@ jobs:
           export VITE_GOOGLE_MAPS_API_KEY="${{ secrets.GOOGLE_API_KEY }}"
           npx vite build --config vite.config.github.ts
           
-      - name: Copy static data files
-        run: |
-          cp -r public/data dist/
-          cp public/404.html dist/
-          cp public/serviceWorker.js dist/ || echo "ServiceWorker not found, skipping"
-          cp public/manifest.json dist/ || echo "Manifest not found, skipping"
-          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
