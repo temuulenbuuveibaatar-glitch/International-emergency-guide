@@ -12,13 +12,13 @@ export default function ProtocolDetail() {
   const { t } = useTranslation();
   
   if (!id) {
-    return <div>Protocol not found</div>;
+    return <div>{t('protocols.notFound', { defaultValue: 'Protocol not found' })}</div>;
   }
 
   const protocol = emergencyProtocols.find(p => p.id === id);
   
   if (!protocol) {
-    return <div>Protocol not found</div>;
+    return <div>{t('protocols.notFound', { defaultValue: 'Protocol not found' })}</div>;
   }
 
   const protocolSteps: Record<string, any[]> = {
@@ -1665,21 +1665,21 @@ export default function ProtocolDetail() {
           <CardHeader className="bg-gradient-to-r from-red-500 to-red-600 text-white">
             <CardTitle className="text-2xl flex items-center gap-3">
               <AlertTriangle size={32} />
-              {protocol.title}
+              {t(`protocolTitles.${id.replace(/-/g, '')}`, protocol.title)}
             </CardTitle>
             <p className="text-red-100 text-lg leading-relaxed">
-              {protocol.description}
+              {t(`protocolDescriptions.${id.replace(/-/g, '')}`, protocol.description)}
             </p>
           </CardHeader>
         </Card>
 
         {/* Quick Tips */}
         {tips.length > 0 && (
-          <Card className="mb-6 border-blue-200 bg-blue-50">
+          <Card className="mb-6 border-blue-200 bg-blue-50 dark:bg-blue-900/30 dark:border-blue-800">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-blue-800">
+              <CardTitle className="flex items-center gap-2 text-blue-800 dark:text-blue-200">
                 <Lightbulb size={24} />
-                Quick Reference Tips
+                {t('protocols.quickReferenceTips')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -1697,11 +1697,27 @@ export default function ProtocolDetail() {
 
         {/* Protocol Steps */}
         <div className="space-y-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 border-b-2 border-red-500 pb-2">
-            Step-by-Step Protocol
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 border-b-2 border-red-500 pb-2">
+            {t('protocols.stepByStep')}
           </h2>
           
           {steps.map((step, index) => {
+            // Normalize protocol ID for translation key lookup (cpr-2025 -> cpr2025)
+            const normalizedId = id.replace(/-/g, '');
+            const stepNum = index + 1;
+            const stepKey = `protocolSteps.${normalizedId}.step${stepNum}`;
+            
+            // Get translated values with fallbacks
+            const stepTitle = t(`${stepKey}.title`, { defaultValue: typeof step === 'string' ? step : step.title });
+            const stepDescription = typeof step !== 'string' ? t(`${stepKey}.description`, { defaultValue: step.description }) : '';
+            const stepDuration = typeof step !== 'string' ? t(`${stepKey}.duration`, { defaultValue: step.duration }) : '';
+            
+            // Get translated tips
+            const tip1 = t(`${stepKey}.tip1`, { defaultValue: '' });
+            const tip2 = t(`${stepKey}.tip2`, { defaultValue: '' });
+            const tip3 = t(`${stepKey}.tip3`, { defaultValue: '' });
+            const translatedTips = [tip1, tip2, tip3].filter(Boolean);
+            
             // Handle both string steps and detailed step objects
             if (typeof step === 'string') {
               return (
@@ -1709,16 +1725,18 @@ export default function ProtocolDetail() {
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-3">
                       <Badge variant="outline" className="text-sm px-3 py-1">
-                        Step {index + 1}
+                        {t('protocols.stepNumber', { number: stepNum })}
                       </Badge>
-                      <p className="text-lg leading-relaxed text-gray-800">{step}</p>
+                      <p className="text-lg leading-relaxed text-gray-800">{stepTitle}</p>
                     </div>
                   </CardContent>
                 </Card>
               );
             }
             
-            // Handle detailed step objects
+            // Handle detailed step objects with translations
+            const hasTips = translatedTips.length > 0;
+            
             return (
               <Card
                 key={index}
@@ -1733,15 +1751,15 @@ export default function ProtocolDetail() {
                         variant={step.important ? "destructive" : "secondary"}
                         className="text-sm px-3 py-1"
                       >
-                        Step {index + 1}
+                        {t('protocols.stepNumber', { number: stepNum })}
                       </Badge>
                       <span className={step.important ? 'text-red-800' : 'text-blue-800'}>
-                        {step.title}
+                        {stepTitle}
                       </span>
                     </CardTitle>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
                       <Clock size={16} />
-                      {step.duration}
+                      {stepDuration}
                     </div>
                   </div>
                 </CardHeader>
@@ -1749,18 +1767,18 @@ export default function ProtocolDetail() {
                   <p className={`text-lg leading-relaxed mb-4 ${
                     step.important ? 'text-red-700' : 'text-blue-700'
                   }`}>
-                    {step.description}
+                    {stepDescription}
                   </p>
                   
-                  {step.tips && step.tips.length > 0 && (
+                  {hasTips && (
                     <div className="mt-4">
                       <h4 className={`font-semibold mb-2 ${
-                        step.important ? 'text-red-800' : 'text-blue-800'
+                        step.important ? 'text-red-800 dark:text-red-300' : 'text-blue-800 dark:text-blue-300'
                       }`}>
-                        Key Points:
+                        {t('protocols.keyPoints')}:
                       </h4>
                       <ul className="space-y-1">
-                        {step.tips.map((tip: string, tipIndex: number) => (
+                        {translatedTips.map((tip: string, tipIndex: number) => (
                           <li key={tipIndex} className="flex items-start gap-2">
                             <CheckCircle 
                               size={16} 
@@ -1790,7 +1808,7 @@ export default function ProtocolDetail() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-yellow-800">
                 <AlertTriangle size={24} />
-                Critical Warnings
+                {t('protocols.warnings')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -1810,7 +1828,7 @@ export default function ProtocolDetail() {
         {notes.length > 0 && (
           <Card className="border-green-200 bg-green-50">
             <CardHeader>
-              <CardTitle className="text-green-800">Additional Notes</CardTitle>
+              <CardTitle className="text-green-800">{t('protocols.additionalNotes')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
@@ -1830,7 +1848,7 @@ export default function ProtocolDetail() {
             onClick={() => window.history.back()}
             className="bg-red-600 hover:bg-red-700 text-white px-8 py-3"
           >
-            Return to Protocols
+            {t('buttons.returnToProtocols')}
           </Button>
         </div>
       </div>

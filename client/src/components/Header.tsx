@@ -3,7 +3,9 @@ import { Link, useLocation } from "wouter";
 import LanguageSelector from "./LanguageSelector";
 import RedCrossLogo from "./RedCrossLogo";
 import { useTranslation } from "react-i18next";
-import { Menu, X, PhoneCall, Heart } from "lucide-react";
+import { Menu, X, PhoneCall, Heart, LogIn, User, Moon, Sun, UserPlus } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
   toggleMobileMenu: () => void;
@@ -14,6 +16,23 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const { user, isLoading } = useAuth();
+  
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    setDarkMode(isDark);
+    document.documentElement.classList.toggle('dark', isDark);
+  }, []);
+  
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', newDarkMode);
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -55,14 +74,49 @@ export default function Header({ toggleMobileMenu }: HeaderProps) {
           </Link>
           
           {/* Emergency Call Button - Shown on Medium+ screens */}
-          <div className="hidden md:flex items-center">
-            <a href={`tel:${t('emergency.number')}`} className="mr-4 flex items-center gap-2 bg-red-100 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-red-200 transition-colors">
+          <div className="hidden md:flex items-center gap-3">
+            <a href={`tel:${t('emergency.number')}`} className="flex items-center gap-2 bg-red-100 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-red-200 transition-colors dark:bg-red-900/30 dark:text-red-300">
               <PhoneCall className="w-4 h-4" />
               <span>{t('emergency.number')}</span>
             </a>
+            
+            {!isLoading && !user && (
+              <>
+                <Link href="/login">
+                  <Button variant="outline" size="sm" className="flex items-center gap-2" data-testid="btn-header-login">
+                    <LogIn className="w-4 h-4" />
+                    {t('common.login') as string}
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button variant="default" size="sm" className="flex items-center gap-2" data-testid="btn-header-signup">
+                    <UserPlus className="w-4 h-4" />
+                    {t('common.signUp') as string}
+                  </Button>
+                </Link>
+              </>
+            )}
+            
+            {!isLoading && user && (
+              <Link href="/hospital">
+                <Button variant="ghost" size="sm" className="flex items-center gap-2" data-testid="btn-header-profile">
+                  <User className="w-4 h-4" />
+                  {t('common.hospitalPortal') as string}
+                </Button>
+              </Link>
+            )}
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle dark mode"
+              data-testid="btn-dark-mode"
+            >
+              {darkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-600" />}
+            </button>
+            
             <LanguageSelector />
             
             <button 

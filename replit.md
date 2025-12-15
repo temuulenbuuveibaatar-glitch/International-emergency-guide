@@ -1,17 +1,7 @@
 # International Emergency Guide - Project Documentation
 
 ## Overview
-The International Emergency Guide is an advanced multilingual emergency response platform designed to provide critical medical and safety information. Its primary purpose is to offer comprehensive, up-to-date emergency protocols, an extensive medication database, and a detailed hospital directory to users globally. The platform emphasizes medical accuracy, ease of use, and a modern, responsive design.
-
-Key capabilities include:
-- Advanced AI-powered symptom checker with a 5-level clinical triage system.
-- Comprehensive and regularly updated emergency protocols based on international standards.
-- Detailed medication database with clinical decision support.
-- Expanded hospital database with verified location and service information.
-- A robust maintenance system to ensure data accuracy and system health.
-- Mobile-optimized 3D design for an intuitive user experience.
-
-The project aims to be a leading resource for emergency medical guidance, leveraging AI and modern web technologies to deliver reliable information quickly and efficiently.
+The International Emergency Guide is an advanced multilingual emergency response platform. Its primary purpose is to provide critical medical and safety information, supported by comprehensive maintenance systems, updated protocols, enhanced AI capabilities, and modern 3D design. The project aims to offer a reliable and user-friendly resource for emergency situations, leveraging advanced technology to deliver accurate and timely information.
 
 ## User Preferences
 - Focus on medical accuracy and safety
@@ -23,29 +13,24 @@ The project aims to be a leading resource for emergency medical guidance, levera
 ## System Architecture
 
 ### UI/UX Decisions
-The platform features a mobile-optimized 3D design with touch-friendly interactions, responsive animations, and advanced visual effects like glassmorphism and parallax scrolling. The aesthetic is professional, matching premium medical applications. Authentic imagery featuring Mongolian emergency service personnel is used in the hero section.
+The platform features a mobile-optimized 3D design with touch-friendly interactions, responsive animations, and professional aesthetics including glassmorphism and parallax scrolling. Authentic imagery featuring Mongolian emergency service personnel is used in the hero section.
 
 ### Technical Implementations
-- **Frontend**: Built with React 18 and TypeScript for type safety, utilizing Tailwind CSS for styling and custom 3D animations. Wouter handles routing, React Query manages state, and i18next provides internationalization. The application is a Progressive Web App (PWA) with offline support.
-- **Backend**: An Express.js server integrates with OpenAI for AI capabilities (when an API key is provided) and exposes RESTful API endpoints for all system components.
-- **Data Systems**: Comprehensive databases for emergency protocols (30+ updated to 2025 standards), a medication database (15+ critical medications with interaction checking), and a hospital database (verified data with quality metrics). A routine maintenance system automates updates and monitoring.
-- **AI-Powered Symptom Checker**: Features a professional 5-level triage system, over 50 detailed symptom profiles, an advanced diagnostic engine for real-time probability calculation, and a comprehensive condition database. It integrates patient information for personalized assessment and includes emergency detection protocols.
-- **Enhanced Hospital Search System**: Offers multi-parameter search capabilities, professional hospital profiles with detailed service information and quality ratings, and real-time filtering, integrated with Google Maps for visual representation.
-- **Professional-Grade Medication Database**: Includes 15+ critical medications with complete clinical profiles, advanced drug categories, and clinical decision support information such as black box warnings and pregnancy categories.
-- **Emergency Protocols**: Over 30 protocols updated to 2025 international standards (AHA, ATLS, WHO, CDC), providing detailed step-by-step instructions with timing, critical steps, and safety warnings.
+The frontend is built with **React 18** and **TypeScript**, styled with **Tailwind CSS** (including custom 3D animations), uses **Wouter** for routing, and **React Query** for state management. **i18next** handles internationalization, and **PWA** capabilities are integrated for offline support. The backend utilizes an **Express.js** server and integrates with **OpenAI** for AI functionalities. Comprehensive TypeScript interfaces ensure type safety for all medical data structures.
+
+### Feature Specifications
+- **Advanced Medical Triage System**: AI-powered symptom checker with a 5-level clinical triage system, real-time critical symptom identification, a comprehensive conditions database, and clinical decision support.
+- **Enhanced Hospital Search System**: Multi-parameter search capabilities, professional hospital profiles with detailed service information, real-time filtering, and enhanced Google Maps integration with color-coded markers.
+- **Professional-Grade Medication Database**: Includes 15+ critical medications with complete clinical profiles (FDA dosing, pharmacokinetics, contraindications), advanced drug categories, and clinical decision support (black box warnings, pregnancy categories, drug interactions).
+- **Updated Emergency Protocols**: Over 30 comprehensive protocols adhering to 2025 medical standards (AHA, ATLS, WHO guidelines), providing detailed step-by-step instructions, timing, safety warnings, and professional medical content. Multimedia content has been removed in favor of text-only, enhanced written instructions.
+- **Routine Maintenance System**: Automated scheduler for database updates, protocol reviews, and system health monitoring, including weekly, monthly, and quarterly tasks.
 
 ### System Design Choices
-- **Type Safety**: Extensive use of TypeScript interfaces for all medical data structures.
-- **Component Library**: Integration of modern UI components styled for a professional medical aesthetic.
-- **Search Algorithms**: Advanced multi-criteria filtering with probability-based ranking.
-- **Data Processing**: Real-time dynamic filtering and sorting capabilities for various data sets.
-- **Security & Privacy**: No storage of personal medical information, anonymized usage analytics, secure API endpoints with validation, and HTTPS enforcement. Comprehensive medical disclaimers are present.
+The architecture is PWA-enabled for offline access and prioritizes a mobile-first, responsive design. Mock AI implementations are used to avoid direct API key requirements in certain contexts, with comprehensive error handling and fallbacks.
 
 ## External Dependencies
-- **OpenAI**: Integrated for AI capabilities within the symptom checker and diagnostic engine.
-- **Google Maps API**: Used for displaying hospital locations and enhancing search functionality.
-- **GitHub Pages**: Utilized for static site deployment.
-- **Vercel**: Used for production deployments and performance optimization.
-- **i18next**: For internationalization.
-- **React Query**: For server state management.
-- **Wouter**: For client-side routing.
+- **OpenAI**: Integrated for AI capabilities.
+- **Google Maps API**: Used for hospital location services and mapping.
+- **GitHub Actions**: Utilized for automated deployment pipelines.
+- **Vercel**: Production-ready deployment configuration.
+- **AHA, ATLS, WHO, CDC**: Authoritative sources for medical protocol standards.
