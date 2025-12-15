@@ -25,6 +25,8 @@ interface Medication {
   contraindications: string[];
   notes?: string;
   warnings?: string[];
+  approvals?: string[];
+  blackBox?: boolean;
 }
 
 function generateMedicationDatabase(): Medication[] {
@@ -104,6 +106,9 @@ function generateMedicationDatabase(): Medication[] {
       },
       contraindications: ["Pregnancy", "Bilateral renal artery stenosis", "Angioedema history"],
       warnings: ["Monitor kidney function", "Check potassium levels"]
+      ,
+      approvals: ["US FDA", "EU EMA", "JP PMDA", "CN NMPA"],
+      blackBox: false
     }
   ];
 
@@ -192,6 +197,8 @@ export default function Medications() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [expandedMedications, setExpandedMedications] = useState<Set<string>>(new Set());
+  const [selectedRegion, setSelectedRegion] = useState<string>("all");
+  const [page, setPage] = useState<number>(1);
 
   const allMedications = useMemo(() => generateMedicationDatabase(), []);
 
@@ -206,6 +213,27 @@ export default function Medications() {
       return matchesSearch && matchesCategory;
     });
   }, [allMedications, searchTerm, selectedCategory]);
+
+  // Apply region filter (e.g., US FDA, EU EMA, Asia)
+  const regionFilteredMedications = useMemo(() => {
+    if (selectedRegion === "all") return filteredMedications;
+    const regionMap: Record<string, string[]> = {
+      us: ["US FDA"],
+      eu: ["EU EMA"],
+      asia: ["JP PMDA", "CN NMPA"]
+    };
+    const wanted = regionMap[selectedRegion] || [];
+    return filteredMedications.filter(m => Array.isArray(m.approvals) && m.approvals.some(a => wanted.includes(a)));
+  }, [filteredMedications, selectedRegion]);
+
+  // Pagination
+  const pageSize = 50;
+  const totalMedications = regionFilteredMedications.length;
+  const totalPages = Math.max(1, Math.ceil(totalMedications / pageSize));
+  const paginatedMedications = useMemo(() => {
+    const start = (page - 1) * pageSize;
+    return regionFilteredMedications.slice(start, start + pageSize);
+  }, [regionFilteredMedications, page]);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(allMedications.map(med => med.category)));
@@ -270,16 +298,33 @@ export default function Medications() {
         </Select>
       </div>
 
-      {/* Results Summary */}
-      <div className="text-center">
-        <p className="text-gray-600">
-          {t("medications.showing", "Showing")} <span className="font-semibold">{filteredMedications.length}</span> {t("medications.of", "of")} <span className="font-semibold">{allMedications.length}</span> {t("medications.medications", "medications")}
-        </p>
+      {/* Region Tabs & Results Summary */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-center gap-2">
+          <Button variant={selectedRegion === "all" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("all"); setPage(1); }}>
+            All
+          </Button>
+          <Button variant={selectedRegion === "us" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("us"); setPage(1); }}>
+            US
+          </Button>
+          <Button variant={selectedRegion === "eu" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("eu"); setPage(1); }}>
+            EU
+          </Button>
+          <Button variant={selectedRegion === "asia" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("asia"); setPage(1); }}>
+            Asia
+          </Button>
+        </div>
+
+        <div className="text-center">
+          <p className="text-gray-600">
+            {t("medications.showing", "Showing")} <span className="font-semibold">{paginatedMedications.length}</span> {t("medications.of", "of")} <span className="font-semibold">{regionFilteredMedications.length}</span> {t("medications.medications", "medications")} — {t("medications.page", "Page")} <span className="font-semibold">{page}</span> / <span className="font-semibold">{totalPages}</span>
+          </p>
+        </div>
       </div>
 
       {/* Medications Grid */}
       <div className="grid gap-6">
-        {filteredMedications.map((medication) => {
+        {paginatedMedications.map((medication) => {
           const isExpanded = expandedMedications.has(medication.id);
           
           return (
@@ -427,7 +472,7 @@ export default function Medications() {
         })}
       </div>
 
-      {filteredMedications.length === 0 && (
+      {regionFilteredMedications.length === 0 && (
         <div className="text-center py-12">
           <Pill className="h-16 w-16 text-gray-300 mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-600 mb-2">
@@ -438,6 +483,19 @@ export default function Medications() {
           </p>
         </div>
       )}
+
+      {/* Pagination Controls */}
+      <div className="flex items-center justify-center gap-4 mt-4">
+        <Button size="sm" variant="ghost" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1}>
+          {t("medications.prev", "Previous")}
+        </Button>
+        <div className="text-sm text-gray-600">
+          {t("medications.pageInfo", "Page")} {page} {t("medications.of", "of")} {totalPages}
+        </div>
+        <Button size="sm" variant="ghost" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages}>
+          {t("medications.next", "Next")}
+        </Button>
+      </div>
 
       {/* Footer Disclaimer */}
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-8">
