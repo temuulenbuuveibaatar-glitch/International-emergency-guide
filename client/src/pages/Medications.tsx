@@ -256,16 +256,20 @@ export default function Medications() {
     });
   }, [allMedications, searchTerm, selectedCategory, selectedAgency]);
 
-  // Apply region filter (e.g., US FDA, EU EMA, Asia)
+  // Apply region filter using regulatoryApprovals
   const regionFilteredMedications = useMemo(() => {
     if (selectedRegion === "all") return filteredMedications;
     const regionMap: Record<string, string[]> = {
-      us: ["US FDA"],
-      eu: ["EU EMA"],
-      asia: ["JP PMDA", "CN NMPA"]
+      us: ["FDA"],
+      eu: ["EMA"],
+      asia: ["PMDA", "NMPA", "MFDS"]
     };
-    const wanted = regionMap[selectedRegion] || [];
-    return filteredMedications.filter(m => Array.isArray(m.approvals) && m.approvals.some(a => wanted.includes(a)));
+    const agencies = regionMap[selectedRegion] || [];
+    return filteredMedications.filter(m => 
+      m.regulatoryApprovals?.some((approval: RegulatoryApproval) => 
+        agencies.includes(approval.agency) && approval.status === 'approved'
+      )
+    );
   }, [filteredMedications, selectedRegion]);
 
   // Pagination
