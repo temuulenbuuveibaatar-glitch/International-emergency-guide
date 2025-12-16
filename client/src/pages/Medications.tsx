@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Search, Filter, ChevronDown, ChevronUp, AlertTriangle, Info, Pill } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { Search, Filter, ChevronDown, ChevronUp, AlertTriangle, Info, Pill, Globe } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +9,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Separator } from "@/components/ui/separator";
 import { useTranslation } from "react-i18next";
 
+interface RegulatoryApproval {
+  agency: string;
+  status: string;
+  approvalDate?: string;
+  brandName?: string;
+  indications?: string[];
+  restrictions?: string[];
+  approvalPathway?: string;
+  reviewTime?: string;
+}
+
 interface Medication {
   id: string;
   name: string;
@@ -17,7 +28,7 @@ interface Medication {
   description: string;
   dosageForm: string[];
   dosage: string;
-  interactions?: string[];
+  interactions?: string[];  
   sideEffects: {
     common: string[];
     serious: string[];
@@ -27,6 +38,8 @@ interface Medication {
   warnings?: string[];
   approvals?: string[];
   blackBox?: boolean;
+  regulatoryApprovals?: RegulatoryApproval[];
+  internationalBrandNames?: { country: string; name: string; }[];
 }
 
 function generateMedicationDatabase(): Medication[] {
@@ -198,9 +211,35 @@ export default function Medications() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [expandedMedications, setExpandedMedications] = useState<Set<string>>(new Set());
   const [selectedRegion, setSelectedRegion] = useState<string>("all");
+  const [selectedAgency, setSelectedAgency] = useState<string>("all");
   const [page, setPage] = useState<number>(1);
+  const [allMedications, setAllMedications] = useState<Medication[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const allMedications = useMemo(() => generateMedicationDatabase(), []);
+  // Fetch medications from backend API
+  useEffect(() => {
+    const fetchMedications = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/medications');
+        if (response.ok) {
+          const data = await response.json();
+          setAllMedications(data);
+        } else {
+          console.error('Failed to fetch medications');
+          // Fallback to generated database
+          setAllMedications(generateMedicationDatabase());
+        }
+      } catch (error) {
+        console.error('Error fetching medications:', error);
+        // Fallback to generated database
+        setAllMedications(generateMedicationDatabase());
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchMedications();
+  }, []);
 
   const filteredMedications = useMemo(() => {
     return allMedications.filter(medication => {
@@ -210,9 +249,15 @@ export default function Medications() {
       
       const matchesCategory = selectedCategory === "all" || medication.category === selectedCategory;
       
-      return matchesSearch && matchesCategory;
+      // Filter by regulatory agency
+      const matchesAgency = selectedAgency === "all" || 
+        (medication.regulatoryApprovals && medication.regulatoryApprovals.some((approval: RegulatoryApproval) => 
+          approval.agency === selectedAgency && approval.status === 'approved'
+        ));
+      
+      return matchesSearch && matchesCategory && matchesAgency;
     });
-  }, [allMedications, searchTerm, selectedCategory]);
+  }, [allMedications, searchTerm, selectedCategory, selectedAgency]);
 
   // Apply region filter (e.g., US FDA, EU EMA, Asia)
   const regionFilteredMedications = useMemo(() => {
@@ -313,6 +358,37 @@ export default function Medications() {
           <Button variant={selectedRegion === "asia" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("asia"); setPage(1); }}>
             Asia
           </Button>
+        </div>
+
+        {/* Regulatory Agency Filters */}
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+            <Globe className="h-4 w-4 mr-2" />
+            Filter by Regulatory Agency
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            <Button variant={selectedAgency === "all" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("all"); setPage(1); }}>
+              All Agencies
+            </Button>
+            <Button variant={selectedAgency === "FDA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("FDA"); setPage(1); }}>
+              FDA (USA)
+            </Button>
+            <Button variant={selectedAgency === "EMA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("EMA"); setPage(1); }}>
+              EMA (EU)
+            </Button>
+            <Button variant={selectedAgency === "PMDA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("PMDA"); setPage(1); }}>
+              PMDA (Japan)
+            </Button>
+            <Button variant={selectedAgency === "NMPA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("NMPA"); setPage(1); }}>
+              NMPA (China)
+            </Button>
+            <Button variant={selectedAgency === "MFDS" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("MFDS"); setPage(1); }}>
+              MFDS (Korea)
+            </Button>
+            <Button variant={selectedAgency === "MOHRU" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("MOHRU"); setPage(1); }}>
+              Roszdravnadzor (Russia)
+            </Button>
+          </div>
         </div>
 
         <div className="text-center">
