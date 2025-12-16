@@ -224,16 +224,13 @@ export default function Medications() {
         const response = await fetch('/api/medications');
         if (response.ok) {
           const data = await response.json();
+          console.log('Fetched medications:', data.length);
           setAllMedications(data);
         } else {
-          console.error('Failed to fetch medications');
-          // Fallback to generated database
-          setAllMedications(generateMedicationDatabase());
+          console.error('Failed to fetch medications, status:', response.status);
         }
       } catch (error) {
         console.error('Error fetching medications:', error);
-        // Fallback to generated database
-        setAllMedications(generateMedicationDatabase());
       } finally {
         setLoading(false);
       }
@@ -309,119 +306,145 @@ export default function Medications() {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-8">
-      <div className="text-center space-y-4">
-        <div className="flex items-center justify-center gap-3">
-          <Pill className="h-8 w-8 text-blue-600" />
-          <h1 className="text-4xl font-bold text-gray-900">{t("medications.title", "Comprehensive Medication Database")}</h1>
-        </div>
-        <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-          {t("medications.subtitle", "Access detailed information about 5000+ medications including dosages, side effects, interactions, and safety warnings.")}
-        </p>
-        <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
-          <Badge variant="secondary" className="px-3 py-1">
-            <Info className="h-4 w-4 mr-1" />
-            {allMedications.length.toLocaleString()} {t("medications.count", "Medications")}
-          </Badge>
-          <Badge variant="secondary" className="px-3 py-1">
-            <Filter className="h-4 w-4 mr-1" />
-            {categories.length} {t("medications.categories", "Categories")}
-          </Badge>
-        </div>
+    <div className="container mx-auto px-4 py-6 space-y-6">
+      {/* Title Section */}
+      <div className="text-center space-y-2">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
+          International Medication Database
+        </h1>
       </div>
 
-      {/* Search and Filter Controls */}
-      <div className="flex flex-col md:flex-row gap-4 items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+      {/* Search Bar */}
+      <div className="max-w-2xl mx-auto">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
           <Input
-            placeholder={t("medications.search", "Search medications by name, generic name, or description...")}
+            placeholder="Search medications..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
+            className="pl-10 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
           />
         </div>
-        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-          <SelectTrigger className="w-full md:w-64">
-            <SelectValue placeholder={t("medications.filterCategory", "Filter by category")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">{t("medications.allCategories", "All Categories")}</SelectItem>
-            {categories.map(category => (
-              <SelectItem key={category} value={category}>
-                {categoryTranslations[category] || category}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
       </div>
 
-      {/* Region Tabs & Results Summary */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-center gap-2">
-          <Button variant={selectedRegion === "all" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("all"); setPage(1); }}>
-            All
+      {/* Region Tabs */}
+      <div className="flex items-center justify-center gap-2 flex-wrap">
+        <Button 
+          variant={selectedRegion === "all" ? "default" : "ghost"} 
+          size="lg"
+          className="min-w-[100px]"
+          onClick={() => { setSelectedRegion("all"); setPage(1); }}
+        >
+          <Globe className="h-4 w-4 mr-2" />
+          All
+        </Button>
+        <Button 
+          variant={selectedRegion === "us" ? "default" : "ghost"} 
+          size="lg"
+          className="min-w-[120px]"
+          onClick={() => { setSelectedRegion("us"); setPage(1); }}
+        >
+          US FDA
+        </Button>
+        <Button 
+          variant={selectedRegion === "eu" ? "default" : "ghost"} 
+          size="lg"
+          className="min-w-[120px]"
+          onClick={() => { setSelectedRegion("eu"); setPage(1); }}
+        >
+          EU EMA
+        </Button>
+        <Button 
+          variant={selectedRegion === "asia" ? "default" : "ghost"} 
+          size="lg"
+          className="min-w-[100px]"
+          onClick={() => { setSelectedRegion("asia"); setPage(1); }}
+        >
+          🌏 Asia
+        </Button>
+      </div>
+
+      {/* Filters Button */}
+      <div className="flex justify-start">
+        <Button variant="outline" className="gap-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100">
+          <Filter className="h-4 w-4" />
+          Filters
+        </Button>
+      </div>
+
+      {/* Agency Filters */}
+      <div className="bg-gray-800 dark:bg-gray-900 p-4 rounded-lg border border-gray-700">
+        <h3 className="text-sm font-semibold text-gray-200 mb-3 flex items-center">
+          <Globe className="h-4 w-4 mr-2" />
+          Filter by Regulatory Agency
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          <Button 
+            variant={selectedAgency === "all" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("all"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            All Agencies
           </Button>
-          <Button variant={selectedRegion === "us" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("us"); setPage(1); }}>
-            US
+          <Button 
+            variant={selectedAgency === "FDA" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("FDA"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            FDA (USA)
           </Button>
-          <Button variant={selectedRegion === "eu" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("eu"); setPage(1); }}>
-            EU
+          <Button 
+            variant={selectedAgency === "EMA" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("EMA"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            EMA (EU)
           </Button>
-          <Button variant={selectedRegion === "asia" ? "default" : "ghost"} size="sm" onClick={() => { setSelectedRegion("asia"); setPage(1); }}>
-            Asia
+          <Button 
+            variant={selectedAgency === "PMDA" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("PMDA"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            PMDA (Japan)
+          </Button>
+          <Button 
+            variant={selectedAgency === "NMPA" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("NMPA"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            NMPA (China)
+          </Button>
+          <Button 
+            variant={selectedAgency === "MFDS" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("MFDS"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            MFDS (Korea)
+          </Button>
+          <Button 
+            variant={selectedAgency === "MOHRU" ? "default" : "outline"} 
+            size="sm" 
+            onClick={() => { setSelectedAgency("MOHRU"); setPage(1); }}
+            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+          >
+            Roszdravnadzor (Russia)
           </Button>
         </div>
+      </div>
 
-        {/* Regulatory Agency Filters */}
-        <div className="bg-gray-50 p-4 rounded-lg">
-          <h3 className="text-sm font-semibold text-gray-700 mb-3 flex items-center">
-            <Globe className="h-4 w-4 mr-2" />
-            Filter by Regulatory Agency
-          </h3>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <Button variant={selectedAgency === "all" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("all"); setPage(1); }}>
-              All Agencies
-            </Button>
-            <Button variant={selectedAgency === "FDA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("FDA"); setPage(1); }}>
-              FDA (USA)
-            </Button>
-            <Button variant={selectedAgency === "EMA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("EMA"); setPage(1); }}>
-              EMA (EU)
-            </Button>
-            <Button variant={selectedAgency === "PMDA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("PMDA"); setPage(1); }}>
-              PMDA (Japan)
-            </Button>
-            <Button variant={selectedAgency === "NMPA" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("NMPA"); setPage(1); }}>
-              NMPA (China)
-            </Button>
-            <Button variant={selectedAgency === "MFDS" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("MFDS"); setPage(1); }}>
-              MFDS (Korea)
-            </Button>
-            <Button variant={selectedAgency === "MOHRU" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("MOHRU"); setPage(1); }}>
-              Roszdravnadzor (Russia)
-            </Button>
-          </div>
-
-          {/* Availability Statistics */}
-          <div className="bg-white p-3 rounded border border-gray-200">
-            <h4 className="text-xs font-semibold text-gray-600 mb-2">Medications Available by Agency:</h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-              {agencyAvailability.map(({ agency, count }) => (
-                <div key={agency} className="text-center p-2 bg-blue-50 rounded">
-                  <div className="text-lg font-bold text-blue-700">{count.toLocaleString()}</div>
-                  <div className="text-xs text-gray-600">{agency}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Results Count */}
+      <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex items-center gap-2">
+          <Info className="h-4 w-4" />
+          <span>{paginatedMedications.length} of {regionFilteredMedications.length} medications</span>
         </div>
-
-        <div className="text-center">
-          <p className="text-gray-600">
-            {t("medications.showing", "Showing")} <span className="font-semibold">{paginatedMedications.length}</span> {t("medications.of", "of")} <span className="font-semibold">{regionFilteredMedications.length}</span> {t("medications.medications", "medications")} — {t("medications.page", "Page")} <span className="font-semibold">{page}</span> / <span className="font-semibold">{totalPages}</span>
-          </p>
-        </div>
+        <span>Page {page}/{totalPages}</span>
       </div>
 
       {/* Medications Grid */}
