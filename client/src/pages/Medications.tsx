@@ -335,7 +335,7 @@ export default function Medications() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6 space-y-6 bg-white dark:bg-gray-900 min-h-screen">
+    <div className="container mx-auto px-4 py-6 space-y-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
       {/* Title Section */}
       <div className="text-center space-y-2">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
@@ -361,7 +361,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "all" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[100px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+          className="min-w-[100px] bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("all"); setPage(1); }}
         >
           <Globe className="h-4 w-4 mr-2" />
@@ -370,7 +370,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "us" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[120px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+          className="min-w-[120px] bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("us"); setPage(1); }}
         >
           US FDA
@@ -378,7 +378,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "eu" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[120px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+          className="min-w-[120px] bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("eu"); setPage(1); }}
         >
           EU EMA
@@ -386,7 +386,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "asia" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[100px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+          className="min-w-[100px] bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("asia"); setPage(1); }}
         >
           🌏 Asia
@@ -395,7 +395,7 @@ export default function Medications() {
 
       {/* Filters Button */}
       <div className="flex justify-start">
-        <Button variant="outline" className="gap-2 bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100">
+        <Button variant="outline" className="gap-2 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100">
           <Filter className="h-4 w-4" />
           Filters
         </Button>
@@ -412,7 +412,7 @@ export default function Medications() {
             variant={selectedAgency === "all" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("all"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             All Agencies
           </Button>
@@ -420,7 +420,7 @@ export default function Medications() {
             variant={selectedAgency === "FDA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("FDA"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             FDA (USA)
           </Button>
@@ -428,7 +428,7 @@ export default function Medications() {
             variant={selectedAgency === "EMA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("EMA"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             EMA (EU)
           </Button>
@@ -436,7 +436,7 @@ export default function Medications() {
             variant={selectedAgency === "PMDA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("PMDA"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             PMDA (Japan)
           </Button>
@@ -444,7 +444,7 @@ export default function Medications() {
             variant={selectedAgency === "NMPA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("NMPA"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             NMPA (China)
           </Button>
@@ -452,7 +452,7 @@ export default function Medications() {
             variant={selectedAgency === "MFDS" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("MFDS"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             MFDS (Korea)
           </Button>
@@ -460,7 +460,7 @@ export default function Medications() {
             variant={selectedAgency === "MOHRU" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("MOHRU"); setPage(1); }}
-            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
+            className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
           >
             Roszdravnadzor (Russia)
           </Button>
@@ -482,7 +482,7 @@ export default function Medications() {
           const isExpanded = expandedMedications.has(medication.id);
           
           return (
-            <Card key={medication.id} className="shadow-lg hover:shadow-xl transition-shadow bg-white dark:bg-gray-800">
+            <Card key={medication.id} className="shadow-lg hover:shadow-xl transition-shadow bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
@@ -653,14 +653,14 @@ export default function Medications() {
       )}
 
       {/* Pagination Controls */}
-      <div className="flex items-center justify-center gap-4 mt-4 bg-white dark:bg-gray-900 p-2 rounded-lg">
-        <Button size="sm" variant="ghost" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+      <div className="flex items-center justify-center gap-4 mt-4 bg-gray-50 dark:bg-gray-900 p-2 rounded-lg">
+        <Button size="sm" variant="ghost" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1} className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
           {t("medications.prev", "Previous")}
         </Button>
         <div className="text-sm text-gray-600 dark:text-gray-400">
           {t("medications.pageInfo", "Page")} {page} {t("medications.of", "of")} {totalPages}
         </div>
-        <Button size="sm" variant="ghost" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+        <Button size="sm" variant="ghost" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages} className="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
           {t("medications.next", "Next")}
         </Button>
       </div>
