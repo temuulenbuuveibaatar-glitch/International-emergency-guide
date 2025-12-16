@@ -818,20 +818,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // ============ MEDICATION DATABASE ROUTES ============
+  // Serve medications from in-memory database (no DB required)
   app.get("/api/medications", async (req, res) => {
     try {
-      const { category, search, isActive } = req.query;
-      let medications;
+      const { category, search } = req.query;
+      let medications = medicationsDatabase;
       
       if (search) {
-        medications = await storage.searchMedications(search as string);
-      } else {
-        medications = await storage.getMedications({
-          category: category as string,
-          isActive: isActive === 'true' ? true : isActive === 'false' ? false : undefined
-        });
+        medications = searchMedications(search as string);
+      } else if (category) {
+        medications = getMedicationsByCategory(category as string);
       }
       
+      console.log(`Serving ${medications.length} medications`);
       res.json(medications);
     } catch (error) {
       console.error("Error fetching medications:", error);
@@ -841,7 +840,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.get("/api/medications/:id", async (req, res) => {
     try {
-      const medication = await storage.getMedication(parseInt(req.params.id));
+      const medication = medicationsDatabase.find(m => m.id === parseInt(req.params.id));
       if (!medication) {
         return res.status(404).json({ message: "Medication not found" });
       }
