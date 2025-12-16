@@ -37,6 +37,7 @@ jobs:
         run: |
           npx vite build --config vite.config.github.ts
           cp public/404.html dist/404.html || true
+          touch dist/.nojekyll
         env:
           NODE_ENV: production
       
