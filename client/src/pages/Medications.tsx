@@ -653,14 +653,14 @@ export default function Medications() {
       )}
 
       {/* Pagination Controls */}
-      <div className="flex items-center justify-center gap-4 mt-4">
-        <Button size="sm" variant="ghost" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1}>
+      <div className="flex items-center justify-center gap-4 mt-4 bg-white dark:bg-gray-900 p-2 rounded-lg">
+        <Button size="sm" variant="ghost" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
           {t("medications.prev", "Previous")}
         </Button>
         <div className="text-sm text-gray-600 dark:text-gray-400">
           {t("medications.pageInfo", "Page")} {page} {t("medications.of", "of")} {totalPages}
         </div>
-        <Button size="sm" variant="ghost" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages}>
+        <Button size="sm" variant="ghost" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages} className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
           {t("medications.next", "Next")}
         </Button>
       </div>
