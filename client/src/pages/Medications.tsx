@@ -361,7 +361,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "all" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[100px]"
+          className="min-w-[100px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("all"); setPage(1); }}
         >
           <Globe className="h-4 w-4 mr-2" />
@@ -370,7 +370,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "us" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[120px]"
+          className="min-w-[120px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("us"); setPage(1); }}
         >
           US FDA
@@ -378,7 +378,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "eu" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[120px]"
+          className="min-w-[120px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("eu"); setPage(1); }}
         >
           EU EMA
@@ -386,7 +386,7 @@ export default function Medications() {
         <Button 
           variant={selectedRegion === "asia" ? "default" : "ghost"} 
           size="lg"
-          className="min-w-[100px]"
+          className="min-w-[100px] bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
           onClick={() => { setSelectedRegion("asia"); setPage(1); }}
         >
           🌏 Asia
