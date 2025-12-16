@@ -1,6 +1,7 @@
-// Regulatory agency types
+// Regulatory agency types based on official sources (2025)
 export type RegulatoryAgency = 'FDA' | 'EMA' | 'PMDA' | 'NMPA' | 'MFDS' | 'HSA' | 'TGA' | 'MOHRU';
 
+// Regulatory approval interface with verified standards
 export interface RegulatoryApproval {
   agency: RegulatoryAgency;
   status: 'approved' | 'pending' | 'not_approved' | 'withdrawn';
@@ -10,14 +11,21 @@ export interface RegulatoryApproval {
   restrictions?: string[];
   riskCategory?: string;
   additionalWarnings?: string[];
+  // Pathway-specific information
+  approvalPathway?: 'standard' | 'accelerated' | 'priority' | 'conditional' | 'orphan' | 'sakigake' | 'breakthrough';
+  reviewTime?: string; // Actual review time
+  marketingAuthorizationHolder?: string;
 }
 
+// Regional dosing with verified standards
 export interface RegionalDosing {
   region: 'USA' | 'EU' | 'Japan' | 'China' | 'Korea' | 'Singapore' | 'Australia' | 'Russia';
   adultDose: string;
   pediatricDose?: string;
   maxDose: string;
   notes?: string;
+  // Regulatory-specific dosing requirements
+  regulatoryNotes?: string;
 }
 
 export interface MedicationData {
@@ -4616,54 +4624,77 @@ export const getMedicationCountByAgency = () => {
 };
 
 // Get medications by regulatory standard category
+// Updated with official regulatory information from:
+// - FDA: fda.gov (12-month standard review, accelerated/priority pathways available)
+// - EMA: ema.europa.eu (Centralized procedure for EU-wide authorization)
+// - PMDA: pmda.go.jp (12-month standard, 6-9 month expedited pathways including Sakigake)
+// - NMPA: nmpa.gov.cn (30-day IND review for innovative drugs, accelerated pathways)
+// - MFDS: mfds.go.kr (12-24 month approval timeline, aligned with ICH standards)
+// - MOHRU/Minzdrav: roszdravnadzor.gov.ru (Russian Federal Service for Healthcare Surveillance)
 export const getMedicationsByStandard = () => {
   return {
     FDA: {
       name: "U.S. Food and Drug Administration",
       region: "United States",
-      standard: "FDA-approved medications following U.S. federal standards",
+      standard: "FDA-approved medications following 21 CFR (Code of Federal Regulations) and PDUFA standards",
+      description: "Novel drug approvals with standard 12-month review timeline. Expedited pathways include: Breakthrough Therapy, Accelerated Approval, Priority Review, Fast Track",
+      website: "https://www.fda.gov/drugs",
       medications: getMedicationsByRegulatoryAgency('FDA')
     },
     EMA: {
       name: "European Medicines Agency",
-      region: "European Union",
-      standard: "EMA-approved medications following EU pharmaceutical standards",
+      region: "European Union (+ EEA: Iceland, Norway, Liechtenstein)",
+      standard: "EMA centralized authorization procedure valid across all EU Member States, following EU pharmaceutical directives",
+      description: "Scientific evaluation with focus on quality, safety, and efficacy. Mandatory pharmacovigilance and risk management plans. Accelerated assessment available for medicines of major public health interest",
+      website: "https://www.ema.europa.eu",
       medications: getMedicationsByRegulatoryAgency('EMA')
     },
     PMDA: {
       name: "Pharmaceuticals and Medical Devices Agency",
       region: "Japan",
-      standard: "PMDA-approved medications following Japanese pharmaceutical standards",
+      standard: "PMDA approval under Pharmaceuticals and Medical Devices Act (PMD Act), aligned with J-CTD format",
+      description: "Standard 12-month review timeline. Expedited pathways: Sakigake (6-month review for innovative drugs first in Japan), Priority Review, Orphan Drug, Conditional Early Approval for regenerative medicine",
+      website: "https://www.pmda.go.jp/english",
       medications: getMedicationsByRegulatoryAgency('PMDA')
     },
     NMPA: {
       name: "National Medical Products Administration",
-      region: "China",
-      standard: "NMPA-approved medications following Chinese pharmaceutical standards",
+      region: "People's Republic of China",
+      standard: "NMPA approval following Chinese Pharmacopoeia 2025 Edition and Drug Administration Law",
+      description: "Optimized review process with 30-day IND approval for Class I innovative drugs. Accelerated pathways for clinically urgent medications. Mandatory compliance with GMP and Chinese quality standards",
+      website: "https://english.nmpa.gov.cn",
       medications: getMedicationsByRegulatoryAgency('NMPA')
     },
     MFDS: {
       name: "Ministry of Food and Drug Safety",
-      region: "South Korea",
-      standard: "MFDS-approved medications following Korean pharmaceutical standards",
+      region: "Republic of Korea",
+      standard: "MFDS approval following Korean GMP (KGMP) standards and aligned with ICH guidelines",
+      description: "12-24 month approval timeline. Four drug categories: new drugs with novel materials, drugs requiring data submission, generic pharmaceuticals, OTC products. Science-based regulatory approach with R&D integration",
+      website: "https://www.mfds.go.kr/eng",
       medications: getMedicationsByRegulatoryAgency('MFDS')
     },
     MOHRU: {
-      name: "Roszdravnadzor / Ministry of Health",
-      region: "Russia",
-      standard: "Russian Ministry of Health approved medications",
+      name: "Roszdravnadzor / Ministry of Health (Minzdrav)",
+      region: "Russian Federation (+ EAEU member states)",
+      standard: "Russian Federal Service for Healthcare Surveillance under Minzdrav, following Federal Law No. 61-FZ and EAEU standards",
+      description: "Marketing authorization through State Registration Certificate (SRC). Mandatory GMP certification, Russian language requirements. Aligned with EAEU harmonization while maintaining local specifications",
+      website: "https://roszdravnadzor.gov.ru/en",
       medications: getMedicationsByRegulatoryAgency('MOHRU')
     },
     HSA: {
       name: "Health Sciences Authority",
       region: "Singapore",
-      standard: "HSA-approved medications following Singapore standards",
+      standard: "HSA-approved medications following Singapore pharmaceutical standards",
+      description: "Streamlined approval process for innovative medicines with strong reliance on major regulatory authorities' decisions",
+      website: "https://www.hsa.gov.sg",
       medications: getMedicationsByRegulatoryAgency('HSA')
     },
     TGA: {
       name: "Therapeutic Goods Administration",
       region: "Australia",
-      standard: "TGA-approved medications following Australian standards",
+      standard: "TGA-approved medications following Australian therapeutic goods regulations",
+      description: "Risk-based approach to regulation with pathway options including standard and expedited reviews",
+      website: "https://www.tga.gov.au",
       medications: getMedicationsByRegulatoryAgency('TGA')
     }
   };
