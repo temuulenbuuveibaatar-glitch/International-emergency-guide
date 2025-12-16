@@ -4614,3 +4614,83 @@ export const getMedicationCountByAgency = () => {
     return acc;
   }, {} as Record<RegulatoryAgency, number>);
 };
+
+// Get medications by regulatory standard category
+export const getMedicationsByStandard = () => {
+  return {
+    FDA: {
+      name: "U.S. Food and Drug Administration",
+      region: "United States",
+      standard: "FDA-approved medications following U.S. federal standards",
+      medications: getMedicationsByRegulatoryAgency('FDA')
+    },
+    EMA: {
+      name: "European Medicines Agency",
+      region: "European Union",
+      standard: "EMA-approved medications following EU pharmaceutical standards",
+      medications: getMedicationsByRegulatoryAgency('EMA')
+    },
+    PMDA: {
+      name: "Pharmaceuticals and Medical Devices Agency",
+      region: "Japan",
+      standard: "PMDA-approved medications following Japanese pharmaceutical standards",
+      medications: getMedicationsByRegulatoryAgency('PMDA')
+    },
+    NMPA: {
+      name: "National Medical Products Administration",
+      region: "China",
+      standard: "NMPA-approved medications following Chinese pharmaceutical standards",
+      medications: getMedicationsByRegulatoryAgency('NMPA')
+    },
+    MFDS: {
+      name: "Ministry of Food and Drug Safety",
+      region: "South Korea",
+      standard: "MFDS-approved medications following Korean pharmaceutical standards",
+      medications: getMedicationsByRegulatoryAgency('MFDS')
+    },
+    MOHRU: {
+      name: "Roszdravnadzor / Ministry of Health",
+      region: "Russia",
+      standard: "Russian Ministry of Health approved medications",
+      medications: getMedicationsByRegulatoryAgency('MOHRU')
+    },
+    HSA: {
+      name: "Health Sciences Authority",
+      region: "Singapore",
+      standard: "HSA-approved medications following Singapore standards",
+      medications: getMedicationsByRegulatoryAgency('HSA')
+    },
+    TGA: {
+      name: "Therapeutic Goods Administration",
+      region: "Australia",
+      standard: "TGA-approved medications following Australian standards",
+      medications: getMedicationsByRegulatoryAgency('TGA')
+    }
+  };
+};
+
+// Get medication regulatory summary
+export const getMedicationRegulatorySummary = (medicationName: string) => {
+  const medication = getMedicationByName(medicationName);
+  if (!medication) return null;
+  
+  return {
+    medication: medication.name,
+    genericName: medication.genericName,
+    approvals: medication.regulatoryApprovals || [],
+    regionalDosing: medication.regionalDosing || [],
+    internationalBrandNames: medication.internationalBrandNames || [],
+    approvedRegions: medication.regulatoryApprovals?.filter(a => a.status === 'approved').map(a => a.agency) || [],
+    globalAvailability: medication.regulatoryApprovals?.length || 0
+  };
+};
+
+// Get medications by therapeutic category and regulatory agency
+export const getMedicationsByTherapeuticCategoryAndAgency = (category: string, agency: RegulatoryAgency) => {
+  const categoryMeds = getMedicationsByCategory(category);
+  return categoryMeds.filter(med => 
+    med.regulatoryApprovals?.some(approval => 
+      approval.agency === agency && approval.status === 'approved'
+    )
+  );
+};

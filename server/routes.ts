@@ -27,7 +27,10 @@ import {
   getMedicationsByRegulatoryAgency,
   getMedicationsGroupedByAgency,
   getMedicationApprovalStatus,
-  getMedicationCountByAgency
+  getMedicationCountByAgency,
+  getMedicationsByStandard,
+  getMedicationRegulatorySummary,
+  getMedicationsByTherapeuticCategoryAndAgency
 } from "./data/medications";
 import { 
   treatmentProtocols, 
@@ -1339,6 +1342,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching medication approval:", error);
       res.status(500).json({ message: "Failed to fetch approval status" });
+    }
+  });
+
+  // Get medications organized by regulatory standards
+  app.get("/api/medications-by-standards", async (req, res) => {
+    try {
+      const standardsData = getMedicationsByStandard();
+      res.json(standardsData);
+    } catch (error) {
+      console.error("Error fetching medications by standards:", error);
+      res.status(500).json({ message: "Failed to fetch medications by standards" });
+    }
+  });
+
+  // Get medication regulatory summary
+  app.get("/api/medication-regulatory-summary/:name", async (req, res) => {
+    try {
+      const summary = getMedicationRegulatorySummary(req.params.name);
+      
+      if (!summary) {
+        return res.status(404).json({ message: "Medication not found" });
+      }
+      
+      res.json(summary);
+    } catch (error) {
+      console.error("Error fetching medication regulatory summary:", error);
+      res.status(500).json({ message: "Failed to fetch regulatory summary" });
+    }
+  });
+
+  // Get medications by therapeutic category and regulatory agency
+  app.get("/api/medications-by-category-and-agency", async (req, res) => {
+    try {
+      const { category, agency } = req.query;
+      
+      if (!category || !agency) {
+        return res.status(400).json({ 
+          message: "Both category and agency parameters are required" 
+        });
+      }
+      
+      const medications = getMedicationsByTherapeuticCategoryAndAgency(
+        category as string, 
+        (agency as string).toUpperCase() as any
+      );
+      
+      res.json({
+        category,
+        agency: (agency as string).toUpperCase(),
+        count: medications.length,
+        medications
+      });
+    } catch (error) {
+      console.error("Error fetching medications by category and agency:", error);
+      res.status(500).json({ message: "Failed to fetch medications" });
     }
   });
 
