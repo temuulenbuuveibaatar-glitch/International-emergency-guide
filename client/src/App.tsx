@@ -35,7 +35,7 @@ import MedicationAdvisor from "./pages/MedicationAdvisor";
 import DoctorCharts from "./pages/DoctorCharts";
 import PatientPortal from "./pages/PatientPortal";
 
-const basePath = import.meta.env.VITE_APP_MODE === 'github-pages' ? '/international-emergency-guide' : '';
+const basePath = import.meta.env.VITE_APP_MODE === 'github-pages' ? '/International-emergency-guide' : '';
 
 function AppRouter() {
   return (
