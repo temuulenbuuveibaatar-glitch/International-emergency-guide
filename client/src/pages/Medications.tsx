@@ -377,8 +377,8 @@ export default function Medications() {
       </div>
 
       {/* Agency Filters */}
-      <div className="bg-gray-800 dark:bg-gray-900 p-4 rounded-lg border border-gray-700">
-        <h3 className="text-sm font-semibold text-gray-200 mb-3 flex items-center">
+      <div className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg border border-gray-300 dark:border-gray-700">
+        <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-3 flex items-center">
           <Globe className="h-4 w-4 mr-2" />
           Filter by Regulatory Agency
         </h3>
@@ -387,7 +387,7 @@ export default function Medications() {
             variant={selectedAgency === "all" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("all"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             All Agencies
           </Button>
@@ -395,7 +395,7 @@ export default function Medications() {
             variant={selectedAgency === "FDA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("FDA"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             FDA (USA)
           </Button>
@@ -403,7 +403,7 @@ export default function Medications() {
             variant={selectedAgency === "EMA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("EMA"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             EMA (EU)
           </Button>
@@ -411,7 +411,7 @@ export default function Medications() {
             variant={selectedAgency === "PMDA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("PMDA"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             PMDA (Japan)
           </Button>
@@ -419,7 +419,7 @@ export default function Medications() {
             variant={selectedAgency === "NMPA" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("NMPA"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             NMPA (China)
           </Button>
@@ -427,7 +427,7 @@ export default function Medications() {
             variant={selectedAgency === "MFDS" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("MFDS"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             MFDS (Korea)
           </Button>
@@ -435,7 +435,7 @@ export default function Medications() {
             variant={selectedAgency === "MOHRU" ? "default" : "outline"} 
             size="sm" 
             onClick={() => { setSelectedAgency("MOHRU"); setPage(1); }}
-            className="bg-gray-700 dark:bg-gray-800 hover:bg-gray-600 text-white border-gray-600"
+            className="bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-gray-400 dark:border-gray-600"
           >
             Roszdravnadzor (Russia)
           </Button>
@@ -461,16 +461,16 @@ export default function Medications() {
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
-                    <CardTitle className="text-xl font-bold text-blue-800">
+                    <CardTitle className="text-xl font-bold text-blue-800 dark:text-blue-400">
                       {medication.name}
                       {medication.genericName && (
-                        <span className="text-sm font-normal text-gray-600 ml-2">
+                        <span className="text-sm font-normal text-gray-600 dark:text-gray-400 ml-2">
                           ({medication.genericName})
                         </span>
                       )}
                     </CardTitle>
                     <div className="flex items-center gap-2">
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                      <Badge variant="outline" className="bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800">
                         {categoryTranslations[medication.category] || medication.category}
                       </Badge>
                       <div className="flex gap-1">
@@ -488,7 +488,7 @@ export default function Medications() {
                         {medication.regulatoryApprovals
                           .filter((approval: RegulatoryApproval) => approval.status === 'approved')
                           .map((approval: RegulatoryApproval, index: number) => (
-                            <Badge key={index} variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
+                            <Badge key={index} variant="outline" className="text-xs bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 border-green-200 dark:border-green-800">
                               ✓ {approval.agency}
                             </Badge>
                           ))
@@ -504,7 +504,7 @@ export default function Medications() {
                     </CollapsibleTrigger>
                   </Collapsible>
                 </div>
-                <CardDescription className="text-gray-700 leading-relaxed">
+                <CardDescription className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   {medication.description}
                 </CardDescription>
               </CardHeader>
@@ -514,20 +514,20 @@ export default function Medications() {
                   <CardContent className="space-y-6">
                     {/* Dosage Information */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                        <Pill className="h-4 w-4 mr-2 text-blue-600" />
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <Pill className="h-4 w-4 mr-2 text-blue-600 dark:text-blue-400" />
                         {t("medications.dosage", "Dosage & Administration")}
                       </h4>
-                      <p className="text-gray-700 bg-blue-50 p-3 rounded-lg">{medication.dosage}</p>
+                      <p className="text-gray-700 dark:text-gray-300 bg-blue-50 dark:bg-blue-950 p-3 rounded-lg">{medication.dosage}</p>
                     </div>
 
                     {/* Side Effects */}
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">{t("medications.sideEffects", "Side Effects")}</h4>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">{t("medications.sideEffects", "Side Effects")}</h4>
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <h5 className="text-sm font-medium text-green-700 mb-2">{t("medications.commonSideEffects", "Common (Less Serious)")}</h5>
-                          <ul className="text-sm text-gray-600 space-y-1">
+                          <h5 className="text-sm font-medium text-green-700 dark:text-green-400 mb-2">{t("medications.commonSideEffects", "Common (Less Serious)")}</h5>
+                          <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
                             {medication.sideEffects.common.map((effect, index) => (
                               <li key={index} className="flex items-start">
                                 <span className="inline-block w-1.5 h-1.5 bg-green-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
@@ -537,11 +537,11 @@ export default function Medications() {
                           </ul>
                         </div>
                         <div>
-                          <h5 className="text-sm font-medium text-red-700 mb-2 flex items-center">
+                          <h5 className="text-sm font-medium text-red-700 dark:text-red-400 mb-2 flex items-center">
                             <AlertTriangle className="h-4 w-4 mr-1" />
                             {t("medications.seriousSideEffects", "Serious (Seek Medical Help)")}
                           </h5>
-                          <ul className="text-sm text-gray-600 space-y-1">
+                          <ul className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
                             {medication.sideEffects.serious.map((effect, index) => (
                               <li key={index} className="flex items-start">
                                 <span className="inline-block w-1.5 h-1.5 bg-red-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
@@ -558,10 +558,10 @@ export default function Medications() {
                     {/* Drug Interactions */}
                     {medication.interactions && (
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">{t("medications.interactions", "Drug Interactions")}</h4>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">{t("medications.interactions", "Drug Interactions")}</h4>
                         <div className="flex flex-wrap gap-2">
                           {medication.interactions.map((interaction, index) => (
-                            <Badge key={index} variant="outline" className="bg-yellow-50 text-yellow-800 border-yellow-200">
+                            <Badge key={index} variant="outline" className="bg-yellow-50 dark:bg-yellow-950 text-yellow-800 dark:text-yellow-300 border-yellow-200 dark:border-yellow-800">
                               {interaction}
                             </Badge>
                           ))}
@@ -571,11 +571,11 @@ export default function Medications() {
 
                     {/* Contraindications */}
                     <div>
-                      <h4 className="font-semibold text-red-700 mb-2 flex items-center">
+                      <h4 className="font-semibold text-red-700 dark:text-red-400 mb-2 flex items-center">
                         <AlertTriangle className="h-4 w-4 mr-2" />
                         {t("medications.contraindications", "Contraindications")}
                       </h4>
-                      <ul className="text-sm text-gray-700 space-y-1">
+                      <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
                         {medication.contraindications.map((contraindication, index) => (
                           <li key={index} className="flex items-start">
                             <span className="inline-block w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
@@ -588,8 +588,8 @@ export default function Medications() {
                     {/* Warnings */}
                     {medication.warnings && (
                       <div>
-                        <h4 className="font-semibold text-orange-700 mb-2">{t("medications.warnings", "Important Warnings")}</h4>
-                        <ul className="text-sm text-gray-700 space-y-1">
+                        <h4 className="font-semibold text-orange-700 dark:text-orange-400 mb-2">{t("medications.warnings", "Important Warnings")}</h4>
+                        <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
                           {medication.warnings.map((warning, index) => (
                             <li key={index} className="flex items-start">
                               <span className="inline-block w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
@@ -603,8 +603,8 @@ export default function Medications() {
                     {/* Additional Notes */}
                     {medication.notes && (
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">{t("medications.notes", "Additional Notes")}</h4>
-                        <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">{medication.notes}</p>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">{t("medications.notes", "Additional Notes")}</h4>
+                        <p className="text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">{medication.notes}</p>
                       </div>
                     )}
                   </CardContent>
@@ -618,10 +618,10 @@ export default function Medications() {
       {regionFilteredMedications.length === 0 && (
         <div className="text-center py-12">
           <Pill className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-600 mb-2">
+          <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">
             {t("medications.noResults", "No medications found")}
           </h3>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-500">
             {t("medications.tryDifferentSearch", "Try adjusting your search terms or category filter")}
           </p>
         </div>
@@ -632,7 +632,7 @@ export default function Medications() {
         <Button size="sm" variant="ghost" onClick={() => setPage(Math.max(1, page - 1))} disabled={page <= 1}>
           {t("medications.prev", "Previous")}
         </Button>
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-gray-600 dark:text-gray-400">
           {t("medications.pageInfo", "Page")} {page} {t("medications.of", "of")} {totalPages}
         </div>
         <Button size="sm" variant="ghost" onClick={() => setPage(Math.min(totalPages, page + 1))} disabled={page >= totalPages}>
@@ -641,10 +641,10 @@ export default function Medications() {
       </div>
 
       {/* Footer Disclaimer */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-8">
+      <div className="bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mt-8">
         <div className="flex items-start">
-          <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
-          <div className="text-sm text-yellow-800">
+          <AlertTriangle className="h-5 w-5 text-yellow-600 dark:text-yellow-400 mt-0.5 mr-3 flex-shrink-0" />
+          <div className="text-sm text-yellow-800 dark:text-yellow-200">
             <p className="font-semibold mb-1">{t("medications.disclaimer", "Medical Disclaimer")}</p>
             <p>
               {t("medications.disclaimerText", "This information is for educational purposes only and should not replace professional medical advice. Always consult with your healthcare provider before starting, stopping, or changing any medication. In case of emergency, contact your local emergency services immediately.")}
