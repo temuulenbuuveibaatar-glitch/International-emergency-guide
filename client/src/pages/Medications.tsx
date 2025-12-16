@@ -285,6 +285,19 @@ export default function Medications() {
     return cats.sort();
   }, [allMedications]);
 
+  // Calculate medications available per regulatory agency
+  const agencyAvailability = useMemo(() => {
+    const agencies = ['FDA', 'EMA', 'PMDA', 'NMPA', 'MFDS', 'MOHRU'];
+    return agencies.map(agency => {
+      const count = allMedications.filter(med => 
+        med.regulatoryApprovals?.some((approval: RegulatoryApproval) => 
+          approval.agency === agency && approval.status === 'approved'
+        )
+      ).length;
+      return { agency, count };
+    });
+  }, [allMedications]);
+
   const toggleExpanded = (medicationId: string) => {
     const newExpanded = new Set(expandedMedications);
     if (newExpanded.has(medicationId)) {
@@ -366,7 +379,7 @@ export default function Medications() {
             <Globe className="h-4 w-4 mr-2" />
             Filter by Regulatory Agency
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mb-4">
             <Button variant={selectedAgency === "all" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("all"); setPage(1); }}>
               All Agencies
             </Button>
@@ -388,6 +401,19 @@ export default function Medications() {
             <Button variant={selectedAgency === "MOHRU" ? "default" : "outline"} size="sm" onClick={() => { setSelectedAgency("MOHRU"); setPage(1); }}>
               Roszdravnadzor (Russia)
             </Button>
+          </div>
+
+          {/* Availability Statistics */}
+          <div className="bg-white p-3 rounded border border-gray-200">
+            <h4 className="text-xs font-semibold text-gray-600 mb-2">Medications Available by Agency:</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              {agencyAvailability.map(({ agency, count }) => (
+                <div key={agency} className="text-center p-2 bg-blue-50 rounded">
+                  <div className="text-lg font-bold text-blue-700">{count.toLocaleString()}</div>
+                  <div className="text-xs text-gray-600">{agency}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -428,6 +454,20 @@ export default function Medications() {
                         ))}
                       </div>
                     </div>
+                    
+                    {/* Regulatory Approvals */}
+                    {medication.regulatoryApprovals && medication.regulatoryApprovals.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {medication.regulatoryApprovals
+                          .filter((approval: RegulatoryApproval) => approval.status === 'approved')
+                          .map((approval: RegulatoryApproval, index: number) => (
+                            <Badge key={index} variant="outline" className="text-xs bg-green-50 text-green-700 border-green-200">
+                              ✓ {approval.agency}
+                            </Badge>
+                          ))
+                        }
+                      </div>
+                    )}
                   </div>
                   <Collapsible open={isExpanded} onOpenChange={() => toggleExpanded(medication.id)}>
                     <CollapsibleTrigger asChild>
