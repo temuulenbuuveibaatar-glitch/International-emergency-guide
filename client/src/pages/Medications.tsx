@@ -219,33 +219,41 @@ export default function Medications() {
 
   // Load medications from local data
   useEffect(() => { 
-    // Convert MedicationData to Medication format
-    const convertedMeds: Medication[] = medicationsDatabase.map((med: MedicationData) => ({
-      id: med.name.toLowerCase().replace(/\s+/g, '-'),
-      name: med.name,
-      genericName: med.genericName,
-      category: med.category.toLowerCase().replace(/\s+/g, '_'),
-      description: `${med.form} medication used for ${med.category}. Standard adult dose: ${med.standardDoseAdult}`,
-      dosageForm: [med.form.toLowerCase()],
-      dosage: med.standardDoseAdult,
-      sideEffects: {
-        common: med.sideEffects.slice(0, 3),
-        serious: med.sideEffects.slice(3, 6)
-      },
-      contraindications: med.contraindications,
-      interactions: med.drugInteractions,
-      warnings: med.specialPrecautions ? [med.specialPrecautions] : [],
-      notes: med.administrationNotes,
-      blackBox: !!med.blackBoxWarning,
-      regulatoryApprovals: med.regulatoryApprovals,
-      internationalBrandNames: med.internationalBrandNames?.map(ibn => ({
-        country: ibn.region,
-        name: ibn.names.join(', ')
-      }))
-    }));
-    
-    console.log('Loaded medications from local data:', convertedMeds.length);
-    setAllMedications(convertedMeds);
+    try {
+      // Convert MedicationData to Medication format
+      const convertedMeds: Medication[] = medicationsDatabase.map((med: MedicationData) => ({
+        id: med.name.toLowerCase().replace(/\s+/g, '-'),
+        name: med.name,
+        genericName: med.genericName,
+        category: med.category.toLowerCase().replace(/\s+/g, '_'),
+        description: `${med.form} medication used for ${med.category}. Standard adult dose: ${med.standardDoseAdult}`,
+        dosageForm: [med.form.toLowerCase()],
+        dosage: med.standardDoseAdult,
+        sideEffects: {
+          common: med.sideEffects.slice(0, 3),
+          serious: med.sideEffects.slice(3, 6)
+        },
+        contraindications: med.contraindications,
+        interactions: med.drugInteractions,
+        warnings: med.specialPrecautions ? [med.specialPrecautions] : [],
+        notes: med.administrationNotes,
+        blackBox: !!med.blackBoxWarning,
+        regulatoryApprovals: med.regulatoryApprovals,
+        internationalBrandNames: med.internationalBrandNames?.map(ibn => ({
+          country: ibn.region,
+          name: ibn.names.join(', ')
+        }))
+      }));
+      
+      console.log('Loaded medications from local data:', convertedMeds.length);
+      setAllMedications(convertedMeds);
+    } catch (error) {
+      console.error('Error loading medications from local data:', error);
+      // Fallback to generated data if there's an error
+      const fallbackMeds = generateMedicationDatabase();
+      console.log('Using fallback generated medications:', fallbackMeds.length);
+      setAllMedications(fallbackMeds);
+    }
   }, []);
 
   const filteredMedications = useMemo(() => {
