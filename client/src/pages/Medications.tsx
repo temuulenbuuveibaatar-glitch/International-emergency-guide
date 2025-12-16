@@ -482,7 +482,7 @@ export default function Medications() {
           const isExpanded = expandedMedications.has(medication.id);
           
           return (
-            <Card key={medication.id} className="shadow-lg hover:shadow-xl transition-shadow">
+            <Card key={medication.id} className="shadow-lg hover:shadow-xl transition-shadow bg-white dark:bg-gray-800">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
