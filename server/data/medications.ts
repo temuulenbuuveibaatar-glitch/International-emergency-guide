@@ -4566,3 +4566,51 @@ export const getControlledSubstances = (): MedicationData[] => {
 export const getMedicationsWithBlackBoxWarning = (): MedicationData[] => {
   return medicationsDatabase.filter(med => med.blackBoxWarning);
 };
+
+// Get medications by regulatory agency approval
+export const getMedicationsByRegulatoryAgency = (agency: RegulatoryAgency): MedicationData[] => {
+  return medicationsDatabase.filter(med => 
+    med.regulatoryApprovals?.some(approval => 
+      approval.agency === agency && approval.status === 'approved'
+    )
+  );
+};
+
+// Get all medications organized by regulatory agencies
+export const getMedicationsGroupedByAgency = () => {
+  const agencies: RegulatoryAgency[] = ['FDA', 'EMA', 'PMDA', 'NMPA', 'MFDS', 'HSA', 'TGA', 'MOHRU'];
+  
+  return agencies.reduce((acc, agency) => {
+    acc[agency] = getMedicationsByRegulatoryAgency(agency);
+    return acc;
+  }, {} as Record<RegulatoryAgency, MedicationData[]>);
+};
+
+// Get medication approval status by agency
+export const getMedicationApprovalStatus = (medicationName: string, agency: RegulatoryAgency) => {
+  const medication = getMedicationByName(medicationName);
+  if (!medication) return null;
+  
+  return medication.regulatoryApprovals?.find(approval => approval.agency === agency) || null;
+};
+
+// Get medications approved by specific agencies
+export const getMedicationsApprovedByAgencies = (agencies: RegulatoryAgency[]): MedicationData[] => {
+  return medicationsDatabase.filter(med => 
+    agencies.every(agency => 
+      med.regulatoryApprovals?.some(approval => 
+        approval.agency === agency && approval.status === 'approved'
+      )
+    )
+  );
+};
+
+// Get medication count by regulatory agency
+export const getMedicationCountByAgency = () => {
+  const agencies: RegulatoryAgency[] = ['FDA', 'EMA', 'PMDA', 'NMPA', 'MFDS', 'HSA', 'TGA', 'MOHRU'];
+  
+  return agencies.reduce((acc, agency) => {
+    acc[agency] = getMedicationsByRegulatoryAgency(agency).length;
+    return acc;
+  }, {} as Record<RegulatoryAgency, number>);
+};

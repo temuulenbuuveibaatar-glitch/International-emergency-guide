@@ -23,7 +23,11 @@ import {
   searchMedications, 
   getMedicationByName,
   getControlledSubstances,
-  getMedicationsWithBlackBoxWarning 
+  getMedicationsWithBlackBoxWarning,
+  getMedicationsByRegulatoryAgency,
+  getMedicationsGroupedByAgency,
+  getMedicationApprovalStatus,
+  getMedicationCountByAgency
 } from "./data/medications";
 import { 
   treatmentProtocols, 
@@ -1266,6 +1270,75 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching medication categories:", error);
       res.status(500).json({ message: "Failed to fetch categories" });
+    }
+  });
+
+  // Get medications by regulatory agency
+  app.get("/api/medications-by-agency/:agency", async (req, res) => {
+    try {
+      const agency = req.params.agency.toUpperCase() as any;
+      const validAgencies = ['FDA', 'EMA', 'PMDA', 'NMPA', 'MFDS', 'HSA', 'TGA', 'MOHRU'];
+      
+      if (!validAgencies.includes(agency)) {
+        return res.status(400).json({ 
+          message: "Invalid regulatory agency",
+          validAgencies: ['FDA', 'EMA', 'PMDA', 'NMPA', 'MFDS', 'HSA', 'TGA', 'MOHRU']
+        });
+      }
+      
+      const medications = getMedicationsByRegulatoryAgency(agency);
+      res.json({
+        agency,
+        count: medications.length,
+        medications
+      });
+    } catch (error) {
+      console.error("Error fetching medications by agency:", error);
+      res.status(500).json({ message: "Failed to fetch medications" });
+    }
+  });
+
+  // Get medications grouped by all regulatory agencies
+  app.get("/api/medications-grouped-by-agency", async (req, res) => {
+    try {
+      const grouped = getMedicationsGroupedByAgency();
+      const counts = getMedicationCountByAgency();
+      
+      res.json({
+        agencies: {
+          FDA: { name: "U.S. Food and Drug Administration", count: counts.FDA, region: "USA" },
+          EMA: { name: "European Medicines Agency", count: counts.EMA, region: "EU" },
+          PMDA: { name: "Pharmaceuticals and Medical Devices Agency", count: counts.PMDA, region: "Japan" },
+          NMPA: { name: "National Medical Products Administration", count: counts.NMPA, region: "China" },
+          MFDS: { name: "Ministry of Food and Drug Safety", count: counts.MFDS, region: "Korea" },
+          HSA: { name: "Health Sciences Authority", count: counts.HSA, region: "Singapore" },
+          TGA: { name: "Therapeutic Goods Administration", count: counts.TGA, region: "Australia" },
+          MOHRU: { name: "Roszdravnadzor / Ministry of Health", count: counts.MOHRU, region: "Russia" }
+        },
+        medications: grouped
+      });
+    } catch (error) {
+      console.error("Error fetching grouped medications:", error);
+      res.status(500).json({ message: "Failed to fetch grouped medications" });
+    }
+  });
+
+  // Get medication approval status
+  app.get("/api/medication-approval/:name/:agency", async (req, res) => {
+    try {
+      const { name, agency } = req.params;
+      const approval = getMedicationApprovalStatus(name, agency.toUpperCase() as any);
+      
+      if (!approval) {
+        return res.status(404).json({ 
+          message: "Medication not found or not approved by this agency" 
+        });
+      }
+      
+      res.json(approval);
+    } catch (error) {
+      console.error("Error fetching medication approval:", error);
+      res.status(500).json({ message: "Failed to fetch approval status" });
     }
   });
 
