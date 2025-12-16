@@ -8,6 +8,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { useTranslation } from "react-i18next";
+import { medicationsDatabase, type MedicationData } from "@/data/medicationsData";
 
 interface RegulatoryApproval {
   agency: string;
@@ -214,28 +215,37 @@ export default function Medications() {
   const [selectedAgency, setSelectedAgency] = useState<string>("all");
   const [page, setPage] = useState<number>(1);
   const [allMedications, setAllMedications] = useState<Medication[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  // Fetch medications from backend API
-  useEffect(() => {
-    const fetchMedications = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch('/api/medications');
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Fetched medications:', data.length);
-          setAllMedications(data);
-        } else {
-          console.error('Failed to fetch medications, status:', response.status);
-        }
-      } catch (error) {
-        console.error('Error fetching medications:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchMedications();
+  // Load medications from local data
+  useEffect(() => { 
+    // Convert MedicationData to Medication format
+    const convertedMeds: Medication[] = medicationsDatabase.map((med: MedicationData) => ({
+      id: med.name.toLowerCase().replace(/\s+/g, '-'),
+      name: med.name,
+      genericName: med.genericName,
+      category: med.category.toLowerCase().replace(/\s+/g, '_'),
+      description: `${med.form} medication used for ${med.category}. Standard adult dose: ${med.standardDoseAdult}`,
+      dosageForm: [med.form.toLowerCase()],
+      dosage: med.standardDoseAdult,
+      sideEffects: {
+        common: med.sideEffects.slice(0, 3),
+        serious: med.sideEffects.slice(3, 6)
+      },
+      contraindications: med.contraindications,
+      interactions: med.drugInteractions,
+      warnings: med.specialPrecautions ? [med.specialPrecautions] : [],
+      notes: med.administrationNotes,
+      blackBox: !!med.blackBoxWarning,
+      regulatoryApprovals: med.regulatoryApprovals,
+      internationalBrandNames: med.internationalBrandNames?.map(ibn => ({
+        country: ibn.region,
+        name: ibn.names.join(', ')
+      }))
+    }));
+    
+    console.log('Loaded medications from local data:', convertedMeds.length);
+    setAllMedications(convertedMeds);
   }, []);
 
   const filteredMedications = useMemo(() => {
