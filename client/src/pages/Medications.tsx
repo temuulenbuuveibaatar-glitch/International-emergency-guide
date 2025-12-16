@@ -220,9 +220,16 @@ export default function Medications() {
   // Load medications from local data
   useEffect(() => { 
     try {
+      console.log('Attempting to load medications from local data...');
+      console.log('medicationsDatabase length:', medicationsDatabase?.length);
+      
+      if (!medicationsDatabase || medicationsDatabase.length === 0) {
+        throw new Error('medicationsDatabase is empty or undefined');
+      }
+      
       // Convert MedicationData to Medication format
-      const convertedMeds: Medication[] = medicationsDatabase.map((med: MedicationData) => ({
-        id: med.name.toLowerCase().replace(/\s+/g, '-'),
+      const convertedMeds: Medication[] = medicationsDatabase.map((med: MedicationData, index) => ({
+        id: med.name.toLowerCase().replace(/\s+/g, '-') + '-' + index,
         name: med.name,
         genericName: med.genericName,
         category: med.category.toLowerCase().replace(/\s+/g, '_'),
@@ -245,7 +252,7 @@ export default function Medications() {
         }))
       }));
       
-      console.log('Loaded medications from local data:', convertedMeds.length);
+      console.log('Successfully loaded medications from local data:', convertedMeds.length);
       setAllMedications(convertedMeds);
     } catch (error) {
       console.error('Error loading medications from local data:', error);
